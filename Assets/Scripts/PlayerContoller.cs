@@ -43,7 +43,7 @@ public class PlayerContoller : MonoBehaviour
             moveDirection = moveZ + moveX + new Vector3(0, moveDirection.y, 0);
             moveDirection.y -= gravity * Time.deltaTime;
         }
-        anim.SetBool("Walk",true);
+        anim.SetBool("Idle",false);
 
         //transform.LookAt(transform.position + moveZ + moveX);
 
