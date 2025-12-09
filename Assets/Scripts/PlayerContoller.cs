@@ -31,6 +31,7 @@ public class PlayerContoller : MonoBehaviour
         //player‚ª’n–Ê‚É‚¢‚éŽž
         if(con.isGrounded)
         {
+            anim.SetBool("Idle", true);
             moveDirection = moveZ + moveX;
             if(Input.GetButton("Jump"))
             {
@@ -42,8 +43,9 @@ public class PlayerContoller : MonoBehaviour
         {
             moveDirection = moveZ + moveX + new Vector3(0, moveDirection.y, 0);
             moveDirection.y -= gravity * Time.deltaTime;
+            anim.SetBool("Walk", true);
         }
-        anim.SetBool("Idle",false);
+       
 
         //transform.LookAt(transform.position + moveZ + moveX);
 
