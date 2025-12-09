@@ -26,7 +26,7 @@ public class PlayerAnim : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            anim.SetTrigger("Jump");
+            anim.SetTrigger("Jumping");
         }
     }
 }
