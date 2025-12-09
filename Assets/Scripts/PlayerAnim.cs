@@ -17,6 +17,7 @@ public class PlayerAnim : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.UpArrow))
         {
+            
             anim.SetBool("Walk", true);
         }
         else
