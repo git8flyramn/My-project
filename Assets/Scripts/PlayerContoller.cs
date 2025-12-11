@@ -1,25 +1,35 @@
-using UnityEngine;
-using System.Collections.Generic;
 using System.Collections;
-public class PlayerContoller : MonoBehaviour
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Anim : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-   Å@CharacterController con;
-    Å@Animator anim;
-    float movex, movez;
+    private Animator anim;
+
     void Start()
     {
-        con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-       
     }
 
-    // Update is called once per frame
     void Update()
     {
-        movex = Input.GetAxis("Horizontal");
-        movez = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            anim.SetBool("IsWalk", true);
+        }
+        else
+        {
+            anim.SetBool("IsWalk", false);
+        }
 
-        transform.Translate(movex, 0, movez);
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            anim.SetBool("IsRun", true);
+        }
+        else
+        {
+            anim.SetBool("IsRun", false);
+        }
+
     }
 }
