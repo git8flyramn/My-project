@@ -15,21 +15,14 @@ public class Anim : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            anim.SetBool("IsWalk", true);
-        }
-        else
-        {
-            anim.SetBool("IsWalk", false);
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
             anim.SetBool("IsRun", true);
         }
         else
         {
             anim.SetBool("IsRun", false);
         }
+
+      
 
     }
 }
