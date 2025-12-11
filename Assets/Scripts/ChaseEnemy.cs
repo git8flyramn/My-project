@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.AI;
 public class CostamerController : MonoBehaviour
 {
-    float Walkspeed = 2.0f;
+   
     public GameObject ObjTarget;
     private NavMeshAgent Agent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
