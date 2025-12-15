@@ -11,7 +11,7 @@ public class PlayerContoller : MonoBehaviour
     public Animator anim;
     Vector3 startPos;
     Vector3 moveDirection = Vector3.zero;
-    private float normalspeed = 6.0f;
+    private float normalSpeed = 6.0f;
     private float sprint = 10.0f;
     private float g = 9.8f;
     bool IsRun;
@@ -40,7 +40,7 @@ public class PlayerContoller : MonoBehaviour
         {
             IsRun = true;
         }
-        float Spped = Input.GetKey(KeyCode.LeftShift) ? sprint : normalspeed;
+        float Spped = Input.GetKey(KeyCode.LeftShift) ? sprint : normalSpeed;
         Vector3 cameraFroward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1));
         Vector3 moveZ = cameraFroward * Input.GetAxis("Vertical") * Spped;
         Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * Spped;
