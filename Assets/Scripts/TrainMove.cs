@@ -5,12 +5,9 @@ using UnityEngine;
 public class TrainMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-
-
-    float moveSpeed = 0.2f;
     
     private Rigidbody rb;
+    Vector3 forward = Vector3.right;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,7 +16,13 @@ public class TrainMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.Translate(transform.forward * moveSpeed * Time.deltaTime,Space.World);
+        FixedUpdate();
+    }
+
+    private void FixedUpdate()
+    {
+        const int Tpower = 3;
+        rb.AddForce(forward * Tpower, ForceMode.Acceleration);
     }
 
 

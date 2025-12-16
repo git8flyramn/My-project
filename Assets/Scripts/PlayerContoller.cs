@@ -12,12 +12,14 @@ public class PlayerContoller : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     private float normalSpeed = 6.0f;
     private float sprint = 10.0f;
-  //  private float g = 9.8f;
+     private float g = 9.8f;
+    Vector3 startPos = Vector3.zero;
     bool IsRun;
     void Start()
     {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        startPos = transform.position;
     }
 
     void Update()
@@ -49,11 +51,11 @@ public class PlayerContoller : MonoBehaviour
         }
         else
         {
-            moveDirection = moveZ + moveX + new Vector3(0, 0, 0);
-           // moveDirection.y -= g * Time.deltaTime;
+           // moveDirection = moveZ + moveX + new Vector3(0,moveDirection.y, 0);
+            moveDirection.y -= g * Time.deltaTime;
         }
-
-        con.Move(moveDirection * Time.deltaTime);
         anim.SetBool("IsRun", IsRun);
+        con.Move(moveDirection * Time.deltaTime);
+        
     }
 }
