@@ -36,7 +36,8 @@ public class PlayerContoller : MonoBehaviour
 
     void MoveSet()
     {
-        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+        //|| Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             IsRun = true;
         }
