@@ -43,7 +43,7 @@ public class PlayerContoller : MonoBehaviour
             IsRun = true;
         }
         float Speed;
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKey(KeyCode.F))
         {
             Speed = sprint;
         }

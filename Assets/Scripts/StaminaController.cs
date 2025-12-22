@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class StaminaController : MonoBehaviour
 {
-    // private float stamina = 10.0f;
     public Slider DashGage;
     private float CurrentStamina; // “®ì‚ÌŽž‚É‘Œ¸‚·‚é
     private float MaxStamina = 10.0f; //Å‘å’l(‚±‚ê‚ð’´‚¦‚½‚ç‚±‚Ì’l‚ÉŒÅ’è‚·‚é)
@@ -27,7 +26,7 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKey(KeyCode.P) &&  CurrentStamina > 0)
+       if(Input.GetKey(KeyCode.F) &&  CurrentStamina > 0)
         {
             UseStamina(Decstamina * Time.deltaTime);
         }
@@ -37,12 +36,7 @@ public class StaminaController : MonoBehaviour
         }
     }
 
-    /*
-       else if(Input.GetKey(KeyCode.O))
-        {
-            RegenerateStamina(Addstamina * Time.deltaTime);
-        }
-     */
+   
     public void UseStamina(float dec)
     {
         CurrentStamina -= dec;
