@@ -8,11 +8,15 @@ public class PlayerContoller : MonoBehaviour
 {
 
     CharacterController con;
-    public Animator anim;
+    private  Animator anim;
     Vector3 moveDirection = Vector3.zero;
-    private float normalSpeed = 6.0f;
-    private float sprint = 10.0f;
-     private float g = 9.8f;
+    private float normalSpeed = 6.0f;  //通常のスピード
+ 　 private float sprint = 10.0f; //加速したスピード
+    private float g = 9.8f; //重力
+    private float stamina = 10.0f;
+    private float maxStamina = 10.0f;
+    private float statimnaCost = 3.0f;
+    private float recoverStamina = 1.5f;
     Vector3 startPos = Vector3.zero;
     bool IsRun;
     void Start()
@@ -41,10 +45,20 @@ public class PlayerContoller : MonoBehaviour
         {
             IsRun = true;
         }
-        float Spped = Input.GetKey(KeyCode.LeftShift) ? sprint : normalSpeed;
+        float Speed;
+        if(Input.GetKeyDown(KeyCode.LeftShift) && stamina > 1.5f)
+        {
+            stamina -= statimnaCost; 
+            Speed = sprint;
+        }
+        else
+        {
+            Speed = normalSpeed;
+        }
+
         Vector3 cameraFroward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1));
-        Vector3 moveZ = cameraFroward * Input.GetAxis("Vertical") * Spped;
-        Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * Spped;
+        Vector3 moveZ = cameraFroward * Input.GetAxis("Vertical") * Speed;
+        Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * Speed;
         if (con.isGrounded)
         {
             moveDirection = moveZ + moveX;
@@ -56,6 +70,7 @@ public class PlayerContoller : MonoBehaviour
             moveDirection.y -= g * Time.deltaTime;
         }
         anim.SetBool("IsRun", IsRun);
+        stamina = Mathf.Min(maxStamina, stamina + recoverStamina * Time.deltaTime);
         con.Move(moveDirection * Time.deltaTime);
         
     }
