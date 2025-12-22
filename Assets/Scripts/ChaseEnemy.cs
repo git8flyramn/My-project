@@ -26,7 +26,7 @@ public class CostamerController : MonoBehaviour
     void Update()
     {
         Distance = Vector3.Distance(transform.position, ObjTarget.transform.position);
-        Debug.Log(Distance);
+      
         if(Distance < 10)
         {
             IsRun = true;
