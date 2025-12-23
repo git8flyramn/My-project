@@ -29,6 +29,7 @@ public class PlayerContoller : MonoBehaviour
          Move();
         
     }
+    //player‚Ì“®‚«
      void Move()
     {
         IsRun = false;
