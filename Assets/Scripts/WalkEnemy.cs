@@ -7,6 +7,7 @@ public class WalkEnemy : MonoBehaviour
     public Animator anim;
     CharacterController con;
     bool IsWalk;
+   
     Vector3 StartPos;
     void Start()
     {
@@ -19,8 +20,9 @@ public class WalkEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
         IsWalk = true;
         anim.SetBool("IsWalk", IsWalk);
+        StartPos += 1.0f; 
+        
     }
 }
