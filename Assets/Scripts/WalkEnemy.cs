@@ -10,8 +10,8 @@ public class WalkEnemy : MonoBehaviour
     Vector3 StartPos;
     void Start()
     {
-        anim = GetConmponent<Animator>();
-        con = GetComponent<CharactorController>();
+        anim = GetComponent<Animator>();
+        con = GetComponent<CharacterController>();
         StartPos = transform.position;
         IsWalk = false;
     }
