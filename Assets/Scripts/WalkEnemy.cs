@@ -7,7 +7,7 @@ public class WalkEnemy : MonoBehaviour
     public Animator anim;
     CharacterController con;
     bool IsWalk;
-   
+    Vector3 walkspeed = Vector3.left; 
     Vector3 StartPos;
     void Start()
     {
@@ -22,7 +22,7 @@ public class WalkEnemy : MonoBehaviour
     {
         IsWalk = true;
         anim.SetBool("IsWalk", IsWalk);
-        StartPos += 1.0f; 
+        con.Move(walkspeed * Time.deltaTime * 2);
         
     }
 }
