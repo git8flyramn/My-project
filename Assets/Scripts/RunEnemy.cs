@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Collections.Generic;
 public class WalkEnemy : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class WalkEnemy : MonoBehaviour
     {
         IsRun = true;
         anim.SetBool("IsRun", IsRun);
-        con.Move(walkspeed * Time.deltaTime * 2);
+        con.Move(Runspeed * Time.deltaTime * 2);
 
     }
 }
