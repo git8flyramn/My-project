@@ -11,7 +11,7 @@ public class PlayerContoller : MonoBehaviour
     private  Animator anim;
     Vector3 moveDirection = Vector3.zero;
     private float normalSpeed = 6.0f;  //通常のスピード
- 　 private float sprint = 10.0f; //加速したスピード
+ 　 private float sprint = 12.0f; //加速したスピード
     private float g = 9.8f; //重力
    
     Vector3 startPos = Vector3.zero;

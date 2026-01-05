@@ -7,8 +7,8 @@ public class TrainMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private Rigidbody rb;
-    private float moveTrain = 1.0f;
-    private float MaxSpeed = 10.0f;
+    private float moveTrain = 1.7f;
+    private float MaxSpeed = 3.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -26,6 +26,7 @@ public class TrainMove : MonoBehaviour
         {
             rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, MaxSpeed);
         }
+
     }
 
 
