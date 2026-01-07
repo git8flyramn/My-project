@@ -19,7 +19,7 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeCount += 0.1f;
+        TimeCount += Time.deltaTime;
         if (TimeCount > 5)
         {
             Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
