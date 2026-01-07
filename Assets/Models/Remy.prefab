@@ -140,4 +140,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 8
-  EnemySpeed: 0.5
+  EnemySpeed: 0.01
