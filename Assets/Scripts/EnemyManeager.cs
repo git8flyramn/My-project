@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //public GameObject RunEnemy;
+    
     public GameObject WalkEnemy;
     public Transform WalkEnemyPlace;
 
@@ -26,6 +26,6 @@ public class EnemyManager : MonoBehaviour
             TimeCount = 0;
         }
 
-        //Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
+       
     }
 }
