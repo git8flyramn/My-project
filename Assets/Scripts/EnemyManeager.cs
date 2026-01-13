@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour
     
     public GameObject WalkEnemy;
     public Transform WalkEnemyPlace;
+    public GameObject RunEnemy;
+    public Transform RunEnemyPlace;
 
     float TimeCount;
     //public Transform RunEnemyPlace;
@@ -23,8 +25,11 @@ public class EnemyManager : MonoBehaviour
         if (TimeCount > 5)
         {
             Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
+            Instantiate(RunEnemy, RunEnemyPlace.position, Quaternion.identity);
             TimeCount = 0;
         }
+
+      
 
        
     }
