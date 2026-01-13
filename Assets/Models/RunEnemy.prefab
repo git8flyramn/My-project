@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 5866666021909216657, guid: ec3ad00cbc0fe4e48b3d3651a549123a, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 1411a9f1fe8b7cd489bdd791bc47b394, type: 2}
+      objectReference: {fileID: 9100000, guid: 4cc334b2e54a8ae4f817f0607f9a99f5, type: 2}
     - target: {fileID: 5866666021909216657, guid: ec3ad00cbc0fe4e48b3d3651a549123a, type: 3}
       propertyPath: m_ApplyRootMotion
       value: 0
@@ -143,5 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd050efca30d1645b3a791857793952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Time: 5
+  Time: 8
   EnemySpeed: 0.02
