@@ -7,8 +7,8 @@ public class TrainMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private Rigidbody rb;
-    private float moveTrain = 1.7f;
-    private float MaxSpeed = 3.0f;
+    private float moveTrain = 1.2f;
+    private float MaxSpeed = 2.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,12 +21,15 @@ public class TrainMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        rb.AddForce(transform.forward * moveTrain, ForceMode.Acceleration);
-        if(rb.angularVelocity.magnitude > MaxSpeed)
-        {
-            rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, MaxSpeed);
-        }
-
+       rb.AddForce(transform.forward * moveTrain, ForceMode.Acceleration);
+       if (rb.angularVelocity.magnitude > MaxSpeed)
+       {
+                rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, MaxSpeed);
+       }
+        
+           
+        
+        
     }
 
 
