@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class PlayerContoller : MonoBehaviour
 {
@@ -70,5 +71,10 @@ public class PlayerContoller : MonoBehaviour
        
         con.Move(moveDirection * Time.deltaTime);
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        SceneManager.LoadScene("Clear");
     }
 }
