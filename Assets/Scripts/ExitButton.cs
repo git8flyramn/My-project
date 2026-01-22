@@ -13,10 +13,9 @@ public class ExitButton : MonoBehaviour
     // Update is called once per frame
     public void BackTitle()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+      
             SceneManager.LoadScene("Title");
-        }
+        
     }
     
     void Update()
