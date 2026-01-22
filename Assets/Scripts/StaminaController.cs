@@ -34,6 +34,11 @@ public class StaminaController : MonoBehaviour
         {
             RegenerateStamina(Addstamina * Time.deltaTime);
         }
+
+       if(Input.GetKey(KeyCode.F) && CurrentStamina < 0)
+        {
+            DontRun();
+        }
     }
 
    
@@ -57,5 +62,10 @@ public class StaminaController : MonoBehaviour
         {
             DashGage.value = CurrentStamina;
         }
+    }
+
+    public void DontRun()
+    {
+        CurrentStamina = 0f;
     }
 }
