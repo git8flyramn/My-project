@@ -73,8 +73,5 @@ public class PlayerContoller : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        SceneManager.LoadScene("Clear");
-    }
+   
 }
