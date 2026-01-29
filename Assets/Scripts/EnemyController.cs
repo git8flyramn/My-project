@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
-    public float time;
+    public float Time;
     public float EnemySpeed;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,9 +21,9 @@ public class EnemyController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.name == "Player")
         {
-            Destroy(this.gameObject,time);
+            Destroy(this.gameObject,Time);
         }
        
     }
