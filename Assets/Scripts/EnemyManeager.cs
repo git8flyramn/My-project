@@ -24,6 +24,7 @@ public class EnemyManager : MonoBehaviour
         TimeCount += Time.deltaTime;
         if (TimeCount > 5)
         {
+            //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
             Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
             Instantiate(RunEnemy, RunEnemyPlace.position, Quaternion.identity);
             TimeCount = 0;

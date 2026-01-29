@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Destroy(this.gameObject, Time);
+        
     }
 
     // Update is called once per frame
@@ -19,5 +19,13 @@ public class EnemyController : MonoBehaviour
 
                     
         this.transform.Translate(Speed);
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            Destroy(this.gameObject, Time);
+        }
+       
     }
 }
