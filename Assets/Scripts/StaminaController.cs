@@ -34,11 +34,6 @@ public class StaminaController : MonoBehaviour
         {
             RegenerateStamina(Addstamina * Time.deltaTime);
         }
-
-       if(Input.GetKey(KeyCode.F) && CurrentStamina < 0)
-        {
-            DontRun();
-        }
     }
 
    
@@ -64,8 +59,5 @@ public class StaminaController : MonoBehaviour
         }
     }
 
-    public void DontRun()
-    {
-        CurrentStamina = 0f;
-    }
+   
 }
