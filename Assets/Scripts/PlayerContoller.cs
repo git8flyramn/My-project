@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerContoller : MonoBehaviour
 {
-
+    [SerializeField] ParticleSystem particle;
     CharacterController con;
     private  Animator anim;
     Vector3 moveDirection = Vector3.zero;
