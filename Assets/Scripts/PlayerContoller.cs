@@ -14,7 +14,8 @@ public class PlayerContoller : MonoBehaviour
     private float normalSpeed = 8.0f;  //通常のスピード
  　 private float sprint = 15.0f; //加速したスピード
     private float g = 9.8f; //重力
-   
+    float Speed; //走っている時のスピード
+
     Vector3 startPos = Vector3.zero;
     bool IsRun;
     void Start()
@@ -42,9 +43,10 @@ public class PlayerContoller : MonoBehaviour
         //|| Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
+            
             IsRun = true;
         }
-        float Speed;
+       
         if(Input.GetKey(KeyCode.F))
         {
             particle.Play();
