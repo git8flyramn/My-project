@@ -47,10 +47,12 @@ public class PlayerContoller : MonoBehaviour
         float Speed;
         if(Input.GetKey(KeyCode.F))
         {
+            particle.Play();
             Speed = sprint;
         }
         else 
         {
+            particle.Stop();
             Speed = normalSpeed;
         }
         
