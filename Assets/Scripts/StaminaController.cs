@@ -59,5 +59,9 @@ public class StaminaController : MonoBehaviour
         }
     }
     /* playerがアイテムに触れたらアイテムを消しスタミナを回復する処理*/
-   
+   private void ItemRegenerate()
+    {
+        RegenerateStamina(Addstamina);
+
+    }
 }
