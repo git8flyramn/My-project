@@ -58,6 +58,6 @@ public class StaminaController : MonoBehaviour
             DashGage.value = CurrentStamina;
         }
     }
-
+    /* playerがアイテムに触れたらアイテムを消しスタミナを回復する処理*/
    
 }
