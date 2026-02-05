@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
-            Destroy(this.gameObject,Time);
+            Destroy(gameObject,Time);
         }
        
     }

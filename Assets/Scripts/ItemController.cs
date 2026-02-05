@@ -5,8 +5,8 @@ public class ItemController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public float Time;
-   // public float ItemSpeed;
+   
+    public float ItemSpeed;
     void Start()
     {
         
@@ -16,16 +16,13 @@ public class ItemController : MonoBehaviour
     void Update()
     {
 
-        //var Speed = Vector3.zero;
-        //Speed.z = ItemSpeed;
-        //this.transform.Translate(Speed);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if(collision.gameObject.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject,1.0f);
         }
     }
 }

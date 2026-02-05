@@ -21,7 +21,6 @@ public class ItemManeger : MonoBehaviour
         TimeCount += Time.deltaTime;
         if(TimeCount > 5)
         {
-           
             //ƒAƒCƒeƒ€‚Ì¶¬                                      //‰ñ“]‚µ‚È‚¢
             Instantiate(RecoveryItem, RecoveryItemPlace.position, Quaternion.identity);
             TimeCount = 0;
