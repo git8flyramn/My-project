@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerContoller : MonoBehaviour
 {
-    [SerializeField] ParticleSystem particle;
+    [SerializeField] ParticleSystem ParticleSystem;
     CharacterController con;
     private  Animator anim;
     Vector3 moveDirection = Vector3.zero;
@@ -45,16 +45,18 @@ public class PlayerContoller : MonoBehaviour
         {
             
             IsRun = true;
+            
         }
        
         if(Input.GetKey(KeyCode.F))
         {
-            particle.Play();
+
+            ParticleSystem.Play();
+            Debug.Log("ダッシュエフェクト再生");
             Speed = sprint;
         }
         else 
         {
-            particle.Stop();
             Speed = normalSpeed;
         }
         
