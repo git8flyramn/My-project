@@ -16,19 +16,14 @@ public class ItemController : MonoBehaviour
     {
 
     }
-
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name + "‚ªÚG‚µ‚½‚Ì‚ÅÁ–Å‚µ‚Ü‚·");
         if (collision.gameObject.CompareTag("Player"))
         {
-            
+
             Debug.Log("ƒvƒŒƒCƒ„[‚ªÚG‚µ‚½");
-            Destroy(gameObject, DestroyTime);
-        }
-        if(collision.gameObject.CompareTag("StationGround"))
-        {
-            return;
+            Destroy(gameObject);
         }
     }
 }
