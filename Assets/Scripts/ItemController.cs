@@ -5,8 +5,7 @@ public class ItemController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-   
-    public float ItemSpeed;
+    public float DestroyTime;
     void Start()
     {
         
@@ -20,9 +19,16 @@ public class ItemController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        Debug.Log(collision.gameObject.name + "‚ªÚG‚µ‚½‚Ì‚ÅÁ–Å‚µ‚Ü‚·");
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject,1.0f);
+            
+            Debug.Log("ƒvƒŒƒCƒ„[‚ªÚG‚µ‚½");
+            Destroy(gameObject, DestroyTime);
+        }
+        if(collision.gameObject.CompareTag("StationGround"))
+        {
+            return;
         }
     }
 }

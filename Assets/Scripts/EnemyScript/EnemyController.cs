@@ -21,7 +21,8 @@ public class EnemyController : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        // Debug.Log(collision.gameObject.name + "Ç™ê⁄êGÇµÇΩÇÃÇ≈è¡ñ≈ÇµÇ‹Ç∑");
+        if (collision.gameObject.name == "Player")
         {
             Destroy(gameObject,Time);
         }
