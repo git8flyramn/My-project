@@ -9,7 +9,7 @@ public class StaminaController : MonoBehaviour
     private float CurrentStamina; // 動作の時に増減する
     private float MaxStamina = 10.0f; //最大値(これを超えたらこの値に固定する)
     private float Decstamina = 0.5f; //スタミナの減る量
-   // private float Addstamina = 0.5f;
+    private float Addstamina = 0.5f;
   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,10 +30,7 @@ public class StaminaController : MonoBehaviour
         {
             UseStamina(Decstamina * Time.deltaTime);
         }
-       //else 
-       // {
-       //     RegenerateStamina(Addstamina * Time.deltaTime);
-       // }
+       
     }
 
    
@@ -58,6 +55,15 @@ public class StaminaController : MonoBehaviour
             DashGage.value = CurrentStamina;
         }
     }
-   
-   
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        /* playerがアイテムに触れたらアイテムを消滅させスタミナを回復する処理*/
+        if (collision.gameObject.name == "Player")
+        {
+            Debug.Log("スタミナが回復しました");
+            Destroy(gameObject);
+        }
+    }
+
 }

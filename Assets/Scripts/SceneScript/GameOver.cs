@@ -20,9 +20,6 @@ public class GameOver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("train"))
-        {
-            SceneManager.LoadScene(GameOverSceneName);
-        }
+        
     }
 }   
