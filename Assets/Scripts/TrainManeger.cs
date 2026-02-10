@@ -20,6 +20,7 @@ public class TrainManeger : MonoBehaviour
         GenerateTime = Time.deltaTime;
         if(GenerateTime > 5)
         {
+            Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
             Instantiate(Train, TrainPlace.position, Quaternion.identity);
         }
     }
