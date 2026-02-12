@@ -14,10 +14,8 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var Speed = Vector3.zero;
-        Speed.z = EnemySpeed;
-        this.transform.Translate(Speed);
 
+        EnemyMove();
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -27,5 +25,11 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject,Time);
         }
        
+    }
+    void EnemyMove()
+    {
+        var Speed = Vector3.zero;
+        Speed.z = EnemySpeed;
+        this.transform.Translate(Speed);
     }
 }
