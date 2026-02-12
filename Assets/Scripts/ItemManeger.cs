@@ -7,7 +7,7 @@ public class ItemManeger : MonoBehaviour
 
     public GameObject RecoveryItem;
     public Transform RecoveryItemPlace;
-    
+   
     //ê∂ê¨ÇÃä‘äu
     float TimeCount;
     void Start()

@@ -5,6 +5,7 @@ public class EnemyController : MonoBehaviour
 {
     public float Time;
     public float EnemySpeed;
+  
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

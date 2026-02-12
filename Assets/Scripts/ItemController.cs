@@ -9,6 +9,7 @@ public class ItemController : MonoBehaviour
     
     public float DestroyTime;
     public float flowSpeed;
+    public StaminaController stamina;
     void Start()
     {
         
@@ -31,8 +32,18 @@ public class ItemController : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Debug.Log("playerに接触したので消滅します");
-            Destroy(gameObject,DestroyTime);
+            StaminaController sc = collision.gameObject.GetComponent<StaminaController>();
+            if (sc != null)
+            {
+                Debug.Log("playerに接触したのでplayerのスタミナを回復します");
+                sc.RegenerateStamina(0.3f);
+                Destroy(gameObject, DestroyTime);
+            }
+            else
+            {
+                Debug.LogWarning("接触したのはPlayerですが、StaminaControllerが見つかりません！");
+            }
+          
         }
     }
   
