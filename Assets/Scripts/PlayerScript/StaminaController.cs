@@ -9,7 +9,7 @@ public class StaminaController : MonoBehaviour
     private float CurrentStamina; // 動作の時に増減する
     private float MaxStamina = 10.0f; //最大値(これを超えたらこの値に固定する)
     private float Decstamina = 0.5f; //スタミナの減る量
-    private float Addstamina = 0.5f;
+  //  private float Addstamina = 0.5f;
   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

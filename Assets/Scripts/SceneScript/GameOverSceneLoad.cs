@@ -6,7 +6,8 @@ using System.Runtime.CompilerServices;
 public class GameOverSceneLoad : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-         //FedeOutSceneLoder
+
+         
     public FadeOutSceneLoder fadeout;
     
     void Start()
@@ -21,6 +22,25 @@ public class GameOverSceneLoad : MonoBehaviour
     }
     void GameOver()
     {
+        fadeout.CallFadeOut();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {    
+        if (collision.gameObject.name == "Player")
+        {
+                                                              //FadeOutSceneLoder
+            fadeout = collision.gameObject.GetComponent<FadeOutSceneLoder>();
+            if (fadeout != null)
+            {
+                Debug.Log("フェードアウトします");
+                GameOver();
+            }
+            else
+            {
+                Debug.Log("fadeoutSceneLoderが見つかりません");
+            }
+        }
         
     }
 
