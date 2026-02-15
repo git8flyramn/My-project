@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-public class FedeOutSceneLoder : MonoBehaviour
+public class FadeOutSceneLoder : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Image fadePanel;//フェード用のパネル
