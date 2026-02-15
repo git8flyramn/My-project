@@ -3,10 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System.Runtime.CompilerServices;
-public class GameOver : MonoBehaviour
+public class GameOverSceneLoad : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    [SerializeField] private string GameOverSceneName;
+         //FedeOutSceneLoder
+    public FadeOutSceneLoder fadeout;
+    
     void Start()
     {
         
@@ -17,9 +19,10 @@ public class GameOver : MonoBehaviour
     {
         
     }
-
-    private void OnTriggerEnter(Collider other)
+    void GameOver()
     {
         
     }
+
+    
 }   
