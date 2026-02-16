@@ -26,8 +26,9 @@ public class GameOverSceneLoad : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        //Debug.Log("フェードアウトします");
         fadeout = other.gameObject.GetComponent<FadeOutSceneLoder>();
-        if (fadeout != null)
+        if (other.CompareTag("Player") && fadeout != null)
         {
             Debug.Log("フェードアウトします");
             GameOver();
