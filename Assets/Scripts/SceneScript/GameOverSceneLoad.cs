@@ -8,7 +8,11 @@ public class GameOverSceneLoad : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
          
-    private FadeOutSceneLoder fadeout;
+    //フェードアウトの機能を使う方
+
+
+    private FadeOutSceneLoder fadeOut;
+    public string ObjectName;
     
     void Start()
     {
@@ -18,24 +22,16 @@ public class GameOverSceneLoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
-    void GameOver()
-    {
-        fadeout.CallFadeOut();
-    }
+
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("フェードアウトします");
-        fadeout = other.gameObject.GetComponent<FadeOutSceneLoder>();
-        if (other.CompareTag("Player") && fadeout != null)
+        if(other.CompareTag(ObjectName))
         {
-            Debug.Log("フェードアウトします");
-            GameOver();
-        }
-        else
-        {
-            Debug.Log("fadeoutSceneLoderが見つかりません");
+            FadeOutSceneLoder fs;
+            fs = other.GetComponent<FadeOutSceneLoder>();
+            fs.CallFadeOut();
         }
     }
 
