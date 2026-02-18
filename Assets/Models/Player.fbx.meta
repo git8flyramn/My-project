@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ch23_hair
-    second: {fileID: 696854114824873738, guid: 8c0eefea3e1248744876c581a09227a0, type: 3}
+    second: {fileID: 8216411043494953081, guid: e21fa2185aa0e5643bd9ab97df7c1270, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule

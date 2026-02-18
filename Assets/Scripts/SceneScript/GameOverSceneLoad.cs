@@ -18,7 +18,7 @@ public class GameOverSceneLoad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
     
 
@@ -41,5 +41,5 @@ public class GameOverSceneLoad : MonoBehaviour
 
     }
 
-    
-}   
+
+}

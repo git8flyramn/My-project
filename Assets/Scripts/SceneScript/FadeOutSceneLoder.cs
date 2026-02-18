@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 public class FadeOutSceneLoder : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    // フェードアウトの機能部分
+    
+    
     public Image fadePanel;//フェード用のパネル
     public float fadeTime = 1.0f; //フェードの完了にかかる時間
 
@@ -33,7 +37,7 @@ public class FadeOutSceneLoder : MonoBehaviour
             yield return null;
         }
         fadePanel.color = endColor;
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("GameOver");
     }
 
     public void CallFadeOut()
