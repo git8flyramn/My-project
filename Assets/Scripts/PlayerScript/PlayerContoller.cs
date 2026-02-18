@@ -48,7 +48,7 @@ public class PlayerContoller : MonoBehaviour
             
         }
        
-        if(Input.GetKey(KeyCode.F))
+        if(Input.GetKey(KeyCode.G))
         {
 
             ParticleSystem.Play();
@@ -60,9 +60,9 @@ public class PlayerContoller : MonoBehaviour
             Speed = normalSpeed;
         }
         
-        Vector3 cameraFroward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1));
-        Vector3 moveZ = cameraFroward * Input.GetAxis("Vertical") * Speed;
-        Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * Speed;
+          Vector3 cameraFroward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1));
+          Vector3 moveZ = cameraFroward * Input.GetAxis("Vertical") * Speed;
+          Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * Speed;
         if (con.isGrounded)
         {
             moveDirection = moveZ + moveX;
@@ -75,7 +75,7 @@ public class PlayerContoller : MonoBehaviour
         }
         anim.SetBool("IsRun", IsRun);
        
-        con.Move(moveDirection * Time.deltaTime);
+       con.Move(moveDirection * Time.deltaTime);
         
     }
 

@@ -10,7 +10,6 @@ public class FadeOutSceneLoder : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(FadeOutLoadScene());
     }
 
     // Update is called once per frame
@@ -39,7 +38,7 @@ public class FadeOutSceneLoder : MonoBehaviour
 
     public void CallFadeOut()
     {
-        FadeOutLoadScene();
+        StartCoroutine(FadeOutLoadScene());
     }
-    
+
 }
