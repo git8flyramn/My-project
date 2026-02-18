@@ -37,7 +37,7 @@ public class FadeOutSceneLoder : MonoBehaviour
             yield return null;
         }
         fadePanel.color = endColor;
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Title");
     }
 
     public void CallFadeOut()

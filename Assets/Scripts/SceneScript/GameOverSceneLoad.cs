@@ -22,9 +22,17 @@ public class GameOverSceneLoad : MonoBehaviour
     }
     
 
-    private void OnCollisionEnter(Collision collision)
+     private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.name == "Player")
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("ぶつかりました。フェードアウトします。");
+            fadeout.CallFadeOut();
+        }
+    }
+
+    /*
+     if (collision.gameObject.name == "Player")
         {
             //FadeOutSceneLoder
             fadeout = collision.gameObject.GetComponent<FadeOutSceneLoder>();
@@ -38,8 +46,8 @@ public class GameOverSceneLoad : MonoBehaviour
                 Debug.Log("fadeoutSceneLoderが見つかりません");
             }
         }
+     */
 
-    }
-
+   
 
 }

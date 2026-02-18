@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerContoller : MonoBehaviour
 {
+
+   
     [SerializeField] ParticleSystem ParticleSystem;
     CharacterController con;
     private  Animator anim;
@@ -51,7 +53,8 @@ public class PlayerContoller : MonoBehaviour
         if(Input.GetKey(KeyCode.G))
         {
 
-            ParticleSystem.Play();
+            // ParticleSystem.Play();
+           
             Debug.Log("ダッシュエフェクト再生");
             Speed = sprint;
         }
