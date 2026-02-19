@@ -53,9 +53,8 @@ public class PlayerContoller : MonoBehaviour
         if(Input.GetKey(KeyCode.G))
         {
 
-            // ParticleSystem.Play();
-           
-            Debug.Log("ダッシュエフェクト再生");
+            //ParticleSystem.Play();
+            //Debug.Log("ダッシュエフェクト再生");
             Speed = sprint;
         }
         else 

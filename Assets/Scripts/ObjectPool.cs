@@ -6,12 +6,13 @@ public class ObjectPool : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+
     [SerializeField] private uint PoolSize;
     [SerializeField] private PooledObject objectToPool;
     private Stack<PooledObject> stack;
     void Start()
     {
-        
+      
     }
 
     // Update is called once per frame
@@ -19,8 +20,10 @@ public class ObjectPool : MonoBehaviour
     {
         
     }
+
     private void SetUpPool()
     {
+        
         stack = new Stack<PooledObject>();
         PooledObject instance = null;
         for (int i = 0; i < PoolSize; i++)
@@ -49,6 +52,8 @@ public class ObjectPool : MonoBehaviour
             return nextInstance;
 
         }
+       
+
     }
 
     public void ReturnToPool(PooledObject poolObject)
@@ -57,4 +62,5 @@ public class ObjectPool : MonoBehaviour
         poolObject.gameObject.SetActive(false);
     }
 
+    
 }

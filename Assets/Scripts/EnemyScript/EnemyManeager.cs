@@ -1,37 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Pool;
+using UnityEngine.UIElements;
 public class EnemyManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    public GameObject WalkEnemy;
-    public Transform WalkEnemyPlace;
-    public GameObject RunEnemy;
-    public Transform RunEnemyPlace;
 
-    float TimeCount;
+    //public enum EnemyType{ WALK_ENEMY,RUN_ENEMY,NULL};
+
+    //public GameObject WalkEnemy;
+    public Transform WalkEnemyPlace;
+    //public GameObject RunEnemy;
     //public Transform RunEnemyPlace;
+
+    float x = 0, y = 0, z = 0;
+    [SerializeField] private ObjectPool pool;
+                     private PooledObject enemy;
+    float time;
     void Start()
     {
-        TimeCount = 0;
+        pool.CallSetUpPool();
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimeCount += Time.deltaTime;
-        if (TimeCount > 5)
-        {
-            //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
-            Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
-            Instantiate(RunEnemy, RunEnemyPlace.position, Quaternion.identity);
-            TimeCount = 0;
-        }
 
-      
-
+        time += Time.deltaTime;
        
+        if(time > 5)
+        {
+            EnemyInstantiate();
+        }
+        else
+        {
+            Debug.LogWarning("敵が生成されていません");
+        }
+        
+    }
+
+    void EnemyInstantiate()
+    {
+        enemy = pool.GetPooledObject();
+
+        if(enemy != null)
+        {
+            enemy.transform.position = new Vector3(x, y, z);
+
+            z += 0.3f;
+            enemy.transform.rotation = Quaternion.identity;
+        }
     }
 }
+
+
+//if (TimeCount > 5)
+//{
+//    //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
+//    Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
+//    Instantiate(RunEnemy, RunEnemyPlace.position, Quaternion.identity);
+//    TimeCount = 0;
+//}
