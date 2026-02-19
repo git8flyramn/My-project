@@ -12,7 +12,7 @@ public class ObjectPool : MonoBehaviour
     private Stack<PooledObject> stack;
     void Start()
     {
-        SetUpPool();
+      
     }
 
     // Update is called once per frame
@@ -23,10 +23,12 @@ public class ObjectPool : MonoBehaviour
 
     private void SetUpPool()
     {
+        
         stack = new Stack<PooledObject>();
         PooledObject instance = null;
         for (int i = 0; i < PoolSize; i++)
         {
+            //ObjectToPool
             instance = Instantiate(objectToPool);
             instance.Pool = this;
             instance.gameObject.SetActive(false);
@@ -36,15 +38,21 @@ public class ObjectPool : MonoBehaviour
 
     public PooledObject GetPooledObject()
     {
-        if(stack.Count == 0)
+        PooledObject nextInstance;
+        if (stack.Count == 0)
         {
             PooledObject newInstance = Instantiate(objectToPool);
             newInstance.Pool = this;
             return newInstance;
         }
-        PooledObject nextInstance = stack.Pop();
+        else
+        {
+            nextInstance = stack.Pop();
+            
+        }
         nextInstance.gameObject.SetActive(true);
         return nextInstance;
+
     }
 
     public void ReturnToPool(PooledObject pooledObject)
@@ -52,9 +60,10 @@ public class ObjectPool : MonoBehaviour
         stack.Push(pooledObject);
         pooledObject.gameObject.SetActive(false);
     }
-
-    public void  ObjInstance()
+    public void CallSetUpPool()
     {
         SetUpPool();
     }
+
+    
 }

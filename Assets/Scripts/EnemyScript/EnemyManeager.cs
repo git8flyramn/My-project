@@ -2,27 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
+using UnityEngine.UIElements;
 public class EnemyManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    
-    public enum EnemyType{ WALK_ENEMY,RUN_ENEMY,TRAIN }
+
+    //public enum EnemyType{ WALK_ENEMY,RUN_ENEMY,NULL};
+
     //public GameObject WalkEnemy;
     //public Transform WalkEnemyPlace;
     //public GameObject RunEnemy;
     //public Transform RunEnemyPlace;
-    private ObjectPool pool;
-    float TimeCount;
+
+
+    [SerializeField] private ObjectPool pool;
+                     private PooledObject enemy;
     void Start()
     {
-      
-       TimeCount = 0;
+        pool = GetComponent<ObjectPool>();
+        pool.CallSetUpPool();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        TimeCount += Time.deltaTime;
+
         //if (TimeCount > 5)
         //{
         //    //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
@@ -31,9 +36,22 @@ public class EnemyManager : MonoBehaviour
         //    TimeCount = 0;
         //}
 
+        EnemyInstantiate();
+    }
 
+    void EnemyInstantiate()
+    {
+        enemy = pool.GetPooledObject();
 
+        if(enemy != null)
+        {
+            enemy.transform.position = transform.position;
+            enemy.transform.rotation = Quaternion.identity;
+        }
+    }
 
-
+    public void Release()
+    {
+        enemy.Release();
     }
 }

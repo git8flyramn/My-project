@@ -6244,7 +6244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1256962631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7201,6 +7201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a005e27bcdb00d449625b39c3c156e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pool: {fileID: 1787446456}
   Train: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
   TrainPlace: {fileID: 1726683440}
 --- !u!4 &1787446455
@@ -7230,7 +7231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff54c0e9fc29f040a6f3ccb2da86f8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PoolSize: 5
+  PoolSize: 3
   objectToPool: {fileID: 3296233094767989849, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
 --- !u!1001 &1811333416
 PrefabInstance:
@@ -7355,10 +7356,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b667f2775a93113409d6081b7f49bc67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkEnemy: {fileID: 2242487542668926624, guid: 7dcafd5278c83eb4ea5387ec0f8bdf99, type: 3}
-  WalkEnemyPlace: {fileID: 1409995037}
-  RunEnemy: {fileID: 8959490245004730528, guid: 73a107a5ca9715845ae07625c8b206c4, type: 3}
-  RunEnemyPlace: {fileID: 253265321}
 --- !u!4 &1842618588
 Transform:
   m_ObjectHideFlags: 0
@@ -7560,7 +7557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2035557012
 Transform:
   m_ObjectHideFlags: 0
@@ -7570,7 +7567,7 @@ Transform:
   m_GameObject: {fileID: 2035557011}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.99, y: 1.884, z: -12.1}
+  m_LocalPosition: {x: -10.99, y: 1.884, z: -24.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

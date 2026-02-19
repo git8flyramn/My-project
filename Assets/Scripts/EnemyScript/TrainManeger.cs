@@ -26,7 +26,6 @@ public class TrainManeger : MonoBehaviour
         {
             //Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
             //Instantiate(Train, TrainPlace.position, Quaternion.identity);
-            pool.ObjInstance();
             GenerateTime = 0;
         }
         else
