@@ -11,8 +11,8 @@ public class GameOverSceneLoad : MonoBehaviour
     //フェードアウトの機能を使う方
 
 
-    private FadeOutSceneLoder fadeOut;
-    public string ObjectName;
+    [SerializeField] private FadeOutSceneLoder fadeOut;
+   
     
     void Start()
     {
@@ -27,11 +27,10 @@ public class GameOverSceneLoad : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag(ObjectName))
+        if(other.CompareTag("Player"))
         {
-            FadeOutSceneLoder fs;
-            fs = other.GetComponent<FadeOutSceneLoder>();
-            fs.CallFadeOut();
+            Debug.Log("ぶつかりました。フェードアウトします");
+            fadeOut.CallFadeOut();
         }
     }
 
