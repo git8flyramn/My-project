@@ -41,17 +41,18 @@ public class ObjectPool : MonoBehaviour
         PooledObject nextInstance;
         if (stack.Count == 0)
         {
-            PooledObject newInstance = Instantiate(objectToPool);
-            newInstance.Pool = this;
-            return newInstance;
+            nextInstance = Instantiate(objectToPool);
+            nextInstance.Pool = this;
+            return nextInstance;
         }
         else
         {
             nextInstance = stack.Pop();
-            
+            nextInstance.gameObject.SetActive(true);
+            return nextInstance;
+
         }
-        nextInstance.gameObject.SetActive(true);
-        return nextInstance;
+       
 
     }
 
