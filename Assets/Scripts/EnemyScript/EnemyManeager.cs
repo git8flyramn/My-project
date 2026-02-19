@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
     float time;
     void Start()
     {
-        pool.CallSetUpPool();
+       
     }
 
     // Update is called once per frame
