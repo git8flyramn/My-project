@@ -4,10 +4,10 @@ using UnityEngine;
 public class PooledObject : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private ObjectPool pool;
     
-    public ObjectPool Pool { get => pool; set => pool = value;}
-
+    public ObjectPool Pool { get => pool; set => pool = value; }
     void Start()
     {
         pool = GetComponent<ObjectPool>();
