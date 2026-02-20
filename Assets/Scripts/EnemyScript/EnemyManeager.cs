@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UIElements;
@@ -9,18 +10,16 @@ public class EnemyManager : MonoBehaviour
 
     //public enum EnemyType{ WALK_ENEMY,RUN_ENEMY,NULL};
 
-    //public GameObject WalkEnemy;
-    public Transform WalkEnemyPlace;
-    //public GameObject RunEnemy;
-    //public Transform RunEnemyPlace;
+     public GameObject WalkEnemy;
+     public Transform WalkEnemyPlace;
+     public GameObject RunEnemy;
+     public Transform RunEnemyPlace;
 
-    float x = 0, y = 0, z = 0;
-    [SerializeField] private ObjectPool pool;
-                     private PooledObject enemy;
+   
     float time;
     void Start()
     {
-        pool.CallSetUpPool();
+        time = 0;
     }
 
     // Update is called once per frame
@@ -28,37 +27,18 @@ public class EnemyManager : MonoBehaviour
     {
 
         time += Time.deltaTime;
-       
-        if(time > 5)
-        {
-            EnemyInstantiate();
-        }
-        else
-        {
-            Debug.LogWarning("敵が生成されていません");
-        }
-        
-    }
 
-    void EnemyInstantiate()
-    {
-        enemy = pool.GetPooledObject();
-
-        if(enemy != null)
+        if (time > 5)
         {
-            enemy.transform.position = new Vector3(x, y, z);
-
-            z += 0.3f;
-            enemy.transform.rotation = Quaternion.identity;
+            //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
+            Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
+            Instantiate(RunEnemy, RunEnemyPlace.position, Quaternion.identity);
+            time = 0;
         }
     }
+
+
 }
 
 
-//if (TimeCount > 5)
-//{
-//    //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
-//    Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
-//    Instantiate(RunEnemy, RunEnemyPlace.position, Quaternion.identity);
-//    TimeCount = 0;
-//}
+//

@@ -7,14 +7,14 @@ public class TrainManeger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-    public ObjectPool pool;
+    
     public GameObject Train;
     public Transform TrainPlace;
 
     float GenerateTime;
     void Start()
     {
-        pool = GetComponent<ObjectPool>();
+       
         GenerateTime = 0;
     }
 
@@ -24,13 +24,13 @@ public class TrainManeger : MonoBehaviour
         GenerateTime += Time.deltaTime;
         if(GenerateTime > 10)
         {
-            //Debug.Log("電車が生成されました");
-            //Instantiate(Train, TrainPlace.position, Quaternion.identity);
+            Debug.Log("電車が生成されました");
+            Instantiate(Train, TrainPlace.position, Quaternion.identity);
             GenerateTime = 0;
         }
         else
         {
-            Debug.LogWarning("電車が生成されません");
+            //Debug.LogWarning("電車が生成されません");
         }
     }
 
