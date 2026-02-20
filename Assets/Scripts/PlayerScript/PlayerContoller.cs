@@ -10,6 +10,7 @@ public class PlayerContoller : MonoBehaviour
 
 
     [SerializeField] ParticleSystem ParticleSystem;
+    public StaminaController stamina;
     CharacterController con;
     private Animator anim;
     Vector3 moveDirection = Vector3.zero;
@@ -28,6 +29,7 @@ public class PlayerContoller : MonoBehaviour
     {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        stamina = GetComponent<StaminaController>();
         startPos = transform.position;
     }
 
@@ -49,7 +51,7 @@ public class PlayerContoller : MonoBehaviour
         IsRun = true;
         if (Input.GetKey(KeyCode.G))
         {
-
+            stamina.UseStamina(0.01f);
             //ParticleSystem.Play();
             //Debug.Log("ダッシュエフェクト再生");
             Speed = sprint;
