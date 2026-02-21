@@ -8,7 +8,7 @@ public class ObjectPool : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private ObjectPool<GameObject> pool;
-    //SerializeField
+   
      [SerializeField] private GameObject targetObject;
     
     void Start()
@@ -50,4 +50,15 @@ public class ObjectPool : MonoBehaviour
        
           Destroy(objectClone.gameObject);
     }
+
+    public GameObject Get()
+    {
+        return pool.Get();
+    }
+
+    public void Release(GameObject objectClone)
+    {
+        pool.Release(objectClone);
+    }
+
 }

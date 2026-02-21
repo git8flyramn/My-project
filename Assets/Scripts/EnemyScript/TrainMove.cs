@@ -1,6 +1,7 @@
 using System.Data;
 using UnityEngine;
-
+using UnityEngine.Pool;
+using Unity.VisualScripting;
 
 public class TrainMove : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class TrainMove : MonoBehaviour
     private Rigidbody rb;
     private float moveTrain = 2.0f;
     private float MaxSpeed = 5.0f;
+    [SerializeField] private GameObject TrainPool;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +29,12 @@ public class TrainMove : MonoBehaviour
                 rb.angularVelocity = Vector3.ClampMagnitude(rb.angularVelocity, MaxSpeed);
        }
         
+    }
+
+    private void  Realse()
+    {
+                                                        //GameObject
+        TrainPool.GetComponent<ObjectPool>().Release(this.gameObject);
     }
 
 

@@ -10,7 +10,7 @@ public class TrainManeger : MonoBehaviour
     
     public GameObject Train;
     public Transform TrainPlace;
-
+    [SerializeField] private GameObject TrainPool;
     float GenerateTime;
     void Start()
     {
@@ -21,10 +21,18 @@ public class TrainManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        TrainMove();
+    }
+
+    public void TrainMove()
+    {
         GenerateTime += Time.deltaTime;
-        if(GenerateTime > 10)
+        if (GenerateTime > 10)
         {
+                                         //ObjectPool
+           GameObject train = TrainPool.GetComponent<ObjectPool>().Get();
             Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
+          
             Instantiate(Train, TrainPlace.position, Quaternion.identity);
             GenerateTime = 0;
         }
