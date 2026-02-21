@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 public class ObjectPool : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-
-    [SerializeField] private uint PoolSize;
-    [SerializeField] private PooledObject objectToPool;
-    private Stack<PooledObject> stack;
+    private ObjectPool<GameObject> pool;
+    //SerializeField
+     [SerializeField] private GameObject targetObject;
+    
     void Start()
-    {
-      
+    {                                   //生成     アクティブ化　非アクティブ
+        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, false, 5, 5);
+
+
     }
 
     // Update is called once per frame
@@ -21,46 +24,30 @@ public class ObjectPool : MonoBehaviour
         
     }
 
-    private void SetUpPool()
+    private GameObject SetUpPool()
     {
-        
-        stack = new Stack<PooledObject>();
-        PooledObject instance = null;
-        for (int i = 0; i < PoolSize; i++)
-        {
-            //ObjectToPool
-            instance = Instantiate(objectToPool);
-            instance.Pool = this;
-            instance.gameObject.SetActive(false);
-            stack.Push(instance);
-        }
+        Debug.Log("オブジェクトが生成されました");
+        Vector3 initPosition = Vector3.zero;
+                                                                       //Quaternion.identity
+        GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
+        return objectClone;
+
+
     }
 
-    public PooledObject GetPooledObject()
+    public void GetPooledObject(GameObject objectClone)
+    {
+        objectClone.gameObject.SetActive(true);
+    }
+
+    public void ReturnToPool(GameObject objectClone)
+    {
+        objectClone.gameObject.SetActive(false);
+    }
+
+    public void OnDestory(GameObject objectClone)
     {
        
-        if (stack.Count == 0)
-        {
-            PooledObject newInstance = Instantiate(objectToPool);
-            newInstance.Pool = this;
-            return newInstance;
-        }
-        else
-        {
-            PooledObject nextInstance = stack.Pop();
-            nextInstance.gameObject.SetActive(true);
-            return nextInstance;
-
-        }
-       
-
+          Destroy(objectClone.gameObject);
     }
-
-    public void ReturnToPool(PooledObject poolObject)
-    {
-        stack.Push(poolObject);
-        poolObject.gameObject.SetActive(false);
-    }
-
-    
 }

@@ -60,7 +60,7 @@ public class PlayerContoller : MonoBehaviour
         {
             Speed = normalSpeed;
         }
-      //Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
+     
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
         Vector3 moveZ = cameraForward * normalSpeed;
