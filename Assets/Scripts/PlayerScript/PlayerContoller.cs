@@ -14,10 +14,10 @@ public class PlayerContoller : MonoBehaviour
     CharacterController con;
     private Animator anim;
     Vector3 moveDirection = Vector3.zero;
-    private float normalSpeed = 15.0f;  //通常のスピード
-    private float sprint = 10.0f;
+    private float defaultSpeed = 10.0f;//通常のスピード 
+    private float dash = 15.0f;
     private float g = 9.8f;
-   
+    private float speed = 10.0f;
 
     //  private float sprint = 15.0f; //加速したスピード
     // private float g = 9.8f; //重力
@@ -49,23 +49,27 @@ public class PlayerContoller : MonoBehaviour
     void MoveSet()
     { 
         IsRun = true;
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.G))
         {
             stamina.UseStamina(0.01f);
-            //ParticleSystem.Play();
-            //Debug.Log("ダッシュエフェクト再生");
-            Speed = sprint;
+            ParticleSystem.Play();
+            Debug.Log("ダッシュエフェクト再生");
+            defaultSpeed = dash;
         }
-        else
+      
+        else if(Input.GetKeyUp(KeyCode.G))
         {
-            Speed = normalSpeed;
+            Debug.Log("ダッシュエフェクト停止");
+            ParticleSystem.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
+           
+            defaultSpeed = speed;
         }
      
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
-        Vector3 moveZ = cameraForward * normalSpeed;
+        Vector3 moveZ = cameraForward * defaultSpeed;
 
-        Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * normalSpeed;
+        Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * defaultSpeed;
 
         if(con.isGrounded)
         {

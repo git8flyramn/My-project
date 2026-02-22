@@ -36,7 +36,7 @@ public class StaminaController : MonoBehaviour
    
     public void UseStamina(float dec)
     {
-        CurrentStamina -= dec;
+        CurrentStamina -= dec / 10;
         CurrentStamina = Mathf.Clamp(CurrentStamina, 0f, MaxStamina);
         StaminaUpdate();
     }
