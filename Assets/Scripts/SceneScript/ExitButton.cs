@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 public class ExitButton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private float BackTitlesTime = 2.0f;
     void Start()
     {
-        Invoke("BackTitle", 2.0f);
+        Invoke("BackTitle", BackTitlesTime);
     }
 
     // Update is called once per frame

@@ -5,9 +5,11 @@ using UnityEngine.SceneManagement;
 public class GameStartButton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    private float StartTime = 2.0f;
     void Start()
     {
-        Invoke("StartGame", 2.0f);
+        Invoke("StartGame", StartTime);
     }
      public void StartGame()
     {

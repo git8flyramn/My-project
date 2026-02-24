@@ -7,6 +7,7 @@ public class ItemManeger : MonoBehaviour
 
     public GameObject RecoveryItem;
     public Transform RecoveryItemPlace;
+    public int GeneratetTime = 5;
    
     //¶¬‚ÌŠÔŠu
     float TimeCount;
@@ -19,7 +20,7 @@ public class ItemManeger : MonoBehaviour
     void Update()
     {
         TimeCount += Time.deltaTime;
-        if(TimeCount > 5)
+        if(TimeCount > GeneratetTime)
         {
             //ƒAƒCƒeƒ€‚Ì¶¬                                      //‰ñ“]‚µ‚È‚¢
             Instantiate(RecoveryItem, RecoveryItemPlace.position, Quaternion.identity);

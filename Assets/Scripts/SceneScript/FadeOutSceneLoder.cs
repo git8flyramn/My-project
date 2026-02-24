@@ -27,7 +27,7 @@ public class FadeOutSceneLoder : MonoBehaviour
         fadePanel.enabled = true;//パネルを有効化
         float elapsedTime = 0.0f;//経過時間を初期化
         Color startColor = fadePanel.color;//フェードパネルの開始の色を取得
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 1.0f);
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, startColor.a);
 
         while (elapsedTime < fadeTime)
         {

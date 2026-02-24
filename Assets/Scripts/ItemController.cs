@@ -10,6 +10,7 @@ public class ItemController : MonoBehaviour
     
     public float DestroyTime;
     public float flowSpeed;
+    public float RegenerateValue = 0.3f;
     public StaminaController stamina;
     void Start()
     {
@@ -37,7 +38,7 @@ public class ItemController : MonoBehaviour
             if (sc != null)
             {
                 Debug.Log("playerに接触したのでplayerのスタミナを回復します");
-                sc.RegenerateStamina(0.3f);
+                sc.RegenerateStamina(RegenerateValue);
                 Destroy(gameObject, DestroyTime);
             }
             else

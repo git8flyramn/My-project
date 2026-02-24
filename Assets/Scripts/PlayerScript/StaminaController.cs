@@ -8,9 +8,11 @@ public class StaminaController : MonoBehaviour
     public Slider DashGage;
     private float CurrentStamina; // 動作の時に増減する
     private float MaxStamina = 10.0f; //最大値(これを超えたらこの値に固定する)
+    private float MinStamina = 0.0f; //最小値
     private float Decstamina = 0.5f; //スタミナの減る量
+    private float adjustStamina = 10.0f;
   //  private float Addstamina = 0.5f;
-  
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,7 +28,7 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKey(KeyCode.F) &&  CurrentStamina > 0)
+       if(Input.GetKey(KeyCode.F) &&  CurrentStamina > MinStamina)
         {
             UseStamina(Decstamina * Time.deltaTime);
         }
@@ -36,15 +38,15 @@ public class StaminaController : MonoBehaviour
    
     public void UseStamina(float dec)
     {
-        CurrentStamina -= dec / 10;
-        CurrentStamina = Mathf.Clamp(CurrentStamina, 0f, MaxStamina);
+        CurrentStamina -= dec / adjustStamina;
+        CurrentStamina = Mathf.Clamp(CurrentStamina, MinStamina, MaxStamina);
         StaminaUpdate();
     }
 
     public void RegenerateStamina(float add)
     {
         CurrentStamina += add;
-        CurrentStamina = Mathf.Clamp(CurrentStamina, 0f, MaxStamina);
+        CurrentStamina = Mathf.Clamp(CurrentStamina, MinStamina, MaxStamina);
         StaminaUpdate();
     }
 
