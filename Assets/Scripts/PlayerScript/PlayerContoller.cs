@@ -18,6 +18,7 @@ public class PlayerContoller : MonoBehaviour
     private float dash = 15.0f;
     private float g = 9.8f;
     private float speed = 10.0f;
+    private float decStamina = 0.01f;//スタミナの減少量
 
     //  private float sprint = 15.0f; //加速したスピード
     // private float g = 9.8f; //重力
@@ -51,7 +52,7 @@ public class PlayerContoller : MonoBehaviour
         IsRun = true;
         if (Input.GetKeyDown(KeyCode.G))
         {
-            stamina.UseStamina(0.01f);
+            stamina.UseStamina(decStamina);
             ParticleSystem.Play();
             Debug.Log("ダッシュエフェクト再生");
             defaultSpeed = dash;

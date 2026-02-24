@@ -11,11 +11,11 @@ public class TrainManeger : MonoBehaviour
     public GameObject Train;
     public Transform TrainPlace;
     [SerializeField] private GameObject TrainPool;
-    float GenerateTime;
+    private float TimeCount =  0.0f;
+    private float GenerateTime = 10.0f;
     void Start()
-    {
-       
-        GenerateTime = 0;
+    { 
+
     }
 
     // Update is called once per frame
@@ -26,19 +26,22 @@ public class TrainManeger : MonoBehaviour
 
     public void TrainMove()
     {
-        GenerateTime += Time.deltaTime;
-        if (GenerateTime > 10)
+        TimeCount += Time.deltaTime;
+        if (TimeCount > GenerateTime)
         {
-                                         //ObjectPool
-           GameObject train = TrainPool.GetComponent<ObjectPool>().Get();
+            //Debug.Log(Train == null ? "currentTrain is NULL" : "currentTrain OK");            
+            GameObject train = TrainPool.GetComponent<ObjectPool>().Get();
+             
+            if(train == null)
+            {
+                Debug.LogWarning("プールから取得したtrainがnullです");
+            }
+
+            //train.transform.position = TrainPlace.position;
+            //train.transform.rotation = Quaternion.identity;
             Debug.Log("電車が生成されました");
-          
-            Instantiate(Train, TrainPlace.position, Quaternion.identity);
+            
             GenerateTime = 0;
-        }
-        else
-        {
-            //Debug.LogWarning("電車が生成されません");
         }
     }
 
