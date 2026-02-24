@@ -31,12 +31,6 @@ public class TrainMove : MonoBehaviour
         
     }
 
-    private void Release()
-    {
-                                                        //GameObject
-        TrainPool.GetComponent<ObjectPool>().Release(this.gameObject);
-    }
-
 
 
 }

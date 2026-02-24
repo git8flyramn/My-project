@@ -13,6 +13,8 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private GameObject TrainPool;
     private float TimeCount =  0.0f;
     private float GenerateTime = 10.0f;
+    //Disappear
+    private float DisappearPosition = -10.0f;
     void Start()
     { 
 
@@ -26,23 +28,27 @@ public class TrainManeger : MonoBehaviour
 
     public void TrainMove()
     {
+        GameObject train = TrainPool.GetComponent<ObjectPool>().Get();
         TimeCount += Time.deltaTime;
         if (TimeCount > GenerateTime)
         {
             //Debug.Log(Train == null ? "currentTrain is NULL" : "currentTrain OK");            
-            GameObject train = TrainPool.GetComponent<ObjectPool>().Get();
-             
             if(train == null)
             {
                 Debug.LogWarning("プールから取得したtrainがnullです");
             }
-
-            //train.transform.position = TrainPlace.position;
-            //train.transform.rotation = Quaternion.identity;
-            Debug.Log("電車が生成されました");
-            
+            train.transform.position = TrainPlace.position;
+            train.transform.rotation = Quaternion.identity;
+          //  Debug.Log("電車が生成されました");
             GenerateTime = 0;
         }
+
+        if(train.transform.position .z < DisappearPosition)
+        {
+            TrainPool.GetComponent<ObjectPool>().Release(train);
+            Debug.Log("電車が消滅します");
+        }
+
     }
 
 }

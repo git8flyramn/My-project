@@ -8,13 +8,14 @@ public class ObjectPool : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private ObjectPool<GameObject> pool;
-   
+    
      [SerializeField] private GameObject targetObject;
     
     void Start()
     {                                   //生成     アクティブ化　非アクティブ
         pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, false, 5, 5);
 
+       
 
     }
 
@@ -27,11 +28,11 @@ public class ObjectPool : MonoBehaviour
     private GameObject SetUpPool()
     {
         Debug.Log("オブジェクトが生成されました");
-        Vector3 initPosition = Vector3.zero;
-                                                                       //Quaternion.identity
+        Vector3 initPosition;
+        //Quaternion.identity
         GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
-        return objectClone;
 
+        return objectClone;
 
     }
 
