@@ -15,7 +15,7 @@ public class PlayerContoller : MonoBehaviour
     private Animator anim;
     Vector3 moveDirection = Vector3.zero;
     private float defaultSpeed = 10.0f;//通常のスピード 
-    private float dash = 15.0f;
+    private float dash = 20.0f;
     private float g = 9.8f;
     private float speed = 10.0f;
     private float decStamina = 0.01f;//スタミナの減少量

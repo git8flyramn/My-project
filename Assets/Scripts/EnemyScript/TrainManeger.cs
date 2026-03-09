@@ -14,7 +14,7 @@ public class TrainManeger : MonoBehaviour
     private float TimeCount =  0.0f;
     private float GenerateTime = 10.0f;
     //Disappear
-    private float DisappearPosition = -10.0f;
+    private float DisappearPosition = 10.0f;
     void Start()
     { 
 

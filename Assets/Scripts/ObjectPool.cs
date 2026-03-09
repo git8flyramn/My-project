@@ -28,8 +28,8 @@ public class ObjectPool : MonoBehaviour
     private GameObject SetUpPool()
     {
         Debug.Log("オブジェクトが生成されました");
-        Vector3 initPosition;
-        //Quaternion.identity
+        Vector3 initPosition = transform.position;
+        
         GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
 
         return objectClone;

@@ -1005,7 +1005,7 @@ Transform:
   m_GameObject: {fileID: 816368633}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -11.24, y: 0, z: -38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1306,7 +1306,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &942690134
 Transform:
   m_ObjectHideFlags: 0
@@ -1315,12 +1315,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942690133}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.2, y: 2.96, z: -8.1}
+  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.47999954, y: 1.75, z: 14.76}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1502852044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!199 &942690135
 ParticleSystemRenderer:
@@ -6594,6 +6594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RecoveryItem: {fileID: 3917244281574785422, guid: 1bc1d6e5214a235469732aba12fe0afb, type: 3}
   RecoveryItemPlace: {fileID: 2035557012}
+  GeneratetTime: 5
 --- !u!4 &1256962632
 Transform:
   m_ObjectHideFlags: 0
@@ -7051,7 +7052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6993820841710688619, guid: 8654dcade0947ad478c4c737b777fc24, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.14
+      value: -18.44
       objectReference: {fileID: 0}
     - target: {fileID: 6993820841710688619, guid: 8654dcade0947ad478c4c737b777fc24, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7376,6 +7377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1726683440}
+  - component: {fileID: 1726683441}
   m_Layer: 0
   m_Name: TrainPlace
   m_TagString: Untagged
@@ -7398,6 +7400,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726683441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726683439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a6b7789805a9a4583608a73a2501a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetObject: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
 --- !u!1 &1777603962
 GameObject:
   m_ObjectHideFlags: 0
@@ -7532,7 +7547,7 @@ Transform:
   m_GameObject: {fileID: 1787446453}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.56, y: 1.261, z: -186.9}
+  m_LocalPosition: {x: -6.06, y: 1.261, z: -186.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7552,7 +7567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Train: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
   TrainPlace: {fileID: 1726683440}
-  TrainPool: {fileID: 0}
+  TrainPool: {fileID: 1726683439}
 --- !u!1001 &1811333416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8179,6 +8194,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2037423119}
+    - targetCorrespondingSourceObject: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 942690134}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7370182767881078910, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       insertIndex: -1
@@ -8713,7 +8731,6 @@ SceneRoots:
   - {fileID: 1465186126}
   - {fileID: 2034550932831135290}
   - {fileID: 4907645955727407061}
-  - {fileID: 942690134}
   - {fileID: 835893088122656804}
   - {fileID: 933763662}
   - {fileID: 1061126301}
