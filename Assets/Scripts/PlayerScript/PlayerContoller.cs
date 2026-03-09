@@ -80,7 +80,8 @@ public class PlayerContoller : MonoBehaviour
         {
             moveDirection.y -= g * Time.deltaTime;
         }
-        anim.SetBool("IsRun", IsRun); con.Move(moveDirection * Time.deltaTime);
+        anim.SetBool("IsRun", IsRun); 
+        con.Move(moveDirection * Time.deltaTime);
 
 
 
