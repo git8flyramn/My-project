@@ -2,7 +2,9 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
+/// <summary>
+/// using UnityEditor.ShaderGraph.Internal;
+/// </summary>
 public class ItemController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
