@@ -11,21 +11,22 @@ public class ObjectPool : MonoBehaviour
     private ObjectPool<GameObject> pool;
     
      [SerializeField] private GameObject targetObject;
-     [SerializeField] private int TrainNum;
-    [SerializeField] private int MaxTrainNum; 
+      public int Max_train;
+ 
                      
 
 
 
     void Start()
-    {                                   //生成     アクティブ化　非アクティブ
-        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, false, TrainNum, MaxTrainNum);
+    {                                        //生成     アクティブ化　非アクティブ
+        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, collectionCheck:false, defaultCapacity: Max_train, maxSize: Max_train);
+        Max_train = 5;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Max_train = pool.CountActive;
     }
 
     private GameObject SetUpPool()
@@ -50,7 +51,8 @@ public class ObjectPool : MonoBehaviour
 
     public void OnDestory(GameObject objectClone)
     {
-            Destroy(objectClone.gameObject);
+        Debug.Log("電車が消滅します:destroy");
+        Destroy(objectClone.gameObject);
     }
 
     public GameObject Get()
@@ -60,6 +62,7 @@ public class ObjectPool : MonoBehaviour
 
     public void Release(GameObject objectClone)
     {
+       
         pool.Release(objectClone);
     }
 
