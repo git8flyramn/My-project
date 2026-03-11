@@ -15,13 +15,11 @@ public class PlayerContoller : MonoBehaviour
     private Animator anim;
     Vector3 moveDirection = Vector3.zero;
     private float defaultSpeed = 10.0f;//通常のスピード 
-    private float dash = 20.0f;
+    private float dash = 20.0f;        //ダッシュ時のスピード
     private float g = 9.8f;
-    private float speed = 10.0f;
+    private float Resetspeed = 10.0f; //元のスピードに戻すため
     private float decStamina = 0.01f;//スタミナの減少量
 
-    //  private float sprint = 15.0f; //加速したスピード
-    // private float g = 9.8f; //重力
     float Speed; //走っている時のスピード
 
     Vector3 startPos = Vector3.zero;
@@ -63,7 +61,7 @@ public class PlayerContoller : MonoBehaviour
             Debug.Log("ダッシュエフェクト停止");
             ParticleSystem.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
            
-            defaultSpeed = speed;
+            defaultSpeed = Resetspeed;
         }
      
         Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;

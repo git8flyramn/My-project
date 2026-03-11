@@ -10,6 +10,7 @@ public class ObjectPool : MonoBehaviour
     private ObjectPool<GameObject> pool;
     
      [SerializeField] private GameObject targetObject;
+     
     
     void Start()
     {                                   //生成     アクティブ化　非アクティブ

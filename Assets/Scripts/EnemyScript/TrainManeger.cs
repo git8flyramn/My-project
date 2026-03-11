@@ -14,7 +14,7 @@ public class TrainManeger : MonoBehaviour
     private float TimeCount =  0.0f;
     private float GenerateTime = 10.0f;
     //Disappear
-    private float DisappearPosition = 10.0f;
+    private float DisappearPosition =  0.0f;
     void Start()
     { 
 
@@ -32,18 +32,21 @@ public class TrainManeger : MonoBehaviour
         TimeCount += Time.deltaTime;
         if (TimeCount > GenerateTime)
         {
+
+            //Instantiate(Train, TrainPlace.position, Quaternion.identity);
+
             //Debug.Log(Train == null ? "currentTrain is NULL" : "currentTrain OK");            
-            if(train == null)
+            if (train == null)
             {
                 Debug.LogWarning("プールから取得したtrainがnullです");
             }
             train.transform.position = TrainPlace.position;
             train.transform.rotation = Quaternion.identity;
-          //  Debug.Log("電車が生成されました");
+            Debug.Log("電車が生成されました");
             GenerateTime = 0;
         }
 
-        if(train.transform.position .z < DisappearPosition)
+        if (train.transform.position.z < DisappearPosition)
         {
             TrainPool.GetComponent<ObjectPool>().Release(train);
             Debug.Log("電車が消滅します");

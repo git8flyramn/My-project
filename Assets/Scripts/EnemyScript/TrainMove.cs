@@ -10,7 +10,7 @@ public class TrainMove : MonoBehaviour
     private Rigidbody rb;
     private float moveTrain = 2.0f;
     private float MaxSpeed = 5.0f;
-    [SerializeField] private GameObject TrainPool;
+    //[SerializeField] private GameObject TrainPool;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
