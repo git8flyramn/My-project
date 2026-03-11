@@ -2,12 +2,14 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
+/// <summary>
+/// using UnityEditor.ShaderGraph.Internal;
+/// </summary>
 public class ItemController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    
+    //アイテムの制御に必要な物
     public float DestroyTime;
     public float flowSpeed;
     public float RegenerateValue = 0.3f;
