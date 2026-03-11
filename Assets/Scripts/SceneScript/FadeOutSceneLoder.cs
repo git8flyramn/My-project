@@ -10,7 +10,7 @@ public class FadeOutSceneLoder : MonoBehaviour
     
     
     public Image fadePanel;//フェード用のパネル
-    public float fadeTime = 1.0f; //フェードの完了にかかる時間
+    public float fadeTime = 3.0f; //フェードの完了にかかる時間
 
     void Start()
     {
@@ -37,7 +37,7 @@ public class FadeOutSceneLoder : MonoBehaviour
             yield return null;
         }
         fadePanel.color = endColor;
-        SceneManager.LoadScene("Egorun");
+        SceneManager.LoadScene("Title");
     }
 
     public void CallFadeOut()

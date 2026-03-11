@@ -9,7 +9,7 @@ public class TrainMove : MonoBehaviour
 
     private Rigidbody rb;
     private float moveTrain = 2.0f;
-    private float MaxSpeed = 5.0f;
+    private float MaxSpeed = 10.0f;
     //[SerializeField] private GameObject TrainPool;
     void Start()
     {

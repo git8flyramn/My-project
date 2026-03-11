@@ -6,14 +6,14 @@ public class GameStartButton : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private float StartTime = 2.0f;
+  //  private float StartTime = 2.0f;
     void Start()
     {
-        Invoke("StartGame", StartTime);
+      //Invoke("StartGame");
     }
      public void StartGame()
     {
-        SceneManager.LoadScene("Egorun");
+        SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
     }
     // Update is called once per frame
     void Update()
