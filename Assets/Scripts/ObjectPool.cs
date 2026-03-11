@@ -10,11 +10,12 @@ public class ObjectPool : MonoBehaviour
     private ObjectPool<GameObject> pool;
     
      [SerializeField] private GameObject targetObject;
-     
+     [SerializeField] private int TrainNum;
+   
     
     void Start()
     {                                   //生成     アクティブ化　非アクティブ
-        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, false, 5, 5);
+        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, false, TrainNum, TrainNum);
 
        
 
@@ -28,13 +29,12 @@ public class ObjectPool : MonoBehaviour
 
     private GameObject SetUpPool()
     {
-        Debug.Log("オブジェクトが生成されました");
-        Vector3 initPosition = transform.position;
         
-        GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
-
-        return objectClone;
-
+            Debug.Log("オブジェクトが生成されました");
+            Vector3 initPosition = transform.position;
+            GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
+            
+            return objectClone;
     }
 
     public void GetPooledObject(GameObject objectClone)
