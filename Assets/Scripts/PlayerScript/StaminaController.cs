@@ -9,8 +9,7 @@ public class StaminaController : MonoBehaviour
     private float CurrentStamina; // 動作の時に増減する
     private float MaxStamina = 10.0f; //最大値(これを超えたらこの値に固定する)
     private float MinStamina = 0.0f; //最小値
-    private float Decstamina = 0.5f; //スタミナの減る量
-    private float adjustStamina = 10.0f;
+     private float adjustStamina = 10.0f;
   //  private float Addstamina = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,17 +27,17 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKey(KeyCode.F) &&  CurrentStamina > MinStamina)
+        if(Input.GetKey(KeyCode.G))
         {
-            UseStamina(Decstamina * Time.deltaTime);
+            UseStamina(0.01f);
         }
-       
     }
 
    
     public void UseStamina(float dec)
     {
         CurrentStamina -= dec / adjustStamina;
+        Debug.Log("スタミナ減少");
         CurrentStamina = Mathf.Clamp(CurrentStamina, MinStamina, MaxStamina);
         StaminaUpdate();
     }

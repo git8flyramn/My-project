@@ -11,7 +11,7 @@ public class ObjectPool : MonoBehaviour
     private ObjectPool<GameObject> pool;
     
      [SerializeField] private GameObject targetObject;
-      public int Max_train;
+     [SerializeField] private int  Max_train;
  
                      
 
@@ -36,7 +36,6 @@ public class ObjectPool : MonoBehaviour
             Vector3 initPosition = transform.position;
             GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
             return objectClone;
-          
     }
 
     public void GetPooledObject(GameObject objectClone)
@@ -51,7 +50,6 @@ public class ObjectPool : MonoBehaviour
 
     public void OnDestory(GameObject objectClone)
     {
-        Debug.Log("ìdé‘Ç™è¡ñ≈ÇµÇ‹Ç∑:destroy");
         Destroy(objectClone.gameObject);
     }
 

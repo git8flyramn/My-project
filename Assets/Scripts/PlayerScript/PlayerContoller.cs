@@ -18,7 +18,7 @@ public class PlayerContoller : MonoBehaviour
     private float dash = 20.0f;        //ダッシュ時のスピード
     private float g = 9.8f;
     private float Resetspeed = 10.0f; //元のスピードに戻すため
-    private float decStamina = 0.01f;//スタミナの減少量
+    private float decStamina = 0.05f;//スタミナの減少量
 
     float Speed; //走っている時のスピード
 

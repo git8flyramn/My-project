@@ -30,20 +30,23 @@ public class TrainManeger : MonoBehaviour
      void TrainMove()
     {
         TimeCount += Time.deltaTime;
-        if (TimeCount > GenerateTime )
+        if (TimeCount > GenerateTime)
         {
             GameObject train = Pool.GetComponent<ObjectPool>().Get();
             train.transform.position = TrainPlace.transform.position;
             train.transform.rotation = Quaternion.identity;
             TimeCount = 0.0f;
         }
-         
-        if(Train.transform.position.y < 0 )
+        else if(TimeCount == 0.0f)
         {
-            Pool.GetComponent<ObjectPool>().Release(Train);
             Debug.Log("ìdé‘Ç™è¡ñ≈ÇµÇ‹Ç∑");
-
+            Pool.GetComponent<ObjectPool>().Release(Train);
+          
         }
+
+
+       
+        
 
 
 
