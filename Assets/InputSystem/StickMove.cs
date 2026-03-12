@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 public class StickMove : MonoBehaviour
 {
 
-     private float moveSpeed = 10f;
+  
       void Start()
     {
        
