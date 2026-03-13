@@ -19,11 +19,12 @@ public class TrainMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        Debug.Log("“dŽÔ‚ª“®‚¢‚Ä‚¢‚é");
         FixedUpdate();
     }
     private void FixedUpdate()
     {
-        
+       
        rb.AddForce(transform.forward * moveTrain, ForceMode.Acceleration);
        if (rb.angularVelocity.magnitude > MaxSpeed)
        {
