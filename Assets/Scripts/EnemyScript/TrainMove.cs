@@ -23,6 +23,7 @@ public class TrainMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        
        rb.AddForce(transform.forward * moveTrain, ForceMode.Acceleration);
        if (rb.angularVelocity.magnitude > MaxSpeed)
        {

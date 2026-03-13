@@ -5,4 +5,16 @@ using UnityEngine;
 public class FixedJoystick : Joystick
 {
 
+   
+
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    public void Update()
+    {
+        
+    }
 }
