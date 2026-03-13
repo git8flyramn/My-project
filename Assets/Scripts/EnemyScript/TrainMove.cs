@@ -12,7 +12,6 @@ public class TrainMove : MonoBehaviour
     
   //  private float moveTrain = 3.0f;
     private float MoveSpeed = 5.0f;
-    //[SerializeField] private GameObject TrainPool;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,7 +20,6 @@ public class TrainMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Debug.Log("“dŽÔ‚ª“®‚¢‚Ä‚¢‚é");
         FixedUpdate();
     }
     private void FixedUpdate()

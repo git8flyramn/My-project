@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
      public Transform WalkEnemyPlace;
      public GameObject RunEnemy;
      public Transform RunEnemyPlace;
+    public int GenerateTime = 5;
 
    
     float time;
@@ -28,7 +29,7 @@ public class EnemyManager : MonoBehaviour
 
         time += Time.deltaTime;
 
-        if (time > 5)
+        if (time > GenerateTime)
         {
             //敵の生成  誰を　　　　　　どの位置に　　　　　　　　どの方向
             Instantiate(WalkEnemy, WalkEnemyPlace.position, Quaternion.identity);
@@ -39,6 +40,3 @@ public class EnemyManager : MonoBehaviour
 
 
 }
-
-
-//

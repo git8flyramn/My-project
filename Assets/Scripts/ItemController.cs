@@ -12,7 +12,7 @@ public class ItemController : MonoBehaviour
     //アイテムの制御に必要な物
     public float DestroyTime;
     public float flowSpeed;
-    public float RegenerateValue = 0.3f;
+    public float RegenerateValue = 1.0f;
     public StaminaController stamina;
     void Start()
     {
