@@ -10,7 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.1206
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,7 +95,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8428572456103809679}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -118,7 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7fc48149d9f5641b24ffad00c30442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrainPool: {fileID: 0}
 --- !u!65 &2422942626185869658
 BoxCollider:
   m_ObjectHideFlags: 0

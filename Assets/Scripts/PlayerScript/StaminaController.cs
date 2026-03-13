@@ -27,7 +27,7 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.G))
+        if(Input.GetKeyDown(KeyCode.G))
         {
             UseStamina(0.01f);
         }

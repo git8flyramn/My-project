@@ -11,6 +11,7 @@ public class TrainManeger : MonoBehaviour
     
     public GameObject Train;
     public Transform TrainPlace;
+    public Transform SecondTrainPlace;
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
   //  private float DestroyTime = 0.0f;
