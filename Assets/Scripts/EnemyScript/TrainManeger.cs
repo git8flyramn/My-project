@@ -10,10 +10,12 @@ public class TrainManeger : MonoBehaviour
 
     
     public GameObject Train;
+    public GameObject SecondTrain;
     public Transform TrainPlace;
-    public Transform SecondTrain;
+    public Transform SecondTrainPlace;
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
+    public float TimeInterval;
   //  private float DestroyTime = 0.0f;
     private float GenerateTime = 5.0f;
     //Disappear
