@@ -50,7 +50,7 @@ public class TrainManeger : MonoBehaviour
         else if (CurrntTrainNum > MaxTrain)
         {   
             Debug.Log("ìdé‘Ç™è¡ñ≈ÇµÇ‹Ç∑");
-            Pool.GetComponent<ObjectPool>().OnDestory(Train);
+            Pool.GetComponent<ObjectPool>().Release(Train);
         }
     }
   
