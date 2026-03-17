@@ -17,7 +17,7 @@ public class ObjectPool : MonoBehaviour
     void Start()
     {
                                    //生成     アクティブ化　非アクティブ    破棄
-        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
+        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool,collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
        
     }
 
@@ -49,10 +49,10 @@ public class ObjectPool : MonoBehaviour
         objectClone.gameObject.SetActive(false);
     }
 
-    public void OnDestory(GameObject objectClone)
-    {
-        Destroy(objectClone);
-    }
+    //public void OnDestory(GameObject objectClone)
+    //{
+    //    Destroy(objectClone);
+    //}
 
     public GameObject Get()
     {
