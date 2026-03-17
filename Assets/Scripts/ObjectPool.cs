@@ -12,14 +12,15 @@ public class ObjectPool : MonoBehaviour
     
      [SerializeField] private GameObject targetObject;
      [SerializeField] private int  Max_train;
- 
-                     
+   
 
 
 
     void Start()
-    {                                        //生成     アクティブ化　非アクティブ
-        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, collectionCheck:false, defaultCapacity: Max_train, maxSize: Max_train);
+    {
+        //生成     アクティブ化　非アクティブ
+        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
+
         Max_train = 5;
     }
 

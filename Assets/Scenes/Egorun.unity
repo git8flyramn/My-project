@@ -7249,37 +7249,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5b37f1b1ef5a3141852f420bba785e4, type: 3}
---- !u!1 &956717503
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 956717504}
-  m_Layer: 0
-  m_Name: TrainPlace (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &956717504
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956717503}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.43862888, z: -0, w: 0.89866835}
-  m_LocalPosition: {x: -23.29, y: 2.99, z: -583.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 52.033, z: 0}
 --- !u!1001 &958059282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9309,9 +9278,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Train: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
+  SecondTrain: {fileID: 6855479284151090953, guid: f180af16ed498fa44b3c5d4033a1d287, type: 3}
   TrainPlace: {fileID: 1726683440}
-  SecondTrain: {fileID: 956717504}
+  SecondTrainPlace: {fileID: 275162171}
   Pool: {fileID: 816368634}
+  TimeInterval: 0
 --- !u!1001 &1790166744
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9494,6 +9465,7 @@ MonoBehaviour:
   WalkEnemyPlace: {fileID: 1409995037}
   RunEnemy: {fileID: 8959490245004730528, guid: 73a107a5ca9715845ae07625c8b206c4, type: 3}
   RunEnemyPlace: {fileID: 253265321}
+  GenerateTime: 5
 --- !u!1001 &1862090784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11582,7 +11554,6 @@ SceneRoots:
   - {fileID: 1256962632}
   - {fileID: 1787446455}
   - {fileID: 1726683440}
-  - {fileID: 956717504}
   - {fileID: 275162171}
   - {fileID: 534125262}
   - {fileID: 676079374}

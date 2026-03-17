@@ -15,7 +15,6 @@ public class TrainManeger : MonoBehaviour
     public Transform SecondTrainPlace;
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
-    public float TimeInterval = 3.0f;
   //  private float DestroyTime = 0.0f;
     private float GenerateTime = 5.0f;
     //Disappear
@@ -35,6 +34,8 @@ public class TrainManeger : MonoBehaviour
         TimeCount += Time.deltaTime;
         if (TimeCount > GenerateTime)
         {
+            Debug.Log("2‚Â–Ú‚Ì“dÔ‚Ì¶¬");
+            Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
             GameObject train = Pool.GetComponent<ObjectPool>().Get();
             train.transform.position = TrainPlace.transform.position;
             train.transform.rotation = Quaternion.identity;
@@ -45,12 +46,6 @@ public class TrainManeger : MonoBehaviour
             Debug.Log("“dÔ‚ªÁ–Å‚µ‚Ü‚·");
             Pool.GetComponent<ObjectPool>().Release(Train);
 
-        }
-
-        if(TimeCount > TimeInterval)
-        {
-            Debug.Log("2‚Â–Ú‚Ì“dÔ‚Ì¶¬");
-            Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
         }
     }
   
