@@ -12,7 +12,9 @@ public class TrainManeger : MonoBehaviour
     public GameObject Train;
     public GameObject SecondTrain;
     public Transform TrainPlace;
-    public Transform SecondTrainPlace;
+    public int CurrntTrainNum;
+    public int MaxTrain;
+    //public Transform SecondTrainPlace;
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
   //  private float DestroyTime = 0.0f;
@@ -21,6 +23,8 @@ public class TrainManeger : MonoBehaviour
   //  private float DisappearPosition =  -30.0f;
     void Start()
     {
+        MaxTrain = Pool.GetComponent<ObjectPool>().GetTrainNum();
+        CurrntTrainNum = 0;
     }
 
     // Update is called once per frame
@@ -32,20 +36,21 @@ public class TrainManeger : MonoBehaviour
     void TrainMove()
     {
         TimeCount += Time.deltaTime;
+       
         if (TimeCount > GenerateTime)
         {
-            Debug.Log("2Ç¬ñ⁄ÇÃìdé‘ÇÃê∂ê¨");
-            Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
+            Debug.Log("ìdé‘ÇÃê∂ê¨");
+            //  Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
             GameObject train = Pool.GetComponent<ObjectPool>().Get();
             train.transform.position = TrainPlace.transform.position;
             train.transform.rotation = Quaternion.identity;
+            CurrntTrainNum += 1;
             TimeCount = 0.0f;
         }
-        else if (TimeCount == 0.0f)
-        {
+        else if (CurrntTrainNum > MaxTrain)
+        {   
             Debug.Log("ìdé‘Ç™è¡ñ≈ÇµÇ‹Ç∑");
-            Pool.GetComponent<ObjectPool>().Release(Train);
-
+            Pool.GetComponent<ObjectPool>().OnDestory(Train);
         }
     }
   

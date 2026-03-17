@@ -12,16 +12,15 @@ public class ObjectPool : MonoBehaviour
     
      [SerializeField] private GameObject targetObject;
      [SerializeField] private int  Max_train;
-   
+     [SerializeField] private PooledObject objectToPool;
 
 
 
     void Start()
     {
-        //生成     アクティブ化　非アクティブ
+                                   //生成     アクティブ化　非アクティブ    破棄
         pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool, OnDestory, collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
-
-        Max_train = 5;
+      
     }
 
     // Update is called once per frame
@@ -30,10 +29,11 @@ public class ObjectPool : MonoBehaviour
         Max_train = pool.CountActive;
     }
 
+    //objectPool.Get()の時に呼ばれる機能
     private GameObject SetUpPool()
     {
         
-            Debug.Log("オブジェクトが生成されました");
+           // Debug.Log("オブジェクトが生成されました");
             Vector3 initPosition = transform.position;
             GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
             return objectClone;
@@ -51,7 +51,7 @@ public class ObjectPool : MonoBehaviour
 
     public void OnDestory(GameObject objectClone)
     {
-        Destroy(objectClone.gameObject);
+        Destroy(objectClone);
     }
 
     public GameObject Get()
@@ -61,8 +61,13 @@ public class ObjectPool : MonoBehaviour
 
     public void Release(GameObject objectClone)
     {
-       
         pool.Release(objectClone);
     }
 
+    //電車の最大数の取得
+    public int GetTrainNum()
+    {
+        return Max_train;
+
+    }
 }
