@@ -12,14 +12,15 @@ public class TrainManeger : MonoBehaviour
     public GameObject Train;
     public GameObject SecondTrain;
     public Transform TrainPlace;
-    public int MaxTrain;
+   
     public Transform SecondTrainPlace;
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
-    private float GenerateTime = 5.0f;
+    private float Timeinterval = 0.0f;
+    private float GenerateTime = 10.0f;
     void Start()
     {
-        MaxTrain = Pool.GetComponent<ObjectPool>().GetTrainNum();
+     
        
     }
 
@@ -32,15 +33,21 @@ public class TrainManeger : MonoBehaviour
     void TrainMove()
     {
         TimeCount += Time.deltaTime;
-       
+        Timeinterval += Time.deltaTime;
         if (TimeCount > GenerateTime)
         {
             Debug.Log("ìdé‘ÇÃê∂ê¨");
-            Instantiate(Train, SecondTrainPlace.position, Quaternion.identity);
             GameObject train = Pool.GetComponent<ObjectPool>().Get();
             train.transform.position = TrainPlace.transform.position;
             train.transform.rotation = Quaternion.identity;
             TimeCount = 0.0f;
+        }
+
+        if (Timeinterval > GenerateTime)
+        {
+            Debug.Log("2Ç¬ñ⁄ÇÃìdé‘ê∂ê¨");
+            Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
+            Timeinterval = 0.0f;
         }
       
     }

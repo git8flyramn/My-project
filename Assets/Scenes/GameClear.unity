@@ -641,11 +641,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 725872702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae42c85405e00c24a9726c77951d883d, type: 3}
+  m_Script: {fileID: 11500000, guid: ffa36c8d90c693c4dae6e0936ad1f838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  clearSceneName: 
+  scoreText: {fileID: 1812443295}
 --- !u!1 &971055732
 GameObject:
   m_ObjectHideFlags: 0

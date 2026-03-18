@@ -10,10 +10,11 @@ public class TrainMove : MonoBehaviour
 
     private Rigidbody rb;
     
-  //  private float moveTrain = 3.0f;
-    private float MoveSpeed = 5.0f;
+    private float MoveSpeed = 2.0f;
+    private float Initvelocity = 1.0f;
     void Start()
     {
+
         rb = GetComponent<Rigidbody>();
     }
 
@@ -24,10 +25,8 @@ public class TrainMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-
-        rb.AddForce(Vector3.forward * MoveSpeed, ForceMode.Acceleration);
-
-
+        //   rb.AddForce(Vector3.forward * MoveSpeed, ForceMode.Acceleration);
+         rb.AddForce(Vector3.forward * Initvelocity * MoveSpeed,ForceMode.Acceleration);
     }
 
 
