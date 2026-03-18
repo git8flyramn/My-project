@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-public class StaminaController : MonoBehaviour
+public class DashController : MonoBehaviour
 {
     public Slider DashGage;
     private float CurrentStamina; // 動作の時に増減する
     private float MaxStamina = 10.0f; //最大値(これを超えたらこの値に固定する)
     private float MinStamina = 0.0f; //最小値
-    private float decStamina = 0.03f;
     private float adjustdecStamina = 10.0f;
     private float adjustaddStamina = 1.1f;
     // private float Addstamina = 0.5f;
@@ -18,7 +17,7 @@ public class StaminaController : MonoBehaviour
     void Start()
     {
         CurrentStamina = MaxStamina;
-        if(DashGage != null)
+        if (DashGage != null)
         {
             DashGage.maxValue = MaxStamina;
             DashGage.value = CurrentStamina;
@@ -29,19 +28,16 @@ public class StaminaController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.G))
-        {
-            UseStamina(decStamina);
-        }
     }
 
-   
+
     public void UseStamina(float dec)
     {
         CurrentStamina -= dec / adjustdecStamina;
-        Debug.Log("スタミナ減少");
+        // Debug.Log("スタミナ減少");
         CurrentStamina = Mathf.Clamp(CurrentStamina, MinStamina, MaxStamina);
         StaminaUpdate();
+
     }
 
     public void RegenerateStamina(float add)
@@ -53,7 +49,7 @@ public class StaminaController : MonoBehaviour
 
     private void StaminaUpdate()
     {
-        if(DashGage != null)
+        if (DashGage != null)
         {
             DashGage.value = CurrentStamina;
         }

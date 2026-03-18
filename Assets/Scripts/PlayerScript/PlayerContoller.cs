@@ -10,7 +10,7 @@ public class PlayerContoller : MonoBehaviour
 
 
     [SerializeField] ParticleSystem ParticleSystem;
-    public StaminaController stamina;
+    public DashController stamina;
     CharacterController con;
     private Animator anim;
     Vector3 moveDirection = Vector3.zero;
@@ -26,7 +26,7 @@ public class PlayerContoller : MonoBehaviour
     {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        stamina = GetComponent<StaminaController>();
+        stamina = GetComponent<DashController>();
         startPos = transform.position;
     }
 
@@ -50,7 +50,7 @@ public class PlayerContoller : MonoBehaviour
         {
             stamina.UseStamina(decStamina);
             ParticleSystem.Play();
-            Debug.Log("ダッシュエフェクト再生");
+          //  Debug.Log("ダッシュエフェクト再生");
             defaultSpeed = dash;
 
             //ダッシュ出来なくする->
@@ -67,7 +67,7 @@ public class PlayerContoller : MonoBehaviour
         }
         else if(Input.GetKeyUp(KeyCode.G))
         {
-            Debug.Log("ダッシュエフェクト停止");
+           // Debug.Log("ダッシュエフェクト停止");
             ParticleSystem.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
            
             defaultSpeed = ResetDefaultSpeed;

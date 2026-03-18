@@ -13,7 +13,7 @@ public class ItemController : MonoBehaviour
     public float DestroyTime;
     public float flowSpeed;
     public float RegenerateValue = 1.0f;
-    public StaminaController stamina;
+    public DashController stamina;
     void Start()
     {
         
@@ -36,11 +36,11 @@ public class ItemController : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            StaminaController sc = collision.gameObject.GetComponent<StaminaController>();
-            if (sc != null)
+            DashController dc = collision.gameObject.GetComponent<DashController>();
+            if (dc != null)
             {
                 Debug.Log("playerに接触したのでplayerのスタミナを回復します");
-                sc.RegenerateStamina(RegenerateValue);
+                dc.RegenerateStamina(RegenerateValue);
                 Destroy(gameObject, DestroyTime);
             }
             else
