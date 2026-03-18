@@ -11,7 +11,7 @@ public class TrainMove : MonoBehaviour
     private Rigidbody rb;
     
     private float MoveSpeed = 2.0f;
-    private float Initvelocity = 1.0f;
+    private float Initvelocity = 2.0f;
     void Start()
     {
 
