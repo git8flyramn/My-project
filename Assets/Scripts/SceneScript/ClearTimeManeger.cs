@@ -6,23 +6,23 @@ public class ClearTimeManeget : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
     private float ClearTime;
-    private float CurrntTime;
     void Start()
-    {
-        CurrntTime = 0;
+    { 
         ClearTime = 0;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        CurrntTime += 0.1f;
+    { 
     }
 
-    public float GetClearTime()
+    public float GetClearTime(float currentTime)
     {
-        ClearTime = CurrntTime;
+        ClearTime = currentTime;
+         Debug.Log($"{ClearTime}");
+
         return ClearTime;
+      
     }
 
 }

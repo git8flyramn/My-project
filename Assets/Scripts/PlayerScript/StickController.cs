@@ -23,7 +23,7 @@ public class StickController : MonoBehaviour
     private float decStamina = 2.0f;//スタミナの減少量
 
     public  FixedJoystick StickMove;
-    float MoveSpeed = 5.0f;
+    int MoveSpeed = 5;
 
    // Vector3 startPos = Vector3.zero;
     bool IsRun = false;
@@ -47,15 +47,14 @@ public class StickController : MonoBehaviour
     {
         IsRun = true;
 
-        ////必要な機能
+        //必要な機能
         
-
-        ////前に進む
+        //前に進む
          Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
          Vector3 moveZ = defaultSpeed * cameraForward;
-        // Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * defaultSpeed;
+        //Vector3 moveX = Camera.main.transform.right * Input.GetAxis("Horizontal") * defaultSpeed;
         StickDirection += this.transform.right * StickMove.Horizontal * MoveSpeed * Time.deltaTime;
-            //ダッシュ・エフェクト
+        //ダッシュ・エフェクト
         if (Input.GetKeyDown(KeyCode.G))
         {
             Dash.UseStamina(decStamina);
@@ -85,7 +84,7 @@ public class StickController : MonoBehaviour
 
         if(con.isGrounded)
         {
-            moveDirection = moveZ + StickDirection;
+            moveDirection = StickDirection + moveZ;
         }
         else
         {

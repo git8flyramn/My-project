@@ -69,7 +69,6 @@ public class PlayerContoller : MonoBehaviour
         {
            // Debug.Log("ダッシュエフェクト停止");
             ParticleSystem.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
-           
             defaultSpeed = ResetDefaultSpeed;
         }
      

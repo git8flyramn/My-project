@@ -11,22 +11,26 @@ public class GameClear : MonoBehaviour
 
   
     [SerializeField] private string clearSceneName;
-   
+    private ClearTimeManeget cleartime;
+    private float time = 0.0f;
     
     void Start()
     {
-      
+        cleartime = GetComponent<ClearTimeManeget>();
     }
     // Update is called once per frame
     void Update()
     {
-      
+        time += Time.deltaTime;
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
+      
         if (other.gameObject.CompareTag("Player"))
         {
+            cleartime.GetClearTime(time);
             SceneManager.LoadScene(clearSceneName);
         }
 
