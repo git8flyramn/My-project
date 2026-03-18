@@ -33,7 +33,7 @@ public class StickController : MonoBehaviour
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Dash = GetComponent<DashController>();
-     //   startPos = transform.position;
+     Å@//startPos = transform.position;
     }
 
     // Update is called once per frame

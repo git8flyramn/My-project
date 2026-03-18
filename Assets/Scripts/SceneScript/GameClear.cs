@@ -30,7 +30,7 @@ public class GameClear : MonoBehaviour
       
         if (other.gameObject.CompareTag("Player"))
         {
-            cleartime.GetClearTime(time);
+         //   cleartime.GetClearTime(time);
             SceneManager.LoadScene(clearSceneName);
         }
 

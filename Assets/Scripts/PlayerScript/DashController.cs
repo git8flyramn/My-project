@@ -7,19 +7,19 @@ public class DashController : MonoBehaviour
 {
     public Slider DashGage;
     private float CurrentStamina; // 動作の時に増減する
-    private float MaxStamina = 10.0f; //最大値(これを超えたらこの値に固定する)
-    private float MinStamina = 0.0f; //最小値
-    private float adjustdecStamina = 10.0f;
-    private float adjustaddStamina = 1.1f;
+    private float MaxDash = 10.0f; //最大値(これを超えたらこの値に固定する)
+    private float MinDash = 0.0f; //最小値
+    private float adjustdecDash = 10.0f;
+    private float adjustaddDash = 1.1f;
     // private float Addstamina = 0.5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CurrentStamina = MaxStamina;
+        CurrentStamina = MaxDash;
         if (DashGage != null)
         {
-            DashGage.maxValue = MaxStamina;
+            DashGage.maxValue = MaxDash;
             DashGage.value = CurrentStamina;
             StaminaUpdate();
         }
@@ -33,17 +33,17 @@ public class DashController : MonoBehaviour
 
     public void UseStamina(float dec)
     {
-        CurrentStamina -= dec / adjustdecStamina;
-        // Debug.Log("スタミナ減少");
-        CurrentStamina = Mathf.Clamp(CurrentStamina, MinStamina, MaxStamina);
+        CurrentStamina -= dec / adjustdecDash;
+         Debug.Log("スタミナ減少");
+        CurrentStamina = Mathf.Clamp(CurrentStamina, MinDash, MaxDash);
         StaminaUpdate();
 
     }
 
     public void RegenerateStamina(float add)
     {
-        CurrentStamina += add * adjustaddStamina;
-        CurrentStamina = Mathf.Clamp(CurrentStamina, MinStamina, MaxStamina);
+        CurrentStamina += add * adjustaddDash;
+        CurrentStamina = Mathf.Clamp(CurrentStamina, MinDash, MaxDash);
         StaminaUpdate();
     }
 

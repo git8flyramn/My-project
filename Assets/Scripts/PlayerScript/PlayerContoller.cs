@@ -18,7 +18,7 @@ public class PlayerContoller : MonoBehaviour
     private float dash = 20.0f;        //ダッシュ時のスピード
     private float g = 9.8f;
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
-    private float decStamina = 2.0f;//スタミナの減少量
+    private float decStamina = 0.01f;//スタミナの減少量
 
     Vector3 startPos = Vector3.zero;
     bool IsRun;
@@ -46,11 +46,11 @@ public class PlayerContoller : MonoBehaviour
     void MoveSet()
     { 
         IsRun = true;
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKey(KeyCode.G))
         {
             stamina.UseStamina(decStamina);
             ParticleSystem.Play();
-          //  Debug.Log("ダッシュエフェクト再生");
+             Debug.Log("ダッシュエフェクト再生");
             defaultSpeed = dash;
 
             //ダッシュ出来なくする->
@@ -67,7 +67,7 @@ public class PlayerContoller : MonoBehaviour
         }
         else if(Input.GetKeyUp(KeyCode.G))
         {
-           // Debug.Log("ダッシュエフェクト停止");
+             Debug.Log("ダッシュエフェクト停止");
             ParticleSystem.Stop(true,ParticleSystemStopBehavior.StopEmittingAndClear);
             defaultSpeed = ResetDefaultSpeed;
         }
