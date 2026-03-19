@@ -103,12 +103,12 @@ public class StickController : MonoBehaviour
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-        transform.Translate(forwardMove + side);
+       
 
         if (con.isGrounded)
         {
-          
 
+            transform.Translate(forwardMove + side);
         }
         else
         {
