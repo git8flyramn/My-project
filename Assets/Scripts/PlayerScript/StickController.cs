@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.SceneManagement;
+
 
 
 public class StickController : MonoBehaviour
@@ -11,14 +10,13 @@ public class StickController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] ParticleSystem ParticleSystem;
-    private Rigidbody rb;
     public DashController Dash;
     public CharacterController con;
     private Animator anim;
     Vector3 StickDirection = Vector3.zero;
     private float defaultSpeed = 10.0f;//通常のスピード 
     private float dash = 15.0f;        //ダッシュ時のスピード
-                                       // private float g = 9.8f;
+    private float gravity = 9.8f;
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float decStamina = 2.0f;//スタミナの減少量
     public FixedJoystick StickMove;
@@ -33,7 +31,6 @@ public class StickController : MonoBehaviour
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Dash = GetComponent<DashController>();
-        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -75,8 +72,16 @@ public class StickController : MonoBehaviour
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-        StickDirection = forwardMove + side;
-        con.Move(-StickDirection);
+         if(con.isGrounded)
+        {
+            StickDirection = forwardMove + side;
+        }
+        else
+        { 
+            StickDirection.y += gravity * Time.deltaTime;
+        }
+
+            con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
 
     }
@@ -90,10 +95,8 @@ public class StickController : MonoBehaviour
         Vector3 rayPosition = transform.position;
         RaycastHit hit;
         Ray ray = new Ray(rayPosition, Vector3.down * distance);
-      
-bool isGround=Physics.Raycast(ray,out hit,walkableGround);
-    //Debug.DrawRay    
-      Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red); 
+        bool isGround = Physics.Raycast(ray,out hit,walkableGround);
+        Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red); 
     }
 }
 
