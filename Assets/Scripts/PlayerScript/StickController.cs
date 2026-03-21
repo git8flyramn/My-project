@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 
 public class StickController : MonoBehaviour
@@ -13,7 +15,6 @@ public class StickController : MonoBehaviour
     public DashController Dash;
            CharacterController con;
     private Animator anim;
-    Vector3 moveDirection = Vector3.zero;
     Vector3 StickDirection = Vector3.zero;
    
     private float defaultSpeed = 10.0f;//通常のスピード 
@@ -22,9 +23,7 @@ public class StickController : MonoBehaviour
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float decStamina = 2.0f;//スタミナの減少量
     float rayDist;
-
     public  FixedJoystick StickMove;
-   // int MoveSpeed = 5;
 
    Vector3 startPos;
     bool IsRun = false;
@@ -69,13 +68,16 @@ public class StickController : MonoBehaviour
     //前に自動で進む
     void MoveStick()
     {
+        RayCast();
+
+
         IsRun = true;
         startPos = GameObject.Find("Player").transform.position;
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-        con.Move(-forwardMove + side);
-        RayCast();
+        StickDirection = forwardMove + side;  
+        con.Move(StickDirection);
         anim.SetBool("IsRun", IsRun);
        
     }
@@ -84,15 +86,25 @@ public class StickController : MonoBehaviour
     //RayCastによる接地判定
     void RayCast()
     {
-                 //GameObject
-      
+        //GameObject
+
         //rayの描画に必要な情報
+     
         Vector3 rayPositon = transform.position + new Vector3(0.0f, 0.0f, 0.0f);
-        Ray GroundCheckRay = new Ray(rayPositon, Vector3.down);
-        bool isGround = Physics.Raycast(GroundCheckRay, rayDist);
-        Debug.DrawRay(rayPositon, Vector3.down * rayDist, Color.red);
-        //isGroundが正常に作動しているか
+        Ray GroundCheckRay = new Ray(rayPositon, transform.forward);
+        bool isGround = Physics.Raycast(GroundCheckRay, rayDist,out RaycastHit hit,1.1f);
+        Debug.DrawRay(rayPositon, Vector3.forward * rayDist, Color.red);
+        
+        if(isGround)
+        {
+            StickDirection.y = -2f;
+        }
+        else
+        {
+            StickDirection.y + = g * Time.deltaTime;
+        }
         //Debug.Log(isGround);
+      
     }
   
 }
