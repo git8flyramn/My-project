@@ -13,35 +13,33 @@ public class StickController : MonoBehaviour
     [SerializeField] ParticleSystem ParticleSystem;
     private Rigidbody rb;
     public DashController Dash;
-           CharacterController con;
+    public CharacterController con;
     private Animator anim;
     Vector3 StickDirection = Vector3.zero;
-   
     private float defaultSpeed = 10.0f;//通常のスピード 
     private float dash = 15.0f;        //ダッシュ時のスピード
-    private float g = 10.0f;
+                                       // private float g = 9.8f;
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float decStamina = 2.0f;//スタミナの減少量
-    float rayDist;
-    public  FixedJoystick StickMove;
-
-   Vector3 startPos;
+    public FixedJoystick StickMove;
+    float distance = 1.0f;
+    public LayerMask walkableGround;
+    Vector3 startPos;
     bool IsRun = false;
-  　
-   
+
+
     void Start()
     {
-        con  = GetComponent<CharacterController>();
+        con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Dash = GetComponent<DashController>();
-        rb   = GetComponent<Rigidbody>();
-        rayDist = 1.0f;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+
         MoveStick();
         DashMove();
     }
@@ -64,7 +62,7 @@ public class StickController : MonoBehaviour
         }
     }
 
-    
+
     //前に自動で進む
     void MoveStick()
     {
@@ -72,41 +70,31 @@ public class StickController : MonoBehaviour
 
 
         IsRun = true;
-        startPos = GameObject.Find("Player").transform.position;
+       
+        //自走部分
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-        StickDirection = forwardMove + side;  
-        con.Move(StickDirection);
+        StickDirection = forwardMove + side;
+        con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
-       
+
     }
 
 
     //RayCastによる接地判定
-    void RayCast()
+      void RayCast()
     {
-        //GameObject
-
         //rayの描画に必要な情報
-     
-        Vector3 rayPositon = transform.position + new Vector3(0.0f, 0.0f, 0.0f);
-        Ray GroundCheckRay = new Ray(rayPositon, transform.forward);
-        bool isGround = Physics.Raycast(GroundCheckRay, rayDist,out RaycastHit hit,1.1f);
-        Debug.DrawRay(rayPositon, Vector3.forward * rayDist, Color.red);
-        
-        if(isGround)
-        {
-            StickDirection.y = -2f;
-        }
-        else
-        {
-            StickDirection.y + = g * Time.deltaTime;
-        }
-        //Debug.Log(isGround);
+        //rayの開始位置、方向、距離、衝突を無視する物
+        Vector3 rayPosition = transform.position;
+        RaycastHit hit;
+        Ray ray = new Ray(rayPosition, Vector3.down * distance);
       
+bool isGround=Physics.Raycast(ray,out hit,walkableGround);
+    //Debug.DrawRay    
+      Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red); 
     }
-  
 }
 
 /*
