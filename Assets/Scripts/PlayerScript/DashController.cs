@@ -9,7 +9,7 @@ public class DashController : MonoBehaviour
     private float CurrentStamina; // 動作の時に増減する
     private float MaxDash = 10.0f; //最大値(これを超えたらこの値に固定する)
     private float MinDash = 0.0f; //最小値
-    private float adjustdecDash = 10.0f;
+   // private float adjustdecDash = 10.0f;
     private float adjustaddDash = 1.1f;
     // private float Addstamina = 0.5f;
 
@@ -33,7 +33,7 @@ public class DashController : MonoBehaviour
 
     public void UseStamina(float dec)
     {
-        CurrentStamina -= dec / adjustdecDash;
+        CurrentStamina -= dec;
          Debug.Log("スタミナ減少");
         CurrentStamina = Mathf.Clamp(CurrentStamina, MinDash, MaxDash);
         StaminaUpdate();
