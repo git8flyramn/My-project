@@ -64,10 +64,7 @@ public class StickController : MonoBehaviour
     void MoveStick()
     {
         RayCast();
-
-
         IsRun = true;
-       
         //Ž©‘–•”•ª
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
@@ -80,8 +77,7 @@ public class StickController : MonoBehaviour
         { 
             StickDirection.y += gravity * Time.deltaTime;
         }
-
-            con.Move(-StickDirection);
+        con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
 
     }
