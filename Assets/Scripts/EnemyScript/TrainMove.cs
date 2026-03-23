@@ -1,6 +1,5 @@
 using System.Data;
 using UnityEngine;
-using UnityEngine.Pool;
 using Unity.VisualScripting;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,7 +24,6 @@ public class TrainMove : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        //   rb.AddForce(Vector3.forward * MoveSpeed, ForceMode.Acceleration);
          rb.AddForce(Vector3.forward * Initvelocity * MoveSpeed,ForceMode.Acceleration);
     }
 
