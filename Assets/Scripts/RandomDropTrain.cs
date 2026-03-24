@@ -10,7 +10,7 @@ public class RandomDropTrain : MonoBehaviour
     private float DropY = 1.0f;
     private float DropZ;
 
-    private float PosRange = 40.0f;
+  //  private float PosRange = 40.0f;
     //右から生成する座標
     private float MinRightRangeX;
     private float MaxRightRangeX;
@@ -31,7 +31,7 @@ public class RandomDropTrain : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class RandomDropTrain : MonoBehaviour
         }
         if(LeftGenerateTime > 5)
         {
-            DropLeftForwardTrain();
+           // DropLeftForwardTrain();
             LeftGenerateTime = 0.0f;
         }
     }
@@ -61,17 +61,18 @@ public class RandomDropTrain : MonoBehaviour
         MaxRightRangeZ = -837.0f; // 840
         MinRightRangeZ = -996.0f; //990
         DropX = Random.Range(MinRightRangeX, MaxRightRangeX);
-            DropZ = Random.Range(MinRightRangeZ, MaxRightRangeZ);
-            DropPos = new Vector3(DropX, DropY, DropZ);
-           Instantiate(DropObject, DropPos, Rotaion);
-            Debug.Log("電車が右向きで生成されました");
+        DropZ = Random.Range(MinRightRangeZ, MaxRightRangeZ);
+        DropPos = new Vector3(DropX, DropY, DropZ);
+        Instantiate(DropObject, DropPos, Rotaion);
+          
 
-        /*
-      for(int i = 0; i < 100; i+= PosRange )
-     {
-       Instantiate(DropObject, new Vector3( DropPos.x,  DropPos.y,  DropPos.z  + PosRange), Rotaion);
-     }
-      */
+
+        //for (int i = 0; i < 100; i += 40)
+        //{
+        //    Instantiate(DropObject, new Vector3(DropPos.x, DropPos.y, DropPos.z + PosRange), Rotaion);
+        //    Debug.Log("電車が右向きで生成されました");
+        //}
+
 
     }
 
