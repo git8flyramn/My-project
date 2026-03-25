@@ -11,7 +11,7 @@ public class StickController : MonoBehaviour
 
     [SerializeField] ParticleSystem ParticleSystem;
     public DashController Dash;
-    public CharacterController con;
+    private CharacterController con;
     private Animator anim;
     Vector3 StickDirection = Vector3.zero;
     private float defaultSpeed = 10.0f;//通常のスピード 

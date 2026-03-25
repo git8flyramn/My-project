@@ -20,11 +20,21 @@ public class TrainMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        FixedUpdate();
+        TrainForwardMove();
     }
-    private void FixedUpdate()
+    private void TrainForwardMove()
     {
          rb.AddForce(Vector3.forward * Initvelocity * MoveSpeed,ForceMode.Acceleration);
+    }
+
+    public void TrainRightMove()
+    {
+        rb.AddForce(Vector3.right * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+    }
+
+    public void TrainLeftMove()
+    {
+        rb.AddForce(Vector3.left * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
 

@@ -57,10 +57,10 @@ public class RandomDropTrain : MonoBehaviour
         //ê¸òHì‡ÇÃìdé‘ÇÃî≠ê∂îÕàÕ
         MaxRightRangeX = -50.0f;
         MinRightRangeX = -103.0f;
-
+        DropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         MaxRightRangeZ = -837.0f; // 840
         MinRightRangeZ = -996.0f; //990
-        DropX = Random.Range(MinRightRangeX, MaxRightRangeX);
+       
         DropZ = Random.Range(MinRightRangeZ, MaxRightRangeZ);
         DropPos = new Vector3(DropX, DropY, DropZ);
         Instantiate(DropObject, DropPos, Rotaion);
@@ -81,23 +81,20 @@ public class RandomDropTrain : MonoBehaviour
         //ê¸òHì‡ÇÃìdé‘ÇÃî≠ê∂îÕàÕ
         MaxLeftRangeX = 75.0f;
         MinLeftRangeX = 30.0f;
+        DropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
+
+
+
+
 
         MaxLeftRangeZ = -861.0f; //860
         MinLeftRangeZ = -1036.0f;//1040
      
-        DropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
+      
         DropZ = Random.Range(MinLeftRangeZ, MaxLeftRangeZ);
         DropPos = new Vector3(DropX, DropY, DropZ);
         Instantiate(DropObject, DropPos, Rotaion);
         Debug.Log("ìdé‘Ç™ç∂å¸Ç´Ç≈ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
-
-
-        /*
-         for(int i = 0; i < 100; i+= PosRange )
-        {
-          Instantiate(DropObject, new Vector3( DropPos.x,  DropPos.y,  DropPos.z  + PosRange), Rotaion);
-        }
-         */
 
     }
 }
