@@ -5,23 +5,18 @@ public class RandomDropTrain : MonoBehaviour
 {
 
     public GameObject DropObject;
-    //private int frame = 30;
+    private TrainMove move;
     private float DropX;
-    private float DropY = 1.0f;
+    private static float DropY;
     private float DropZ;
 
   //  private float PosRange = 40.0f;
     //右から生成する座標
     private float MinRightRangeX;
     private float MaxRightRangeX;
-    private float MinRightRangeZ;
-    private float MaxRightRangeZ;
-
     //左から生成
     private float MinLeftRangeX;
     private float MaxLeftRangeX;
-    private float MinLeftRangeZ;
-    private float MaxLeftRangeZ;
 
     private float RightGenerateTime = 0.0f;
     private float LeftGenerateTime = 0.0f;
@@ -31,70 +26,92 @@ public class RandomDropTrain : MonoBehaviour
 
     void Start()
     {
-        
+        DropY = 1.0f;
+        //右側の線路のX座標
+        MaxRightRangeX = -50.0f;
+        MinRightRangeX = -103.0f;
+
+        //側の線路のX座標
+        MaxLeftRangeX = 75.0f;
+        MinLeftRangeX = 30.0f;
+        move = GetComponent<TrainMove>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        RightGenerateTime += Time.deltaTime;
-        LeftGenerateTime += Time.deltaTime;
-        if (RightGenerateTime > 5)
-        {
-            DropRightForwardTrain();
-            RightGenerateTime = 0.0f;
-        }
-        if(LeftGenerateTime > 5)
-        {
-           // DropLeftForwardTrain();
-            LeftGenerateTime = 0.0f;
-        }
+
+        DropRightForwardTrain();
+        DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
     void DropRightForwardTrain()
     {
         //線路内の電車の発生範囲
-        MaxRightRangeX = -50.0f;
-        MinRightRangeX = -103.0f;
+        RightGenerateTime += Time.deltaTime;
         DropX = Random.Range(MinRightRangeX, MaxRightRangeX);
-        MaxRightRangeZ = -837.0f; // 840
-        MinRightRangeZ = -996.0f; //990
-       
-        DropZ = Random.Range(MinRightRangeZ, MaxRightRangeZ);
-        DropPos = new Vector3(DropX, DropY, DropZ);
+        //手前
+        if (RightGenerateTime == 5)
+        {
+            SetRangeDropZ(-835.0f, -842.0f);
+            DropPos = new Vector3(DropX, DropY, DropZ);
+        }
+        //奥 
+        if (RightGenerateTime == 6)
+        {
+            SetRangeDropZ(-994.0f, -1003.0f);
+            DropPos = new Vector3(DropX, DropY, DropZ);
+        }
+        //真ん中
+        if (RightGenerateTime == 7)
+        {
+            //線路の横幅の端の座標
+            SetRangeDropZ(-905.0f, -915.0f);
+            DropPos = new Vector3(DropX, DropY, DropZ);
+        }
+        move.TrainRightMove();
         Instantiate(DropObject, DropPos, Rotaion);
-          
-
-
-        //for (int i = 0; i < 100; i += 40)
-        //{
-        //    Instantiate(DropObject, new Vector3(DropPos.x, DropPos.y, DropPos.z + PosRange), Rotaion);
-        //    Debug.Log("電車が右向きで生成されました");
-        //}
-
-
+        Debug.Log("電車が右向きで生成されました");
     }
 
     void DropLeftForwardTrain()
     {
         //線路内の電車の発生範囲
-        MaxLeftRangeX = 75.0f;
-        MinLeftRangeX = 30.0f;
+        LeftGenerateTime += Time.deltaTime;
         DropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
-
-
-
-
-        MaxLeftRangeZ = -861.0f; //860
-        MinLeftRangeZ = -1036.0f;//1040
-     
-      
-        DropZ = Random.Range(MinLeftRangeZ, MaxLeftRangeZ);
-        DropPos = new Vector3(DropX, DropY, DropZ);
+        //手前
+        if (LeftGenerateTime == 5)
+        {
+            SetRangeDropZ(-860.0f, -868.0f);
+            DropPos = new Vector3(DropX, DropY, DropZ);
+        }
+        //真ん中
+        if (LeftGenerateTime == 6)
+        {
+            SetRangeDropZ(-941.0f, -953.0f);
+            DropPos = new Vector3(DropX, DropY, DropZ);
+        }
+        //奥
+        if (LeftGenerateTime == 7)
+        {
+            SetRangeDropZ(-1030.0f, -1040.0f);
+            DropPos = new Vector3(DropX, DropY, DropZ);
+        }
+        move.TrainLeftMove();
         Instantiate(DropObject, DropPos, Rotaion);
         Debug.Log("電車が左向きで生成されました");
 
+    }
+
+    private float SetRangeDropZ(float maxrangeZ, float minrangeZ)
+    {
+        float MaxRange;
+        float MinRange;
+        MaxRange = maxrangeZ;
+        MinRange = minrangeZ;
+        DropZ = Random.Range(MaxRange, MinRange);
+        return DropZ;
     }
 }
