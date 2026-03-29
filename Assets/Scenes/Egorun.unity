@@ -9811,10 +9811,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParticleSystem: {fileID: 942690136}
   Dash: {fileID: 911845749}
-  StickMove: {fileID: 465065045}
   walkableGround:
     serializedVersion: 2
     m_Bits: 0
+  StickMove: {fileID: 465065045}
 --- !u!1 &1502929964
 GameObject:
   m_ObjectHideFlags: 0
@@ -9831,7 +9831,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1502929965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9839,12 +9839,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1502929964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1983c374b1e18042b80953030baf56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DropObject: {fileID: 6855479284151090953, guid: f180af16ed498fa44b3c5d4033a1d287, type: 3}
+  DropObject: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
 --- !u!4 &1502929966
 Transform:
   m_ObjectHideFlags: 0
