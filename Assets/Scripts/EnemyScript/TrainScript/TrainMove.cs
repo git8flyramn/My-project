@@ -21,7 +21,7 @@ public class TrainMove : MonoBehaviour
     private void Update()
     {
         //TrainForwardMove();
-        TrainLeftMove();
+        //TrainRightMove();
     }
     private void TrainForwardMove()
     {

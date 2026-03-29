@@ -9,21 +9,27 @@ public class StickController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
     public DashController Dash;
     private CharacterController con;
     private Animator anim;
+    public LayerMask walkableGround;
+
     Vector3 StickDirection = Vector3.zero;
+    public FixedJoystick StickMove;
+
     private float defaultSpeed = 10.0f;//通常のスピード 
     private float dash = 15.0f;        //ダッシュ時のスピード
     private float gravity = 9.8f;
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float decStamina = 2.0f;//スタミナの減少量
-    public FixedJoystick StickMove;
-    float distance = 1.0f;
-    public LayerMask walkableGround;
-    Vector3 startPos;
+    private float distance = 1.0f;
     bool IsRun = false;
+
+
+    //Vector3 startPos;
+
 
 
     void Start()
@@ -69,7 +75,7 @@ public class StickController : MonoBehaviour
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-         if(con.isGrounded)
+        if(con.isGrounded)
         {
             StickDirection = forwardMove + side;
         }
