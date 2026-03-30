@@ -15,7 +15,6 @@ public class StickController : MonoBehaviour
     private CharacterController con;
     private Animator anim;
     public LayerMask walkableGround;
-
     Vector3 StickDirection = Vector3.zero;
     public FixedJoystick StickMove;
 
