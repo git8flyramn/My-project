@@ -10,7 +10,7 @@ public class FadeOutSceneLoder : MonoBehaviour
     
     
     public Image fadePanel;//フェード用のパネル
-    public float fadeTime = 5.0f; //フェードの完了にかかる時間
+    public float fadeTime = 10.0f; //フェードの完了にかかる時間
 
     void Start()
     {

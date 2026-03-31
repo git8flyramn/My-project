@@ -22,7 +22,7 @@ public class StickController : MonoBehaviour
     private float dash = 15.0f;        //ダッシュ時のスピード
     private float gravity = 9.8f;
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
-    private float decStamina = 2.0f;//スタミナの減少量
+    private float decStamina = 0.5f;//スタミナの減少量
     private float distance = 1.0f;
     bool IsRun = false;
 
@@ -48,19 +48,19 @@ public class StickController : MonoBehaviour
     //ダッシュの機能(あとでMoveStickと統合する)
     void DashMove()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKey(KeyCode.G))
         {
             Dash.UseStamina(decStamina);
             ParticleSystem.Play();
             Debug.Log("ダッシュエフェクト再生");
             defaultSpeed = dash;
         }
-        else if (Input.GetKeyUp(KeyCode.G))
+        else if(Input.GetKeyUp(KeyCode.G))
         {
             Debug.Log("ダッシュエフェクト停止");
-            ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-
-            defaultSpeed = ResetDefaultSpeed;
+            // ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            ParticleSystem.Stop();
+             defaultSpeed = ResetDefaultSpeed;
         }
     }
 
