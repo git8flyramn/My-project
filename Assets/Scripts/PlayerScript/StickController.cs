@@ -58,8 +58,8 @@ public class StickController : MonoBehaviour
         else if(Input.GetKeyUp(KeyCode.G))
         {
             Debug.Log("ダッシュエフェクト停止");
-            // ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            ParticleSystem.Stop();
+             ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+           // ParticleSystem.Stop();
              defaultSpeed = ResetDefaultSpeed;
         }
     }
