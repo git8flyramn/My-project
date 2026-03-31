@@ -7,7 +7,6 @@ public class RandomDropTrain : MonoBehaviour
 {
 
     public GameObject DropObject;
-        
     private float DropX;
     private static float DropY;
     private float DropZ;
@@ -36,6 +35,7 @@ public class RandomDropTrain : MonoBehaviour
     void Start()
     {
         DropY = 1.0f;
+      
         //右側の線路のX座標
         MaxRightRangeX = -50.0f;
         MinRightRangeX = -103.0f;
@@ -50,17 +50,16 @@ public class RandomDropTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-         DropRightForwardTrain();
-       // DropLeftForwardTrain();
+        DropRightForwardTrain();
+        DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
     void DropRightForwardTrain()
     {
         //線路内の電車の発生範囲
-        train = GetComponent<TrainMove>();
-        train.TrainRightMove();
+
+       
         FirstGenerateTime  += Time.deltaTime;
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime  += Time.deltaTime;
