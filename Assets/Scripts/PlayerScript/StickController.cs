@@ -20,8 +20,8 @@ public class StickController : MonoBehaviour
 
     private float defaultSpeed = 10.0f;//通常のスピード 
     private float dash = 15.0f;        //ダッシュ時のスピード
-    private float gravity = 9.8f;
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
+    private float gravity = 9.8f;
     private float decStamina = 0.5f;//スタミナの減少量
     private float distance = 1.0f;
     bool IsRun = false;
@@ -43,10 +43,9 @@ public class StickController : MonoBehaviour
     {
 
         MoveStick();
-        DashMove();
     }
     //ダッシュの機能(あとでMoveStickと統合する)
-    void DashMove()
+    public void DashMove()
     {
         if (Input.GetKey(KeyCode.G))
         {

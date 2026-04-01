@@ -1,52 +1,73 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
-using UnityEngine.Events;
-public class DashButtonController : MonoBehaviour
+using UnityEngine.EventSystems;
+public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    [SerializeField] float tapTime = 2.0f;
-     public UnityEvent OnLongTap;
 
-    private float StartTimeCount = 0.0f;
+    [SerializeField] ParticleSystem ParticleSystem;
+    public DashController Dash;
     private bool isLongTap = false;
-  
+    private float Taptime;
+    public float LongTapTime = 1f;
+
+    private float defaultSpeed = 10.0f;//通常のスピード 
+    private float dash = 15.0f;        //ダッシュ時のスピード
+    private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
+
     void Start()
     {
+        Dash = GetComponent<DashController>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-   public void PointEnter()
+    //ボタンの押し下げ
+   public void OnPointerDown(PointerEventData eventData)
    {
         isLongTap = true;
-        StartTimeCount = Time.time;
+        Taptime = 0f;
    }
+    //ボタンの押上
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        isLongTap = false;
+    }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if(isLongTap)
         {
-            float left_time = tapTime - (Time.time - StartTimeCount);
 
-            if(left_time < 0)
+            Taptime += Time.deltaTime;
+            if(Taptime >= LongTapTime)
             {
+
+                DashMove();
+                Debug.Log("Long Tap");
                 isLongTap = false;
-                StartTimeCount = 0.0f;
-                OnLongTap?.Invoke();
+
             }
         }
     }
 
-    public void PointExit()
+
+    private void DashMove()
     {
+       
         if(isLongTap)
         {
-            isLongTap = false;
+            Dash.UseStamina(0.3f);
+            ParticleSystem.Play();
+            Debug.Log("ダッシュエフェクト再生");
+            defaultSpeed = dash;
+        }
+        else if(isLongTap == false)
+        { 
+            Debug.Log("ダッシュエフェクト停止");
+            ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            // ParticleSystem.Stop();
+            defaultSpeed = ResetDefaultSpeed;
         }
     }
 }
