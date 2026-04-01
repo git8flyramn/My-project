@@ -50,8 +50,8 @@ public class RandomDropTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DropRightForwardTrain();
-        DropLeftForwardTrain();
+      //  DropRightForwardTrain();
+       // DropLeftForwardTrain();
     }
 
     //“dÔ‚ğ‰¡Œü‚«‰E‚©‚ç¶‚Å¶¬‚·‚é

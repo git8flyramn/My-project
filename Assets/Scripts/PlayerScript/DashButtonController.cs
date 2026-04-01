@@ -7,7 +7,7 @@ public class DashButtonController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     [SerializeField] float tapTime = 2.0f;
-    [SerializeField] UnityEvent OnLongTap;
+     public UnityEvent OnLongTap;
 
     private float StartTimeCount = 0.0f;
     private bool isLongTap = false;
