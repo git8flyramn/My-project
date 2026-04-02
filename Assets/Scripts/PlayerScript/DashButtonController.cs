@@ -12,7 +12,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     private bool isLongTap = false;
     private float Taptime;
     public float LongTapTime = 1f;
-
+    private float decStamina = 5.0f;
     private float defaultSpeed = 10.0f;//通常のスピード 
     private float dash = 15.0f;        //ダッシュ時のスピード
     private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
@@ -28,6 +28,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         isLongTap = true;
         Taptime = 0f;
    }
+
     //ボタンの押上
     public void OnPointerUp(PointerEventData eventData)
     {
@@ -41,45 +42,36 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         {
 
             Taptime += Time.deltaTime;
-            if(Taptime >= LongTapTime)
+            
+            //ボタンを長押ししている間
+            if (Taptime >= LongTapTime)
             {
 
                
                 Debug.Log("Long Tap");
                 StartDash();
-                
-                isLongTap = false;
-              
+                isLongTap = false; 
             }
-           
-               
-           
         }
     }
 
 
+    //長押しの間ダッシュ
     private void StartDash()
     {
-       
-        if(isLongTap == true)
-        {
-            Dash.UseStamina(10.0f);
-            ParticleSystem.Play();
-            Debug.Log("ダッシュエフェクト再生");
-            defaultSpeed = dash;
-            Debug.Log("ダッシュの速さ:" + defaultSpeed);
-        }
+      Dash.UseStamina(decStamina);
+      ParticleSystem.Play();
+      Debug.Log("ダッシュエフェクト再生");
+      defaultSpeed = dash;
+      Debug.Log("ダッシュの速さ:" + defaultSpeed);
     }
 
     private void StopDash()
     {
-        if (isLongTap == false)
-        {
-            Debug.Log("ダッシュエフェクト停止");
-            ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            // ParticleSystem.Stop();
-            defaultSpeed = ResetDefaultSpeed;
-            Debug.Log("ダッシュの速さ:" + defaultSpeed);
-        }
+      Debug.Log("ダッシュエフェクト停止");
+      ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+      // ParticleSystem.Stop();
+      defaultSpeed = ResetDefaultSpeed;
+      Debug.Log("ダッシュの速さ:" + defaultSpeed);   
     }
 }

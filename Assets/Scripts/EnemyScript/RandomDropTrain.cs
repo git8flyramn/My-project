@@ -43,8 +43,6 @@ public class RandomDropTrain : MonoBehaviour
         //側の線路のX座標
         MaxLeftRangeX = 75.0f;
         MinLeftRangeX = 30.0f;
-       
-
     }
 
     // Update is called once per frame
@@ -73,14 +71,11 @@ public class RandomDropTrain : MonoBehaviour
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             FirstGenerateTime = 0.0f;
-
-
         }
 
         //奥 
         if (SecondGenerateTime > 6)
         {
-
             SetRangePositionZ(-954.0f, -962.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
@@ -89,7 +84,6 @@ public class RandomDropTrain : MonoBehaviour
         //真ん中
         if (ThirdGenerateTime > 7)
         {
-
             //線路の横幅の端の座標
             SetRangePositionZ(-872.0f, -881.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);

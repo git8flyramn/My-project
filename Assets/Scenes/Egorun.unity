@@ -12803,7 +12803,7 @@ PrefabInstance:
     - target: {fileID: 1348727296958864349, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: stamina
       value: 
-      objectReference: {fileID: 911845749}
+      objectReference: {fileID: 0}
     - target: {fileID: 1348727296958864349, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: particle
       value: 
@@ -12815,7 +12815,7 @@ PrefabInstance:
     - target: {fileID: 1348727296958864349, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: ParticleSystem
       value: 
-      objectReference: {fileID: 942690136}
+      objectReference: {fileID: 0}
     - target: {fileID: 2318033421248420841, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -12834,7 +12834,7 @@ PrefabInstance:
       objectReference: {fileID: 911845750}
     - target: {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7370182767881078910, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Name
@@ -12884,7 +12884,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1348727296958864349, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
