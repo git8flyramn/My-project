@@ -32,6 +32,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     public void OnPointerUp(PointerEventData eventData)
     {
         isLongTap = false;
+        StopDash();
     }
 
     private void Update()
@@ -43,31 +44,42 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
             if(Taptime >= LongTapTime)
             {
 
-                DashMove();
+               
                 Debug.Log("Long Tap");
+                StartDash();
+                
                 isLongTap = false;
-
+              
             }
+           
+               
+           
         }
     }
 
 
-    private void DashMove()
+    private void StartDash()
     {
        
-        if(isLongTap)
+        if(isLongTap == true)
         {
-            Dash.UseStamina(0.3f);
+            Dash.UseStamina(10.0f);
             ParticleSystem.Play();
             Debug.Log("ダッシュエフェクト再生");
             defaultSpeed = dash;
+            Debug.Log("ダッシュの速さ:" + defaultSpeed);
         }
-        else if(isLongTap == false)
-        { 
+    }
+
+    private void StopDash()
+    {
+        if (isLongTap == false)
+        {
             Debug.Log("ダッシュエフェクト停止");
             ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             // ParticleSystem.Stop();
             defaultSpeed = ResetDefaultSpeed;
+            Debug.Log("ダッシュの速さ:" + defaultSpeed);
         }
     }
 }

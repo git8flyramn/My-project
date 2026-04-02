@@ -43,6 +43,7 @@ public class StickController : MonoBehaviour
     {
 
         MoveStick();
+        DashMove();
     }
     //ダッシュの機能(あとでMoveStickと統合する)
     public void DashMove()

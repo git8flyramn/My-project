@@ -7729,11 +7729,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 215
+      value: 158
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 137
+      value: 153
       objectReference: {fileID: 0}
     - target: {fileID: 2929252283123773938, guid: aaa2c939c0359ac4dbce3f49e8b90252, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7990,6 +7990,7 @@ GameObject:
   - component: {fileID: 1065032067}
   - component: {fileID: 1065032066}
   - component: {fileID: 1065032069}
+  - component: {fileID: 1065032070}
   m_Layer: 5
   m_Name: RunButton
   m_TagString: Untagged
@@ -8014,7 +8015,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 499, y: -97.6}
+  m_AnchoredPosition: {x: 460, y: -145}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1065032066
@@ -8108,9 +8109,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1065032064}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a079e2df0d58f90408ca043e60662fba, type: 3}
+  m_Script: {fileID: 11500000, guid: ad201d478b062e74b9562882f842da0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ParticleSystem: {fileID: 942690136}
+  Dash: {fileID: 911845749}
+  LongTapTime: 1
+--- !u!114 &1065032070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065032064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe8b07e94bc20e439694874d79ed5ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DashGage: {fileID: 911845750}
 --- !u!1 &1070233634
 GameObject:
   m_ObjectHideFlags: 0
@@ -12817,7 +12834,7 @@ PrefabInstance:
       objectReference: {fileID: 911845750}
     - target: {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7370182767881078910, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Name
