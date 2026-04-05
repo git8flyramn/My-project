@@ -11,7 +11,7 @@ public class StickController : MonoBehaviour
 
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
-    public DashController Dash;
+    public DashGage Dash;
     private CharacterController con;
     private Animator anim;
     public LayerMask walkableGround;
@@ -35,7 +35,7 @@ public class StickController : MonoBehaviour
     {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        Dash = GetComponent<DashController>();
+        Dash = GetComponent<DashGage>();
     }
 
     // Update is called once per frame
@@ -55,12 +55,12 @@ public class StickController : MonoBehaviour
             Debug.Log("ダッシュエフェクト再生");
             defaultSpeed = dash;
         }
-        else if(Input.GetKeyUp(KeyCode.G))
+        else if (Input.GetKeyUp(KeyCode.G))
         {
             Debug.Log("ダッシュエフェクト停止");
-             ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-           // ParticleSystem.Stop();
-             defaultSpeed = ResetDefaultSpeed;
+            ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            // ParticleSystem.Stop();
+            defaultSpeed = ResetDefaultSpeed;
         }
     }
 

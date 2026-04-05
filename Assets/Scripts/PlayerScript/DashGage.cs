@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-public class DashController : MonoBehaviour
+public class DashGage : MonoBehaviour
 {
-    public Slider DashGage;
+    public Slider Gage;
     private float CurrentStamina; // “®ì‚Ì‚É‘Œ¸‚·‚é
     private float MaxDash = 10.0f; //Å‘å’l(‚±‚ê‚ğ’´‚¦‚½‚ç‚±‚Ì’l‚ÉŒÅ’è‚·‚é)
     private float MinDash = 0.0f; //Å¬’l
@@ -17,10 +17,10 @@ public class DashController : MonoBehaviour
     void Start()
     {
         CurrentStamina = MaxDash;
-        if (DashGage != null)
+        if (Gage != null)
         {
-            DashGage.maxValue = MaxDash;
-            DashGage.value = CurrentStamina;
+            Gage.maxValue = MaxDash;
+            Gage.value = CurrentStamina;
             StaminaUpdate();
         }
     }
@@ -49,9 +49,9 @@ public class DashController : MonoBehaviour
 
     private void StaminaUpdate()
     {
-        if (DashGage != null)
+        if (Gage != null)
         {
-            DashGage.value = CurrentStamina;
+            Gage.value = CurrentStamina;
         }
     }
 

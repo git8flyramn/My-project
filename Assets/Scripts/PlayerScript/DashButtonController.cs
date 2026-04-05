@@ -8,11 +8,11 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
 
 
     [SerializeField] ParticleSystem ParticleSystem;
-    public DashController Dash;
+    public DashGage Dash;
    
     private bool isLongTap = false;
     private float Taptime;
-    public float LongTapTime = 1f;
+    public float LongTapTime = 3f;
     private float decStamina = 5.0f;
     private float defaultSpeed = 5.0f;//通常のスピード 
     private float dash = 15.0f;        //ダッシュ時のスピード
@@ -20,7 +20,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
 
     void Start()
     {
-        Dash = GetComponent<DashController>();
+        Dash = GetComponent<DashGage>();
        
     }
 
@@ -30,6 +30,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
 
         isLongTap = true;
         Debug.Log("Long Tap true");
+        defaultSpeed = dash;
         Taptime = 0f;
        
     }
@@ -49,16 +50,15 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         {
 
             Taptime += Time.deltaTime;
-            StartDash();
-            Debug.Log("Long Tap");
-            isLongTap = false;
+          
+         
             //ボタンを長押ししている間
-            //if (Taptime >= LongTapTime)
-            //{
-
-               
-               
-            //}
+            if (Taptime <= LongTapTime)
+            {
+                Debug.Log("Long Tap");
+                isLongTap = false;
+                StartDash();
+            }
         }
        
     }
