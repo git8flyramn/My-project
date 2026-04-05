@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-public class DashGage : MonoBehaviour
+public class DashGauge : MonoBehaviour
 {
-    public Slider Gage;
+    public Slider Gauge;
     private float CurrentStamina; // 動作の時に増減する
-    private float MaxDash = 10.0f; //最大値(これを超えたらこの値に固定する)
-    private float MinDash = 0.0f; //最小値
+    private float MaxGauge = 10.0f; //最大値(これを超えたらこの値に固定する)
+    private float MinGauge = 0.0f; //最小値
+    public float DashSpeed = 0.0f;
    // private float adjustdecDash = 10.0f;
     private float adjustaddDash = 1.1f;
     // private float Addstamina = 0.5f;
@@ -16,11 +17,11 @@ public class DashGage : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        CurrentStamina = MaxDash;
-        if (Gage != null)
+        CurrentStamina = MaxGauge;
+        if (Gauge != null)
         {
-            Gage.maxValue = MaxDash;
-            Gage.value = CurrentStamina;
+            Gauge.maxValue = MaxGauge;
+            Gauge.value = CurrentStamina;
             StaminaUpdate();
         }
     }
@@ -35,7 +36,7 @@ public class DashGage : MonoBehaviour
     {
         CurrentStamina -= dec;
          Debug.Log("スタミナ減少");
-        CurrentStamina = Mathf.Clamp(CurrentStamina, MinDash, MaxDash);
+        CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
         StaminaUpdate();
 
     }
@@ -43,15 +44,15 @@ public class DashGage : MonoBehaviour
     public void RegenerateStamina(float add)
     {
         CurrentStamina += add * adjustaddDash;
-        CurrentStamina = Mathf.Clamp(CurrentStamina, MinDash, MaxDash);
+        CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
         StaminaUpdate();
     }
 
     private void StaminaUpdate()
     {
-        if (Gage != null)
+        if (Gauge != null)
         {
-            Gage.value = CurrentStamina;
+            Gauge.value = CurrentStamina;
         }
     }
 
@@ -65,4 +66,10 @@ public class DashGage : MonoBehaviour
         }
     }
 
+    public void SetDashSpeed(float speed)
+    {
+        DashSpeed = speed;
+    }
+
+   
 }

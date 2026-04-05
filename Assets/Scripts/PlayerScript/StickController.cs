@@ -11,7 +11,7 @@ public class StickController : MonoBehaviour
 
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
-    public DashGage Dash;
+  
     private CharacterController con;
     private Animator anim;
     public LayerMask walkableGround;
@@ -19,10 +19,10 @@ public class StickController : MonoBehaviour
     public FixedJoystick StickMove;
 
     private float defaultSpeed = 10.0f;//通常のスピード 
-    private float dash = 15.0f;        //ダッシュ時のスピード
-    private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
+    public float dash = 15.0f;        //ダッシュ時のスピード
+    //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float gravity = 9.8f;
-    private float decStamina = 0.5f;//スタミナの減少量
+    //private float decStamina = 0.5f;//スタミナの減少量
     private float distance = 1.0f;
     bool IsRun = false;
 
@@ -35,7 +35,7 @@ public class StickController : MonoBehaviour
     {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        Dash = GetComponent<DashGage>();
+      
     }
 
     // Update is called once per frame
@@ -44,24 +44,13 @@ public class StickController : MonoBehaviour
 
         MoveStick();
         DashMove();
+
+
     }
     //ダッシュの機能(あとでMoveStickと統合する)
     public void DashMove()
-    {
-        if (Input.GetKey(KeyCode.G))
-        {
-            Dash.UseStamina(decStamina);
-            ParticleSystem.Play();
-            Debug.Log("ダッシュエフェクト再生");
-            defaultSpeed = dash;
-        }
-        else if (Input.GetKeyUp(KeyCode.G))
-        {
-            Debug.Log("ダッシュエフェクト停止");
-            ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-            // ParticleSystem.Stop();
-            defaultSpeed = ResetDefaultSpeed;
-        }
+    { 
+       defaultSpeed = dash;
     }
 
 
@@ -99,6 +88,31 @@ public class StickController : MonoBehaviour
         bool isGround = Physics.Raycast(ray,out hit,walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red); 
     }
+
+    //public void SetDashSpeed(float SPEED)
+    //{
+    //    defaultSpeed = SPEED;
+    //}
+
+
+
+
+    //if (Input.GetKey(KeyCode.G))
+    //{
+    //    Dash.UseStamina(decStamina);
+    //    ParticleSystem.Play();
+    //    Debug.Log("ダッシュエフェクト再生");
+    //    SetDash();
+    //}
+    //else if (Input.GetKeyUp(KeyCode.G))
+    //{
+    //    Debug.Log("ダッシュエフェクト停止");
+    //    ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+    //    // ParticleSystem.Stop();
+    //    defaultSpeed = ResetDefaultSpeed;
+    //}
+
+
 }
 
 /*
