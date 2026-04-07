@@ -2462,7 +2462,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe8b07e94bc20e439694874d79ed5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gage: {fileID: 911845750}
+  Gauge: {fileID: 0}
+  DashSpeed: 0
 --- !u!114 &911845750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8115,6 +8116,7 @@ MonoBehaviour:
   ParticleSystem: {fileID: 942690136}
   Dash: {fileID: 911845749}
   LongTapTime: 1
+  Sc: {fileID: 1502852050}
 --- !u!114 &1065032070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8127,7 +8129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe8b07e94bc20e439694874d79ed5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gage: {fileID: 911845750}
+  Gauge: {fileID: 911845750}
+  DashSpeed: 0
 --- !u!1001 &1071226306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10223,6 +10226,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   StickMove: {fileID: 465065045}
+  dash: 10
 --- !u!1 &1502929964
 GameObject:
   m_ObjectHideFlags: 0
@@ -12736,7 +12740,7 @@ PrefabInstance:
       objectReference: {fileID: 911845750}
     - target: {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7370182767881078910, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_Name
@@ -12787,8 +12791,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
     - {fileID: 1348727296958864349, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
+    - {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}

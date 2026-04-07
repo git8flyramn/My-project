@@ -66,8 +66,8 @@ public class RandomDropTrain : MonoBehaviour
         if (FirstGenerateTime > 5)
         {
             //Debug.Log("ìdé‘Ç™âEå¸Ç´Ç≈ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
-           
-            SetRangePositionZ(-808.0f, -817.0f);
+
+            SetRangePositionZ(-808.0f, -808.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             FirstGenerateTime = 0.0f;
