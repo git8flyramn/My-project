@@ -48,7 +48,7 @@ public class RandomDropTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      //  DropRightForwardTrain();
+       DropRightForwardTrain();
        // DropLeftForwardTrain();
     }
 
@@ -67,7 +67,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             //Debug.Log("電車が右向きで生成されました");
 
-            SetRangePositionZ(-808.0f, -808.0f);
+            SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             FirstGenerateTime = 0.0f;
@@ -76,7 +76,7 @@ public class RandomDropTrain : MonoBehaviour
         //奥 
         if (SecondGenerateTime > 6)
         {
-            SetRangePositionZ(-954.0f, -962.0f);
+            SetRangePositionZ(-942.0f, -949.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             SecondGenerateTime = 0.0f;
@@ -85,7 +85,7 @@ public class RandomDropTrain : MonoBehaviour
         if (ThirdGenerateTime > 7)
         {
             //線路の横幅の端の座標
-            SetRangePositionZ(-872.0f, -881.0f);
+            SetRangePositionZ(-863.0f, -872.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             ThirdGenerateTime = 0.0f;
@@ -110,7 +110,7 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (FirstGenerateTime > 5)
         {
-            SetRangePositionZ(-846.0f, -854.0f);
+            SetRangePositionZ(-839.0f, -849.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             FirstGenerateTime = 0.0f;
@@ -119,7 +119,7 @@ public class RandomDropTrain : MonoBehaviour
         //真ん中
         if (SecondGenerateTime > 6)
         {
-            SetRangePositionZ(-915.0f, -925.0f);
+            SetRangePositionZ(-896.0f, -906.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             SecondGenerateTime = 0.0f;
@@ -127,7 +127,7 @@ public class RandomDropTrain : MonoBehaviour
         ///奥
         if (ThirdGenerateTime > 7)
         {
-            SetRangePositionZ(-996.0f, -1006.0f);
+            SetRangePositionZ(-970.0f, -978.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             ThirdGenerateTime = 0.0f;
