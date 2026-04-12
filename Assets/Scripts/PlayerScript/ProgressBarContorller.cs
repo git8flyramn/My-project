@@ -2,7 +2,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.UI;
 public class ProgressBarContorller : MonoBehaviour
 {
@@ -29,11 +28,11 @@ public class ProgressBarContorller : MonoBehaviour
         
     }
 
-    private void StartProgressBar()
+    public void StartProgressBar()
     {
         CurrentProgress -= decProgress;
         Debug.Log("ÉoÅ[Ç™êiÇÒÇ≈Ç¢ÇÈ");
-        CurrentProgress = Math.Clamp(CurrentProgress, MinProgress, MaxProgress);
+        CurrentProgress = Mathf.Clamp(CurrentProgress, MinProgress, MaxProgress);
     }
 
 

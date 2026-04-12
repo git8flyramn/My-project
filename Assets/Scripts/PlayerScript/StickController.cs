@@ -11,7 +11,7 @@ public class StickController : MonoBehaviour
 
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
-  
+    //private ProgressBarContorller progress;
     private CharacterController con;
     private Animator anim;
     public LayerMask walkableGround;
@@ -33,6 +33,7 @@ public class StickController : MonoBehaviour
 
     void Start()
     {
+       
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
       
@@ -63,7 +64,8 @@ public class StickController : MonoBehaviour
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-        if(con.isGrounded)
+       
+        if (con.isGrounded)
         {
             StickDirection = forwardMove + side;
         }
