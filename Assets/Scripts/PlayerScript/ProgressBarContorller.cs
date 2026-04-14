@@ -11,8 +11,9 @@ public class ProgressBarContorller : MonoBehaviour
     public Slider Progress;
     private float CurrentProgressPosition;
     private float MaxProgress = 10.0f;
-    private float MinProgress = 0.0f;
-    private float addProgress = 0.01f;
+   // private float MinProgress = 0.0f;
+    private float addProgress = 0;
+   // private float addProgress = 0.1f;
 
     void Start()
     {
@@ -34,21 +35,27 @@ public class ProgressBarContorller : MonoBehaviour
 
     public void StartProgressBar()
     {
-        CurrentProgressPosition += addProgress;
-        Debug.Log("プログレスバーが動いている");
+        addProgress += 0.001f;
+        if(addProgress > MaxProgress)
+        {
+            addProgress = 0;
+        }
+        Progress.value = addProgress;
+
         //範囲内に制限する
-        CurrentProgressPosition = Mathf.Clamp(CurrentProgressPosition, MaxProgress, MinProgress);
-        ProgressBarUpdate();
+        // CurrentProgressPosition = Mathf.Clamp(CurrentProgressPosition, MaxProgress, MinProgress);
+        //ProgressBarUpdate();
 
     }
 
 
     private void ProgressBarUpdate()
     {
-        if (Progress != null)
-        {
+       if (Progress != null)
+       {
+           
             Progress.value = CurrentProgressPosition;
-        }
+       }
     }
 
 }

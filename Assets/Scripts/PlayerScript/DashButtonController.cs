@@ -78,8 +78,8 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
 
     private void StopDash()
     {
-      Debug.Log("ダッシュエフェクト停止");
-      ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+        Debug.Log("ダッシュエフェクト停止");
+        ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         defaultSpeed = ResetDefaultSpeed;
         // ParticleSystem.Stop();
         Debug.Log("元のスピード:" + defaultSpeed);   
