@@ -10,7 +10,6 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
 
     [SerializeField] ParticleSystem ParticleSystem;
     public DashGauge Dash;
-  
     private bool isLongTap = false;
     private float Taptime;
     public float LongTapTime = 1f;
@@ -22,6 +21,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     void Start()
     {
         Dash = GetComponent<DashGauge>();
+      
     }
       
 
@@ -54,18 +54,13 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
        
         if (isLongTap)
         {
-
             Taptime += Time.deltaTime;
-          
-         
             //ƒ{ƒ^ƒ“‚ð’·‰Ÿ‚µ‚µ‚Ä‚¢‚éŠÔ
             if (Taptime <= LongTapTime)
             {
                 Debug.Log("Long Tap");
                 StartDash();
                 isLongTap = false;
-               
-             
             }
         }
        

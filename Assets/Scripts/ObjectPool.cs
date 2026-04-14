@@ -12,7 +12,7 @@ public class ObjectPool : MonoBehaviour
     
      [SerializeField] private GameObject targetObject;
      [SerializeField] private int  Max_train;
-    [SerializeField] private PooledObject objectToPool;
+    //[SerializeField] private PooledObject objectToPool;
 
     void Start()
     {
