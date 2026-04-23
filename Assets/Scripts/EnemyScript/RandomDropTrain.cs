@@ -92,7 +92,7 @@ public class RandomDropTrain : MonoBehaviour
         }
 
 
-        //Debug.Log("電車が右向きで生成されました");
+        Debug.Log("電車が右向きで生成されました");
     }
 
 
@@ -132,6 +132,8 @@ public class RandomDropTrain : MonoBehaviour
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             ThirdGenerateTime = 0.0f;
         }
+
+        Debug.Log("電車が左向きで生成されました");
     }
 
 

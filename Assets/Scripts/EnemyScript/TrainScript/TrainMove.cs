@@ -20,8 +20,8 @@ public class TrainMove : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //TrainForwardMove();
-        TrainRightMove();
+        TrainForwardMove();
+        //TrainRightMove();
     }
     private void TrainForwardMove()
     {
