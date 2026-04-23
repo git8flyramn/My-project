@@ -79,6 +79,7 @@ public class RandomDropTrain : MonoBehaviour
             SetRangePositionZ(-942.0f, -949.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
+            Debug.Log("電車が右向きで生成されました");
             SecondGenerateTime = 0.0f;
         }
         //真ん中
@@ -92,7 +93,7 @@ public class RandomDropTrain : MonoBehaviour
         }
 
 
-        Debug.Log("電車が右向きで生成されました");
+      
     }
 
 

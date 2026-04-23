@@ -18,8 +18,8 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
     public FixedJoystick StickMove;
 
-    private float defaultSpeed = 15.0f;//通常のスピード 
-    public float dash = 15.0f;        //ダッシュ時のスピード
+    public float defaultSpeed = 0.0f;//通常のスピード 
+    public float dash = 0.0f;        //ダッシュ時のスピード
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float gravity = 9.8f;
     //private float decStamina = 0.5f;//スタミナの減少量

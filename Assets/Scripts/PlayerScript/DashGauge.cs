@@ -9,7 +9,7 @@ public class DashGauge : MonoBehaviour
     private float CurrentStamina; // “®ì‚Ì‚É‘Œ¸‚·‚é
     private float MaxGauge = 10.0f; //Å‘å’l(‚±‚ê‚ğ’´‚¦‚½‚ç‚±‚Ì’l‚ÉŒÅ’è‚·‚é)
     private float MinGauge = 0.0f; //Å¬’l
-    public float DashSpeed = 0.0f;
+    private float DashSpeed = 0.0f;
     private float adjustdecDash = 10.0f;
     private float adjustaddDash = 0.3f;
     // private float Addstamina = 0.5f;

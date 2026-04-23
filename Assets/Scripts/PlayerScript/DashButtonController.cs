@@ -14,9 +14,9 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     private float Taptime;
     public float LongTapTime = 1f;
     private float decStamina = 5.0f;
-    private float defaultSpeed = 10.0f;//通常のスピード 
-    private float dashspeed = 20.0f;        //ダッシュ時のスピード
-    private float ResetDefaultSpeed = 5.0f; //元のスピードに戻すため
+    private float defaultSpeed = 20.0f;//通常のスピード 
+    public float dashspeed = 40.0f;        //ダッシュ時のスピード
+    private float ResetDefaultSpeed = 20.0f; //元のスピードに戻すため
     public StickController Sc;
     void Start()
     {
@@ -43,7 +43,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         isLongTap = false;
         if (Sc != null)
         {
-            Sc.dash = defaultSpeed;
+            Sc.dash = ResetDefaultSpeed;
         }
         Debug.Log("Long Tap false");
         StopDash();
@@ -74,6 +74,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         Dash.SetDashSpeed(dashspeed);
         ParticleSystem.Play();
         Debug.Log("ダッシュエフェクト再生");
+        Debug.Log("ダッシュスピード:" + dashspeed);
     }
 
     private void StopDash()
