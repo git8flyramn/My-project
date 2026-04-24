@@ -12,17 +12,29 @@ public class BothTrainMove : MonoBehaviour
     private Rigidbody rb;
     private float MoveSpeed    = 2.0f;
     private float Initvelocity = 2.0f;
+    private RandomDropTrain ramdomDrop;
+    private Vector pos;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-       
+        ramdomDrop = GetComponent<RandomDropTrain>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        TrainRightMove();
+        pos = ramdomDrop.GetDropPos();
+        if (pos < 0)
+        {
+            TrainLeftMove();
+        }
+        else
+        {
+            TrainRightMove();
+        }
+
+            
     }
 
     public void TrainRightMove()
@@ -34,5 +46,6 @@ public class BothTrainMove : MonoBehaviour
     {
         rb.AddForce(Vector3.left * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
+
 
 }

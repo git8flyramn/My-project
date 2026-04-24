@@ -40,7 +40,7 @@ public class RandomDropTrain : MonoBehaviour
         MaxRightRangeX = -50.0f;
         MinRightRangeX = -103.0f;
 
-        //側の線路のX座標
+        //左側の線路のX座標
         MaxLeftRangeX = 75.0f;
         MinLeftRangeX = 30.0f;
     }
@@ -49,7 +49,7 @@ public class RandomDropTrain : MonoBehaviour
     void Update()
     {
        DropRightForwardTrain();
-       // DropLeftForwardTrain();
+       DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -141,6 +141,11 @@ public class RandomDropTrain : MonoBehaviour
     private float SetRangePositionZ(float maxrangeZ, float minrangeZ)
     {
         DropZ = Random.Range(maxrangeZ, minrangeZ);
-        return DropX;
+        return DropZ;
+    }
+
+    public float GetDropPos()
+    {
+        return DropPos.X;
     }
 }
