@@ -19,14 +19,17 @@ public class RandomDropTrain : MonoBehaviour
     private float MaxLeftRangeX;
 
     //左右の電車の生成時間
-    // private float RightGenerateTime = 0.0f;
     private float FirstGenerateTime  = 0.0f;
     private float SecondGenerateTime = 1.0f;
     private float ThirdGenerateTime  = 2.0f;
 
 
-    private float LeftGenerateTime = 0.0f;
-    
+    private float FirstIntervalTime = 10.0f;
+    private float SecondIntervalTime = 11.0f;
+    private float ThirdtIntervalTime = 12.0f;
+
+
+   
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
@@ -43,17 +46,18 @@ public class RandomDropTrain : MonoBehaviour
         //左側の線路のX座標
         MaxLeftRangeX = 75.0f;
         MinLeftRangeX = 30.0f;
+
+      
     }
 
     // Update is called once per frame
     void Update()
     {
-       DropRightForwardTrain();
-       DropLeftForwardTrain();
+     
     }
 
     //電車を横向き右から左で生成する
-    void DropRightForwardTrain()
+    public void DropRightForwardTrain()
     {
         //線路内の電車の発生範囲
 
@@ -62,8 +66,10 @@ public class RandomDropTrain : MonoBehaviour
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime  += Time.deltaTime;
         DropX = Random.Range(MinRightRangeX, MaxRightRangeX);
+
+       
         //手前
-        if (FirstGenerateTime > 5)
+        if (FirstGenerateTime > FirstIntervalTime)
         {
             //Debug.Log("電車が右向きで生成されました");
 
@@ -74,7 +80,7 @@ public class RandomDropTrain : MonoBehaviour
         }
 
         //奥 
-        if (SecondGenerateTime > 6)
+        if (SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-942.0f, -949.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
@@ -83,7 +89,7 @@ public class RandomDropTrain : MonoBehaviour
             SecondGenerateTime = 0.0f;
         }
         //真ん中
-        if (ThirdGenerateTime > 7)
+        if (ThirdGenerateTime > ThirdtIntervalTime)
         {
             //線路の横幅の端の座標
             SetRangePositionZ(-863.0f, -872.0f);
@@ -98,18 +104,17 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //電車を横向き左から右で生成する
-    void DropLeftForwardTrain()
+    public void DropLeftForwardTrain()
     {
         FirstGenerateTime += Time.deltaTime;
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime += Time.deltaTime;
 
         //線路内の電車の発生範囲
-        LeftGenerateTime += Time.deltaTime;
         DropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
         //手前
-        if (FirstGenerateTime > 5)
+        if (FirstGenerateTime > FirstIntervalTime)
         {
             SetRangePositionZ(-839.0f, -849.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
@@ -118,7 +123,7 @@ public class RandomDropTrain : MonoBehaviour
         }
 
         //真ん中
-        if (SecondGenerateTime > 6)
+        if (SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-896.0f, -906.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
@@ -126,7 +131,7 @@ public class RandomDropTrain : MonoBehaviour
             SecondGenerateTime = 0.0f;
         }
         ///奥
-        if (ThirdGenerateTime > 7)
+        if (ThirdGenerateTime > ThirdtIntervalTime)
         {
             SetRangePositionZ(-970.0f, -978.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
@@ -144,8 +149,5 @@ public class RandomDropTrain : MonoBehaviour
         return DropZ;
     }
 
-    public float GetDropPos()
-    {
-        return DropPos.X;
-    }
+  
 }
