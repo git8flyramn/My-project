@@ -53,7 +53,8 @@ public class RandomDropTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+        DropRightForwardTrain();
+        DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -71,7 +72,7 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (FirstGenerateTime > FirstIntervalTime)
         {
-            //Debug.Log("電車が右向きで生成されました");
+            Debug.Log("電車が右向きで生成されました");
 
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);

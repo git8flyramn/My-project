@@ -31,13 +31,13 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainRightMove()
     {
-        RandomTrain.DropRightForwardTrain();
+        Debug.Log("³í‚Éì“®");
         rb.AddForce(Vector3.right * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
     public void TrainLeftMove()
     {
-       
+        Debug.Log("¶‘¤‚Ì“®‚«³í‚Éì“®");
         rb.AddForce(Vector3.left * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
