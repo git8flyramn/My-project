@@ -46,8 +46,10 @@ public class RandomDropTrain : MonoBehaviour
         //左側の線路のX座標
         MaxLeftRangeX = 75.0f;
         MinLeftRangeX = 30.0f;
+        
+       
 
-      
+
     }
 
     // Update is called once per frame
@@ -61,8 +63,8 @@ public class RandomDropTrain : MonoBehaviour
     public void DropRightForwardTrain()
     {
         //線路内の電車の発生範囲
-
        
+
         FirstGenerateTime  += Time.deltaTime;
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime  += Time.deltaTime;
@@ -72,21 +74,24 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (FirstGenerateTime > FirstIntervalTime)
         {
-            Debug.Log("電車が右向きで生成されました");
-
+            Debug.Log("1電車が右向きで生成されました");
+           
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
+            
             FirstGenerateTime = 0.0f;
         }
 
         //奥 
         if (SecondGenerateTime > SecondIntervalTime)
         {
+
             SetRangePositionZ(-942.0f, -949.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
-            Debug.Log("電車が右向きで生成されました");
+          
+            Debug.Log("2電車が右向きで生成されました");
             SecondGenerateTime = 0.0f;
         }
         //真ん中
@@ -96,6 +101,7 @@ public class RandomDropTrain : MonoBehaviour
             SetRangePositionZ(-863.0f, -872.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
+          
             ThirdGenerateTime = 0.0f;
         }
 

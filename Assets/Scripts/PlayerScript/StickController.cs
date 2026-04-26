@@ -83,7 +83,7 @@ public class StickController : MonoBehaviour
 
     //RayCastによる接地判定
       void RayCast()
-    {
+      {
         //rayの描画に必要な情報
         //rayの開始位置、方向、距離、衝突を無視する物
         Vector3 rayPosition = transform.position;
@@ -91,7 +91,7 @@ public class StickController : MonoBehaviour
         Ray ray = new Ray(rayPosition, Vector3.down * distance);
         bool isGround = Physics.Raycast(ray,out hit,walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red); 
-    }
+      }
 
     //public void SetDashSpeed(float SPEED)
     //{

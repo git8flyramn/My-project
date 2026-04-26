@@ -12,7 +12,7 @@ public class BothTrainMove : MonoBehaviour
     private Rigidbody rb;
     private float MoveSpeed    = 2.0f;
     private float Initvelocity = 2.0f;
-    public RandomDropTrain RandomTrain;
+    
 
     void Start()
     {
@@ -23,9 +23,9 @@ public class BothTrainMove : MonoBehaviour
     void Update()
     {
        
-        rb = GetComponent<Rigidbody>();
-        TrainRightMove();
-        TrainLeftMove();
+       
+        //TrainRightMove();
+        //TrainLeftMove();
 
     }
 
