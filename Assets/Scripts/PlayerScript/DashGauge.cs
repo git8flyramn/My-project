@@ -14,7 +14,6 @@ public class DashGauge : MonoBehaviour
     private float adjustaddDash = 0.3f;
     // private float Addstamina = 0.5f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         CurrentStamina = MaxGauge;

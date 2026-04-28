@@ -5,8 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine.EventSystems;
 public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUpHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+   
 
     [SerializeField] ParticleSystem ParticleSystem;
     public DashGauge Dash;

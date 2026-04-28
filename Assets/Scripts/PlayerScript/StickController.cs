@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class StickController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
 
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
