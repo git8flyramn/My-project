@@ -13,7 +13,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     private bool isLongTap = false;
     private float Taptime;
     public float LongTapTime = 1f;
-    private float decStamina = 5.0f;
+    private float decStamina = 0.1f;
     private float defaultSpeed = 15.0f;//通常のスピード 
     public float dashspeed = 25.0f;        //ダッシュ時のスピード
     private float ResetDefaultSpeed = 15.0f; //元のスピードに戻すため
@@ -61,6 +61,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
                 Debug.Log("Long Tap");
                 StartDash();
                 isLongTap = false;
+                
             }
         }
        

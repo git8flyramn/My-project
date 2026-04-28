@@ -17,14 +17,17 @@ public class StickController : MonoBehaviour
     public LayerMask walkableGround;
     Vector3 StickDirection = Vector3.zero;
     public FixedJoystick StickMove;
+    private SEManeger soundmanager;
+    public AudioClip clip;
 
-    public float defaultSpeed = 0.0f;//通常のスピード 
-    public float dash = 0.0f;        //ダッシュ時のスピード
+
+    [Header("通常のスピード")] public float defaultSpeed = 0.0f;
+    [Header("ダッシュ時のスピード")] public float dash = 0.0f;
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float gravity = 9.8f;
     //private float decStamina = 0.5f;//スタミナの減少量
     private float distance = 1.0f;
-    bool IsRun = false;
+    [Header("走っているかのフラグ")] bool IsRun = false;
 
 
     //Vector3 startPos;
@@ -33,10 +36,13 @@ public class StickController : MonoBehaviour
 
     void Start()
     {
-       
+
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Progress = GetComponent<ProgressBarContorller>();
+        soundmanager = GetComponent<SEManeger>();
+
+
     }
 
     // Update is called once per frame
@@ -50,8 +56,8 @@ public class StickController : MonoBehaviour
     }
     //ダッシュの機能(あとでMoveStickと統合する)
     public void DashMove()
-    { 
-       defaultSpeed = dash;
+    {
+        defaultSpeed = dash;
     }
 
 
@@ -65,14 +71,18 @@ public class StickController : MonoBehaviour
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-       
+
+        if (!IsRun)
+        {
+            soundmanager.PlayerSE(clip);
+        }
         if (con.isGrounded)
         {
-           
+
             StickDirection = forwardMove + side;
         }
         else
-        { 
+        {
             StickDirection.y += gravity * Time.deltaTime;
         }
         con.Move(-StickDirection);
@@ -82,50 +92,15 @@ public class StickController : MonoBehaviour
 
 
     //RayCastによる接地判定
-      void RayCast()
-      {
+    void RayCast()
+    {
         //rayの描画に必要な情報
         //rayの開始位置、方向、距離、衝突を無視する物
         Vector3 rayPosition = transform.position;
         RaycastHit hit;
         Ray ray = new Ray(rayPosition, Vector3.down * distance);
-        bool isGround = Physics.Raycast(ray,out hit,walkableGround);
-        Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red); 
-      }
-
-    //public void SetDashSpeed(float SPEED)
-    //{
-    //    defaultSpeed = SPEED;
-    //}
-
-
-
-
-    //if (Input.GetKey(KeyCode.G))
-    //{
-    //    Dash.UseStamina(decStamina);
-    //    ParticleSystem.Play();
-    //    Debug.Log("ダッシュエフェクト再生");
-    //    SetDash();
-    //}
-    //else if (Input.GetKeyUp(KeyCode.G))
-    //{
-    //    Debug.Log("ダッシュエフェクト停止");
-    //    ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-    //    // ParticleSystem.Stop();
-    //    defaultSpeed = ResetDefaultSpeed;
-    //}
-
+        bool isGround = Physics.Raycast(ray, out hit, walkableGround);
+        Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
+    }
 
 }
-
-/*
-   if (con.isGrounded)
-        {
-           
-        }
-        else
-        {
-            moveDirection.y -= g * Time.deltaTime;
-        }
- */

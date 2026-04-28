@@ -74,7 +74,7 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (FirstGenerateTime > FirstIntervalTime)
         {
-            Debug.Log("1電車が右向きで生成されました");
+            //Debug.Log("1電車が右向きで生成されました");
            
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
@@ -91,7 +91,7 @@ public class RandomDropTrain : MonoBehaviour
             DropPos = new Vector3(DropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
           
-            Debug.Log("2電車が右向きで生成されました");
+         
             SecondGenerateTime = 0.0f;
         }
         //真ん中
@@ -146,7 +146,7 @@ public class RandomDropTrain : MonoBehaviour
             ThirdGenerateTime = 0.0f;
         }
 
-        Debug.Log("電車が左向きで生成されました");
+        
     }
 
 

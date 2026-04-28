@@ -10,7 +10,7 @@ public class DashGauge : MonoBehaviour
     private float MaxGauge = 10.0f; //最大値(これを超えたらこの値に固定する)
     private float MinGauge = 0.0f; //最小値
     private float DashSpeed = 0.0f;
-    private float adjustdecDash = 10.0f;
+    //private float adjustdecDash = 10.0f;
     private float adjustaddDash = 0.3f;
     // private float Addstamina = 0.5f;
 
@@ -34,7 +34,7 @@ public class DashGauge : MonoBehaviour
 
     public void UseStamina(float dec)
     {
-        CurrentStamina -= dec / adjustdecDash;
+        CurrentStamina -= dec / 10;
          Debug.Log("スタミナ減少");
         CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
         StaminaUpdate();
@@ -71,5 +71,5 @@ public class DashGauge : MonoBehaviour
         DashSpeed = speed;
     }
 
-   
+
 }
