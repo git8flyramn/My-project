@@ -13,11 +13,13 @@ public class StickController : MonoBehaviour
     [SerializeField] ParticleSystem ParticleSystem;
     public ProgressBarContorller Progress;
     private CharacterController con;
+
     private Animator anim;
     public LayerMask walkableGround;
     Vector3 StickDirection = Vector3.zero;
+
     public FixedJoystick StickMove;
-    private SEManeger soundmanager;
+    private SEManeger SoundManager;
     public AudioClip clip;
 
 
@@ -40,7 +42,7 @@ public class StickController : MonoBehaviour
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Progress = GetComponent<ProgressBarContorller>();
-        soundmanager = GetComponent<SEManeger>();
+        SoundManager = GetComponent<SEManeger>();
 
 
     }
@@ -74,7 +76,7 @@ public class StickController : MonoBehaviour
 
         if (!IsRun)
         {
-            soundmanager.PlayerSE(clip);
+            SoundManager.PlayerSE(clip);
         }
         if (con.isGrounded)
         {

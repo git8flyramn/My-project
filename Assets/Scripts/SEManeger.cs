@@ -29,4 +29,40 @@ public class SEManeger : MonoBehaviour
         }
 
     }
+
+    public void GetItemSE(AudioClip clip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.Log("オーディオが設定されていません");
+        }
+    }
+
+    public void GameClearSE(AudioClip clip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.Log("オーディオが設定されていません");
+        }
+    }
+
+    public void GameOverSE(AudioClip clip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.Log("オーディオが設定されていません");
+        }
+    }
 }
