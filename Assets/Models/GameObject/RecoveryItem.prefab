@@ -120,9 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b4b07eedbbafb4887853a91a58f676, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyTime: 1
+  DestroyTime: 2
   flowSpeed: 0.01
+  RegenerateValue: 0.3
   stamina: {fileID: 0}
+  clip: {fileID: 8300000, guid: 468ae54dce136be4e91e5e8c470f91f0, type: 3}
 --- !u!54 &3188852705734056460
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,10 +132,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3917244281574785422}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

@@ -13,7 +13,8 @@ public class ItemController : MonoBehaviour
     public float DestroyTime;
     public float flowSpeed;
     public float RegenerateValue = 0.3f;
-   // public DashGauge stamina;
+    public DashGauge stamina;
+
     private SEManeger SoundManager;
     public AudioClip clip;
     void Start()
@@ -42,9 +43,8 @@ public class ItemController : MonoBehaviour
             if (dc != null)
             {
                 Debug.Log("playerに接触したのでplayerのスタミナを回復します");
-                dc.RegenerateStamina(RegenerateValue);
-                //GetItemSE
                 SoundManager.GetItemSE(clip);
+                dc.RegenerateStamina(RegenerateValue);
                 Destroy(gameObject, DestroyTime);
             }
             else

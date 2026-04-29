@@ -8,9 +8,13 @@ public class SEManeger : MonoBehaviour
     
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+      
     }
 
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
     // Update is called once per frame
     void Update()
     {

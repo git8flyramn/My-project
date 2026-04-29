@@ -19,9 +19,7 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
 
     public FixedJoystick StickMove;
-    private SEManeger SoundManager;
-    public AudioClip clip;
-
+  
 
     [Header("通常のスピード")] public float defaultSpeed = 0.0f;
     [Header("ダッシュ時のスピード")] public float dash = 0.0f;
@@ -42,8 +40,6 @@ public class StickController : MonoBehaviour
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Progress = GetComponent<ProgressBarContorller>();
-        SoundManager = GetComponent<SEManeger>();
-
 
     }
 
@@ -74,10 +70,6 @@ public class StickController : MonoBehaviour
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
 
-        if (!IsRun)
-        {
-            SoundManager.PlayerSE(clip);
-        }
         if (con.isGrounded)
         {
 
