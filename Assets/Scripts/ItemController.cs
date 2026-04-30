@@ -14,12 +14,12 @@ public class ItemController : MonoBehaviour
     public float flowSpeed;
     public float RegenerateValue = 0.3f;
     public DashGauge stamina;
-
-    private SEManeger SoundManager;
-    public AudioClip clip;
+  
     void Start()
     {
-        SoundManager = GetComponent<SEManeger>();
+
+        //Sound = GetComponent<SEManeger>();
+
     }
 
     // Update is called once per frame
@@ -40,12 +40,12 @@ public class ItemController : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             DashGauge dc = collision.gameObject.GetComponent<DashGauge>();
+          
+
             if (dc != null)
             {
                 Debug.Log("playerに接触したのでplayerのスタミナを回復します");
-                SoundManager.GetItemSE(clip);
                 dc.RegenerateStamina(RegenerateValue);
-                Destroy(gameObject, DestroyTime);
             }
             else
             {

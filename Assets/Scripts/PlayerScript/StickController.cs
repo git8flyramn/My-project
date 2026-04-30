@@ -15,14 +15,16 @@ public class StickController : MonoBehaviour
     private CharacterController con;
 
     private Animator anim;
-    public LayerMask walkableGround;
+    private LayerMask walkableGround;
     Vector3 StickDirection = Vector3.zero;
-
+    
     public FixedJoystick StickMove;
-  
-
     [Header("通常のスピード")] public float defaultSpeed = 0.0f;
     [Header("ダッシュ時のスピード")] public float dash = 0.0f;
+    
+    private SEManeger SE;
+    public AudioClip RunSE;
+  
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
     private float gravity = 9.8f;
     //private float decStamina = 0.5f;//スタミナの減少量
@@ -40,6 +42,7 @@ public class StickController : MonoBehaviour
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         Progress = GetComponent<ProgressBarContorller>();
+        SE = GetComponent<SEManeger>();
 
     }
 
@@ -69,6 +72,8 @@ public class StickController : MonoBehaviour
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
+        SE.PlayerRunSE(RunSE);
+
 
         if (con.isGrounded)
         {

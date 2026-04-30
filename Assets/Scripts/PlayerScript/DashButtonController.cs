@@ -45,7 +45,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
             Sc.dash = ResetDefaultSpeed;
         }
         Debug.Log("Long Tap false");
-        StopDash();
+       
     }
 
     private void Update()
@@ -59,6 +59,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
             {
                 Debug.Log("Long Tap");
                 StartDash();
+                Dash.UseStamina(decStamina);
                 isLongTap = false;
                 
             }
@@ -70,7 +71,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     //長押しの間ダッシュ
     private void StartDash()
     {
-        Dash.UseStamina(decStamina);
+       
         Dash.SetDashSpeed(dashspeed);
         ParticleSystem.Play();
         Debug.Log("ダッシュエフェクト再生");
@@ -82,7 +83,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         Debug.Log("ダッシュエフェクト停止");
         ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         defaultSpeed = ResetDefaultSpeed;
-        // ParticleSystem.Stop();
+         ParticleSystem.Stop();
         Debug.Log("元のスピード:" + defaultSpeed);   
     }
 

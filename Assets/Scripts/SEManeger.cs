@@ -1,4 +1,6 @@
-using UnityEditor.Experimental.GraphView;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SEManeger : MonoBehaviour
@@ -8,20 +10,15 @@ public class SEManeger : MonoBehaviour
     
     void Start()
     {
-      
-    }
-
-    void Awake()
-    {
         audioSource = GetComponent<AudioSource>();
     }
+
     // Update is called once per frame
     void Update()
     {
         
     }
-
-    public void PlayerSE(AudioClip clip)
+    public void PlayerRunSE(AudioClip clip)
     {
         if(audioSource != null)
         {
@@ -31,42 +28,7 @@ public class SEManeger : MonoBehaviour
         {
             Debug.Log("オーディオが設定されていません");
         }
-
     }
 
-    public void GetItemSE(AudioClip clip)
-    {
-        if (audioSource != null)
-        {
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            Debug.Log("オーディオが設定されていません");
-        }
-    }
-
-    public void GameClearSE(AudioClip clip)
-    {
-        if (audioSource != null)
-        {
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            Debug.Log("オーディオが設定されていません");
-        }
-    }
-
-    public void GameOverSE(AudioClip clip)
-    {
-        if (audioSource != null)
-        {
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            Debug.Log("オーディオが設定されていません");
-        }
-    }
+   
 }

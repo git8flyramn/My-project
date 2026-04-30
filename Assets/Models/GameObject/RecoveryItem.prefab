@@ -124,7 +124,7 @@ MonoBehaviour:
   flowSpeed: 0.01
   RegenerateValue: 0.3
   stamina: {fileID: 0}
-  clip: {fileID: 8300000, guid: 468ae54dce136be4e91e5e8c470f91f0, type: 3}
+  audioclip: {fileID: 0}
 --- !u!54 &3188852705734056460
 Rigidbody:
   m_ObjectHideFlags: 0

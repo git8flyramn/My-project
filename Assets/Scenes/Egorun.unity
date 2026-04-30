@@ -970,8 +970,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_Resource: {fileID: 8300000, guid: c2fa228f485329147b47b0e6d13aba05, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10697,7 +10697,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   StickMove: {fileID: 465065045}
-  clip: {fileID: 8300000, guid: a3203002a4c782b428ec20453af70636, type: 3}
   defaultSpeed: 15
   dash: 25
 --- !u!114 &1502852054
