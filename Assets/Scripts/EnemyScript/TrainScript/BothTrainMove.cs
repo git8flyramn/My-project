@@ -12,11 +12,11 @@ public class BothTrainMove : MonoBehaviour
     private Rigidbody rb;
     private float MoveSpeed    = 2.0f;
     private float Initvelocity = 2.0f;
-    
+    Vector3 Train = Vector3.zero;
 
     void Start()
     {
-       
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -24,21 +24,23 @@ public class BothTrainMove : MonoBehaviour
     {
        
        
-        //TrainRightMove();
-        //TrainLeftMove();
+       // TrainRightMove();
+        TrainLeftMove();
 
     }
 
     public void TrainRightMove()
     {
+        Train = Vector3.right;
         Debug.Log("ê≥èÌÇ…çÏìÆ");
-        rb.AddForce(Vector3.right * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
     public void TrainLeftMove()
     {
+        Train = Vector3.left;
         Debug.Log("ç∂ë§ÇÃìÆÇ´ê≥èÌÇ…çÏìÆ");
-        rb.AddForce(Vector3.left * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
 

@@ -14,12 +14,12 @@ public class ItemController : MonoBehaviour
     public float flowSpeed;
     public float RegenerateValue = 0.3f;
     public DashGauge stamina;
-  
+    private SEManeger SE;
+    public AudioClip clip;
     void Start()
     {
 
-        //Sound = GetComponent<SEManeger>();
-
+        SE = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -46,6 +46,7 @@ public class ItemController : MonoBehaviour
             {
                 Debug.Log("playerに接触したのでplayerのスタミナを回復します");
                 dc.RegenerateStamina(RegenerateValue);
+                SEManeger.PlayerRunSE(clip);
             }
             else
             {
