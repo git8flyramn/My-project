@@ -44,9 +44,10 @@ public class ItemController : MonoBehaviour
 
             if (dc != null)
             {
-                Debug.Log("playerに接触したのでplayerのスタミナを回復します");
+                //Debug.Log("playerに接触したのでplayerのスタミナを回復します");
                 dc.RegenerateStamina(RegenerateValue);
-                SEManeger.PlayerRunSE(clip);
+                SE.ItemSE(clip);
+                Debug.Log("アイテムを取得した音を再生します");
             }
             else
             {

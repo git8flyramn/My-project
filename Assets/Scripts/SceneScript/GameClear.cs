@@ -9,14 +9,13 @@ public class GameClear : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-  
-    [SerializeField] private string clearSceneName;
-    private ClearTimeManeget cleartime;
     private float time = 0.0f;
-    
+    private SEManeger SE;
+    public AudioClip clip;
     void Start()
     {
-        cleartime = GetComponent<ClearTimeManeget>();
+     
+        SE = GetComponent<SEManeger>();
     }
     // Update is called once per frame
     void Update()
@@ -30,8 +29,8 @@ public class GameClear : MonoBehaviour
       
         if (other.gameObject.CompareTag("Player"))
         {
+            SE.ClearSE(clip);
          //   cleartime.GetClearTime(time);
-            SceneManager.LoadScene(clearSceneName);
         }
 
     }

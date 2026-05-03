@@ -18,7 +18,7 @@ public class SEManeger : MonoBehaviour
     {
         
     }
-    public void PlayerRunSE(AudioClip clip)
+    public void ItemSE(AudioClip clip)
     {
         if(audioSource != null)
         {
@@ -26,9 +26,33 @@ public class SEManeger : MonoBehaviour
         }
         else
         {
-            Debug.Log("オーディオが設定されていません");
+            Debug.Log("アイテムを取った音が登録されていません");
         }
     }
 
-   
+    public void ClearSE(AudioClip clip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.Log("クリア音が設定されていません");
+        }
+    }
+
+    public void GameOverSE(AudioClip clip)
+    {
+        if (audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.Log("ゲームオーバーが設定されていません");
+        }
+    }
+
+
 }
