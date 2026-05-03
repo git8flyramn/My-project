@@ -10,10 +10,13 @@ public class FadeOutSceneLoder : MonoBehaviour
     
     
     public Image fadePanel;//フェード用のパネル
-    public float fadeTime = 10.0f; //フェードの完了にかかる時間
-
+    public float fadeTime = 5.0f; //フェードの完了にかかる時間
+    private SEManeger SE;
+    public AudioClip clip;
     void Start()
     {
+
+        SE = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -37,6 +40,7 @@ public class FadeOutSceneLoder : MonoBehaviour
             yield return null;
         }
         fadePanel.color = endColor;
+        SE.GameOverSE(clip);
         SceneManager.LoadScene("Game Over");
     }
 

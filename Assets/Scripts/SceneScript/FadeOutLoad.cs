@@ -13,10 +13,11 @@ public class GameOverSceneLoad : MonoBehaviour
 
     [SerializeField] private FadeOutSceneLoder fadeOut;
    
-    
+
     void Start()
     {
-        
+       
+
     }
 
     // Update is called once per frame
