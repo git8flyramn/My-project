@@ -2,7 +2,8 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using UnityEditor;
 public class GameOverSceneLoad : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,7 +33,11 @@ public class GameOverSceneLoad : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("ぶつかりました。フェードアウトします");
-            SE.GameOverSE(clip);
+            if(SE != null)
+            {
+                SE.GameOverSE(clip);
+            }
+            
             fadeOut.CallFadeOut();
         }
     }

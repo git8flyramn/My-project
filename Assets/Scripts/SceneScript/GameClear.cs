@@ -32,6 +32,8 @@ public class GameClear : MonoBehaviour
             
             SceneManager.LoadScene("GameClear");
             SE.ClearSE(clip);
+            //Debug.LogWarning
+
             //   cleartime.GetClearTime(time);
         }
 
