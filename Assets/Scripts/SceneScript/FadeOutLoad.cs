@@ -12,12 +12,13 @@ public class GameOverSceneLoad : MonoBehaviour
 
 
     [SerializeField] private FadeOutSceneLoder fadeOut;
-   
+    private SEManeger SE;
+    public AudioClip clip;
 
     void Start()
     {
-       
 
+        SE = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -31,6 +32,7 @@ public class GameOverSceneLoad : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("ぶつかりました。フェードアウトします");
+            SE.GameOverSE(clip);
             fadeOut.CallFadeOut();
         }
     }

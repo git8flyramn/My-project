@@ -33,7 +33,7 @@ public class DashGauge : MonoBehaviour
 
     public void UseStamina(float dec)
     {
-        CurrentStamina -= dec;
+        CurrentStamina -= dec * 1.1f;
          Debug.Log("スタミナ減少");
         CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
         StaminaUpdate();

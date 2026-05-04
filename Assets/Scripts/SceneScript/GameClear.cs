@@ -29,8 +29,9 @@ public class GameClear : MonoBehaviour
       
         if (other.gameObject.CompareTag("Player"))
         {
-            SE.ClearSE(clip);
+            
             SceneManager.LoadScene("GameClear");
+            SE.ClearSE(clip);
             //   cleartime.GetClearTime(time);
         }
 
