@@ -12,6 +12,7 @@ public class GameClear : MonoBehaviour
     private float time = 0.0f;
     private SEManeger SE;
     public AudioClip clip;
+    private float deleayTime = 0.5f;
     void Start()
     {
      
@@ -27,16 +28,24 @@ public class GameClear : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
       
-        if (other.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            
-            SceneManager.LoadScene("GameClear");
-            SE.ClearSE(clip);
-            //Debug.LogWarning
+            if(SE != null)
+            {
+                SE.ClearSE(clip);
+                Debug.Log("‰¹º‚ª–Â‚è‚Ü‚µ‚½");
+            }
 
-            //   cleartime.GetClearTime(time);
+            StartCoroutine(ClrearSEWaitTime());
         }
 
+    }
+
+    IEnumerator ClrearSEWaitTime()
+    {
+        yield return new WaitForSeconds(deleayTime);
+        Debug.Log("ƒQ[ƒ€ƒNƒŠƒA‚Ì”»’è‚ğæ‚è‚Ü‚µ‚½");
+        SceneManager.LoadScene("GameClear");
     }
 
 }

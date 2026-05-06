@@ -35,6 +35,8 @@ public class ProgressBarContorller : MonoBehaviour
 
     public void StartProgressBar()
     {
+        　　　　　　　//0.001から0.002
+                       //  0.015
         addProgress += 0.001f;
         if(addProgress > MaxProgress)
         {
