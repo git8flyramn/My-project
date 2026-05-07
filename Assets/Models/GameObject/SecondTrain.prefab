@@ -77,7 +77,7 @@ PrefabInstance:
       addedObject: {fileID: 571252251500826080}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6290024903691068865}
+      addedObject: {fileID: 1059935946189728056}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
       addedObject: {fileID: -4542459453569246756}
@@ -108,7 +108,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 2.8}
   m_Center: {x: -0.1, y: 0.55, z: 0.01}
---- !u!114 &6290024903691068865
+--- !u!114 &1059935946189728056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,9 +117,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6855479284151090953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c7fc48149d9f5641b24ffad00c30442, type: 3}
+  m_Script: {fileID: 11500000, guid: 9205e0485dd60c743acd1721a4d94b8b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::ForWordMoveTrain
 --- !u!54 &-4542459453569246756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -127,10 +127,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6855479284151090953}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
