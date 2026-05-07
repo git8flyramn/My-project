@@ -5,7 +5,9 @@ public class RightSideTrainMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Rigidbody rb;
     private BothTrainMove BothTrain;
-    Vecotr3 Train = Vector.zero;
+    private float MoveSpeed = 2.0f;
+    private float Initvelocity = 2.0f;
+    Vector3 Train = Vector3.zero;
 
     void Start()
     {
@@ -24,6 +26,7 @@ public class RightSideTrainMove : MonoBehaviour
     {
         Train = Vector3.right;
         rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        Debug.Log("ê≥èÌÇ…çÏìÆ");
     }
 
 }

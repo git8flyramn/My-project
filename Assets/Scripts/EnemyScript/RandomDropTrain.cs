@@ -7,17 +7,20 @@ public class RandomDropTrain : MonoBehaviour
 {
 
     public GameObject DropObject;
+    public Transform LeftTrain;
+    public Transform RightTrain;
     //電車の座標位置
     private float DropX;
     private static float DropY;
     private float DropZ;
 
-    //右から生成する座標
-    private float MinRightRangeX;
-    private float MaxRightRangeX;
-    //左から生成
-    private float MinLeftRangeX;
-    private float MaxLeftRangeX;
+    //右側の線路のX座標
+    private float MinRightRangeX = -50.0f;
+    private float MaxRightRangeX = -103.0f;
+
+    //左側の線路のX座標
+    private float MaxLeftRangeX = 75.0f;
+    private float MinLeftRangeX = 30.0f;
 
     //左右の電車の生成時間
     private float FirstGenerateTime  = 0.0f;
@@ -40,14 +43,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         DropY = 1.0f;
       
-        //右側の線路のX座標
-        MaxRightRangeX = -50.0f;
-        MinRightRangeX = -103.0f;
-
-        //左側の線路のX座標
-        MaxLeftRangeX = 75.0f;
-        MinLeftRangeX = 30.0f;
-        
+       
        
 
 
@@ -56,8 +52,11 @@ public class RandomDropTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DropRightForwardTrain();
+        FirstGenerateTime += Time.deltaTime;
+        SecondGenerateTime += Time.deltaTime;
+        ThirdGenerateTime += Time.deltaTime;
         DropLeftForwardTrain();
+        DropRightForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -66,9 +65,7 @@ public class RandomDropTrain : MonoBehaviour
         //線路内の電車の発生範囲
        
 
-        FirstGenerateTime  += Time.deltaTime;
-        SecondGenerateTime += Time.deltaTime;
-        ThirdGenerateTime  += Time.deltaTime;
+       
         DropX = Random.Range(MinRightRangeX, MaxRightRangeX);
 
        
@@ -114,9 +111,7 @@ public class RandomDropTrain : MonoBehaviour
     //電車を横向き左から右で生成する
     public void DropLeftForwardTrain()
     {
-        FirstGenerateTime += Time.deltaTime;
-        SecondGenerateTime += Time.deltaTime;
-        ThirdGenerateTime += Time.deltaTime;
+     
 
         //線路内の電車の発生範囲
         DropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
@@ -131,7 +126,9 @@ public class RandomDropTrain : MonoBehaviour
         }
 
         //真ん中
-        if (SecondGenerateTime > SecondIntervalTime)
+        //ThirdtIntervalTime
+        //SecondGenerateTime
+        if (ThirdGenerateTime > ThirdtIntervalTime)
         {
             SetRangePositionZ(-896.0f, -906.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
@@ -139,7 +136,7 @@ public class RandomDropTrain : MonoBehaviour
             SecondGenerateTime = 0.0f;
         }
         ///奥
-        if (ThirdGenerateTime > ThirdtIntervalTime)
+        if (SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-970.0f, -978.0f);
             DropPos = new Vector3(DropX, DropY, DropZ);
