@@ -12,7 +12,7 @@ public class GameClear : MonoBehaviour
     private float time = 0.0f;
     private SEManeger SE;
     public AudioClip clip;
-    private float deleayTime = 0.5f;
+    private float deleayTime = 0.9f;
     void Start()
     {
      

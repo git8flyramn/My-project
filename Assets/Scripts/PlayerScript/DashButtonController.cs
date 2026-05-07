@@ -32,7 +32,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         {
             Sc.dash = defaultSpeed;
             StartDash();
-            Dash.RegenerateStamina(RegeneStamina * 1.2f);
+            Dash.RegenerateStamina(RegeneStamina);
             // Debug.Log("ボタンを長押していません");
 
         }
@@ -48,6 +48,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         {
            
             StopDash();
+            //defaultSpeed
             Sc.dash = dashspeed;
             Dash.UseStamina(decStamina);
             // Debug.Log("ボタンを長押しています");
@@ -97,9 +98,9 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     {
        
         Debug.Log("ダッシュエフェクト停止");
-      
+        ParticleSystem.Stop();
         // ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-        //  ParticleSystem.Stop();
+        //  
         // Debug.Log("元のスピード:" + defaultSpeed);   
     }
 

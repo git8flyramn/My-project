@@ -13,6 +13,7 @@ public class ProgressBarContorller : MonoBehaviour
     private float MaxProgress = 10.0f;
    // private float MinProgress = 0.0f;
     private float addProgress = 0;
+    private float addValue = 0.0014f;
    // private float addProgress = 0.1f;
 
     void Start()
@@ -37,16 +38,12 @@ public class ProgressBarContorller : MonoBehaviour
     {
         　　　　　　　//0.001から0.002
                        //  0.015
-        addProgress += 0.001f;
+        addProgress += addValue;
         if(addProgress > MaxProgress)
         {
-            addProgress = 0;
+            addProgress = MaxProgress;
         }
         Progress.value = addProgress;
-
-        //範囲内に制限する
-        // CurrentProgressPosition = Mathf.Clamp(CurrentProgressPosition, MaxProgress, MinProgress);
-        //ProgressBarUpdate();
 
     }
 
