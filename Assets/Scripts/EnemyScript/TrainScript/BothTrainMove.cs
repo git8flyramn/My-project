@@ -12,7 +12,7 @@ public class BothTrainMove : MonoBehaviour
     private Rigidbody rb;
     private float MoveSpeed    = 2.0f;
     private float Initvelocity = 2.0f;
-    Vector3 Train = Vector3.zero;
+    Vector3 TrainDir = Vector3.zero;
 
     void Start()
     {
@@ -26,18 +26,18 @@ public class BothTrainMove : MonoBehaviour
       
     }
 
-    //public void TrainRightMove()
-    //{
-    //    Train = Vector3.right;
-    //    Debug.Log("ê≥èÌÇ…çÏìÆ");
-    //    rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-    //}
+    public void TrainRightMove()
+    {
+        TrainDir = Vector3.right;
+        rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        Debug.Log("ê≥èÌÇ…çÏìÆ");
+    }
 
     public void TrainLeftMove()
     {
-        Train = Vector3.left;
+        TrainDir = Vector3.left;
         Debug.Log("ç∂ë§ÇÃìÆÇ´ê≥èÌÇ…çÏìÆ");
-        rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
 
