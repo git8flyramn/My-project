@@ -61,7 +61,7 @@ PrefabInstance:
       addedObject: {fileID: -4373184090750667488}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65dd7d1476c3ccd469ff9e353616658b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -1381857843306000364}
+      addedObject: {fileID: 4538810854512013946}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65dd7d1476c3ccd469ff9e353616658b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5515545882168103093}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbc85476fe113b45a6c13b3cc5a32fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RightSideTrainMove
---- !u!114 &-1381857843306000364
+--- !u!114 &4538810854512013946
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

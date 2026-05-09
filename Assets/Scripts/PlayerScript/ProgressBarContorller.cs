@@ -13,7 +13,7 @@ public class ProgressBarContorller : MonoBehaviour
     private float MaxProgress = 10.0f;
    // private float MinProgress = 0.0f;
     private float addProgress = 0;
-    private float addValue = 0.0014f;
+    private float addValue = 0.0012f;
    // private float addProgress = 0.1f;
 
     void Start()
