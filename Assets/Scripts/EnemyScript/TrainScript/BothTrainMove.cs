@@ -26,12 +26,13 @@ public class BothTrainMove : MonoBehaviour
       
     }
 
-    //public void TrainRightMove()
-    //{
-    //    Train = Vector3.right;
-    //    Debug.Log("ê≥èÌÇ…çÏìÆ");
-    //    rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-    //}
+    public void RightTrainMove()
+    {
+
+        Train = Vector3.right;
+        rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        Debug.Log("ê≥èÌÇ…çÏìÆ");
+    }
 
     public void TrainLeftMove()
     {

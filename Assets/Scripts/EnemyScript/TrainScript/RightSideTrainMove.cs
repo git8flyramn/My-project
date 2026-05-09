@@ -8,25 +8,18 @@ public class RightSideTrainMove : MonoBehaviour
     private float MoveSpeed = 2.0f;
     private float Initvelocity = 2.0f;
     Vector3 Train = Vector3.zero;
-
+    private BothTrainMove BothTrain;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
-        RightTrainMove();
-        Debug.Log("FourthTrain‚ª‰E‚É“®‚¢‚Ä‚¢‚Ü‚·");
-    }
-
-    public  void RightTrainMove()
-    {
-        Train = Vector3.right;
-        rb.AddForce(Train * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-        Debug.Log("³í‚Éì“®");
+        BothTrain.RightTrainMove();
+        Degug.Log("³í‚É“®ì");
     }
 
 }
