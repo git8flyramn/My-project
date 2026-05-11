@@ -6,21 +6,18 @@ public class RightSideTrainMove : MonoBehaviour
     private Rigidbody rb;
     private BothTrainMove BothTrain;
     Vector3 Train = Vector3.zero;
-
+    private BothTrainMove BothTrain;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
     }
 
-    // Update is called once per frame
-    void Update()
+// Update is called once per frame
+void Update()
     {
-        BothTrain.TrainRightMove();
-      // BothTrain.TrainLeftMove();
-        Debug.Log("FourthTrain‚ª‰E‚É“®‚¢‚Ä‚¢‚Ü‚·");
+        BothTrain.RightTrainMove();
+        Degug.Log("³í‚É“®ì");
     }
-
-  
 
 }

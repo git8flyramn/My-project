@@ -64,6 +64,9 @@ PrefabInstance:
       addedObject: {fileID: 4538810854512013946}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65dd7d1476c3ccd469ff9e353616658b, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 5515545882168103093}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65dd7d1476c3ccd469ff9e353616658b, type: 3}
+      insertIndex: -1
       addedObject: {fileID: -7632858306861067524}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 65dd7d1476c3ccd469ff9e353616658b, type: 3}
       insertIndex: -1
@@ -98,6 +101,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f065bbbb4fd81d49b7950f998a57352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BothTrainMove
+--- !u!114 &5515545882168103093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4091611344882823466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1983c374b1e18042b80953030baf56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDropTrain
+  DropObject: {fileID: 4091611344882823466}
 --- !u!54 &-7632858306861067524
 Rigidbody:
   m_ObjectHideFlags: 0

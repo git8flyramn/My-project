@@ -22,14 +22,16 @@ public class RandomDropTrain : MonoBehaviour
     private float MinLeftRangeX = 30.0f;
 
     //左右の電車の生成時間
-    private float FirstGenerateTime  = 0.0f;
-    private float SecondGenerateTime = 1.0f;
-    private float ThirdGenerateTime  = 2.0f;
+    private float FirstGenerateTime = 0.0f;
+    private float SecondGenerateTime = 0.0f;
+    private float ThirdGenerateTime = 0.0f;
 
-
+    //各電車のそれぞれの生成間隔時間
     private float FirstIntervalTime = 10.0f;
-    private float SecondIntervalTime = 11.0f;
-    private float ThirdtIntervalTime = 12.0f;
+    private float SecondIntervalTime = 15.0f;
+    private float ThirdtIntervalTime = 20.0f;
+
+     
 
 
    
@@ -37,6 +39,15 @@ public class RandomDropTrain : MonoBehaviour
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
     private Vector3 DropPos = Vector3.zero;
+
+
+    public void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+    }
 
     void Start()
     {
@@ -118,8 +129,10 @@ public class RandomDropTrain : MonoBehaviour
     }
 
 
+    //各電車の生成するZ座標の設定する関数
     private float SetRangePositionZ(float maxrangeZ, float minrangeZ)
     {
+        
         DropZ = Random.Range(maxrangeZ, minrangeZ);
         return DropZ;
     }
