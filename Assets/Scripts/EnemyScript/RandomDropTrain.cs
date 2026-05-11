@@ -7,6 +7,7 @@ public class RandomDropTrain : MonoBehaviour
 {
 
     public GameObject DropObject;
+    private RandomDropTrain instance;
     //ìdé‘ÇÃç¿ïWà íu
     private float LeftDropX;
     private float RightDropX;
