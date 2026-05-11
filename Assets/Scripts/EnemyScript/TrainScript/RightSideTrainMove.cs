@@ -6,7 +6,6 @@ public class RightSideTrainMove : MonoBehaviour
     private Rigidbody rb;
     private BothTrainMove BothTrain;
     Vector3 Train = Vector3.zero;
-    private BothTrainMove BothTrain;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,7 +16,6 @@ public class RightSideTrainMove : MonoBehaviour
 void Update()
     {
         BothTrain.RightTrainMove();
-        Degug.Log("ê≥èÌÇ…ìÆçÏ");
     }
 
 }

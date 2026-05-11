@@ -18,7 +18,7 @@ public class ForWardMoveTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        TrainForwardMove();
     }
 
     private void TrainForwardMove()

@@ -67,7 +67,7 @@ public class RandomDropTrain : MonoBehaviour
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime += Time.deltaTime;
        
-        // DropLeftForwardTrain();
+       //  DropLeftForwardTrain();
         DropRightForwardTrain();
     }
 
@@ -76,24 +76,29 @@ public class RandomDropTrain : MonoBehaviour
     {
         //線路内の電車の発生範囲
         //手前
-        if (FirstGenerateTime / FirstIntervalTime == 0)
+        if (FirstGenerateTime > FirstIntervalTime)
         {
             SetRangePositionZ(-812.0f, -821.0f);
+            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            Instantiate(DropObject, DropPos, RightTrainRotaion);
+            FirstGenerateTime = 0.0f;
         }
 
-        //奥 
-        if (SecondGenerateTime / SecondIntervalTime == 0)
+        if(SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-942.0f, -949.0f);
+            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            Instantiate(DropObject, DropPos, RightTrainRotaion);
+            SecondGenerateTime = 0.0f;
         }
-        //真ん中
-        if (ThirdGenerateTime / ThirdtIntervalTime == 0)
+        if(ThirdGenerateTime > ThirdtIntervalTime)
         {
-            //線路の横幅の端の座標
             SetRangePositionZ(-863.0f, -872.0f);
+            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            Instantiate(DropObject, DropPos, RightTrainRotaion);
+            ThirdGenerateTime = 0.0f;
         }
-        DropPos = new Vector3(RightDropX, DropY, DropZ);
-        Instantiate(DropObject, DropPos, RightTrainRotaion);
+
 
 
     }
@@ -108,25 +113,32 @@ public class RandomDropTrain : MonoBehaviour
         LeftDropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
         //手前
-        if (FirstGenerateTime / FirstIntervalTime == 0)
+        if (FirstGenerateTime > FirstIntervalTime)
         {
             SetRangePositionZ(-839.0f, -849.0f);
+            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            Instantiate(DropObject, DropPos, LeftTrainRotaion);
+            FirstGenerateTime = 0.0f;
 
         }
 
         //真ん中
 
-        if (ThirdGenerateTime / ThirdtIntervalTime == 0)
+        if (ThirdGenerateTime > ThirdtIntervalTime)
         {
             SetRangePositionZ(-896.0f, -906.0f);
+            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            Instantiate(DropObject, DropPos, LeftTrainRotaion);
+            ThirdGenerateTime = 0.0f;
         }
         ///奥
-        if (SecondGenerateTime / SecondIntervalTime == 0)
+        if (SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-970.0f, -978.0f);
+            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            Instantiate(DropObject, DropPos, LeftTrainRotaion);
+            SecondGenerateTime = 0.0f;
         }
-        DropPos = new Vector3(LeftDropX, DropY, DropZ);
-        Instantiate(DropObject, DropPos, LeftTrainRotaion);
     }
 
 
