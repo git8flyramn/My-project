@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 /// <summary>
 /// using UnityEditor.ShaderGraph.Internal;
 /// </summary>
@@ -47,10 +48,11 @@ public class ItemController : MonoBehaviour
                 //Debug.Log("playerに接触したのでplayerのスタミナを回復します");
                 dc.RegenerateStamina(RegenerateValue);
                 SE.ItemSE(clip);
-                Debug.Log("アイテムを取得した音を再生します");
+               // Debug.Log("アイテムを取得した音を再生します");
             }
             else
             {
+               
                 Debug.LogWarning("接触したのはPlayerですが、StaminaControllerが見つかりません！");
             }
           

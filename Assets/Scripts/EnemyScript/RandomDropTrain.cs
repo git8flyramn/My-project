@@ -95,12 +95,9 @@ public class RandomDropTrain : MonoBehaviour
         }
     }
 
-
     //“dÔ‚ğ‰¡Œü‚«¶‚©‚ç‰E‚Å¶¬‚·‚é
     public void DropLeftForwardTrain()
     {
-
-
         //ü˜H“à‚Ì“dÔ‚Ì”­¶”ÍˆÍ
         LeftDropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 

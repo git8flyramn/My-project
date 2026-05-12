@@ -49,10 +49,10 @@ public class ObjectPool : MonoBehaviour
         objectClone.gameObject.SetActive(false);
     }
 
-    //public void OnDestory(GameObject objectClone)
-    //{
-    //    Destroy(objectClone);
-    //}
+    public void OnDestory(GameObject objectClone)
+    {
+        Destroy(objectClone);
+    }
 
     public GameObject Get()
     {
