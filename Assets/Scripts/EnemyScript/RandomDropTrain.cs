@@ -55,9 +55,6 @@ public class RandomDropTrain : MonoBehaviour
         DropY = 1.0f;
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         LeftDropX  = Random.Range(MinLeftRangeX, MaxLeftRangeX);
-
-
-
     }
 
     // Update is called once per frame
@@ -67,8 +64,7 @@ public class RandomDropTrain : MonoBehaviour
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime += Time.deltaTime;
        
-       //  DropLeftForwardTrain();
-        DropRightForwardTrain();
+      //  DropRightForwardTrain();
     }
 
     //ìdé‘Çâ°å¸Ç´âEÇ©ÇÁç∂Ç≈ê∂ê¨Ç∑ÇÈ
