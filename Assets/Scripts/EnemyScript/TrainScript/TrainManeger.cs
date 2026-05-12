@@ -17,7 +17,7 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
     private float Timeinterval = 0.0f;
-    private float GenerateTime = 10.0f;
+    private float GenerateTime = 5.0f;
     void Start()
     {
      
@@ -45,8 +45,12 @@ public class TrainManeger : MonoBehaviour
 
         if (Timeinterval > GenerateTime)
         {
+            // Debug.Log("2‚Â–Ú‚Ì“dÔ¶¬");
+            //Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
             Debug.Log("2‚Â–Ú‚Ì“dÔ¶¬");
-            Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
+            GameObject train = Pool.GetComponent<ObjectPool>().Get();
+            train.transform.position = SecondTrainPlace.transform.position;
+            train.transform.rotation = Quaternion.identity;
             Timeinterval = 0.0f;
         }
       
