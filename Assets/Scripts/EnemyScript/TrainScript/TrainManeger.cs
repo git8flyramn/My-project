@@ -27,6 +27,7 @@ public class TrainManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         TrainMove();
     }
 
@@ -34,10 +35,11 @@ public class TrainManeger : MonoBehaviour
     {
         TimeCount += Time.deltaTime;
         Timeinterval += Time.deltaTime;
+        GameObject train = Pool.GetComponent<ObjectPool>().Get();
         if (TimeCount > GenerateTime)
         {
             Debug.Log("ìdé‘ÇÃê∂ê¨");
-            GameObject train = Pool.GetComponent<ObjectPool>().Get();
+            
             train.transform.position = TrainPlace.transform.position;
             train.transform.rotation = Quaternion.identity;
             TimeCount = 0.0f;
@@ -48,7 +50,6 @@ public class TrainManeger : MonoBehaviour
             // Debug.Log("2Ç¬ñ⁄ÇÃìdé‘ê∂ê¨");
             //Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
             Debug.Log("2Ç¬ñ⁄ÇÃìdé‘ê∂ê¨");
-            GameObject train = Pool.GetComponent<ObjectPool>().Get();
             train.transform.position = SecondTrainPlace.transform.position;
             train.transform.rotation = Quaternion.identity;
             Timeinterval = 0.0f;
