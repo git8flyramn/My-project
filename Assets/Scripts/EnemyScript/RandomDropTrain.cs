@@ -64,7 +64,6 @@ public class RandomDropTrain : MonoBehaviour
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime += Time.deltaTime;
        
-      //  DropRightForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -94,9 +93,6 @@ public class RandomDropTrain : MonoBehaviour
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             ThirdGenerateTime = 0.0f;
         }
-
-
-
     }
 
 
@@ -112,10 +108,9 @@ public class RandomDropTrain : MonoBehaviour
         if (FirstGenerateTime > FirstIntervalTime)
         {
             SetRangePositionZ(-839.0f, -849.0f);
-            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            DropPos = new Vector3(LeftDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             FirstGenerateTime = 0.0f;
-
         }
 
         //真ん中
@@ -123,7 +118,7 @@ public class RandomDropTrain : MonoBehaviour
         if (ThirdGenerateTime > ThirdtIntervalTime)
         {
             SetRangePositionZ(-896.0f, -906.0f);
-            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            DropPos = new Vector3(LeftDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             ThirdGenerateTime = 0.0f;
         }
@@ -131,7 +126,7 @@ public class RandomDropTrain : MonoBehaviour
         if (SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-970.0f, -978.0f);
-            DropPos = new Vector3(RightDropX, DropY, DropZ);
+            DropPos = new Vector3(LeftDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             SecondGenerateTime = 0.0f;
         }
@@ -141,7 +136,6 @@ public class RandomDropTrain : MonoBehaviour
     //各電車の生成するZ座標の設定する関数
     private float SetRangePositionZ(float maxrangeZ, float minrangeZ)
     {
-        
         DropZ = Random.Range(maxrangeZ, minrangeZ);
         return DropZ;
     }

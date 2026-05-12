@@ -36,7 +36,7 @@ public class DashGauge : MonoBehaviour
     {
         CurrentStamina -= dec * Time.deltaTime;
          Debug.Log("スタミナ減少");
-     //   CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
+       CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
         StaminaUpdate();
 
     }
@@ -44,7 +44,7 @@ public class DashGauge : MonoBehaviour
     public void RegenerateStamina(float add)
     {
         CurrentStamina += add;
-        Debug.Log("スタミナ回復中");
+      //  Debug.Log("スタミナ回復中");
         CurrentStamina = Mathf.Clamp(CurrentStamina, MinGauge, MaxGauge);
         StaminaUpdate();
     }

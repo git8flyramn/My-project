@@ -4,16 +4,14 @@ using System.Collections.Generic;
 public class RightDropTrain : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private RandomDropTrain DroprTrain;
 
     void Start()
-    {
-        DroprTrain = new RandomDropTrain();
+    { 
     }
 
     // Update is called once per frame
     void Update()
     {
-        DroprTrain.DropRightForwardTrain();
+        
     }
 }
