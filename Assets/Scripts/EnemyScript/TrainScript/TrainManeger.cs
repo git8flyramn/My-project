@@ -16,7 +16,8 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private ObjectPool Pool;
     private float TimeCount =  0.0f;
     private float Timeinterval = 0.0f;
-    private float GenerateTime = 5.0f;
+    private float RightGenerateTime = 5.0f;
+    private float LeftGenerateTime = 8.0f;
     void Start()
     {
      
@@ -35,7 +36,7 @@ public class TrainManeger : MonoBehaviour
         TimeCount += Time.deltaTime;
         Timeinterval += Time.deltaTime;
       
-        if (TimeCount > GenerateTime)
+        if (TimeCount > RightGenerateTime)
         {
             Debug.Log("“dÔ‚Ì¶¬");
             GameObject train = Pool.GetComponent<ObjectPool>().Get();
@@ -45,7 +46,7 @@ public class TrainManeger : MonoBehaviour
            
         }
 
-        if (Timeinterval > GenerateTime)
+        if (Timeinterval > LeftGenerateTime)
         {
             Debug.Log("2‚Â–Ú‚Ì“dÔ¶¬");
             GameObject train = Pool.GetComponent<ObjectPool>().Get();
