@@ -13,13 +13,12 @@ public class StickController : MonoBehaviour
     [SerializeField] ParticleSystem ParticleSystem;
     public ProgressBarContorller Progress;
     private CharacterController con;
-
     private Animator anim;
     private LayerMask walkableGround;
     Vector3 StickDirection = Vector3.zero;
    
     public FixedJoystick StickMove;
-    [Header("通常のスピード")] public float defaultSpeed = 25.0f;
+    [Header("通常のスピード")] public float defaultSpeed = 35.0f;
     [Header("ダッシュ時のスピード")] public float dash = 35.0f;
     
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
@@ -74,11 +73,12 @@ public class StickController : MonoBehaviour
 
         if (con.isGrounded)
         {
-
+            ParticleSystem.Play();
             StickDirection = forwardMove + side;
         }
         else
         {
+            ParticleSystem.Stop();
             StickDirection.y += gravity * Time.deltaTime;
         }
         con.Move(-StickDirection);

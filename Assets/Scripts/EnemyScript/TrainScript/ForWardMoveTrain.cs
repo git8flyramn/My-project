@@ -7,7 +7,7 @@ public class ForWardMoveTrain : MonoBehaviour
     
     private Rigidbody rb;
 
-    private float MoveSpeed = 4.0f;
+    private float MoveSpeed = 3.0f;
     private float Initvelocity = 2.0f;
     
     void Start()
