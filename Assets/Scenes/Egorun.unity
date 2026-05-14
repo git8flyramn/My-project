@@ -702,7 +702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 865303674604742476, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -905.5
+      value: -902.9
       objectReference: {fileID: 0}
     - target: {fileID: 865303674604742476, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -916,7 +916,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275162171}
   m_Layer: 0
-  m_Name: 'SecondTrainPlace '
+  m_Name: RightTrainPlace1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2796,7 +2796,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.3
+      value: -68.94
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2804,7 +2804,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -799.1
+      value: -799.02
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8843,7 +8843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad201d478b062e74b9562882f842da0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParticleSystem: {fileID: 942690136}
   Dash: {fileID: 911845749}
   LongTapTime: 1
   dashspeed: 20
@@ -9277,7 +9276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 865303674604742476, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.03754818
+      value: 0.062284924
       objectReference: {fileID: 0}
     - target: {fileID: 865303674604742476, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
       propertyPath: m_LocalScale.z
@@ -9956,7 +9955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 865303674604742476, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.03754818
+      value: 0.06436509
       objectReference: {fileID: 0}
     - target: {fileID: 865303674604742476, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
       propertyPath: m_LocalScale.z
@@ -10007,6 +10006,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
+--- !u!1 &1385462065
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1385462066}
+  m_Layer: 0
+  m_Name: RightTrainPlalce2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1385462066
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385462065}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.61933, y: 1.20862, z: -1015.27765}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1394988220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10373,7 +10403,7 @@ Transform:
   m_GameObject: {fileID: 1424540585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.33, y: 0.92, z: -247.62}
+  m_LocalPosition: {x: -8.84, y: 0.92, z: -247.62}
   m_LocalScale: {x: 6.582396, y: 0.52497, z: 22.620089}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10462,7 +10492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6993820841710688619, guid: 8654dcade0947ad478c4c737b777fc24, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -16.29
+      value: -9.95
       objectReference: {fileID: 0}
     - target: {fileID: 6993820841710688619, guid: 8654dcade0947ad478c4c737b777fc24, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11420,6 +11450,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1bd0c7c946967f4482c8e900688e159, type: 3}
+--- !u!1 &1715924770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715924771}
+  m_Layer: 0
+  m_Name: LeftTrainPlace2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1715924771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715924770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.82, y: 1.54, z: -976.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726683439
 GameObject:
   m_ObjectHideFlags: 0
@@ -11430,7 +11491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726683440}
   m_Layer: 0
-  m_Name: TrainPlace
+  m_Name: LeftTrainPlace1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11561,9 +11622,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Train: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
-  SecondTrain: {fileID: 6855479284151090953, guid: f180af16ed498fa44b3c5d4033a1d287, type: 3}
-  TrainPlace: {fileID: 1726683440}
-  SecondTrainPlace: {fileID: 275162171}
+  LeftTrainPlace1: {fileID: 1726683440}
+  RightTrainPlalce1: {fileID: 275162171}
+  LeftTrainPlace2: {fileID: 1715924771}
+  RightTrainPlalce2: {fileID: 1385462066}
   Pool: {fileID: 816368634}
 --- !u!1001 &1790166744
 PrefabInstance:
@@ -13215,7 +13277,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.77
+      value: -9.63
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13223,7 +13285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -232.09
+      value: -230.46
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13417,7 +13479,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2429509972940084913, guid: 4e4d75555710a48478a8168d12eea0f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.48
+      value: -7.1
       objectReference: {fileID: 0}
     - target: {fileID: 2429509972940084913, guid: 4e4d75555710a48478a8168d12eea0f4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13425,7 +13487,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2429509972940084913, guid: 4e4d75555710a48478a8168d12eea0f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -229.19
+      value: -229
       objectReference: {fileID: 0}
     - target: {fileID: 2429509972940084913, guid: 4e4d75555710a48478a8168d12eea0f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13620,7 +13682,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380842635494431114, guid: c5b37f1b1ef5a3141852f420bba785e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8
+      value: 7.1
       objectReference: {fileID: 0}
     - target: {fileID: 4380842635494431114, guid: c5b37f1b1ef5a3141852f420bba785e4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13628,7 +13690,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4380842635494431114, guid: c5b37f1b1ef5a3141852f420bba785e4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -230.8
+      value: -230.7
       objectReference: {fileID: 0}
     - target: {fileID: 4380842635494431114, guid: c5b37f1b1ef5a3141852f420bba785e4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13746,7 +13808,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3501026724517104696, guid: 522b91edc5119414da105727d5abe254, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.76
+      value: -10.1
       objectReference: {fileID: 0}
     - target: {fileID: 3501026724517104696, guid: 522b91edc5119414da105727d5abe254, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13754,7 +13816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3501026724517104696, guid: 522b91edc5119414da105727d5abe254, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -230.45
+      value: -230.4
       objectReference: {fileID: 0}
     - target: {fileID: 3501026724517104696, guid: 522b91edc5119414da105727d5abe254, type: 3}
       propertyPath: m_LocalRotation.w
@@ -14284,3 +14346,5 @@ SceneRoots:
   - {fileID: 1608842319}
   - {fileID: 960623229}
   - {fileID: 344756048}
+  - {fileID: 1715924771}
+  - {fileID: 1385462066}

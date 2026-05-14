@@ -8,7 +8,7 @@ public class TrainMove : MonoBehaviour
     private Rigidbody rb;
     
     private float MoveSpeed = 2.0f;
-    private float Initvelocity = 2.0f;
+    private float Initvelocity = 2.5f;
     void Start()
     {
        rb = GetComponent<Rigidbody>();
