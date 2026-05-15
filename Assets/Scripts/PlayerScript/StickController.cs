@@ -18,7 +18,7 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
    
     public FixedJoystick StickMove;
-    [Header("通常のスピード")] public float defaultSpeed = 35.0f;
+    [Header("通常のスピード")] public float defaultSpeed = 30.0f;
     [Header("ダッシュ時のスピード")] public float dash = 35.0f;
     
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
@@ -26,7 +26,6 @@ public class StickController : MonoBehaviour
     //private float decStamina = 0.5f;//スタミナの減少量
     private float distance = 1.0f;
     [Header("走っているかのフラグ")] bool IsRun = false;
-
 
     //Vector3 startPos;
 
@@ -74,7 +73,7 @@ public class StickController : MonoBehaviour
         if (con.isGrounded)
         {
             ParticleSystem.Play();
-            StickDirection = forwardMove + side;
+            StickDirection = forwardMove + side ;
         }
         else
         {
