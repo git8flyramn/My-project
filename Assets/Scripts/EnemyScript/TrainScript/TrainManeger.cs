@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.Pool;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-public class trainPoolManeger : MonoBehaviour
+public class trainTrainPoolManeger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -30,13 +30,14 @@ public class trainPoolManeger : MonoBehaviour
     private float BackTrainLeftIntervalTime = 5.0f;
     private float BackTrainRightIntervalTime = 7.0f;
 
+    GameObject trainPool;
     [SerializeField] private ObjectPool Pool;
 
-   
+
 
     void Start()
     {
-        trainPool= Pool.GetComponent<ObjectPool>().Get();
+        trainPool = Pool.GetComponent<ObjectPool>().Get();
 
     }
 
@@ -60,15 +61,18 @@ public class trainPoolManeger : MonoBehaviour
     //‘O”¼•”•ª‚Ì“dŽÔ‚Ì¶¬
     void FrontGenerateTrain()
     {
+      
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
-        {  
-            SetTrainPostion(trainPool, LeftTrainPlace1);
+        {
+           
+            SetTrainPostion(TrainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
         }
       
         if (TrainRightGenerateTime > TrainRightIntervalTime)
         {
-            SetTrainPostion(trainPool, RightTrainPlalce1);
+           
+            SetTrainPostion(TrainPool, RightTrainPlalce1);
             TrainRightGenerateTime = 0.0f;
         }
 
