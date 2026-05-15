@@ -8,11 +8,11 @@ public class TrainManeger : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject FrontTrain;
-    GameObject TrainPool;
+    private GameObject TrainPool;
     public Transform LeftTrainPlace1;
     public Transform RightTrainPlalce1;
-   
-
+    public Transform LeftTrainPlace2;
+    public Transform RightTrainPlalce2;
     //電車の生成時間のカウント
     private float TrainLeftGenerateTime = 0.0f;
     private float TrainRightGenerateTime = 0.0f;
@@ -51,24 +51,24 @@ public class TrainManeger : MonoBehaviour
       
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
-           
             SetTrainPostion(TrainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
         }
       
         if (TrainRightGenerateTime > TrainRightIntervalTime)
         {
-           
             SetTrainPostion(TrainPool, RightTrainPlalce1);
             TrainRightGenerateTime = 0.0f;
         }
 
-      
     }
 
 
     //後半部分の電車の生成
-   
+    void BackGenerateTrain()
+    {
+
+    }
 
 
     public void SetTrainPostion(GameObject obj, Transform trans)
