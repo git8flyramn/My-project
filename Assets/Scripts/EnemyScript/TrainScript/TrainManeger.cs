@@ -2,55 +2,51 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.Pool;
-using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-public class trainTrainPoolManeger : MonoBehaviour
+public class TrainManeger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    public GameObject Train;
+    public GameObject FrontTrain;
+    private GameObject TrainPool;
     public Transform LeftTrainPlace1;
     public Transform RightTrainPlalce1;
     public Transform LeftTrainPlace2;
     public Transform RightTrainPlalce2;
-
     //電車の生成時間のカウント
     private float TrainLeftGenerateTime = 0.0f;
     private float TrainRightGenerateTime = 0.0f;
-    
-    private float TrainBackLeftGenerateTime = 0.0f;
-    private float TrainBackRightGenerateTime = 0.0f;
-    
-    private float TrainLeftIntervalTime = 5.0f;
-    private float TrainRightIntervalTime = 7.0f;
+    private float TrainLeftIntervalTime = 4.0f;
+    private float TrainRightIntervalTime = 6.0f;
 
-    GameObject trainPool;
     [SerializeField] private ObjectPool Pool;
 
 
 
     void Start()
     {
-        trainPool = Pool.GetComponent<ObjectPool>().Get();
+        TrainPool = Pool.GetComponent<ObjectPool>().Get();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        TrainLeftGenerateTime += Time.deltaTime;
-        TrainRightGenerateTime += Time.deltaTime;
+        TrainLeftGenerateTime     += Time.deltaTime;
+        TrainRightGenerateTime    += Time.deltaTime;
+       
+
         GererateTrain();
     }
 
 
     private void GererateTrain()
     {
-        FrontGeneratetrainPool();
-        BackGenerateTrainPool();
+        FrontGenerateTrain();
+       
     }
     //前半部分の電車の生成
-    void FrontGeneratetrainPool()
+    void FrontGenerateTrain()
     {
       
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
@@ -66,7 +62,7 @@ public class trainTrainPoolManeger : MonoBehaviour
             SetTrainPostion(trainPool, RightTrainPlalce1);
             TrainRightGenerateTime = 0.0f;
         }
-      
+
     }
 
 
@@ -92,8 +88,7 @@ public class trainTrainPoolManeger : MonoBehaviour
     }
 
 
-
-    private void SetTrainPostion(GameObject obj, Transform trans)
+    public void SetTrainPostion(GameObject obj, Transform trans)
     {
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
