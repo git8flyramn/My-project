@@ -8,6 +8,7 @@ public class ItemManeger : MonoBehaviour
 
     public GameObject RecoveryItem;
     public Transform RecoveryItemPlace;
+    //public Transform RecoveryItemStorageArea;
     public int GeneratetTime = 15;
    
     //ê∂ê¨ÇÃä‘äu

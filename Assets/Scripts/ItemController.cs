@@ -3,15 +3,12 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-/// <summary>
-/// using UnityEditor.ShaderGraph.Internal;
-/// </summary>
 public class ItemController : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     //アイテムの制御に必要な物
-    public float DestroyTime;
+    public float DestroyTime = 5.0f;
     public float flowSpeed;
     public float RegenerateValue = 0.3f;
     public DashGauge stamina;
@@ -31,9 +28,9 @@ public class ItemController : MonoBehaviour
 
     void ItemMove()
     {
-        var Speed = Vector3.zero;
-        Speed.z += flowSpeed;
-        this.transform.Translate(Speed);
+        //var Speed = Vector3.zero;
+        //Speed.z += flowSpeed;
+        //this.transform.Translate(Speed);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -48,6 +45,7 @@ public class ItemController : MonoBehaviour
                 //Debug.Log("playerに接触したのでplayerのスタミナを回復します");
                 dc.RegenerateStamina(RegenerateValue);
                 SE.ItemSE(clip);
+                Destroy(dc, DestroyTime);
                // Debug.Log("アイテムを取得した音を再生します");
             }
             else
