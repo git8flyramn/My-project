@@ -56,14 +56,14 @@ public class trainTrainPoolManeger : MonoBehaviour
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
            
-            SetTrainPostion(TrainPool, LeftTrainPlace1);
+            SetTrainPostion(trainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
         }
       
         if (TrainRightGenerateTime > TrainRightIntervalTime)
         {
            
-            SetTrainPostion(TrainPool, RightTrainPlalce1);
+            SetTrainPostion(trainPool, RightTrainPlalce1);
             TrainRightGenerateTime = 0.0f;
         }
       
@@ -79,14 +79,14 @@ public class trainTrainPoolManeger : MonoBehaviour
         {
           
             Debug.Log("Œã”¼‚Ì“dŽÔ‚ª¶¬‚³‚ê‚Ü‚µ‚½");
-            SetTrainPostion(TrainPool, LeftTrainPlace2);
+            SetTrainPostion(trainPool, LeftTrainPlace2);
             TrainBackLeftGenerateTime = 0.0f;
         }
 
         if (TrainBackRightGenerateTime > TrainRightIntervalTime)
         {
             
-            SetTrainPostion(TrainPool, RightTrainPlalce2);
+            SetTrainPostion(trainPool, RightTrainPlalce2);
             TrainRightGenerateTime = 0.0f;
         }
     }
