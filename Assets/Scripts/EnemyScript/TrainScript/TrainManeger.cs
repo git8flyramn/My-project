@@ -23,8 +23,8 @@ public class TrainManeger : MonoBehaviour
     private float TrainLeftIntervalTime = 4.0f;
     private float TrainRightIntervalTime = 6.0f;
     [SerializeField] private ObjectPool Pool;
-
-
+    
+ 
     // private float TrainBackRightIntervalTime = 4.0f;
     //private float TrainBackLeftIntervalTime = 6.0f;
 
@@ -42,6 +42,7 @@ public class TrainManeger : MonoBehaviour
     void Start()
     {
         TrainPool = Pool.GetComponent<ObjectPool>().Get();
+        SE = GetComponent<SEManeger>();
 
     }
 
@@ -110,7 +111,7 @@ public class TrainManeger : MonoBehaviour
         obj.transform.position = trans.transform.position;
     }
 
-    public void 
+   
 
    
 
