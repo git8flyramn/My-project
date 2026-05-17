@@ -110,6 +110,8 @@ public class TrainManeger : MonoBehaviour
         obj.transform.position = trans.transform.position;
     }
 
+    public void 
+
    
 
 
