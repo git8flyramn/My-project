@@ -2,6 +2,7 @@ using System.Data;
 using UnityEngine;
 using Unity.VisualScripting;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 public class ForWardMoveTrain : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ForWardMoveTrain : MonoBehaviour
     private float MoveSpeed = 3.0f;
     private float Initvelocity = 2.0f;
     public AudioClip clip;
-
+    private float SeceneChangeTime = 0.5f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,10 +37,15 @@ public class ForWardMoveTrain : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-
-            Debug.Log("");
-
-            Debug.Log("‚Ô‚Â‚©‚Á‚½‰¹‚ğÄ¶‚µ‚Ü‚·");
+            Debug.Log("player‚Æ‚Ô‚Â‚©‚Á‚½‰¹‚ğÄ¶‚µ‚Ü‚·");
+            StartCoroutine(TrainAciidentWaitTime());
         }
+    }
+
+    IEnumerator TrainAciidentWaitTime()
+    {
+        yield return new WaitForSeconds(SeceneChangeTime);
+        Debug.Log("player‚Æ“dÔ‚ª‚Ô‚Â‚©‚Á‚½‚Ì”»’è‚ğæ‚è‚Ü‚µ‚½");
+        SceneManager.LoadScene("Game Over");
     }
 }

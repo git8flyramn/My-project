@@ -1,8 +1,9 @@
-using System.Data;
-using UnityEngine;
-using Unity.VisualScripting;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class RandomDropTrain : MonoBehaviour
 {
 
@@ -29,13 +30,13 @@ public class RandomDropTrain : MonoBehaviour
 
     //各電車のそれぞれの生成間隔時間
     private float FirstIntervalTime = 10.0f;
-    private float SecondIntervalTime = 15.0f;
+  //  private float SecondIntervalTime = 15.0f;
     private float ThirdtIntervalTime = 20.0f;
 
-     
+    private float delayTime = 1.0f;
 
 
-   
+
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
@@ -63,7 +64,9 @@ public class RandomDropTrain : MonoBehaviour
         FirstGenerateTime += Time.deltaTime;
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime += Time.deltaTime;
-       
+        DropRightForwardTrain();
+      
+        DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -76,23 +79,26 @@ public class RandomDropTrain : MonoBehaviour
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
+            Debug.Log("右の電車の生成");
             FirstGenerateTime = 0.0f;
+            StartCoroutine(ClrearSEWaitTime());
+            Debug.Log("まちます");
         }
-
-        if(SecondGenerateTime > SecondIntervalTime)
-        {
-            SetRangePositionZ(-942.0f, -949.0f);
-            DropPos = new Vector3(RightDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, RightTrainRotaion);
-            SecondGenerateTime = 0.0f;
-        }
-        if(ThirdGenerateTime > ThirdtIntervalTime)
-        {
-            SetRangePositionZ(-863.0f, -872.0f);
-            DropPos = new Vector3(RightDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, RightTrainRotaion);
-            ThirdGenerateTime = 0.0f;
-        }
+       
+        //if(SecondGenerateTime > SecondIntervalTime)
+        //{
+        //    SetRangePositionZ(-942.0f, -949.0f);
+        //    DropPos = new Vector3(RightDropX, DropY, DropZ);
+        //    Instantiate(DropObject, DropPos, RightTrainRotaion);
+        //    SecondGenerateTime = 0.0f;
+        //}
+        //if(ThirdGenerateTime > ThirdtIntervalTime)
+        //{
+        //    SetRangePositionZ(-863.0f, -872.0f);
+        //    DropPos = new Vector3(RightDropX, DropY, DropZ);
+        //    Instantiate(DropObject, DropPos, RightTrainRotaion);
+        //    ThirdGenerateTime = 0.0f;
+        //}
     }
 
     //電車を横向き左から右で生成する
@@ -101,14 +107,15 @@ public class RandomDropTrain : MonoBehaviour
         //線路内の電車の発生範囲
         LeftDropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
-        //手前
-        if (FirstGenerateTime > FirstIntervalTime)
-        {
-            SetRangePositionZ(-839.0f, -849.0f);
-            DropPos = new Vector3(LeftDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, LeftTrainRotaion);
-            FirstGenerateTime = 0.0f;
-        }
+        ////手前
+        //if (FirstGenerateTime > FirstIntervalTime)
+        //{
+        //    SetRangePositionZ(-839.0f, -849.0f);
+        //    DropPos = new Vector3(LeftDropX, DropY, DropZ);
+        //    Instantiate(DropObject, DropPos, LeftTrainRotaion);
+        //    Debug.Log("左の電車の生成");
+        //    FirstGenerateTime = 0.0f;
+        //}
 
         //真ん中
 
@@ -118,15 +125,20 @@ public class RandomDropTrain : MonoBehaviour
             DropPos = new Vector3(LeftDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             ThirdGenerateTime = 0.0f;
+            Debug.Log("左の電車の生成");
+            StartCoroutine(ClrearSEWaitTime());
+            Debug.Log("まちます");
         }
-        ///奥
-        if (SecondGenerateTime > SecondIntervalTime)
-        {
-            SetRangePositionZ(-970.0f, -978.0f);
-            DropPos = new Vector3(LeftDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, LeftTrainRotaion);
-            SecondGenerateTime = 0.0f;
-        }
+        /////奥
+        //if (SecondGenerateTime > SecondIntervalTime)
+        //{
+        //    SetRangePositionZ(-970.0f, -978.0f);
+        //    DropPos = new Vector3(LeftDropX, DropY, DropZ);
+        //    Instantiate(DropObject, DropPos, LeftTrainRotaion);
+        //    SecondGenerateTime = 0.0f;
+        //}
+
+       
     }
 
 
@@ -136,6 +148,10 @@ public class RandomDropTrain : MonoBehaviour
         DropZ = Random.Range(maxrangeZ, minrangeZ);
         return DropZ;
     }
+    IEnumerator ClrearSEWaitTime()
+    {
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("待ちます");
+    }
 
-  
 }

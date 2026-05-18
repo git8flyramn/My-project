@@ -61,16 +61,15 @@ public class TrainManeger : MonoBehaviour
         {
            
             SetTrainPostion(TrainPool, LeftTrainPlace1);
-            SetTrainPostion(TrainPool, RightTrainPlalce2);
-            Debug.Log("前半と後半の電車が生成されました");
+           // SetTrainPostion(TrainPool, RightTrainPlalce2);
+           // Debug.Log("前半と後半の電車が生成されました");
             TrainLeftGenerateTime = 0.0f;
         }
       
         if (TrainRightGenerateTime > TrainRightIntervalTime)
         {
-           
             SetTrainPostion(TrainPool, RightTrainPlalce1);
-            SetTrainPostion(TrainPool, LeftTrainPlace2);
+            //SetTrainPostion(TrainPool, LeftTrainPlace2);
             TrainRightGenerateTime = 0.0f;
         }
 
