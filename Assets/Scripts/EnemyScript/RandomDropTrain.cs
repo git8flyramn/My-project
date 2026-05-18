@@ -121,7 +121,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ThirdGenerateTime > ThirdtIntervalTime)
         {
-            SetRangePositionZ(-896.0f, -906.0f);
+            //  SetRangePositionZ(-896.0f, -906.0f);
+            SetRangePositionZ(-970.0f, -978.0f);
             DropPos = new Vector3(LeftDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, LeftTrainRotaion);
             ThirdGenerateTime = 0.0f;

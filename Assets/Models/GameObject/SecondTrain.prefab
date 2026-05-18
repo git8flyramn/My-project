@@ -77,10 +77,13 @@ PrefabInstance:
       addedObject: {fileID: 571252251500826080}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1059935946189728056}
+      addedObject: {fileID: -4542459453569246756}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4542459453569246756}
+      addedObject: {fileID: -9130955414403073535}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1059935946189728056}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3946932735802735938}
@@ -111,19 +114,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 2.8}
   m_Center: {x: -0.1, y: 0.55, z: 0.01}
---- !u!114 &1059935946189728056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855479284151090953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9205e0485dd60c743acd1721a4d94b8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForWordMoveTrain
-  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
 --- !u!54 &-4542459453569246756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,6 +141,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-9130955414403073535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855479284151090953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192d6f799ee69b74aa2d4e61fd28a4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SEManeger
+--- !u!114 &1059935946189728056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855479284151090953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9205e0485dd60c743acd1721a4d94b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ForWordMoveTrain
+  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
 --- !u!82 &-3946932735802735938
 AudioSource:
   m_ObjectHideFlags: 0
