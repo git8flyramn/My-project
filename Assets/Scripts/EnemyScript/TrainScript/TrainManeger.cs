@@ -42,7 +42,6 @@ public class TrainManeger : MonoBehaviour
     void Start()
     {
         TrainPool = Pool.GetComponent<ObjectPool>().Get();
-        SE = GetComponent<SEManeger>();
 
     }
 
@@ -54,11 +53,6 @@ public class TrainManeger : MonoBehaviour
         FrontGenerateTrain();
     }
 
-
-    private void GererateTrain()
-    {
-      
-    }
     //‘O”¼•”•ª‚Ì“dÔ‚Ì¶¬
     void FrontGenerateTrain()
     {
