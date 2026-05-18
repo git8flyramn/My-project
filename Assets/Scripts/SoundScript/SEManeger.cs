@@ -66,17 +66,5 @@ public class SEManeger : MonoBehaviour
         }
     }
 
-    public void TrainAccident(AudioClip clip)
-    {
-        if (audioSource != null)
-        {
-            audioSource.PlayOneShot(clip);
-        }
-        else
-        {
-            Debug.Log("電車とplayerがぶつかった音が設定されていません");
-        }
-    }
-
 
 }
