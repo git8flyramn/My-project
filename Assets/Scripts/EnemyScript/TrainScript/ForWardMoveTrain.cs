@@ -34,7 +34,7 @@ public class ForWardMoveTrain : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-            Debug.Log("ã¶ã¤ã‹ã£ãŸéŸ³ã‚’å†ç”Ÿã—ã¾ã™");
+            Debug.Log("‚Ô‚Â‚©‚Á‚½‰¹‚ğÄ¶‚µ‚Ü‚·");
         }
     }
 }

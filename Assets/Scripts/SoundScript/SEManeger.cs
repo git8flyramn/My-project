@@ -50,7 +50,19 @@ public class SEManeger : MonoBehaviour
         }
         else
         {
-            Debug.Log("ゲームオーバーが設定されていません");
+            Debug.Log("ゲームオーバー音が設定されていません");
+        }
+    }
+
+    public void TrainAccident(AudioClip clip)
+    {
+        if(audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+        else
+        {
+            Debug.Log("電車とplayerがぶつかった音が設定されていません");
         }
     }
 
