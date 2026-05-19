@@ -83,7 +83,10 @@ PrefabInstance:
       addedObject: {fileID: -9130955414403073535}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1059935946189728056}
+      addedObject: {fileID: 5597737896886157507}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1303982790352432421}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3946932735802735938}
@@ -153,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 192d6f799ee69b74aa2d4e61fd28a4b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SEManeger
---- !u!114 &1059935946189728056
+--- !u!114 &5597737896886157507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,10 +165,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6855479284151090953}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9205e0485dd60c743acd1721a4d94b8b, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f065bbbb4fd81d49b7950f998a57352, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ForWordMoveTrain
-  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::BothTrainMove
+--- !u!114 &-1303982790352432421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855479284151090953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ecca7c48aac61947ae65ee603912afb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeftSideTrainMove
 --- !u!82 &-3946932735802735938
 AudioSource:
   m_ObjectHideFlags: 0

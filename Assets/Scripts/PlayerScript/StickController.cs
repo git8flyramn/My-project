@@ -22,10 +22,10 @@ public class StickController : MonoBehaviour
     [Header("ダッシュ時のスピード")] public float dash = 35.0f;
     
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
-    private float gravity = 9.8f;
+    //private float gravity = 9.8f;
     //private float decStamina = 0.5f;//スタミナの減少量
     private float distance = 1.0f;
-    [Header("走っているかのフラグ")] bool IsRun = false;
+    //[Header("走っているかのフラグ")] bool IsRun = false;
 
     //Vector3 startPos;
 
@@ -61,27 +61,27 @@ public class StickController : MonoBehaviour
     void MoveStick()
     {
         RayCast();
-        IsRun = true;
-        //自走部分
-        Progress.StartProgressBar();
-        Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
-        float horizontal = StickMove.Horizontal;
-        Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
+        //IsRun = true;
+        ////自走部分
+        //Progress.StartProgressBar();
+        //Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
+        //float horizontal = StickMove.Horizontal;
+        //Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
        
        
 
-        if (con.isGrounded)
-        {
-            ParticleSystem.Play();
-            StickDirection = forwardMove + side ;
-        }
-        else
-        {
-            ParticleSystem.Stop();
-            StickDirection.y += gravity * Time.deltaTime;
-        }
-        con.Move(-StickDirection);
-        anim.SetBool("IsRun", IsRun);
+        //if (con.isGrounded)
+        //{
+        //    ParticleSystem.Play();
+        //    StickDirection = forwardMove + side ;
+        //}
+        //else
+        //{
+        //    ParticleSystem.Stop();
+        //    StickDirection.y += gravity * Time.deltaTime;
+        //}
+        //con.Move(-StickDirection);
+        //anim.SetBool("IsRun", IsRun);
 
     }
 
