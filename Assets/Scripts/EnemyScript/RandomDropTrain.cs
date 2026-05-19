@@ -1,9 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Data;
-using Unity.VisualScripting;
+using UnityEngine.Pool;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 public class RandomDropTrain : MonoBehaviour
 {
 
@@ -39,7 +37,7 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //左右の電車の向き
-    //private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
+    private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
     private Vector3 DropPos = Vector3.zero;
 
@@ -77,23 +75,24 @@ public class RandomDropTrain : MonoBehaviour
         {
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, RightTrainRotaion);
-            Debug.Log("右の電車の生成");
+            TrainSetting(DropObject, RightTrainRotaion, DropPos);
+           
             FirstGenerateTime = 0.0f;
+            Debug.Log("右の電車の生成");    
         }
 
         if (SecondGenerateTime > SecondIntervalTime)
         {
             SetRangePositionZ(-942.0f, -949.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, RightTrainRotaion);
-            SecondGenerateTime = 0.0f;
+            TrainSetting(DropObject, RightTrainRotaion, DropPos);
+            SecondGenerateTime = 0.0f; 
         }
         if (ThirdGenerateTime > ThirdtIntervalTime)
         {
             SetRangePositionZ(-863.0f, -872.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
-            Instantiate(DropObject, DropPos, RightTrainRotaion);
+            TrainSetting(DropObject, RightTrainRotaion, DropPos);
             ThirdGenerateTime = 0.0f;
         }
     }
@@ -145,5 +144,12 @@ public class RandomDropTrain : MonoBehaviour
         return DropZ;
     }
 
-    
+
+    public void TrainSetting(GameObject obj,Quaternion dir,Vector3 pos)
+    {
+        obj.transform.rotation = dir;
+        obj.transform.position = pos;
+        Instantiate(obj, obj.transform.position, obj.transform.rotation);
+    }
+
 }
