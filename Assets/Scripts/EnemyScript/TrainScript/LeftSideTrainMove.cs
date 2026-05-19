@@ -7,16 +7,18 @@ public class LeftSideTrainMove : MonoBehaviour
 
     private Rigidbody rb;
     private BothTrainMove BothTrain;
+    private RandomDropTrain DropTrain;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
+        DropTrain = GetComponent<RandomDropTrain>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        // BothTrain.TrainLeftMove();
-        BothTrain.TrainRightMove();
+       DropTrain.DropRightForwardTrain();
+       BothTrain.TrainRightMove();
     }
 }
