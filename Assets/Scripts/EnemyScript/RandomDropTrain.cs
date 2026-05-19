@@ -35,7 +35,6 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondIntervalTime = 15.0f;
     private float ThirdtIntervalTime = 20.0f;
 
-    private float delayTime = 1.0f;
 
 
 
