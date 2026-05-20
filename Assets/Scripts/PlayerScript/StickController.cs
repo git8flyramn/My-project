@@ -7,8 +7,6 @@ using UnityEngine;
 
 public class StickController : MonoBehaviour
 {
-   
-
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
     public ProgressBarContorller Progress;
@@ -18,7 +16,7 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
    
     public FixedJoystick StickMove;
-    [Header("通常のスピード")] public float defaultSpeed = 30.0f;
+    [Header("通常のスピード")] public float defaultSpeed = 35.0f;
     [Header("ダッシュ時のスピード")] public float dash = 35.0f;
     
     //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
@@ -63,7 +61,7 @@ public class StickController : MonoBehaviour
         RayCast();
         IsRun = true;
         ////自走部分
-        //Progress.StartProgressBar();
+        Progress.StartProgressBar();
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;

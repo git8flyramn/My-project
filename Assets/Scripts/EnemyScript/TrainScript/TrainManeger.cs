@@ -25,10 +25,10 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private ObjectPool Pool;
     
  
-    // private float TrainBackRightIntervalTime = 4.0f;
+     private float TrainBackRightIntervalTime = 4.0f;
     //private float TrainBackLeftIntervalTime = 6.0f;
 
-    // private float TrainBackLeftGenerateTime = 0.0f;
+     private float TrainBackLeftGenerateTime = 0.0f;
     //private float TrainBackRightGenerateTime = 0.0f;
 
 
@@ -50,7 +50,9 @@ public class TrainManeger : MonoBehaviour
     {
         TrainLeftGenerateTime  += Time.deltaTime;
         TrainRightGenerateTime += Time.deltaTime;
+        TrainBackLeftGenerateTime += Time.deltaTime;
         FrontGenerateTrain();
+       // BackGenerateTrain();
     }
 
     //前半部分の電車の生成
@@ -61,17 +63,18 @@ public class TrainManeger : MonoBehaviour
         {
            
             SetTrainPostion(TrainPool, LeftTrainPlace1);
-           // SetTrainPostion(TrainPool, RightTrainPlalce2);
-           // Debug.Log("前半と後半の電車が生成されました");
+           Debug.Log("前半の電車が生成されました");
             TrainLeftGenerateTime = 0.0f;
         }
       
         if (TrainRightGenerateTime > TrainRightIntervalTime)
         {
             SetTrainPostion(TrainPool, RightTrainPlalce1);
-            //SetTrainPostion(TrainPool, LeftTrainPlace2);
             TrainRightGenerateTime = 0.0f;
         }
+
+      
+        
 
     }
 
@@ -79,19 +82,16 @@ public class TrainManeger : MonoBehaviour
     //後半部分の電車の生成
 
 
-    void BackGenerateTrainPool()
+    void BackGenerateTrain()
     {
-        //if (TrainBackLeftGenerateTime > TrainBackLeftIntervalTime)
-        //{
-          
-        //    Debug.Log("後半の電車が生成されました");
-        //    SetTrainPostion(TrainPool, LeftTrainPlace2);
-        //    TrainBackLeftGenerateTime = 0.0f;
-        //}
+        if (TrainBackLeftGenerateTime > TrainBackRightIntervalTime)
+        {
+            SetTrainPostion(TrainPool, RightTrainPlalce2);
+            Debug.Log("後半の電車が生成されました");
+        }
 
         //if (TrainBackRightGenerateTime > TrainBackRightIntervalTime)
         //{
-            
         //    SetTrainPostion(TrainPool, RightTrainPlalce2);
         //    TrainRightGenerateTime = 0.0f;
         //}
