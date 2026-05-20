@@ -61,9 +61,9 @@ public class RandomDropTrain : MonoBehaviour
         FirstGenerateTime += Time.deltaTime;
         SecondGenerateTime += Time.deltaTime;
         ThirdGenerateTime += Time.deltaTime;
-      
-      
-        DropLeftForwardTrain();
+
+        DropRightForwardTrain();
+       // DropLeftForwardTrain();
     }
 
     //“dÔ‚ğ‰¡Œü‚«‰E‚©‚ç¶‚Å¶¬‚·‚é

@@ -18,7 +18,6 @@ public class LeftSideTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       DropTrain.DropRightForwardTrain();
-       BothTrain.TrainRightMove();
+        BothTrain.TrainLeftMove();
     }
 }

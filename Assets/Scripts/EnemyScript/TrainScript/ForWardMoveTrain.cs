@@ -10,7 +10,7 @@ public class ForWardMoveTrain : MonoBehaviour
     
     private Rigidbody rb;
     private SEManeger SE;
-    private float MoveSpeed = 3.0f;
+    private float MoveSpeed = 2.0f;
     private float Initvelocity = 2.0f;
     public AudioClip clip;
     private float SeceneChangeTime = 0.5f;
