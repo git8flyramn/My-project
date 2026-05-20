@@ -39,7 +39,7 @@ public class FadeOutSceneLoder : MonoBehaviour
             yield return null;
         }
         fadePanel.color = endColor;
-        SceneManager.LoadScene("Title");
+        SceneManager.LoadScene("Game Over");
       
     }
 

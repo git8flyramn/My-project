@@ -30,6 +30,7 @@ public class TrainManeger : MonoBehaviour
 
      private float TrainBackLeftGenerateTime = 0.0f;
     //private float TrainBackRightGenerateTime = 0.0f;
+    private float delayTime = 4.0f; 
 
 
 
@@ -52,7 +53,7 @@ public class TrainManeger : MonoBehaviour
         TrainRightGenerateTime += Time.deltaTime;
         TrainBackLeftGenerateTime += Time.deltaTime;
         FrontGenerateTrain();
-       // BackGenerateTrain();
+       　//BackGenerateTrain();
     }
 
     //前半部分の電車の生成
@@ -65,12 +66,16 @@ public class TrainManeger : MonoBehaviour
             SetTrainPostion(TrainPool, LeftTrainPlace1);
            Debug.Log("前半の電車が生成されました");
             TrainLeftGenerateTime = 0.0f;
+            StartCoroutine(TrainWaitTime());
+            SetTrainPostion(TrainPool, RightTrainPlalce2);
         }
       
         if (TrainRightGenerateTime > TrainRightIntervalTime)
         {
             SetTrainPostion(TrainPool, RightTrainPlalce1);
             TrainRightGenerateTime = 0.0f;
+            StartCoroutine(TrainWaitTime());
+            SetTrainPostion(TrainPool, LeftTrainPlace2);
         }
 
       
@@ -86,7 +91,7 @@ public class TrainManeger : MonoBehaviour
     {
         if (TrainBackLeftGenerateTime > TrainBackRightIntervalTime)
         {
-            SetTrainPostion(TrainPool, RightTrainPlalce2);
+            SetTrainPostion(TrainPool, LeftTrainPlace2);
             Debug.Log("後半の電車が生成されました");
         }
 
@@ -105,7 +110,11 @@ public class TrainManeger : MonoBehaviour
     }
 
    
-
+    IEnumerator TrainWaitTime()
+    {
+        yield return new WaitForSeconds(delayTime);
+        Debug.Log("待ちます");
+    }
    
 
 
