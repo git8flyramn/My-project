@@ -12,7 +12,7 @@ public class RandomDropTrain : MonoBehaviour
     //電車の座標位置
     private float LeftDropX;
     private float RightDropX;
-    private static float DropY;
+    private const float DropY = 1.0f;
     private float DropZ;
 
     //右側の線路のX座標
@@ -49,7 +49,7 @@ public class RandomDropTrain : MonoBehaviour
 
     void Start()
     {
-        DropY = 1.0f;
+      
         TrainPool = Pool.GetComponent<ObjectPool>().Get();
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         LeftDropX  = Random.Range(MinLeftRangeX, MaxLeftRangeX);
@@ -63,7 +63,7 @@ public class RandomDropTrain : MonoBehaviour
         ThirdGenerateTime += Time.deltaTime;
 
         DropRightForwardTrain();
-       // DropLeftForwardTrain();
+        //DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する

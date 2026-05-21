@@ -20,13 +20,13 @@ public class TrainManeger : MonoBehaviour
     private float TrainLeftGenerateTime = 0.0f;
     private float TrainRightGenerateTime = 0.0f;
     private float TrainLeftBackGenerateTime = 0.0f;
-    private float RightTrainBackGenerateTime = 0.0f;
+  //  private float RightTrainBackGenerateTime = 0.0f;
    
     //電車の生成間隔
-    private float TrainLeftIntervalTime     = 4.0f;
-    private float TrainLeftBackIntervalTime = 8.0f;
-    private float TrainRightIntervalTime    = 6.0f;
-    private float RightTrainBackIntervalTime= 7.0f;
+    private float TrainLeftIntervalTime     = 5.0f;
+    private float TrainRightIntervalTime    = 10.0f;
+   // private float TrainLeftBackIntervalTime = 10.0f;
+ //   private float RightTrainBackIntervalTime= 15.0f;
 
     
 
@@ -52,7 +52,6 @@ public class TrainManeger : MonoBehaviour
         TrainLeftBackGenerateTime += Time.deltaTime;
 
         FrontGenerateTrain();
-        //BackGenerateTrain();
     }
 
     //前半部分の電車の生成
@@ -62,14 +61,14 @@ public class TrainManeger : MonoBehaviour
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
             Debug.Log("前半の電車が生成されました");
-            SetTrainPostion(TrainPool, LeftTrainPlace2);
+            SetTrainPostion(TrainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
            
         }
        
         if(TrainRightGenerateTime > TrainRightIntervalTime)
         {
-            SetTrainPostion(TrainPool, RightTrainPlalce2);
+            SetTrainPostion(TrainPool, RightTrainPlalce1);
             TrainRightGenerateTime = 0.0f;
         }
 
@@ -81,20 +80,15 @@ public class TrainManeger : MonoBehaviour
 
     void BackGenerateTrain()
     {
-        if (TrainLeftBackGenerateTime > TrainLeftBackIntervalTime)
-        {
-            SetTrainPostion(TrainPool, LeftTrainPlace2);
-            Debug.Log("後半の電車が生成されました");
-            TrainLeftBackGenerateTime = 0.0f;
+        //if (TrainLeftBackGenerateTime > TrainLeftBackIntervalTime)
+        //{
+        //    SetTrainPostion(TrainPool, LeftTrainPlace2);
+        //    SetTrainPostion(TrainPool, RightTrainPlalce2);
+        //    Debug.Log("後半の電車が生成されました");
+        //    TrainLeftBackGenerateTime = 0.0f;
+           
 
-        }
-
-        if (RightTrainBackGenerateTime > RightTrainBackIntervalTime)
-        {
-            SetTrainPostion(TrainPool, RightTrainPlalce2);
-            TrainLeftBackGenerateTime = 0.0f;
-
-        }
+        //}
     }
 
 
