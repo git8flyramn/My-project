@@ -13,20 +13,15 @@ public class TrainManeger : MonoBehaviour
 
     public Transform LeftTrainPlace1;
     public Transform RightTrainPlalce1;
-    public Transform LeftTrainPlace2;
-    public Transform RightTrainPlalce2;
     
     //電車の生成時間のカウント
     private float TrainLeftGenerateTime = 0.0f;
     private float TrainRightGenerateTime = 0.0f;
-    private float TrainLeftBackGenerateTime = 0.0f;
-  //  private float RightTrainBackGenerateTime = 0.0f;
    
     //電車の生成間隔
-    private float TrainLeftIntervalTime     = 5.0f;
-    private float TrainRightIntervalTime    = 10.0f;
-   // private float TrainLeftBackIntervalTime = 10.0f;
- //   private float RightTrainBackIntervalTime= 15.0f;
+    private float TrainLeftIntervalTime  = 6.0f;
+    private float TrainRightIntervalTime = 9.0f;
+ 
 
     
     void Start()
@@ -40,8 +35,6 @@ public class TrainManeger : MonoBehaviour
     {
         TrainLeftGenerateTime  += Time.deltaTime;
         TrainRightGenerateTime += Time.deltaTime;
-        TrainLeftBackGenerateTime += Time.deltaTime;
-
         FrontGenerateTrain();
     }
 
@@ -51,7 +44,6 @@ public class TrainManeger : MonoBehaviour
       
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
-            Debug.Log("前半の電車が生成されました");
             SetTrainPostion(TrainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
            
@@ -64,25 +56,6 @@ public class TrainManeger : MonoBehaviour
         }
 
     }
-
-
-    //後半部分の電車の生成
-
-
-    void BackGenerateTrain()
-    {
-        //if (TrainLeftBackGenerateTime > TrainLeftBackIntervalTime)
-        //{
-        //    SetTrainPostion(TrainPool, LeftTrainPlace2);
-        //    SetTrainPostion(TrainPool, RightTrainPlalce2);
-        //    Debug.Log("後半の電車が生成されました");
-        //    TrainLeftBackGenerateTime = 0.0f;
-           
-
-        //}
-    }
-
-
     public void SetTrainPostion(GameObject obj, Transform trans)
     {
         obj.transform.rotation = Quaternion.identity;

@@ -11,6 +11,8 @@ public class RandomDropTrain : MonoBehaviour
     private float RightDropX;
     private const float DropY = 1.0f;
     private float DropZ;
+    // Transform left
+    //
 
     //右側の線路のX座標
     private float MinRightRangeX = -50.0f;
@@ -36,6 +38,8 @@ public class RandomDropTrain : MonoBehaviour
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
+   
+    //private Quaternion ForwardRotaion = Quaternion.identity;
     private Vector3 DropPos = Vector3.zero;
 
 
@@ -92,6 +96,9 @@ public class RandomDropTrain : MonoBehaviour
     }
 
     //電車を横向き左から右で生成する
+    //電車をゴール近くの線線路から生成する
+    //左 x , y , z = -1007.f;
+    //右 x , y , z = -1007.f;
     public void DropLeftForwardTrain()
     {
         //線路内の電車の発生範囲
@@ -115,7 +122,6 @@ public class RandomDropTrain : MonoBehaviour
             DropPos = new Vector3(LeftDropX, DropY, DropZ);
             TrainSetting(DropObject, LeftTrainRotaion, DropPos);
             ThirdGenerateTime = 0.0f;
-            Debug.Log("左の電車の生成");
         }
         /////奥
         if (SecondGenerateTime > SecondIntervalTime)
