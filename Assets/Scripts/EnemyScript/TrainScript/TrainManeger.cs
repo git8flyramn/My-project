@@ -29,15 +29,6 @@ public class TrainManeger : MonoBehaviour
     private float RightTrainBackIntervalTime= 7.0f;
 
     
-
-
-
-
-
-
-
-
-
     void Start()
     {
         TrainPool = Pool.GetComponent<ObjectPool>().Get();

@@ -1,14 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Pool;
 using UnityEngine;
 public class RandomDropTrain : MonoBehaviour
 {
 
     public GameObject DropObject;
-   // private RandomDropTrain instance;
-    private GameObject TrainPool;
-    [SerializeField] private ObjectPool Pool;
+  
     //電車の座標位置
     private float LeftDropX;
     private float RightDropX;
@@ -50,7 +47,7 @@ public class RandomDropTrain : MonoBehaviour
     void Start()
     {
         DropY = 1.0f;
-        TrainPool = Pool.GetComponent<ObjectPool>().Get();
+       
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         LeftDropX  = Random.Range(MinLeftRangeX, MaxLeftRangeX);
     }
@@ -63,7 +60,7 @@ public class RandomDropTrain : MonoBehaviour
         ThirdGenerateTime += Time.deltaTime;
 
         DropRightForwardTrain();
-       // DropLeftForwardTrain();
+        DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -76,7 +73,6 @@ public class RandomDropTrain : MonoBehaviour
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
             TrainSetting(DropObject, RightTrainRotaion, DropPos);
-           
             FirstGenerateTime = 0.0f;
             Debug.Log("右の電車の生成");    
         }
