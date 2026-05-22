@@ -29,13 +29,13 @@ public class BothTrainMove : MonoBehaviour
 
         TrainDir = Vector3.right;
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-        Debug.Log("‰E‘¤³í‚Éì“®");
+      //  Debug.Log("‰E‘¤³í‚Éì“®");
     }
 
     public void TrainLeftMove()
     {
         TrainDir = Vector3.left;
-        Debug.Log("¶‘¤³í‚Éì“®");
+        //Debug.Log("¶‘¤³í‚Éì“®");
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 

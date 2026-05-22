@@ -9,7 +9,7 @@ public class RandomDropTrain : MonoBehaviour
     //電車の座標位置
     private float LeftDropX;
     private float RightDropX;
-    private static float DropY;
+    private const float DropY = 1.0f;
     private float DropZ;
 
     //右側の線路のX座標

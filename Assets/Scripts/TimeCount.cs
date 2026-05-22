@@ -1,5 +1,5 @@
 using UnityEngine;
-using TMPro;
+using TMPro; 
 public class TimeCount : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,7 +24,7 @@ public class TimeCount : MonoBehaviour
             ClearTime += Time.deltaTime;
             TimeText.text = "ClearTime:" + ClearTime.ToString("F1");
         }
-
+       
     }
 
     private void OnCollisionEnter(Collision collision)
