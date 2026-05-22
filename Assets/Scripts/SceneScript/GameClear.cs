@@ -2,26 +2,26 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using System.Runtime.InteropServices;
-using UnityEditor;
 using TMPro;
+using UnityEngine.UI;
 public class GameClear : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private float time = 0.0f;
     private SEManeger SE;
     public AudioClip clip;
     private float deleayTime = 0.9f;
+   
     void Start()
     {
-     
+       
         SE = GetComponent<SEManeger>();
+       
+      
     }
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
         
     }
 
@@ -35,7 +35,6 @@ public class GameClear : MonoBehaviour
                 SE.ClearSE(clip);
                 Debug.Log("âπê∫Ç™ñ¬ÇËÇ‹ÇµÇΩ");
             }
-
             StartCoroutine(ClrearSEWaitTime());
         }
 

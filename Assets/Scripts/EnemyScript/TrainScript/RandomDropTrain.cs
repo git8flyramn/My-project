@@ -45,9 +45,7 @@ public class RandomDropTrain : MonoBehaviour
     }
 
     void Start()
-    {
-        DropY = 1.0f;
-       
+    {  
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         LeftDropX  = Random.Range(MinLeftRangeX, MaxLeftRangeX);
     }
