@@ -14,10 +14,7 @@ public class GameClear : MonoBehaviour
    
     void Start()
     {
-       
         SE = GetComponent<SEManeger>();
-       
-      
     }
     // Update is called once per frame
     void Update()

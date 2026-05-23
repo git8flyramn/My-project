@@ -17,7 +17,7 @@ public class TimeCounter : MonoBehaviour
         CurrentTime += Time.deltaTime;
     }
 
-    public void ClearTimeGet()
+    public float TimeGet()
     {
         ClearTime = CurrentTime;
         return ClearTime;
