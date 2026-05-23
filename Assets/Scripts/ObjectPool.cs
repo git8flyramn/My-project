@@ -29,7 +29,6 @@ public class ObjectPool : MonoBehaviour
     //objectPool.Get()の時に呼ばれる機能
     private GameObject SetUpPool()
     {
-
         // Debug.Log("オブジェクトが生成されました");
         Vector3 initPosition = transform.position;
         GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
@@ -49,20 +48,21 @@ public class ObjectPool : MonoBehaviour
         objectClone.gameObject.SetActive(false);
     }
 
-    //public void OnDestory(GameObject objectClone)
-    //{
-    //    Destroy(objectClone);
-    //}
+    //生成限度を超えたら
+    public void OnDestory(GameObject objectClone)
+    {
+        Destroy(objectClone);
+    }
 
     public GameObject Get()
     {
         return pool.Get();
     }
 
-    public void Release(GameObject objectClone)
-    {
-        pool.Release(objectClone);
-    }
+    //public void Release(GameObject objectClone)
+    //{
+    //    pool.Release(objectClone);
+    //}
 
     //電車の最大数の取得
     public int GetTrainNum()

@@ -1,12 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 public class ItemManeger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject RecoveryItem;
     public Transform RecoveryItemPlace;
+    //public Transform RecoveryItemStorageArea;
     public int GeneratetTime = 15;
    
     //ê∂ê¨ÇÃä‘äu

@@ -14,7 +14,7 @@ public class RightSideTrainMove : MonoBehaviour
     }
 
 // Update is called once per frame
-void Update()
+    void Update()
     {
         BothTrain.RightTrainMove();
         Debug.Log("ê≥èÌÇ…ìÆçÏ");

@@ -1,57 +1,66 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.Pool;
-using System.Runtime.CompilerServices;
+
+using Unity.VisualScripting;
 public class TrainManeger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    public GameObject FrontTrain;
+    private GameObject TrainPool;
+    [SerializeField] private ObjectPool Pool;
+
+    public Transform LeftTrainPlace1;
+    public Transform RightTrainPlalce1;
+    
+    //電車の生成時間のカウント
+    private float TrainLeftGenerateTime = 0.0f;
+    private float TrainRightGenerateTime = 0.0f;
+   
+    //電車の生成間隔
+    private float TrainLeftIntervalTime  = 6.0f;
+    private float TrainRightIntervalTime = 9.0f;
+ 
 
     
-    public GameObject Train;
-    public GameObject SecondTrain;
-    public Transform TrainPlace;
-   
-    public Transform SecondTrainPlace;
-    [SerializeField] private ObjectPool Pool;
-    private float TimeCount =  0.0f;
-    private float Timeinterval = 0.0f;
-    private float GenerateTime = 10.0f;
     void Start()
     {
-     
-       
+        TrainPool = Pool.GetComponent<ObjectPool>().Get();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        TrainMove();
+        TrainLeftGenerateTime  += Time.deltaTime;
+        TrainRightGenerateTime += Time.deltaTime;
+        FrontGenerateTrain();
     }
 
-    void TrainMove()
+    //前半部分の電車の生成
+    void FrontGenerateTrain()
     {
-        TimeCount += Time.deltaTime;
-        Timeinterval += Time.deltaTime;
-        if (TimeCount > GenerateTime)
+      
+        if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
-            Debug.Log("電車の生成");
-            GameObject train = Pool.GetComponent<ObjectPool>().Get();
-            train.transform.position = TrainPlace.transform.position;
-            train.transform.rotation = Quaternion.identity;
-            TimeCount = 0.0f;
+            SetTrainPostion(TrainPool, LeftTrainPlace1);
+            TrainLeftGenerateTime = 0.0f;
+           
+        }
+       
+        if(TrainRightGenerateTime > TrainRightIntervalTime)
+        {
+            SetTrainPostion(TrainPool, RightTrainPlalce1);
+            TrainRightGenerateTime = 0.0f;
         }
 
-        if (Timeinterval > GenerateTime)
-        {
-            Debug.Log("2つ目の電車生成");
-            Instantiate(SecondTrain, SecondTrainPlace.position, Quaternion.identity);
-            Timeinterval = 0.0f;
-        }
-      
     }
-  
+    public void SetTrainPostion(GameObject obj, Transform trans)
+    {
+        obj.transform.rotation = Quaternion.identity;
+        obj.transform.position = trans.transform.position;
+    }
 }
 
 

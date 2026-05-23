@@ -22,11 +22,9 @@ public class BothTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
-      
     }
 
-    public void RightTrainMove()
+    public void TrainRightMove()
     {
 
         TrainDir = Vector3.right;
@@ -37,7 +35,7 @@ public class BothTrainMove : MonoBehaviour
     public void TrainLeftMove()
     {
         TrainDir = Vector3.left;
-        Debug.Log("¶‘¤‚Ì“®‚«³í‚Éì“®");
+        //Debug.Log("¶‘¤³í‚Éì“®");
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 

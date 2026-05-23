@@ -7,16 +7,18 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
 {
    
 
-    [SerializeField] ParticleSystem ParticleSystem;
+   
     public DashGauge Dash;
-    private bool isLongTap = false;
+    private bool isLongTap = true;
     private float Taptime;
     public float LongTapTime = 2.0f; //長押しをしている時間
-    private float decStamina = 0.5f;
-    private float RegeneStamina = 0.25f;
-    private float defaultSpeed = 25.0f;//通常のスピード 
+    private float decStamina = 0.01f;
+    //private float RegeneStamina = 0.01f;
+    private float defaultSpeed = 30.0f;//通常のスピード 
     public float dashspeed = 35.0f;        //ダッシュ時のスピード
     public StickController Sc;
+
+
     void Start()
     {
         Dash = GetComponent<DashGauge>();
@@ -32,7 +34,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         {
             Sc.dash = defaultSpeed;
             StartDash();
-            Dash.RegenerateStamina(RegeneStamina);
+            Dash.UseStamina(decStamina);
             // Debug.Log("ボタンを長押していません");
 
         }
@@ -50,7 +52,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
             StopDash();
             //defaultSpeed
             Sc.dash = dashspeed;
-            Dash.UseStamina(decStamina);
+           
             // Debug.Log("ボタンを長押しています");
 
         }
@@ -64,23 +66,19 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         if (isLongTap)
         {
             Taptime += Time.deltaTime;
-           
+
             //ボタンを長押ししている間
             //(押し続けている時間が長押しの判定より長かったらスタミナが減る)
             if (Taptime >= LongTapTime)
             {
                 Debug.Log("Long Tap");
-               
+
                 Taptime = 0.0f;
                 isLongTap = false;
 
             }
 
         }
-        
-        
-
-
     }
 
 
@@ -89,7 +87,6 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     {
       
         Dash.SetDashSpeed(dashspeed);
-        ParticleSystem.Play();
         Debug.Log("ダッシュエフェクト再生");
       // Debug.Log("ダッシュスピード:" + dashspeed);
     }
@@ -98,7 +95,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     {
        
         Debug.Log("ダッシュエフェクト停止");
-        ParticleSystem.Stop();
+       
         // ParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         //  
         // Debug.Log("元のスピード:" + defaultSpeed);   

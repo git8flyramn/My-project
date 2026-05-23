@@ -1,18 +1,18 @@
-using System.Data;
-using UnityEngine;
-using Unity.VisualScripting;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 public class RandomDropTrain : MonoBehaviour
 {
 
     public GameObject DropObject;
-    public static RandomDropTrain instance;
+  
     //電車の座標位置
-    private float RightDropX;
     private float LeftDropX;
-    private float DropY = 1.0f;
+    private float RightDropX;
+    private const float DropY = 1.0f;
     private float DropZ;
+    // Transform left
+    //
 
     //右側の線路のX座標
     private float MinRightRangeX = -50.0f;
@@ -30,22 +30,20 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondIntervalTime = 15.0f;
     private float ThirdtIntervalTime = 20.0f;
 
-     
 
 
-   
+
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
+   
+    //private Quaternion ForwardRotaion = Quaternion.identity;
     private Vector3 DropPos = Vector3.zero;
 
 
     public void Awake()
     {
-        if(instance == null)
-        {
-            instance = this;
-        }
+      
     }
 
     void Start()
@@ -73,7 +71,6 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (RightTrainGenerateTime == FirstIntervalTime)
         {
-            Debug.Log("電車が右に生成されました");
             SetRangePositionZ(-812.0f, -821.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
@@ -89,7 +86,7 @@ public class RandomDropTrain : MonoBehaviour
         ////奥 
         if (RightTrainGenerateTime == ThirdtIntervalTime)
         {
-            SetRangePositionZ(-942.0f, -949.0f);
+            SetRangePositionZ(-863.0f, -872.0f);
             DropPos = new Vector3(RightDropX, DropY, DropZ);
             Instantiate(DropObject, DropPos, RightTrainRotaion);
             RightTrainGenerateTime = 0.0f;
@@ -98,7 +95,6 @@ public class RandomDropTrain : MonoBehaviour
 
        
     }
-
 
     //電車を横向き左から右で生成する
 
@@ -144,19 +140,21 @@ public class RandomDropTrain : MonoBehaviour
     // }
 
 
-
-
-
-
     //各電車の生成するZ座標の設定する関数
 
 
     private float SetRangePositionZ(float maxrangeZ, float minrangeZ)
     {
-        
         DropZ = Random.Range(maxrangeZ, minrangeZ);
         return DropZ;
     }
 
-  
+
+    public void TrainSetting(GameObject obj,Quaternion dir,Vector3 pos)
+    {
+        obj.transform.rotation = dir;
+        obj.transform.position = pos;
+        Instantiate(obj, obj.transform.position, obj.transform.rotation);
+    }
+
 }
