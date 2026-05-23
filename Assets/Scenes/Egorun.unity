@@ -9764,8 +9764,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropObject: {fileID: 4091611344882823466, guid: 1fd53eb4bebafcc4da02baa667545940, type: 3}
-  LeftTrain: {fileID: 1502929966}
-  RightTrain: {fileID: 1373071599}
 --- !u!4 &1373071599
 Transform:
   m_ObjectHideFlags: 0
@@ -10622,8 +10620,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DropObject: {fileID: 1782226019351121708, guid: c89ae3b4ed2c3ba4a99125ab9c57ebb5, type: 3}
-  LeftTrain: {fileID: 1502929966}
-  RightTrain: {fileID: 1373071599}
 --- !u!4 &1502929966
 Transform:
   m_ObjectHideFlags: 0
@@ -13228,7 +13224,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.1
+      value: -9.45
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13236,7 +13232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -561.5
+      value: -199.83
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalRotation.w

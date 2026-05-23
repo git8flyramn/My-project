@@ -1,12 +1,12 @@
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 public class RightSideTrainMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Rigidbody rb;
     private BothTrainMove BothTrain;
     Vector3 Train = Vector3.zero;
-    private BothTrainMove BothTrain;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,7 +17,7 @@ public class RightSideTrainMove : MonoBehaviour
 void Update()
     {
         BothTrain.RightTrainMove();
-        Degug.Log("ê≥èÌÇ…ìÆçÏ");
+        Debug.Log("ê≥èÌÇ…ìÆçÏ");
     }
 
 }
