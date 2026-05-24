@@ -12,9 +12,12 @@ public class GameClear : MonoBehaviour
     public AudioClip clip;
     private float deleayTime = 0.9f;
    
+
     void Start()
     {
         SE = GetComponent<SEManeger>();
+       
+        
     }
     // Update is called once per frame
     void Update()
