@@ -10,7 +10,7 @@ public class BothTrainMove : MonoBehaviour
 
    
     private Rigidbody rb;
-    private float MoveSpeed    = 2.0f;
+    private float MoveSpeed    = 3.0f;
     private float Initvelocity = 2.0f;
     Vector3 TrainDir = Vector3.zero;
 
