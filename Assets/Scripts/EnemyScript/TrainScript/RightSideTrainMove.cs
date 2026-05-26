@@ -17,7 +17,7 @@ public class RightSideTrainMove : MonoBehaviour
     void Update()
     {
         BothTrain.TrainRightMove();
-        Debug.Log("³í‚É“®ì");
+        ///Debug.Log("³í‚É“®ì");
     }
 
 }
