@@ -62,7 +62,7 @@ public class StickController : MonoBehaviour
         IsRun = true;
         //Ž©‘–•”•ª
         Progress.StartProgressBar();
-        Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
+       Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
 

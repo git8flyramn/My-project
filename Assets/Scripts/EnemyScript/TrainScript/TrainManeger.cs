@@ -1,14 +1,16 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 public class TrainManeger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     public GameObject FrontTrain;
     private GameObject TrainPool;
+    private SEManeger SE;
+    public AudioClip clip;
     [SerializeField] private ObjectPool Pool;
 
     public Transform LeftTrainPlace1;
@@ -21,13 +23,16 @@ public class TrainManeger : MonoBehaviour
     //電車の生成間隔
     private float TrainLeftIntervalTime  = 6.0f;
     private float TrainRightIntervalTime = 9.0f;
- 
 
-    
+    private float SeceneChangeTime = 0.5f;
+
+
+
+
     void Start()
     {
         TrainPool = Pool.GetComponent<ObjectPool>().Get();
-
+        SE = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -60,6 +65,44 @@ public class TrainManeger : MonoBehaviour
     {
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            RandomDropTrain DropTrain = collision.gameObject.GetComponent<RandomDropTrain>();
+            ForWardMoveTrain ForwardTrain = collision.gameObject.GetComponent<ForWardMoveTrain>();
+
+            if (DropTrain != null)
+            {
+                SE.TrainAccident(clip);
+                Debug.Log("playerとぶつかった音を再生します");
+                StartCoroutine(TrainAciidentWaitTime());
+            }
+            else
+            {
+                Debug.Log("RandomDropTrainの中身がありません");
+            }
+
+            if (ForwardTrain != null)
+            {
+                SE.TrainAccident(clip);
+                Debug.Log("playerとぶつかった音を再生します");
+                StartCoroutine(TrainAciidentWaitTime());
+            }
+            else
+            {
+                Debug.Log("ForwardMoveTrainの中身がありません");
+            }
+
+        }
+    }
+    IEnumerator TrainAciidentWaitTime()
+    {
+        yield return new WaitForSeconds(SeceneChangeTime);
+        Debug.Log("playerと電車がぶつかった時の判定を取りました");
+        SceneManager.LoadScene("Game Over");
     }
 }
 

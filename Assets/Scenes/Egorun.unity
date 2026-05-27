@@ -11324,6 +11324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FrontTrain: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
+  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
   Pool: {fileID: 816368634}
   LeftTrainPlace1: {fileID: 1726683440}
   RightTrainPlalce1: {fileID: 275162171}
@@ -11413,7 +11414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1816213855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12916,7 +12917,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.3
+      value: -8.46
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12924,7 +12925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -236.86
+      value: -229.92
       objectReference: {fileID: 0}
     - target: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: m_LocalRotation.w
