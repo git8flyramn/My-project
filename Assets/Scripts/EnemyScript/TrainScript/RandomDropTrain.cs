@@ -39,7 +39,7 @@ public class RandomDropTrain : MonoBehaviour
 
     //左右の電車の向き
      private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
-    private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
+     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
    
     //private Quaternion ForwardRotaion = Quaternion.identity;
     private Vector3 LeftDropPos = Vector3.zero;
@@ -57,8 +57,10 @@ public class RandomDropTrain : MonoBehaviour
         
         RightTrainGenerateTime += Time.deltaTime;
         RightTrainSecondGenerateTime += Time.deltaTime;
-        DropRightForwardTrain();
-        DropLeftForwardTrain();
+        LeftTrainGenerate += Time.deltaTime;
+        LeftTrainSecondGenerateTime += Time.deltaTime;
+       DropRightForwardTrain();
+       DropLeftForwardTrain();
     }
 
     //電車を横向き右から左で生成する
@@ -73,8 +75,8 @@ public class RandomDropTrain : MonoBehaviour
         {
             Debug.Log("電車を右から生成しました");
             SetRangeRightPositionZ(-812.0f, -821.0f);
-            RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-         //   TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
+            RightDropPos = new Vector3(RightDropX,DropY,RightDropZ);
+            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
 
         }
@@ -82,7 +84,7 @@ public class RandomDropTrain : MonoBehaviour
         ////真ん中
         if (RightTrainSecondGenerateTime > SecondIntervalTime)
         {
-            SetRangeRightPositionZ(-942.0f, -949.0f);
+            SetRangeRightPositionZ(-942.0f,-949.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainSecondGenerateTime = 0.0f;
@@ -122,7 +124,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             SetRangeLeftPositionZ(-970.0f, -978.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            Instantiate(DropObject, LeftDropPos, LeftTrainRotaion);
+            TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainSecondGenerateTime = 0.0f;
         }
 
@@ -144,15 +146,15 @@ public class RandomDropTrain : MonoBehaviour
 
     private float SetRangeLeftPositionZ(float LeftMaxRangeZ, float LeftMinRangeZ)
     {
-        LeftDropX = Random.Range(LeftMaxRangeZ, LeftMinRangeZ);
-        return LeftDropX;
+        LeftDropZ = Random.Range(LeftMaxRangeZ, LeftMinRangeZ);
+        return LeftDropZ;
     }
 
 
       private float SetRangeRightPositionZ(float RightMaxRangeZ, float RightMinRangeZ)
     {
-        RightDropX = Random.Range(RightMaxRangeZ, RightMinRangeZ);
-        return RightDropX;
+        RightDropZ = Random.Range(RightMaxRangeZ, RightMinRangeZ);
+        return RightDropZ;
     }
 
 
@@ -162,7 +164,8 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.rotation = dir;
         obj.transform.position = pos;
-     
+        Instantiate(obj, obj.transform.position, obj.transform.rotation);
+        Debug.Log("電車が生成されました");
     }
 
  
