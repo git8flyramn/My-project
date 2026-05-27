@@ -6,7 +6,7 @@ public class RandomDropTrain : MonoBehaviour
 {
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
-
+    private SEManeger SE;
     //電車の座標位置
     private float LeftDropX;
     private float RightDropX;
@@ -24,7 +24,7 @@ public class RandomDropTrain : MonoBehaviour
 
     //左右の電車の生成時間
     private float RightTrainGenerateTime = 0.0f;
-    private float RightTrainSecondGenerateTime = 0.0f;
+   // private float RightTrainSecondGenerateTime = 0.0f;
     private float LeftTrainGenerate = 0.0f;
     private float LeftTrainSecondGenerateTime = 0.0f;
 
@@ -33,10 +33,6 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondIntervalTime = 15.0f;
    
     //private float ThirdtIntervalTime = 20.0f;
-
-
-
-
     //左右の電車の向き
      private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
      private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
@@ -44,9 +40,11 @@ public class RandomDropTrain : MonoBehaviour
      private Vector3 LeftDropPos = Vector3.zero;
      private Vector3 RightDropPos = Vector3.zero;
 
+
+
     void Start()
     {
-
+        SE = GetComponent<SEManeger>();
      
     }
 
@@ -55,7 +53,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         
         RightTrainGenerateTime += Time.deltaTime;
-        RightTrainSecondGenerateTime += Time.deltaTime;
+        //RightTrainSecondGenerateTime += Time.deltaTime;
         LeftTrainGenerate += Time.deltaTime;
         LeftTrainSecondGenerateTime += Time.deltaTime;
        DropRightForwardTrain();
@@ -170,6 +168,8 @@ public class RandomDropTrain : MonoBehaviour
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
         Debug.Log("電車が生成されました");
     }
+
+    
 
  
 

@@ -48,4 +48,9 @@ public class ForWardMoveTrain : MonoBehaviour
         Debug.Log("player‚Æ“dŽÔ‚ª‚Ô‚Â‚©‚Á‚½Žž‚Ì”»’è‚ðŽæ‚è‚Ü‚µ‚½");
         SceneManager.LoadScene("Game Over");
     }
+
+    public void Collision()
+    {
+       
+    }
 }

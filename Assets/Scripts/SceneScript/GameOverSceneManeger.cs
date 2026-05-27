@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class GameOverSceneManeger : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -12,5 +12,10 @@ public class GameOverSceneManeger : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RetryGame()
+    {
+        SceneManager.LoadScene("Title", LoadSceneMode.Single);
     }
 }
