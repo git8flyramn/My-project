@@ -4,9 +4,9 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 public class RandomDropTrain : MonoBehaviour
 {
-
+    //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
-  
+
     //電車の座標位置
     private float LeftDropX;
     private float RightDropX;
@@ -14,11 +14,11 @@ public class RandomDropTrain : MonoBehaviour
     private float LeftDropZ;
     private float RightDropZ;
 
-    //右側の線路のX座標
+    //右側の線路のX座標範囲
     private float MinRightRangeX = -50.0f;
     private float MaxRightRangeX = -103.0f;
 
-    //左側の線路のX座標
+    //左側の線路のX座標範囲
     private float MaxLeftRangeX = 75.0f;
     private float MinLeftRangeX = 30.0f;
 
@@ -40,10 +40,9 @@ public class RandomDropTrain : MonoBehaviour
     //左右の電車の向き
      private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
      private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
-   
-    //private Quaternion ForwardRotaion = Quaternion.identity;
-    private Vector3 LeftDropPos = Vector3.zero;
-    private Vector3 RightDropPos = Vector3.zero;
+     
+     private Vector3 LeftDropPos = Vector3.zero;
+     private Vector3 RightDropPos = Vector3.zero;
 
     void Start()
     {
@@ -73,22 +72,27 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (RightTrainGenerateTime > FirstIntervalTime)
         {
-            Debug.Log("電車を右から生成しました");
             SetRangeRightPositionZ(-812.0f, -821.0f);
             RightDropPos = new Vector3(RightDropX,DropY,RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
 
         }
-
-        ////真ん中
-        if (RightTrainSecondGenerateTime > SecondIntervalTime)
+        else if (RightTrainGenerateTime > SecondIntervalTime)
         {
-            SetRangeRightPositionZ(-942.0f,-949.0f);
+            SetRangeRightPositionZ(-942.0f, -949.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            RightTrainSecondGenerateTime = 0.0f;
+            //RightTrainSecondGenerateTime = 0.0f;
+            Debug.Log("生成時間がリセットされました");
+            RightTrainGenerateTime = 0.0f;
+            
         }
+        ////真ん中
+        //if (RightTrainSecondGenerateTime > SecondIntervalTime)
+        //{
+          
+        //}
         //////奥
        
 
@@ -110,8 +114,7 @@ public class RandomDropTrain : MonoBehaviour
 
         ///奥
         if (LeftTrainGenerate > FirstIntervalTime)
-        {
-            Debug.Log("電車が左に生成されました");
+        { 
             SetRangeLeftPositionZ(-839.0f, -849.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);

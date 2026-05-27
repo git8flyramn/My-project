@@ -13,7 +13,6 @@ public class BothTrainMove : MonoBehaviour
     private float MoveSpeed    = 3.0f;
     private float Initvelocity = 2.0f;
     Vector3 TrainDir = Vector3.zero;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,11 +21,11 @@ public class BothTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void TrainRightMove()
     {
-
         TrainDir = Vector3.right;
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }

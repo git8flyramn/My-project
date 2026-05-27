@@ -52,6 +52,7 @@ public class ObjectPool : MonoBehaviour
     public void OnDestory(GameObject objectClone)
     {
         Destroy(objectClone);
+        Debug.Log("ê∂ê¨ÇÃè„å¿Ç…Ç»Ç¡ÇΩÇÃÇ≈è¡ãéÇµÇ‹Ç∑");
     }
 
     public GameObject Get()
