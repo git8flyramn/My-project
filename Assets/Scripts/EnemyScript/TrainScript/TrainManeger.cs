@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 public class TrainManeger : MonoBehaviour
 {
@@ -18,11 +19,11 @@ public class TrainManeger : MonoBehaviour
     
     //電車の生成時間のカウント
     private float TrainLeftGenerateTime = 0.0f;
-    private float TrainRightGenerateTime = 0.0f;
+//    private float TrainRightGenerateTime = 0.0f;
    
     //電車の生成間隔
-    private float TrainLeftIntervalTime  = 6.0f;
-    private float TrainRightIntervalTime = 9.0f;
+    private float TrainLeftIntervalTime  = 5.0f;
+   // private float TrainRightIntervalTime = 5.0f;
 
     private float SeceneChangeTime = 0.5f;
 
@@ -39,34 +40,28 @@ public class TrainManeger : MonoBehaviour
     void Update()
     {
         TrainLeftGenerateTime  += Time.deltaTime;
-        TrainRightGenerateTime += Time.deltaTime;
+       // TrainRightGenerateTime += Time.deltaTime;
         FrontGenerateTrain();
     }
 
     //前半部分の電車の生成
     void FrontGenerateTrain()
     {
-      
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
             SetTrainPostion(TrainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
-           
         }
-       
-        if(TrainRightGenerateTime > TrainRightIntervalTime)
-        {
-            SetTrainPostion(TrainPool, RightTrainPlalce1);
-            TrainRightGenerateTime = 0.0f;
-        }
-
     }
     public void SetTrainPostion(GameObject obj, Transform trans)
     {
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
+     
     }
 
+
+    //生成される電車の全ての当たり判定を行う機能
     public void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name == "Player")
@@ -98,6 +93,8 @@ public class TrainManeger : MonoBehaviour
 
         }
     }
+   
+    
     IEnumerator TrainAciidentWaitTime()
     {
         yield return new WaitForSeconds(SeceneChangeTime);

@@ -104,6 +104,8 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeLeftPositionZ(-839.0f, -849.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
+            LeftTrainGenerateTime = 0.0f;
+
         }//éËëO
         else if (LeftTrainGenerateTime > SecondIntervalTime)
         {
@@ -142,6 +144,7 @@ public class RandomDropTrain : MonoBehaviour
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
         Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
+        
     }
 
     

@@ -6,27 +6,20 @@ public class TimeCounter : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
-    private int CurrentTime = 0;
-    public int ClearTime = 0;
-    private int addTime = 1;
-     private int minute = 60;
+    private int CurrentTime = 0; //•\¦‚³‚ê‚éŠÔ
+    public int ClearTime = 0;   //‰æ–Ê‘JˆÚŒã‚É“n‚·—p‚Ì•Ï”
+    private int minutes = 60;
     public TextMeshProUGUI TimerText;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        CurrentTime += addTime;
-       
-        if(CurrentTime / minute == 0)
-        {
-            CurrentTime /= minute;
-            TimerText.text = CurrentTime.ToString();
-        }
-
+        CurrentTime += 1;
+        TransformMinites(CurrentTime);
     }
 
     public float TimeGet()
@@ -34,5 +27,12 @@ public class TimeCounter : MonoBehaviour
         ClearTime = CurrentTime;
         return ClearTime;
     }
+
+    private void TransformMinites(int time)
+    {
+        TimerText.text = ((int)time / minutes).ToString("00.0");
+    }
+
 }
+
 
