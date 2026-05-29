@@ -25,8 +25,6 @@ public class TrainManeger : MonoBehaviour
     private float TrainLeftIntervalTime  = 5.0f;
    // private float TrainRightIntervalTime = 5.0f;
 
-    private float SeceneChangeTime = 0.5f;
-
 
 
 
@@ -58,25 +56,6 @@ public class TrainManeger : MonoBehaviour
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
      
-    }
-
-
-    //生成される電車の全ての当たり判定を行う機能
-    public void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.name == "Player")
-        {
-            RandomDropTrain DropTrain = collision.gameObject.GetComponent<RandomDropTrain>();
-            if (DropTrain != null)
-            {
-                SE.TrainAccident(clip);
-                Debug.Log("playerとぶつかった音を再生します");
-            }
-            else
-            {
-                Debug.Log("RandomDropTrainの中身がありません");
-            }
-        }
     }
 }
 

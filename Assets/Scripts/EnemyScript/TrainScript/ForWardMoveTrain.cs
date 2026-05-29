@@ -1,9 +1,8 @@
-using System.Data;
 using UnityEngine;
-using Unity.VisualScripting;
 using System.Collections;
-using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 public class ForWardMoveTrain : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -11,14 +10,12 @@ public class ForWardMoveTrain : MonoBehaviour
     private Rigidbody rb;
     private float MoveSpeed = 2.0f;
     private float Initvelocity = 2.0f;
-    private ForWardMoveTrain ForwardTrain;
     private SEManeger SE;
     public AudioClip clip;
     private float SeceneChangeTime = 0.5f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        ForwardTrain = GetComponent<ForWardMoveTrain>();
     }
 
     // Update is called once per frame
@@ -34,9 +31,18 @@ public class ForWardMoveTrain : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        SE.TrainAccident(clip);
-        Debug.Log("playerとぶつかった音を再生します");
-        StartCoroutine(TrainAciidentWaitTime());
+        if(collision.gameObject.name == "Player")
+        {
+            SE.TrainAccident(clip);
+            Debug.Log("playerとぶつかった音を再生します");
+            StartCoroutine(TrainAciidentWaitTime());
+        }
+        else
+        {
+            Debug.LogWarning("Playerが見つかりません！");
+        }
+       
+      
     }
 
     IEnumerator TrainAciidentWaitTime()
