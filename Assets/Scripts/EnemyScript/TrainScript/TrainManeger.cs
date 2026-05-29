@@ -19,11 +19,11 @@ public class TrainManeger : MonoBehaviour
     
     //電車の生成時間のカウント
     private float TrainLeftGenerateTime = 0.0f;
-//    private float TrainRightGenerateTime = 0.0f;
+    private float TrainRightGenerateTime = 0.0f;
    
     //電車の生成間隔
     private float TrainLeftIntervalTime  = 5.0f;
-   // private float TrainRightIntervalTime = 5.0f;
+    private float TrainRightIntervalTime = 8.0f;
 
 
 
@@ -38,7 +38,7 @@ public class TrainManeger : MonoBehaviour
     void Update()
     {
         TrainLeftGenerateTime  += Time.deltaTime;
-       // TrainRightGenerateTime += Time.deltaTime;
+        TrainRightGenerateTime += Time.deltaTime;
         FrontGenerateTrain();
     }
 
@@ -49,6 +49,12 @@ public class TrainManeger : MonoBehaviour
         {
             SetTrainPostion(TrainPool, LeftTrainPlace1);
             TrainLeftGenerateTime = 0.0f;
+        }
+
+        if(TrainRightGenerateTime > TrainRightIntervalTime)
+        {
+            SetTrainPostion(TrainPool, RightTrainPlalce1);
+            TrainRightGenerateTime = 0.0f;
         }
     }
     public void SetTrainPostion(GameObject obj, Transform trans)

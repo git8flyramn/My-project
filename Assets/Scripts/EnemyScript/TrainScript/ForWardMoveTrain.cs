@@ -16,6 +16,7 @@ public class ForWardMoveTrain : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        SE = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -37,12 +38,6 @@ public class ForWardMoveTrain : MonoBehaviour
             Debug.Log("playerとぶつかった音を再生します");
             StartCoroutine(TrainAciidentWaitTime());
         }
-        else
-        {
-            Debug.LogWarning("Playerが見つかりません！");
-        }
-       
-      
     }
 
     IEnumerator TrainAciidentWaitTime()
