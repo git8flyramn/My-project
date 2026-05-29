@@ -67,39 +67,16 @@ public class TrainManeger : MonoBehaviour
         if(collision.gameObject.name == "Player")
         {
             RandomDropTrain DropTrain = collision.gameObject.GetComponent<RandomDropTrain>();
-            ForWardMoveTrain ForwardTrain = collision.gameObject.GetComponent<ForWardMoveTrain>();
-
             if (DropTrain != null)
             {
                 SE.TrainAccident(clip);
                 Debug.Log("player‚Æ‚Ô‚Â‚©‚Á‚½‰¹‚ğÄ¶‚µ‚Ü‚·");
-                StartCoroutine(TrainAciidentWaitTime());
             }
             else
             {
                 Debug.Log("RandomDropTrain‚Ì’†g‚ª‚ ‚è‚Ü‚¹‚ñ");
             }
-
-            if (ForwardTrain != null)
-            {
-                SE.TrainAccident(clip);
-                Debug.Log("player‚Æ‚Ô‚Â‚©‚Á‚½‰¹‚ğÄ¶‚µ‚Ü‚·");
-                StartCoroutine(TrainAciidentWaitTime());
-            }
-            else
-            {
-                Debug.Log("ForwardMoveTrain‚Ì’†g‚ª‚ ‚è‚Ü‚¹‚ñ");
-            }
-
         }
-    }
-   
-    
-    IEnumerator TrainAciidentWaitTime()
-    {
-        yield return new WaitForSeconds(SeceneChangeTime);
-        Debug.Log("player‚Æ“dÔ‚ª‚Ô‚Â‚©‚Á‚½‚Ì”»’è‚ğæ‚è‚Ü‚µ‚½");
-        SceneManager.LoadScene("Game Over");
     }
 }
 
