@@ -21,7 +21,7 @@ public class ChangeDirection : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
                            //ChageDirPoint
-        if (other.CompareTag("ChangeDirPoint"))
+        if (other.CompareTag("train"))
         {
             Debug.Log("“dÔ‚ÌŒü‚«‚ª•ÏX‚³‚ê‚Ü‚µ‚½");
             BothTrain.TrainDir = ChangeDir;
