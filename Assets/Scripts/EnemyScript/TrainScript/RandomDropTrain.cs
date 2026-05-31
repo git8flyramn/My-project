@@ -30,8 +30,8 @@ public class RandomDropTrain : MonoBehaviour
     private float LeftTrainGenerateTime = 0.0f;
 
     //各電車のそれぞれの生成間隔時間
-    private float FirstIntervalTime = 10.0f;
-    private float SecondIntervalTime = 15.0f;
+    private float FirstIntervalTime = 5.0f;
+    private float SecondIntervalTime = 10.0f;
    
     //左右の電車の向き
      private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
@@ -51,7 +51,7 @@ public class RandomDropTrain : MonoBehaviour
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
         DropRightForwardTrain();
-        DropLeftForwardTrain();
+       // DropLeftForwardTrain();
     }
 
     //右から生成
@@ -147,6 +147,7 @@ public class RandomDropTrain : MonoBehaviour
         
     }
 
+   
     
 
  

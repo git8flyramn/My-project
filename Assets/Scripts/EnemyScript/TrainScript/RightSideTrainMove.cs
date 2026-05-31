@@ -4,12 +4,14 @@ using System.Collections.Generic;
 public class RightSideTrainMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-   // private Rigidbody rb;
+    private Rigidbody rb;
     private BothTrainMove BothTrain;
+ 
+    //private float DirchangeTime = 0.0f;
 
     void Start()
     {
-     ///   rb = GetComponent<Rigidbody>();
+       rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
        
     }
@@ -17,7 +19,12 @@ public class RightSideTrainMove : MonoBehaviour
 // Update is called once per frame
     void Update()
     {
-        BothTrain.TrainRightMove();             
+       
+        BothTrain.TrainRightMove();
+       
+        
     }
 
+   
+   
 }
