@@ -36,6 +36,12 @@ public class BothTrainMove : MonoBehaviour
     public void TrainLeftMove()
     {
         TrainDir = Vector3.left;
+       // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+    }
+
+    public void ChangeTrainDir(Vector3 dir)
+    {
+        TrainDir = dir;
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 

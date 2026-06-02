@@ -24,7 +24,7 @@ public class ChangeDirection : MonoBehaviour
         if (other.CompareTag("train"))
         {
             Debug.Log("“dÔ‚ÌŒü‚«‚ª•ÏX‚³‚ê‚Ü‚µ‚½");
-            BothTrain.TrainDir = ChangeDir;
+            BothTrain.ChangeTrainDir(ChangeDir);
            
         }
         else
