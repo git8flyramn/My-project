@@ -12,13 +12,13 @@ public class ObjectPool : MonoBehaviour
     
      [SerializeField] private GameObject targetObject;
      [SerializeField] private int  Max_train;
+   
     //[SerializeField] private PooledObject objectToPool;
 
     void Start()
     {
                                    //生成     アクティブ化　非アクティブ    破棄
         pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool,collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
-       
     }
 
     // Update is called once per frame

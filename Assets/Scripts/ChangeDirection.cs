@@ -6,7 +6,7 @@ public class ChangeDirection : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private BothTrainMove BothTrain;
-    private Vector3 ChangeDir = Vector3.forward;
+    private Vector3 ChangeDir = Vector3.left;
     void Start()
     {
         BothTrain = GetComponent<BothTrainMove>();
@@ -25,6 +25,7 @@ public class ChangeDirection : MonoBehaviour
         {
             Debug.Log("“dÔ‚ÌŒü‚«‚ª•ÏX‚³‚ê‚Ü‚µ‚½");
             BothTrain.ChangeTrainDir(ChangeDir);
+            BothTrain.TrainRightMove();
            
         }
         else

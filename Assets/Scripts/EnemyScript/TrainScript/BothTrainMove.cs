@@ -42,7 +42,7 @@ public class BothTrainMove : MonoBehaviour
     public void ChangeTrainDir(Vector3 dir)
     {
         TrainDir = dir;
-        rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+        Debug.Log(TrainDir);
     }
 
 
