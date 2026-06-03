@@ -31,6 +31,7 @@ public class BothTrainMove : MonoBehaviour
         time += Time.deltaTime;
         TrainDir = Vector3.right;
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+
     }
 
     public void TrainLeftMove()
@@ -39,11 +40,8 @@ public class BothTrainMove : MonoBehaviour
        // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-    public void ChangeTrainDir(Vector3 dir)
+    public void ChangeVector(Vector3 vec)
     {
-        TrainDir = dir;
-        Debug.Log(TrainDir);
+        TrainDir = vec;
     }
-
-
 }

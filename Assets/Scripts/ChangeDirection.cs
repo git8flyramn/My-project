@@ -6,10 +6,13 @@ public class ChangeDirection : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private BothTrainMove BothTrain;
-    private Vector3 ChangeDir = Vector3.left;
+    private RandomDropTrain RandomDrop;
+    private Vector3 Dir = Vector3.forward;
+    private Quaternion ChangeQuater = Quaternion.identity;
     void Start()
     {
         BothTrain = GetComponent<BothTrainMove>();
+        RandomDrop = GetComponent<RandomDropTrain>();
     }
 
     // Update is called once per frame
@@ -20,13 +23,17 @@ public class ChangeDirection : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-                           //ChageDirPoint
+        //電車が方向を変更するポイントに到達したとき
         if (other.CompareTag("train"))
         {
-            Debug.Log("電車の向きが変更されました");
-            BothTrain.ChangeTrainDir(ChangeDir);
-            BothTrain.TrainRightMove();
-           
+
+            
+            //車両のをQuaternion変更
+            RandomDrop.ChangeQuaternion(ChangeQuater);
+            //車両の進行方向を左から前に変更する
+            BothTrain.ChangeVector(Dir);
+            Debug.Log("電車の向きと進行方向が変更されました");
+
         }
         else
         {

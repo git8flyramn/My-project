@@ -37,6 +37,7 @@ public class RandomDropTrain : MonoBehaviour
      private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
      private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
      
+     
     
 
 
@@ -145,6 +146,11 @@ public class RandomDropTrain : MonoBehaviour
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
         Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
         
+    }
+
+    public void ChangeQuaternion(Quaternion quaternion)
+    {
+        LeftTrainRotaion = quaternion;
     }
 
    
