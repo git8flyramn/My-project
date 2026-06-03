@@ -10,14 +10,18 @@ public class BothTrainMove : MonoBehaviour
 
    
     private Rigidbody rb;
+    private RandomDropTrain RandomTrain;
+
+    //使用している変数
     private float MoveSpeed    = 3.0f;
     private float Initvelocity = 2.0f;
+
     public Vector3 TrainDir = Vector3.zero;
-  
-    private float time = 0;
+    private Quaternion ChangeQuater = Quaternion.identity;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        RandomTrain = GetComponent<RandomDropTrain>();
     }
 
     // Update is called once per frame
@@ -28,10 +32,8 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainRightMove()
     {
-        time += Time.deltaTime;
         TrainDir = Vector3.right;
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-
     }
 
     public void TrainLeftMove()
@@ -40,8 +42,11 @@ public class BothTrainMove : MonoBehaviour
        // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-    public void ChangeVector(Vector3 vec)
+   public void ChangeRotation()
     {
-        TrainDir = vec;
+        TrainDir = Vector3.forward;
+        RandomTrain.GetRotation();
     }
+
+
 }

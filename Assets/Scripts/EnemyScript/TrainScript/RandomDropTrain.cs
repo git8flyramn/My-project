@@ -6,11 +6,12 @@ public class RandomDropTrain : MonoBehaviour
 {
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
-
     //電車の生成位置
     private float LeftDropX;
     private float RightDropX;
+
     private const float DropY = 1.0f;
+    
     private float LeftDropZ;
     private float RightDropZ;
 
@@ -36,14 +37,15 @@ public class RandomDropTrain : MonoBehaviour
     //左右の電車の向き
      private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
      private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
-     
-     
-    
+
+    private Quaternion ChangeQuater = Quaternion.identity;
+
 
 
 
     void Start()
     {
+     
     }
 
     // Update is called once per frame
@@ -145,13 +147,17 @@ public class RandomDropTrain : MonoBehaviour
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
         Debug.Log("電車が生成されました");
-        
     }
 
-    public void ChangeQuaternion(Quaternion quaternion)
+    public void GetRotation()
     {
-        LeftTrainRotaion = quaternion;
+        LeftTrainRotaion = ChangeQuater;
     }
+
+
+
+   
+
 
    
     
