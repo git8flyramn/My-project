@@ -44,6 +44,7 @@ public class BothTrainMove : MonoBehaviour
    public void ChangeRotation()
     {
         TrainDir = Vector3.forward;
+      
     }
 
 
