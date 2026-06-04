@@ -6,10 +6,9 @@ public class ChangeDirection : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private BothTrainMove BothTrain;
-    public GameObject train;
     private Vector3 Dir = Vector3.forward;
-    private float waittime = 3.0f;
-    private RandomDropTrain DropTrain;
+   // private float waittime = 3.0f;
+   
     void Start()
     {
     }
@@ -18,7 +17,6 @@ public class ChangeDirection : MonoBehaviour
     void Update()
     {
         BothTrain = GetComponent<BothTrainMove>();
-        DropTrain = GetComponent<RandomDropTrain>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -28,7 +26,7 @@ public class ChangeDirection : MonoBehaviour
         {
             //車両のをQuaternion変更
             //車両の進行方向を左から前に変更する
-           // transform.Rotate(new Vector3(0, 245, 0));
+            transform.Rotate(new Vector3(0,135, 0));
             Debug.Log("電車の向きと進行方向が変更されました");
 
         }
@@ -39,9 +37,5 @@ public class ChangeDirection : MonoBehaviour
     }
 
    
-    IEnumerator WaitDiretion()
-    {
-        yield return new WaitForSeconds(waittime);
-
-    }
+   
 }
