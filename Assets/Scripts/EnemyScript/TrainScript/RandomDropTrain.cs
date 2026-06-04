@@ -149,7 +149,7 @@ public class RandomDropTrain : MonoBehaviour
         Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
     }
 
-    public void GetRotation()
+    public void ChangeRotation()
     {
         LeftTrainRotaion = ChangeQuater;
     }
