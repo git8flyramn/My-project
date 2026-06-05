@@ -29,13 +29,14 @@ public class RandomDropTrain : MonoBehaviour
     //左右の電車の生成時間
     private float RightTrainGenerateTime = 0.0f;
     private float LeftTrainGenerateTime = 0.0f;
+    private float secondGenrateTime = 0.0f;
 
     //各電車のそれぞれの生成間隔時間
     private float FirstIntervalTime = 5.0f;
     private float SecondIntervalTime = 10.0f;
    
     //左右の電車の向き
-     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 270, 0);
+     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 0, 0);
      private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
 
     private Quaternion ChangeQuater = Quaternion.identity;
@@ -51,8 +52,9 @@ public class RandomDropTrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RightTrainGenerateTime += Time.deltaTime;
+        RightTrainGenerateTime+= Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
+        secondGenrateTime     += Time.deltaTime;
         DropRightForwardTrain();
        // DropLeftForwardTrain();
     }
@@ -74,13 +76,15 @@ public class RandomDropTrain : MonoBehaviour
 
         }
         //真ん中
-        else if (RightTrainGenerateTime > SecondIntervalTime)
+        else if (secondGenrateTime > SecondIntervalTime)
         {
+            Debug.Log("2つ目の電車が生成されました");
             SetRangeRightPositionZ(-942.0f, -949.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            Debug.Log("生成時間がリセットされました");
-            RightTrainGenerateTime = 0.0f;
+
+            secondGenrateTime = 0.0f;
+           
         }
         //奥
         else
@@ -110,7 +114,7 @@ public class RandomDropTrain : MonoBehaviour
             LeftTrainGenerateTime = 0.0f;
 
         }//手前
-        else if (LeftTrainGenerateTime > SecondIntervalTime)
+        if (LeftTrainGenerateTime > SecondIntervalTime)
         {
             SetRangeLeftPositionZ(-970.0f, -978.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
@@ -149,9 +153,9 @@ public class RandomDropTrain : MonoBehaviour
         Debug.Log("電車が生成されました");
     }
 
-    public void GetRotation()
+    public void ChangeRotation()
     {
-        LeftTrainRotaion = ChangeQuater;
+        LeftTrainRotaion.y -= 200;
     }
 
 

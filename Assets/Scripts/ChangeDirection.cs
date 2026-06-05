@@ -7,7 +7,9 @@ public class ChangeDirection : MonoBehaviour
 
     private BothTrainMove BothTrain;
     private Vector3 Dir = Vector3.forward;
-    private float waittime = 3.0f;
+    private Rigidbody rb;
+    // private float waittime = 3.0f;
+
     void Start()
     {
     }
@@ -37,9 +39,5 @@ public class ChangeDirection : MonoBehaviour
     }
 
    
-    IEnumerator WaitDiretion()
-    {
-        yield return new WaitForSeconds(waittime);
-
-    }
+   
 }

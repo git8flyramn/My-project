@@ -10,8 +10,6 @@ public class BothTrainMove : MonoBehaviour
 
    
     private Rigidbody rb;
-    public RandomDropTrain RandomTrain;
-    GameObject obj;
 
     //使用している変数
     private float MoveSpeed    = 3.0f;
@@ -22,8 +20,6 @@ public class BothTrainMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        RandomTrain = GetComponent<RandomDropTrain>();
-        obj = GameObject.Find("ThirdTrain");
     }
 
     // Update is called once per frame
@@ -35,6 +31,7 @@ public class BothTrainMove : MonoBehaviour
     public void TrainRightMove()
     {
         TrainDir = Vector3.right;
+        
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
@@ -46,7 +43,8 @@ public class BothTrainMove : MonoBehaviour
 
    public void ChangeRotation()
     {
-        obj.transform.rotation = Quaternion.identity;
+        TrainDir = Vector3.forward;
+      
     }
 
 
