@@ -3,8 +3,6 @@ using Unity.VisualScripting;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
-using System.Numerics;
-using Vector3 = UnityEngine.Vector3;
 public class BothTrainMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,11 +37,9 @@ public class BothTrainMove : MonoBehaviour
        // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-   public void ChangeRotation(Vector3 vec)
+   public void ChangeRotation()
     {
-        TrainDir = vec;
-        Initvelocity = 0.0f;
-        transform.Translate(TrainDir * MoveSpeed, Space.World);
-        Debug.Log("電車が方向を変え前に進みます");
+        TrainDir = Vector3.forward;
+        Debug.Log(TrainDir);
     }
 }
