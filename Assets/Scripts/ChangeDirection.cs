@@ -29,7 +29,7 @@ public class ChangeDirection : MonoBehaviour
             //車両の進行方向を左から前に変更する
             transform.Rotate(new Vector3(0, 135, 0));
             StartCoroutine(ChangeRotationWait());
-            BothTrain.ChangeRotation();
+            BothTrain.ChangeRotation(Dir);
             Debug.Log("電車の向きと進行方向が変更されました");
 
         }

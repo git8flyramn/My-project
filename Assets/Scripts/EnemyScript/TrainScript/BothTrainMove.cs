@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Numerics;
-
+using Vector3 = UnityEngine.Vector3;
 public class BothTrainMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -15,7 +15,7 @@ public class BothTrainMove : MonoBehaviour
     //使用している変数
     private float MoveSpeed    = 3.0f;
     private float Initvelocity = 2.0f;
-    private Vector3 TrainDir = Vector3.Zero;
+    Vector3 TrainDir = Vector3.zero;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,19 +29,21 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainRightMove()
     {
+
         TrainDir = Vector3.right;
-        
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
     public void TrainLeftMove()
     {
-        TrainDir = Vector3.left;
        // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-   public void ChangeRotation()
+   public void ChangeRotation(Vector3 vec)
     {
-        Debug.Log("電車が止まります");
+        TrainDir = vec;
+        Initvelocity = 0.0f;
+        transform.Translate(TrainDir * MoveSpeed, Space.World);
+        Debug.Log("電車が方向を変え前に進みます");
     }
 }
