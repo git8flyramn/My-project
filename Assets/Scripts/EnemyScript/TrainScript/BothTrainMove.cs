@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Numerics;
 
 public class BothTrainMove : MonoBehaviour
 {
@@ -14,9 +15,7 @@ public class BothTrainMove : MonoBehaviour
     //使用している変数
     private float MoveSpeed    = 3.0f;
     private float Initvelocity = 2.0f;
-
-    public Vector3 TrainDir = Vector3.zero;
-    private Quaternion ChangeQuater = Quaternion.identity;
+    private Vector3 TrainDir = Vector3.Zero;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,9 +42,6 @@ public class BothTrainMove : MonoBehaviour
 
    public void ChangeRotation()
     {
-        TrainDir = Vector3.forward;
-      
+        Debug.Log("電車が止まります");
     }
-
-
 }

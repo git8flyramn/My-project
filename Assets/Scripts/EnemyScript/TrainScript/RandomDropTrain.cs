@@ -144,28 +144,12 @@ public class RandomDropTrain : MonoBehaviour
         return RightDropZ;
     }
 
-　　//生成する電車のオブジェクト、座標、向きを設定する関数
-    public void TrainSetting(GameObject obj,Quaternion dir,Vector3 pos)
+    //生成する電車のオブジェクト、座標、向きを設定する関数
+    public void TrainSetting(GameObject obj, Quaternion dir, Vector3 pos)
     {
         obj.transform.rotation = dir;
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
         Debug.Log("電車が生成されました");
     }
-
-    public void ChangeRotation()
-    {
-        LeftTrainRotaion.y -= 200;
-    }
-
-
-
-   
-
-
-   
-    
-
- 
-
 }
