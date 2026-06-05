@@ -10606,6 +10606,7 @@ GameObject:
   - component: {fileID: 1542431584}
   - component: {fileID: 1542431586}
   - component: {fileID: 1542431587}
+  - component: {fileID: 1542431588}
   m_Layer: 0
   m_Name: ChangeDirPoint
   m_TagString: train
@@ -10673,7 +10674,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f065bbbb4fd81d49b7950f998a57352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BothTrainMove
+  RandomTrain: {fileID: 0}
   TrainDir: {x: 0, y: 0, z: 0}
+--- !u!114 &1542431588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1542431583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1983c374b1e18042b80953030baf56b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RandomDropTrain
+  DropObject: {fileID: 0}
 --- !u!1001 &1543872579
 PrefabInstance:
   m_ObjectHideFlags: 0
