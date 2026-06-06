@@ -16,6 +16,7 @@ public class BothTrainMove : MonoBehaviour
 
     private Vector3 TrainDir = Vector3.zero;
     private Vector3 ChangeDir = Vector3.forward;
+    private float WaitTimer = 3.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -45,13 +46,19 @@ public class BothTrainMove : MonoBehaviour
         if (other.CompareTag("train"))
         {
             //車両の進行方向を左方向から前方向に変更する
-            TrainDir = ChangeDir;
-            rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-            Debug.LogWarning("電車の進行方向が変更されました");
+            StartCoroutine(WaitTime());
         }
         else
         {
             Debug.LogWarning("進行方向が変更されていません");
         }
+    }
+
+    private IEnumerator WaitTime()
+    {
+        Debug.Log("電車の進行方向が左から前に変更されます");
+        yield return new WaitForSeconds(WaitTimer);
+        TrainDir = ChangeDir;
+        Debug.Log("変更されました");
     }
 }

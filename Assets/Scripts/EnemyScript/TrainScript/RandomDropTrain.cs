@@ -36,10 +36,10 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondIntervalTime = 10.0f;
    
     //ç∂âEÇÃìdé‘ÇÃå¸Ç´
-     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 0, 0);
-     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
+     public Quaternion LeftTrainRotaion = Quaternion.Euler(0, 0, 0);
+     public Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
 
-    private Quaternion ChangeQuater = Quaternion.identity;
+   
 
 
 
@@ -151,5 +151,10 @@ public class RandomDropTrain : MonoBehaviour
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
       //  Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
+    }
+
+    public void ChangeRotaion()
+    {
+        LeftTrainRotaion = Quaternion.Euler(0, 135, 0);
     }
 }
