@@ -36,8 +36,8 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondIntervalTime = 10.0f;
    
     //¶‰E‚Ì“dÔ‚ÌŒü‚«
-     public Quaternion LeftTrainRotaion = Quaternion.Euler(0, 0, 0);
-     public Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
+     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 0, 0);
+     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
 
    
 
