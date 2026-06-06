@@ -7,7 +7,6 @@ public class ChangeDirection : MonoBehaviour
 
     private BothTrainMove BothTrain;
     private Vector3 Dir = Vector3.forward;
-    private Rigidbody rb;
     // private float waittime = 3.0f;
 
     void Start()
@@ -28,7 +27,7 @@ public class ChangeDirection : MonoBehaviour
             //車両のをQuaternion変更
             //車両の進行方向を左から前に変更する
             transform.Rotate(new Vector3(0,135, 0));
-            BothTrain.ChangeRotation();
+           
             Debug.Log("電車の向きと進行方向が変更されました");
 
         }

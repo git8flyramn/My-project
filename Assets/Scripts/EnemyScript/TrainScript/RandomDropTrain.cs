@@ -150,7 +150,7 @@ public class RandomDropTrain : MonoBehaviour
         obj.transform.rotation = dir;
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
-        Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
+      //  Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
     }
 
     public void ChangeRotation()

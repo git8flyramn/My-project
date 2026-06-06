@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.009552
+      value: -77.016174
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -816.68823
+      value: -817.8233
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f065bbbb4fd81d49b7950f998a57352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BothTrainMove
-  TrainDir: {x: 0, y: 0, z: 0}
 --- !u!114 &-2465953981683236116
 MonoBehaviour:
   m_ObjectHideFlags: 0

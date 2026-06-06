@@ -12,11 +12,11 @@ public class BothTrainMove : MonoBehaviour
     private Rigidbody rb;
 
     //使用している変数
-    private float MoveSpeed    = 3.0f;
-    private float Initvelocity = 2.0f;
+   private float MoveSpeed    = 3.0f;
+   private float Initvelocity = 2.0f;
 
-    public Vector3 TrainDir = Vector3.zero;
-    private Quaternion ChangeQuater = Quaternion.identity;
+    private Vector3 TrainDir = Vector3.zero;
+    private Vector3 ChangeDir = Vector3.forward;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,7 +31,6 @@ public class BothTrainMove : MonoBehaviour
     public void TrainRightMove()
     {
         TrainDir = Vector3.right;
-        
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
@@ -41,11 +40,19 @@ public class BothTrainMove : MonoBehaviour
        // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-   public void ChangeRotation()
+    public void OnTriggerEnter(Collider other)
     {
-        TrainDir = Vector3.forward;
-      
+        //電車が方向を変更するポイントに到達したとき
+        if (other.CompareTag("train"))
+        {
+            //車両の進行方向を左方向から前方向に変更する
+            TrainDir = ChangeDir;
+            rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
+            Debug.LogWarning("電車の進行方向が変更されました");
+        }
+        else
+        {
+            Debug.LogWarning("進行方向が変更されていません");
+        }
     }
-
-
 }
