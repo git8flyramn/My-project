@@ -10798,7 +10798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1983c374b1e18042b80953030baf56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RandomDropTrain
-  DropObject: {fileID: 1782226019351121708, guid: c89ae3b4ed2c3ba4a99125ab9c57ebb5, type: 3}
+  DropObject: {fileID: 0}
 --- !u!1001 &1543872579
 PrefabInstance:
   m_ObjectHideFlags: 0

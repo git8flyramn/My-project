@@ -29,13 +29,21 @@ public class ChangeDirection : MonoBehaviour
             transform.Rotate(new Vector3(0,135, 0));
            
             Debug.Log("電車の向きと進行方向が変更されました");
-
         }
         else
         {
             Debug.LogWarning("向きが変更されていません");
         }
     }
+
+    IEnumerator ChangeVecTime()
+    {
+       
+        BothTrain.ChangeRotation();
+        yield return new WaitForSeconds(waitTime);
+    }
+
+   
 
    
    
