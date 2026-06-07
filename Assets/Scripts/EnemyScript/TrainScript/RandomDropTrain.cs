@@ -79,7 +79,7 @@ public class RandomDropTrain : MonoBehaviour
         else if (secondGenrateTime > SecondIntervalTime)
         {
             Debug.Log("2Ç¬ñ⁄ÇÃìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
-            SetRangeRightPositionZ(-942.0f, -949.0f);
+            SetRangeRightPositionZ(-917.0f, -926.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
 
@@ -88,7 +88,7 @@ public class RandomDropTrain : MonoBehaviour
         }
         //âú
         else
-        {
+        {   // SetRangeRightPositionZ(-942.0f, -949.0f);
             //SetRangeLeftPositionZ(-863.0f, -872.0f);
             /*
              RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
@@ -108,7 +108,7 @@ public class RandomDropTrain : MonoBehaviour
         ///âú
         if (LeftTrainGenerateTime > FirstIntervalTime)
         { 
-            SetRangeLeftPositionZ(-839.0f, -849.0f);
+            SetRangeLeftPositionZ(-861.0f, -873.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
@@ -124,6 +124,8 @@ public class RandomDropTrain : MonoBehaviour
         //ê^ÇÒíÜ
         else
         {
+            //SetRangeLeftPositionZ(-839.0f, -849.0f);
+            // SetRangeLeftPositionZ(-970.0f, -978.0f);
             //SetRangeLeftPositionZ(-896.0f, -906.0f);
             //LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             //TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
