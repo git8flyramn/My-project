@@ -47,6 +47,7 @@ public class BothTrainMove : MonoBehaviour
         {
             //車両の進行方向を左方向から前方向に変更する
             TrainDir = ChangeDir;
+            transform.Rotate(0, 135, 0);
             Debug.Log("進行方向が変更されました");
         }
         else

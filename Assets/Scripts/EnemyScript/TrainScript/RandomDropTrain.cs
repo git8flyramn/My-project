@@ -79,16 +79,19 @@ public class RandomDropTrain : MonoBehaviour
         else if (secondGenrateTime > SecondIntervalTime)
         {
             Debug.Log("2Ç¬ñ⁄ÇÃìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
-            SetRangeRightPositionZ(-917.0f, -926.0f);
+            SetRangeRightPositionZ(-897.0f, -904.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
+           // TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
 
             secondGenrateTime = 0.0f;
            
         }
         //âú
         else
-        {   // SetRangeRightPositionZ(-942.0f, -949.0f);
+        {
+
+            // SetRangeRightPositionZ(-917.0f, -926.0f);
+            // SetRangeRightPositionZ(-942.0f, -949.0f);
             //SetRangeLeftPositionZ(-863.0f, -872.0f);
             /*
              RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
@@ -110,7 +113,8 @@ public class RandomDropTrain : MonoBehaviour
         { 
             SetRangeLeftPositionZ(-861.0f, -873.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
+          //  TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
+           
             LeftTrainGenerateTime = 0.0f;
 
         }//éËëO
@@ -153,10 +157,5 @@ public class RandomDropTrain : MonoBehaviour
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
       //  Debug.Log("ìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
-    }
-
-    public void ChangeRotaion()
-    {
-        LeftTrainRotaion = Quaternion.Euler(0, 135, 0);
     }
 }
