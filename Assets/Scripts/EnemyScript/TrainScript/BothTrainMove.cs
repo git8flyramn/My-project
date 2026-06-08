@@ -13,6 +13,7 @@ public class BothTrainMove : MonoBehaviour
     //使用している変数
    private float MoveSpeed    = 3.0f;
    private float Initvelocity = 2.0f;
+    private bool isRotated = false;
 
     private Vector3 TrainDir = Vector3.right;
     private Vector3 ForwardDir = Vector3.forward;
@@ -43,11 +44,17 @@ public class BothTrainMove : MonoBehaviour
         //電車が方向を変更するポイントに到達したとき
         if (other.CompareTag("train"))
         {
-            //車両の進行方向を左方向から前方向に変更する
-            TrainDir = ForwardDir;
-            //Quaternion.Euler(0, 135f, 0);
-            transform.Rotate(0,135f,0);
-            Debug.Log("進行方向が変更されました");
+            isRotated = true;
+            if(!isRotated)
+            {
+                //車両の進行方向を左方向から前方向に変更する
+                TrainDir = ForwardDir;
+                transform.Rotate(new Vector3(0, 134, 0), Space.World);
+            }
+           
+           
+         
+           
         }
         else
         {
