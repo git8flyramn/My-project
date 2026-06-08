@@ -15,7 +15,7 @@ public class BothTrainMove : MonoBehaviour
    private float Initvelocity = 2.0f;
 
     private Vector3 TrainDir = Vector3.right;
-    private Vector3 ChangeDir = Vector3.forward;
+    private Vector3 ForwardDir = Vector3.forward;
    // private float WaitTimer = 3.0f;
     void Start()
     {
@@ -30,9 +30,7 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainRightMove()
     {
-
-        rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
-
+       rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
 
     public void TrainLeftMove()
@@ -46,8 +44,9 @@ public class BothTrainMove : MonoBehaviour
         if (other.CompareTag("train"))
         {
             //車両の進行方向を左方向から前方向に変更する
-            TrainDir = ChangeDir;
-            transform.Rotate(0, 135, 0);
+            TrainDir = ForwardDir;
+            //Quaternion.Euler(0, 135f, 0);
+            transform.Rotate(0,135f,0);
             Debug.Log("進行方向が変更されました");
         }
         else
@@ -55,13 +54,4 @@ public class BothTrainMove : MonoBehaviour
             Debug.LogWarning("進行方向が変更されていません");
         }
     }
-
-    //private IEnumerator WaitTime()
-    //{
-    //    Debug.Log("電車の進行方向が左から前に変更されます");
-    //    yield return new WaitForSeconds(WaitTimer);
-       
-    //    
-    //    Debug.Log(TrainDir);
-    //}
 }
