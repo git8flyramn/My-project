@@ -113,8 +113,8 @@ public class RandomDropTrain : MonoBehaviour
         { 
             SetRangeLeftPositionZ(-861.0f, -873.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-          //  TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
-           
+          Å@ TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
+            Instantiate(DropObject, LeftDropPos, LeftTrainRotaion);
             LeftTrainGenerateTime = 0.0f;
 
         }//éËëO
@@ -122,7 +122,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             SetRangeLeftPositionZ(-970.0f, -978.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
+           // TrainSetting(DropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
         }
         //ê^ÇÒíÜ
