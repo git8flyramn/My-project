@@ -1,28 +1,21 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class RightSideTrainMove : MonoBehaviour
+public class TrainMove : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     private Rigidbody rb;
     private BothTrainMove BothTrain;
- 
-    //private float DirchangeTime = 0.0f;
-
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
-       
     }
 
-// Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
-       
         BothTrain.TrainMove();
     }
-
-   
-   
 }
