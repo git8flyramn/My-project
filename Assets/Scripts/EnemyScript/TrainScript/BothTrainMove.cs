@@ -13,8 +13,7 @@ public class BothTrainMove : MonoBehaviour
     //使用している変数
     private float MoveSpeed    = 3.0f;
     private float Initvelocity = 2.0f;
-
-    private Vector3 TrainDir = Vector3.right;
+    [SerializeField]private Vector3 TrainDir;
     private Quaternion ForwardDir = Quaternion.identity;
     void Start()
     {
@@ -27,16 +26,10 @@ public class BothTrainMove : MonoBehaviour
         
     }
 
-    public void TrainRightMove()
+    public void TrainMove()
     {
        rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
-
-    public void TrainLeftMove()
-    {
-       // rb.AddForce(TrainDir * Initvelocity * MoveSpeed, ForceMode.Acceleration);
-    }
-
     public void OnTriggerEnter(Collider other)
     {
         //電車が方向を変更するポイントに到達したとき
