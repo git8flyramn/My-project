@@ -53,4 +53,6 @@ public class BothTrainMove : MonoBehaviour
             Debug.LogWarning("進行方向が変更されていません");
         }
     }
+
+   
 }
