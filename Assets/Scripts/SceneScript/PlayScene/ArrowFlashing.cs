@@ -22,7 +22,7 @@ public class ArrowFlashing : MonoBehaviour
     {
     }
 
-    private void BlinkArrow()
+    public void BlinkArrow()
     {
        
         if (UIArrow == null)
