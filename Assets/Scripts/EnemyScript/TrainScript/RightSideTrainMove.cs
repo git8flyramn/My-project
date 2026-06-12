@@ -6,9 +6,12 @@ public class RightSideTrainMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Rigidbody rb;
     private BothTrainMove BothTrain;
+ 
+    //private float DirchangeTime = 0.0f;
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+       rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
        
     }
@@ -17,7 +20,9 @@ public class RightSideTrainMove : MonoBehaviour
     void Update()
     {
        
-        BothTrain.TrainMove();
+        BothTrain.TrainRightMove();
+       
+        
     }
 
    
