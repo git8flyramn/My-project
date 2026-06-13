@@ -157,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9205e0485dd60c743acd1721a4d94b8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForWordMoveTrain
+  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
 --- !u!114 &2819035117626997329
 MonoBehaviour:
   m_ObjectHideFlags: 0
