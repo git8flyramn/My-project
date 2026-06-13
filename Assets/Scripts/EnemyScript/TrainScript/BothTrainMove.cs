@@ -9,7 +9,7 @@ public class BothTrainMove : MonoBehaviour
 
    
     private Rigidbody rb;
-    private ArrowFlashing arrowflash;
+   // private ArrowFlashing arrowflash;
     //使用している変数
     private float MoveSpeed       = 3.0f;
     private float Initvelocity    = 2.0f;
@@ -18,13 +18,13 @@ public class BothTrainMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        arrowflash = GetComponent<ArrowFlashing>();
+       // arrowflash = GetComponent<ArrowFlashing>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     public void TrainMove()
@@ -40,7 +40,6 @@ public class BothTrainMove : MonoBehaviour
             //車両の進行方向を左方向から前方向に変更
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            IntervalBlink();
         }
         else
         {
@@ -48,10 +47,10 @@ public class BothTrainMove : MonoBehaviour
         }
     }
 
-    IEnumerator IntervalBlink()
-    {
-        yield return new WaitForSeconds(0.5f);
-        Debug.Log("点滅を開始します");
-        arrowflash.StartBlinking();
-    }
+    //IEnumerator IntervalBlink()
+    //{
+    //    yield return new WaitForSeconds(0.5f);
+        
+        
+    //}
 }

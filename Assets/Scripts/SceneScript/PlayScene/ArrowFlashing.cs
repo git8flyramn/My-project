@@ -20,10 +20,10 @@ public class ArrowFlashing : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-       
+        BlinkArrow();
     }
 
-    public void BlinkArrow()
+    private void BlinkArrow()
     {
         if (UIArrow == null)
         {
