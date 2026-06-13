@@ -79,10 +79,10 @@ public class RandomDropTrain : MonoBehaviour
         //手前
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
-            //SetRangeRightPositionZ(-812.0f, -821.0f);
-            //RightDropPos = new Vector3(RightDropX,DropY,RightDropZ);
-            //TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            //Instantiate(DropObject, RightDropPos, RightTrainRotaion);
+            SetRangeRightPositionZ(-812.0f, -821.0f);
+            RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
+            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
+            Instantiate(DropObject, RightDropPos, RightTrainRotaion);
             RightTrainGenerateTime = 0.0f;
 
 
@@ -91,11 +91,11 @@ public class RandomDropTrain : MonoBehaviour
         //真ん中
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-            Debug.Log("2つ目の電車が生成されました");
-            SetRangeRightPositionZ(-855.0f, -867.0f);
-            RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            SecondRightTrainGenerateTime = 0.0f;
+            //Debug.Log("2つ目の電車が生成されました");
+            //SetRangeRightPositionZ(-855.0f, -867.0f);
+            //RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
+            //TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
+            //SecondRightTrainGenerateTime = 0.0f;
         }
     }
 
