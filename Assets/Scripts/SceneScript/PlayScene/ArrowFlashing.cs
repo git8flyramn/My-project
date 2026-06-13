@@ -27,7 +27,7 @@ public class ArrowFlashing : MonoBehaviour
     {
         if (UIArrow == null)
         {
-           // Debug.Log("中身が空です");
+           Debug.Log("中身が空です");
         }
         else
         {
@@ -46,14 +46,11 @@ public class ArrowFlashing : MonoBehaviour
        color.a = 1.0f;
        UIArrow.color = color;
       // isBlinking = false;
-        Debug.Log("点滅の停止");
     }
 
     public void StartBlinking()
     {
         //isBlinking = true;
         BlinkArrow();
-        Debug.Log("点滅を開始");
-        
     }
 }

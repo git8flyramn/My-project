@@ -40,14 +40,18 @@ public class BothTrainMove : MonoBehaviour
             //車両の進行方向を左方向から前方向に変更
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            arrowflash.StartBlinking();
-            Debug.Log("進行方向が変更されました");
-            Debug.Log("まもなく電車が参ります");
+            IntervalBlink();
         }
         else
         {
             Debug.LogWarning("進行方向が変更されていません");
         }
-        arrowflash.StopBlinking();
+    }
+
+    IEnumerator IntervalBlink()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log("点滅を開始します");
+        arrowflash.StartBlinking();
     }
 }
