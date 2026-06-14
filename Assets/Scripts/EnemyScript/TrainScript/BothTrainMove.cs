@@ -9,7 +9,6 @@ public class BothTrainMove : MonoBehaviour
 
    
     private Rigidbody rb;
-    private ArrowFlashing Flash;
     //使用している変数
     private float MoveSpeed       = 3.0f;
     private float Initvelocity    = 2.0f;
@@ -41,7 +40,6 @@ public class BothTrainMove : MonoBehaviour
             //車両の進行方向を左方向から前方向に変更
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            Flash.StartBlinking();
         }
         else
         {

@@ -2051,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb27261de91994c8542b62ee507b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowFlashing
-  ChangeBlinkTime: 5
+  Arrow: {fileID: 540839372}
 --- !u!1 &649270219
 GameObject:
   m_ObjectHideFlags: 0
@@ -8559,7 +8559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2eb27261de91994c8542b62ee507b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowFlashing
-  ChangeBlinkTime: 10
+  Arrow: {fileID: 1036338206}
 --- !u!1 &1052436095
 GameObject:
   m_ObjectHideFlags: 0
