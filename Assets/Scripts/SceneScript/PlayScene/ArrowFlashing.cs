@@ -10,7 +10,8 @@ public class ArrowFlashing : MonoBehaviour
 
    [SerializeField] private Image img;
     private float Alpha = 0.0f;
-    private int 
+    private int FlashTime = 10;
+    private Color color;
     void Start()
     {
       
@@ -24,21 +25,23 @@ public class ArrowFlashing : MonoBehaviour
 
     private void BlinkArrow()
     {
-        Alpha = (Mathf.Sin(Time.time * 10)) / 2.0f + 0.5f;
+        Alpha = (Mathf.Sin(Time.time * FlashTime)) / 2.0f + 0.5f;
 
-        Color color = img.color;
+        color = img.color;
         color.a = Alpha;
         img.color = color;
     }
 
     public void StopBlinking()
     {
+        color = img.color;
+        color.a = 1.0f;
+        img.color = color;
+        Debug.Log("ñÓàÛÇÃì_ñ≈ÇèIóπÇµÇ‹Ç∑");
     }
 
     public void StartBlinking()
     {
-        //isBlinking = true;
-        Debug.Log("ñÓàÛÇÃì_ñ≈íÜ");
         BlinkArrow();
     }
 
