@@ -5,43 +5,44 @@ using UnityEngine.UI;
 public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    MeshRenderer mesh;
-    private MaskableGraphic UIArrow;
-    private float alpha = 0.0f;
-    [SerializeField] private int ChangeBlinkTime;
-    Color color;
-   // private bool isBlinking = false;
+    [SerlialzeField] private Image Arrow;
+    private float alpha = 0.0f; //ïœâªÇ≥ÇπÇÈíl
+    private Color color; //êFÇéÊìæÇ∑ÇÈïœêî
+
     void Start()
     {
-        mesh = GetComponent<MeshRenderer>();
-        UIArrow = GetComponent<MaskableGraphic>();
+       
     }
 
     // Update is called once per frame
     private void Update()
     {
-       
+        alpha = Math.Sin(Time.time) / 2 + 0.5f;
     }
 
     private void BlinkArrow()
     {
-        alpha = Mathf.Sin(Time.time) / 2 + 0.5f;
-        //UIArrow.canvasRenderer.SetAlpha(alpha);
+        StartCoroutine(ColorAppar());
     }
 
     public void StopBlinking()
     {
-       color = UIArrow.color;
-       color.a = 1.0f;
-       UIArrow.color = color;
-      // isBlinking = false;
     }
 
     public void StartBlinking()
     {
         //isBlinking = true;
+        Debug.Log("ñÓàÛÇÃì_ñ≈íÜ");
         BlinkArrow();
     }
+    IEnumerator ColorAppar()
+    {
+        yield return new WaitForEndOfFrame();
 
-   
+        color = Arrow.material.color;
+        color.a = alpha;
+        Arrow.material.color = color;
+
+    }
+
 }

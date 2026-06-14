@@ -41,7 +41,7 @@ public class BothTrainMove : MonoBehaviour
             //車両の進行方向を左方向から前方向に変更
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            Flash.BlinkArrow();
+            Flash.StartBlinking();
         }
         else
         {
