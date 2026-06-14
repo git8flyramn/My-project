@@ -20,24 +20,13 @@ public class ArrowFlashing : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        BlinkArrow();
+       
     }
 
     private void BlinkArrow()
     {
-        if (UIArrow == null)
-        {
-           Debug.Log("中身が空です");
-        }
-        else
-        {
-            alpha = Mathf.Sin(Time.time * ChangeBlinkTime) / 2 + 0.5f;
-            color = UIArrow.color;
-            color.a = alpha;
-            UIArrow.color = color;
-        }
-       
-       
+        alpha = Mathf.Sin(Time.time) / 2 + 0.5f;
+        //UIArrow.canvasRenderer.SetAlpha(alpha);
     }
 
     public void StopBlinking()
@@ -53,4 +42,6 @@ public class ArrowFlashing : MonoBehaviour
         //isBlinking = true;
         BlinkArrow();
     }
+
+   
 }
