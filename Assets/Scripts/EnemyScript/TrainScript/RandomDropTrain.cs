@@ -65,7 +65,7 @@ public class RandomDropTrain : MonoBehaviour
         SecondLeftTrainGenerateTime  += Time.deltaTime;
 
 
-         // DropRightForwardTrain();
+          DropRightForwardTrain();
         // DropLeftForwardTrain();
     }
 

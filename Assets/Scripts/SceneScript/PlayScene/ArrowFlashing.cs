@@ -20,13 +20,12 @@ public class ArrowFlashing : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        StartBlinking();
+       // StartBlinking();
     }
 
     private void BlinkArrow()
     {
         Alpha = (Mathf.Sin(Time.time * FlashTime)) / 2.0f + 0.5f;
-
         color = img.color;
         color.a = Alpha;
         img.color = color;
@@ -34,8 +33,9 @@ public class ArrowFlashing : MonoBehaviour
 
     public void StopBlinking()
     {
+        Alpha = 1.0f;
         color = img.color;
-        color.a = 1.0f;
+        color.a = Alpha;
         img.color = color;
         Debug.Log("ñÓàÛÇÃì_ñ≈ÇèIóπÇµÇ‹Ç∑");
     }
