@@ -17,7 +17,6 @@ public class BothTrainMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Flash = GetComponent<ArrowFlashing>();
         
     }
 
