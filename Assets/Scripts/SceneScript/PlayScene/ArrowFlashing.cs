@@ -31,10 +31,9 @@ public class ArrowFlashing : MonoBehaviour
     }
 
     public void StopBlinking()
-    {
-        Alpha = 1.0f;
+    { 
         color = img.color;
-        color.a = Alpha;
+        color.a = 1.0f;
         img.color = color;
         Debug.Log("–îˆó‚Ì“_–Å‚ğI—¹‚µ‚Ü‚·");
     }

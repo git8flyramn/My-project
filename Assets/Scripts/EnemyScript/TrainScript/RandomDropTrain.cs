@@ -34,8 +34,8 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondLeftTrainGenerateTime  = 0.0f;
 
     //ç∂âEÇÃìdé‘ÇªÇÍÇºÇÍÇÃê∂ê¨ä‘äuéûä‘
-    private float RightTrainFirstIntervalTime = 5.0f;
-    private float RightTrainSecondIntervalTime = 5.0f;
+    private float RightTrainFirstIntervalTime = 10.0f;
+    private float RightTrainSecondIntervalTime = 15.0f;
 
     private float LeftTrainFirstIntervalTime = 5.0f;
     private float LeftTrainSecondIntervalTime = 10.0f;
