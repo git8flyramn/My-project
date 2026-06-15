@@ -5,57 +5,45 @@ using UnityEngine.UI;
 public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    MeshRenderer mesh;
-    [SerializeField] private float blinkTime = 0f;
-    private MaskableGraphic UIArrow;
-    private float alpha = 0.0f;
-    
-    Color color;
+    //SerializeField
+
+
+   [SerializeField] private Image img;
+    private float Alpha = 0.0f;
+    private int FlashTime = 10;
+    private Color color;
     void Start()
     {
-        mesh = GetComponent<MeshRenderer>();
-        UIArrow = GetComponent<MaskableGraphic>();
+      
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+       // StartBlinking();
     }
 
-    public void BlinkArrow()
+    private void BlinkArrow()
     {
-       
-        if (UIArrow == null)
-        {
-            Debug.Log("中身が空です");
-        }
-        alpha = Mathf.Sin(Time.time * blinkTime) / 2 + 0.5f;
-        color = UIArrow.color;
-        color.a = alpha;
-        UIArrow.color = color;
-        Debug.Log("正常に作動中");
+        Alpha = (Mathf.Sin(Time.time * FlashTime)) / 2.0f + 0.5f;
+        color = img.color;
+        color.a = Alpha;
+        img.color = color;
     }
 
-    public void StartBlinkArrow()
+    public void StopBlinking()
     {
-       
+        Alpha = 1.0f;
+        color = img.color;
+        color.a = Alpha;
+        img.color = color;
+        Debug.Log("���̓_�ł��I�����܂�");
+    }
+
+    public void StartBlinking()
+    {
         BlinkArrow();
     }
 
-    public void StopBlinkArrow()
-    {
-        if(UIArrow == null)
-        {
-            Debug.LogWarning("矢印の数値が空です");
-        }
-        else
-        {
-            alpha = 1.0f;
-            color.a = alpha;
-            UIArrow.color = color;
-          
-        }
-    }
-
-   
+    
 }
