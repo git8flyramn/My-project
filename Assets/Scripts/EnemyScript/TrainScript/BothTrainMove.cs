@@ -13,18 +13,22 @@ public class BothTrainMove : MonoBehaviour
     private float MoveSpeed       = 3.0f;
     private float Initvelocity    = 2.0f;
     [SerializeField] private Vector3 TrainDir;
+    private GameObject LeftArrow;
+
+
     private Quaternion ForwardDir = Quaternion.identity;
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-
+        rb = GetComponent<Rigidbody>(); 
+       
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        LeftArrow = GameObject.Find("LeftArrow");
+        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
     }
 
     public void TrainMove()
@@ -37,10 +41,11 @@ public class BothTrainMove : MonoBehaviour
         if (other.CompareTag("train"))
         {
             //車両の進行方向を左方向から前方向に変更
-            TrainDir = Vector3.forward;
-            transform.rotation = ForwardDir;
-            StartCoroutine(BlinkArrow());
-           
+
+            LeftArrow = GameObject.Find("LeftArrow");
+            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            StartCoroutine(TrainDirectionChange());
+
         }
         else
         {
@@ -48,11 +53,11 @@ public class BothTrainMove : MonoBehaviour
         }
     }
 
-    IEnumerator BlinkArrow()
+    IEnumerator TrainDirectionChange()
     {
-        yield return new WaitForSeconds(0.5f);
-        GameObject LeftArrow = GameObject.Find("LeftArrow");
-        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-        Debug.Log("矢印を点滅させる");
+        TrainDir = Vector3.forward;
+        transform.rotation = ForwardDir;
+        yield return new WaitForSeconds(0.1f);
+       
     }
 }
