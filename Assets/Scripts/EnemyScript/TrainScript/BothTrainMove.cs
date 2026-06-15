@@ -15,11 +15,13 @@ public class BothTrainMove : MonoBehaviour
     private float Initvelocity = 3.0f;
     [SerializeField] private Vector3 TrainDir;
     private GameObject LeftArrow;
+  //  private GameObject RightArrow;
     private Quaternion ForwardDir = Quaternion.identity;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         LeftArrow = GameObject.Find("LeftArrow");
+       // RightArrow = GameObject.Find("RightArrow");
 
     }
 
@@ -44,17 +46,34 @@ public class BothTrainMove : MonoBehaviour
            
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            StartCoroutine(BlinkIntervalTime());
+            StartCoroutine(LeftArrowBlinkIntervalTime());
         }
         else
         {
             Debug.LogWarning("進行方向が変更されていません");
         }
+
+        if(other.CompareTag("SecondTrain"))
+        {
+            TrainDir = Vector3.forward;
+            transform.rotation = ForwardDir;
+            StartCoroutine(RightArrowBlinkIntervalTime());
+        }
+        else
+        {
+            Debug.LogWarning("二台目の電車の進行方向が変更されていません");
+        }
     }
 
-    IEnumerator BlinkIntervalTime()
+    IEnumerator LeftArrowBlinkIntervalTime()
     {
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.5f);
         LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+
+    }
+    IEnumerator RightArrowBlinkIntervalTime()
+    {
+        yield return new WaitForSeconds(0.5f);
+        // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
     }
 }
