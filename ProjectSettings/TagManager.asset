@@ -7,6 +7,7 @@ TagManager:
   - train
   - ThirdTrain
   - ChangeDirPoint
+  - CheckComeTrain
   layers:
   - Default
   - TransparentFX
