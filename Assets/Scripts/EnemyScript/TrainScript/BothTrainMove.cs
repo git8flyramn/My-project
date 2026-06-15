@@ -9,7 +9,6 @@ public class BothTrainMove : MonoBehaviour
 
    
     private Rigidbody rb;
-    private ArrowFlashing Arrow;
     //使用している変数
     private float MoveSpeed       = 3.0f;
     private float Initvelocity    = 2.0f;
@@ -18,7 +17,6 @@ public class BothTrainMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        Arrow = GetComponent<ArrowFlashing>();
 
 
     }
@@ -41,13 +39,20 @@ public class BothTrainMove : MonoBehaviour
             //車両の進行方向を左方向から前方向に変更
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            Arrow.StartBlinking();
+            StartCoroutine(BlinkArrow());
+           
         }
         else
         {
             Debug.LogWarning("進行方向が変更されていません");
         }
-        Arrow.StopBlinking();
     }
 
+    IEnumerator BlinkArrow()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject LeftArrow = GameObject.Find("LeftArrow");
+        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        Debug.Log("矢印を点滅させる");
+    }
 }
