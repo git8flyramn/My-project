@@ -13,6 +13,8 @@ public class BothTrainMove : MonoBehaviour
     //使用している変数
     private float MoveSpeed    = 2.0f;
     private float Initvelocity = 3.0f;
+    private float FlashTime = 3.0f;
+    private float FlashTimer = 0.0f;
     [SerializeField] private Vector3 TrainDir;
     private GameObject LeftArrow;
   //  private GameObject RightArrow;
@@ -28,7 +30,7 @@ public class BothTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       
         LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
     }
 
@@ -43,10 +45,10 @@ public class BothTrainMove : MonoBehaviour
         if (other.CompareTag("train"))
         {
             //車両の進行方向を左右方向それぞれから前方方向に変更
-           
+            StartCoroutine(LeftArrowBlinkIntervalTime());
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            StartCoroutine(LeftArrowBlinkIntervalTime());
+            
         }
         else
         {
@@ -67,13 +69,20 @@ public class BothTrainMove : MonoBehaviour
 
     IEnumerator LeftArrowBlinkIntervalTime()
     {
-        yield return new WaitForSeconds(0.5f);
-        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-
+        if(FlashTimer < FlashTime)
+        {
+            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+            FlashTimer += Time.deltaTime;
+            yield return null;
+        }
+        FlashTimer = 0.0f;
+        LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
     }
     IEnumerator RightArrowBlinkIntervalTime()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        yield return new WaitForSeconds(2.0f);
+        // RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
     }
 }
