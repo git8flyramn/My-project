@@ -63,7 +63,7 @@ public class RandomDropTrain : MonoBehaviour
 
 
        　 DropRightForwardTrain();
-          //DropLeftForwardTrain();
+          DropLeftForwardTrain();
     }
 
     //右からの生成
@@ -81,19 +81,17 @@ public class RandomDropTrain : MonoBehaviour
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
-            Debug.Log("右からの電車が生成されました");
-
-
+           // Debug.Log("右からの電車が生成されました");
         }
 
-        //真ん中
+       
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-           
-            //SetRangeRightPositionZ(-855.0f, -867.0f);
-            //RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-            //TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            //Debug.Log("2つ目の電車が生成されました");
+
+            SetRangeRightPositionZ(-903.0f, -912.0f);
+            RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
+            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
+           // Debug.Log("2つ目の電車が生成されました");
             SecondRightTrainGenerateTime = 0.0f;
           
         }
@@ -110,8 +108,7 @@ public class RandomDropTrain : MonoBehaviour
         { 
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            OtherSideTrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
-            Instantiate(OtherSideDropObject, LeftDropPos, LeftTrainRotaion);
+            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
 
         }
@@ -121,8 +118,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             SetRangeLeftPositionZ(-945.0f, -956.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            OtherSideTrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
-            Instantiate(OtherSideDropObject, LeftDropPos, LeftTrainRotaion);
+            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             SecondLeftTrainGenerateTime = 0.0f;
         }
        
@@ -146,15 +142,9 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.rotation = dir;
         obj.transform.position = pos;
-       // Instantiate(DropObject, obj.transform.position, obj.transform.rotation);
+        Instantiate(obj, obj.transform.position, obj.transform.rotation);
 
     }
 
-    public void OtherSideTrainSetting(GameObject obj, Quaternion dir, Vector3 pos)
-    {
-        obj.transform.rotation = dir;
-        obj.transform.position = pos;
-        // Instantiate(DropObject, obj.transform.position, obj.transform.rotation);
-
-    }
+   
 }
