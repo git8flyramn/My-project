@@ -6,9 +6,6 @@ using UnityEditor.Experimental.GraphView;
 public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //SerializeField
-
-
    [SerializeField] private Image img;
     private float Alpha = 0.0f;
     private int FlashTime = 10;
