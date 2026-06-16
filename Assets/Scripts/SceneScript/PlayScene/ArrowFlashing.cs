@@ -13,6 +13,7 @@ public class ArrowFlashing : MonoBehaviour
     private float Alpha = 0.0f;
     private int FlashTime = 10;
     private Color color;
+    private bool isBlinking = false;
     void Start()
     {
       
@@ -25,24 +26,31 @@ public class ArrowFlashing : MonoBehaviour
 
     private void BlinkArrow()
     {
-       
+        if (isBlinking == true)
+        {
             Alpha = (Mathf.Sin(Time.time * FlashTime)) / 2.0f + 0.5f;
             color = img.color;
             color.a = Alpha;
             img.color = color;
-        
+
+        }
+
     }
 
     public void StopBlinking()
-    { 
-        color = img.color;
-        color.a = 2.0f;
-        img.color = color;
+    {
         Debug.Log("点滅を終了します");
+        color = img.color;
+        color.a = Alpha;
+        img.color = color;
+        isBlinking = false;
+       
     }
 
     public void StartBlinking()
     {
+        Debug.Log("点滅を開始します");
+        isBlinking = true;
         BlinkArrow();
     }
 

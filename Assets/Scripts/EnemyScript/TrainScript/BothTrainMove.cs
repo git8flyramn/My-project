@@ -11,10 +11,10 @@ public class BothTrainMove : MonoBehaviour
    
     private Rigidbody rb;
     //使用している変数
-    private float MoveSpeed    = 2.0f;
+    private float MoveSpeed    = 3.0f;
     private float Initvelocity = 3.0f;
-    private float FlashTime = 5.0f;
-    private float FlashTimer = 0.0f;
+  //  private float FlashTime = 10.0f;
+   //  private float FlashTimer = 0.0f;
     [SerializeField] private Vector3 TrainDir;
     private GameObject LeftArrow;
   //  private GameObject RightArrow;
@@ -30,13 +30,13 @@ public class BothTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        FlashTimer += Time.deltaTime;
+        
+       
     }
 
     public void TrainMove()
     {
-         
+        
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
     public void OnTriggerEnter(Collider other)
@@ -45,31 +45,24 @@ public class BothTrainMove : MonoBehaviour
         if (other.CompareTag("train"))
         {
             //車両の進行方向を左右方向それぞれから前方方向に変更
-            StartCoroutine(LeftArrowBlinkIntervalTime());
+           
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             
         }
         else
         {
+          
             Debug.LogWarning("進行方向が変更されていません");
         }
-
+        StartCoroutine(LeftArrowBlinkIntervalTime());
     }
 
     IEnumerator LeftArrowBlinkIntervalTime()
     {
-        
-        if (FlashTimer < FlashTime)
-        {
-            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            yield return null;
-        }
+        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        yield return null;
         LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
-        FlashTimer = 0.0f;
-
-
-
 
     }
 }
