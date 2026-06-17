@@ -26,7 +26,7 @@ public class ArrowFlashing : MonoBehaviour
     { 
         while(FlashTimer < FlashTime)
         {
-            Alpha = (Mathf.Sin(Time.time * 10)) / 2.0f + 0.5f;
+            Alpha = (Mathf.Sin(Time.time * 0.5f)) / 2.0f + 0.5f;
             color = img.color;
             color.a = Alpha;
             img.color = color;

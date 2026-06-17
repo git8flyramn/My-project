@@ -45,7 +45,7 @@ public class BothTrainMove : MonoBehaviour
            
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-          
+           
         }
       
 
