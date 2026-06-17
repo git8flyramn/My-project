@@ -22,19 +22,18 @@ public class BothTrainMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         LeftArrow = GameObject.Find("LeftArrow");
-        //RightArrow = GameObject.Find("RightArrow");
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+      
     }
 
     public void TrainMove()
     {
-      
+        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
     public void OnTriggerEnter(Collider other)
