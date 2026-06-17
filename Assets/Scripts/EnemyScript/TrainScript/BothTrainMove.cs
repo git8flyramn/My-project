@@ -27,13 +27,12 @@ public class BothTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
 
-      
     }
 
     public void TrainMove()
     {
-        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
     public void OnTriggerEnter(Collider other)
