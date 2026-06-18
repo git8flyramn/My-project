@@ -23,7 +23,7 @@ public class ArrowFlashing : MonoBehaviour
 
     private void BlinkArrow()
     {
-        FlashTimer += Time.deltaTime; 
+        FlashTimer *= 3.0f; 
         var repeatValue = Mathf.Repeat(FlashTimer, FlashCycle);
         img.color = new Color(img.color.r, img.color.g, img.color.b, repeatValue);
     }

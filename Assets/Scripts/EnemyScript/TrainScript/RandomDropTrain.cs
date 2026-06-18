@@ -41,11 +41,11 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //左右の電車それぞれの生成間隔時間
-    private float RightTrainFirstIntervalTime = 15.0f;
-    private float RightTrainSecondIntervalTime = 20.0f;
+    private float RightTrainFirstIntervalTime = 10.0f;
+    private float RightTrainSecondIntervalTime = 15.0f;
 
-    private float LeftTrainFirstIntervalTime = 10.0f;
-    private float LeftTrainSecondIntervalTime = 15.0f;
+    private float LeftTrainFirstIntervalTime = 20.0f;
+    private float LeftTrainSecondIntervalTime = 25.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -73,16 +73,19 @@ public class RandomDropTrain : MonoBehaviour
        
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
-
+       // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
         //経過時間が10秒を超えたら生成される
         //手前
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+           
             SetRangeRightPositionZ(-812.0f, -821.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
+
+           
         }
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
@@ -108,7 +111,7 @@ public class RandomDropTrain : MonoBehaviour
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
             
-            //LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+          //  LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
