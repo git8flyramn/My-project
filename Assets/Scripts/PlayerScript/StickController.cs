@@ -40,7 +40,7 @@ public class StickController : MonoBehaviour
     void Update()
     {
 
-        //MoveStick();
+        MoveStick();
         DashMove();
 
 

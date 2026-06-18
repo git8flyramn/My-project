@@ -7,10 +7,10 @@ public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    [SerializeField] private Image img;
-   // private float Alpha = 1.0f;
+    private float Alpha = 1.0f;
     private Color color;
     private float FlashTimer = 0.0f;
-    private float FlashCycle = 1.0f;
+    private float FlashCycle = 5.0f;
     void Start()
     {
         
@@ -31,10 +31,10 @@ public class ArrowFlashing : MonoBehaviour
     public void StopBlinking()
     {
         Debug.Log("ì_ñ≈ÇèIóπÇµÇ‹Ç∑");
-        //color = img.color;
-        //color.a = Alpha;
-        //img.color = new Color(img.color.r, img.color.g, img.color.b);
-        img.enabled = false;
+        color = img.color;
+        color.a = Alpha;
+        img.color = new Color(img.color.r, img.color.g, img.color.b);
+      //  img.enabled = false;
 
     }
 
