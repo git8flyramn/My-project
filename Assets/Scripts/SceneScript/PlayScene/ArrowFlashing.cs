@@ -9,6 +9,8 @@ public class ArrowFlashing : MonoBehaviour
    [SerializeField] private Image img;
     private float Alpha = 1.0f;
     private Color color;
+    private float FlashTimer = 0.0f;
+    private float FlashCycle = 1.0f;
     void Start()
     {
         
@@ -17,30 +19,36 @@ public class ArrowFlashing : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-      
     }
 
     private void BlinkArrow()
-    {   
-      Alpha = (Mathf.Sin(Time.time / 10)) / 2.0f + 0.5f;
-      color = img.color;
-      color.a = Alpha;
-      img.color = color;
+    {
+        FlashTimer += Time.deltaTime; 
+        var repeatValue = Mathf.Repeat(FlashTimer, FlashCycle);
+        img.color = new Color(img.color.r, img.color.g, img.color.b, repeatValue);
     }
 
     public void StopBlinking()
     {
         Debug.Log("点滅を終了します");
-        color = img.color;
-        color.a = Alpha;
-        img.color = color;
+        //color = img.color;
+        //color.a = Alpha;
+        //img.color = new Color(img.color.r, img.color.g, img.color.b);
+        img.enabled = false;
+
     }
 
     public void StartBlinking()
     {
-       // Debug.Log("点滅を開始します");
+        Debug.Log("点滅を開始します");
         BlinkArrow();
     }
 
-
+    /*
+      Alpha = Mathf.Sin(Time.time / 20.0f) / 2.0f + 0.5f;
+      color = img.color;
+      color.a = Alpha;
+      img.color = color;
+     
+     */
 }
