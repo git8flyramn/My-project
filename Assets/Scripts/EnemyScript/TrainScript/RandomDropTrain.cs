@@ -7,7 +7,9 @@ public class RandomDropTrain : MonoBehaviour
     //¶¬‚·‚é“dŽÔ‚Ìƒ‚ƒfƒ‹‚ðŽó‚¯Žæ‚é•Ï”
     public GameObject DropObject;
     public GameObject OtherSideDropObject;
+
     private GameObject LeftArrow;
+    private GameObject RightArrow;
 
     //“dŽÔ‚Ì¶¬À•W
     private float LeftDropX;
@@ -52,15 +54,13 @@ public class RandomDropTrain : MonoBehaviour
     void Start()
     {
         LeftArrow = GameObject.Find("LeftArrow");
+        RightArrow = GameObject.Find("RightArrow");
     }
 
     void Update()
     {
-
-        RightTrainGenerateTime += Time.deltaTime;
-        LeftTrainGenerateTime += Time.deltaTime;
-        SecondRightTrainGenerateTime += Time.deltaTime;
-        SecondLeftTrainGenerateTime += Time.deltaTime;
+      
+       
         DropRightForwardTrain();
         DropLeftForwardTrain();
     }
@@ -70,6 +70,9 @@ public class RandomDropTrain : MonoBehaviour
     {
         //ü˜H“à‚Ì“dŽÔ‚Ì”­¶”ÍˆÍ
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
+       
+        RightTrainGenerateTime += Time.deltaTime;
+        LeftTrainGenerateTime += Time.deltaTime;
 
         //Œo‰ßŽžŠÔ‚ª10•b‚ð’´‚¦‚½‚ç¶¬‚³‚ê‚é
         //Žè‘O
@@ -84,6 +87,7 @@ public class RandomDropTrain : MonoBehaviour
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
+            
             SetRangeRightPositionZ(-903.0f, -912.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
@@ -97,9 +101,13 @@ public class RandomDropTrain : MonoBehaviour
         //ü˜H“à‚Ì“dŽÔ‚Ì”­¶”ÍˆÍ
         LeftDropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
+        SecondRightTrainGenerateTime += Time.deltaTime;
+        SecondLeftTrainGenerateTime += Time.deltaTime;
+        
         ///2–‡–Ú‚Ìü˜H‚©‚ç‚Ì¶¬
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
+            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);

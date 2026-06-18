@@ -7,7 +7,7 @@ public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    [SerializeField] private Image img;
-    private float Alpha = 1.0f;
+   // private float Alpha = 1.0f;
     private Color color;
     private float FlashTimer = 0.0f;
     private float FlashCycle = 1.0f;
