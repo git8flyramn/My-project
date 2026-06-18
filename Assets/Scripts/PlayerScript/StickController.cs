@@ -16,13 +16,10 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
    
     public FixedJoystick StickMove;
-    [Header("通常のスピード")] public float defaultSpeed = 35.0f;
-    [Header("ダッシュ時のスピード")] public float dash = 35.0f;
-    
-    //private float ResetDefaultSpeed = 10.0f; //元のスピードに戻すため
+    [Header("通常のスピード")] private float defaultSpeed = 35.0f;
+    [Header("ダッシュ時のスピード")] private float dash = 40.0f;
     private float gravity = 9.8f;
-    //private float decStamina = 0.5f;//スタミナの減少量
-    private float distance = 1.0f;
+    private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
 
     //Vector3 startPos;
@@ -43,7 +40,7 @@ public class StickController : MonoBehaviour
     void Update()
     {
 
-       // MoveStick();
+        //MoveStick();
         DashMove();
 
 

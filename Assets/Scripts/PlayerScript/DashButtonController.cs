@@ -14,7 +14,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
     public float LongTapTime = 2.0f; //長押しをしている時間
     private float decStamina = 0.01f;
     //private float RegeneStamina = 0.01f;
-    private float defaultSpeed = 30.0f;//通常のスピード 
+   // private float defaultSpeed = 30.0f;//通常のスピード 
     public float dashspeed = 35.0f;        //ダッシュ時のスピード
     public StickController Sc;
 
@@ -32,7 +32,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
         isLongTap = true;
         if (Sc != null)
         {
-            Sc.dash = defaultSpeed;
+           // Sc.dash = defaultSpeed;
             StartDash();
             Dash.UseStamina(decStamina);
             // Debug.Log("ボタンを長押していません");
@@ -51,7 +51,7 @@ public class DashButtonController : MonoBehaviour,IPointerDownHandler,IPointerUp
            
             StopDash();
             //defaultSpeed
-            Sc.dash = dashspeed;
+            //Sc.dash = dashspeed;
            
             // Debug.Log("ボタンを長押しています");
 
