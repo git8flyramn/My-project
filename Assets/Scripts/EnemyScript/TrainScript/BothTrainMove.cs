@@ -36,7 +36,7 @@ public class BothTrainMove : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         //電車が方向を変更するポイントに到達したとき
-        if (other.CompareTag("train"))
+        if (other.CompareTag("ChangeDirPoint"))
         {
             //車両の進行方向を左方向から前方向に変更
             TrainDir = Vector3.forward;
@@ -47,7 +47,7 @@ public class BothTrainMove : MonoBehaviour
         {
             Debug.LogWarning("進行方向が変更されていません");
         }
-        Arrow.StopBlinking();
+      
     }
 
 }
