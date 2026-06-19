@@ -16,49 +16,43 @@ public class BothTrainMove : MonoBehaviour
    
     [SerializeField] private Vector3 TrainDir;
     private GameObject LeftArrow;
-    private GameObject RightArrow;
+  　private GameObject RightArrow;
     private Quaternion ForwardDir = Quaternion.identity;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         LeftArrow = GameObject.Find("LeftArrow");
         RightArrow = GameObject.Find("RightArrow");
-      
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-
        
+
     }
 
     public void TrainMove()
     {
-       
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
-        
     }
     public void OnTriggerEnter(Collider other)
     {
         //電車が方向を変更するポイントに到達したとき
-        if (other.CompareTag("ChangeDirPoint"))
+        if (other.CompareTag("train"))
         {
             //車両の進行方向を左右方向それぞれから前方方向に変更
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-           
-
+            RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
-      
+        RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
 
-        if (other.CompareTag("OtherSideChange"))
+        if (other.CompareTag("SecondTrain"))
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
+       
     }
-
 }

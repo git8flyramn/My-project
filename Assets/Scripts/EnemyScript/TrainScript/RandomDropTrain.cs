@@ -50,7 +50,7 @@ public class RandomDropTrain : MonoBehaviour
     //ç∂âEÇÃìdé‘ÇÃå¸Ç´
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
-    
+
     void Start()
     {
         LeftArrow = GameObject.Find("LeftArrow");
@@ -59,8 +59,8 @@ public class RandomDropTrain : MonoBehaviour
 
     void Update()
     {
-      
-       
+
+
         DropRightForwardTrain();
         DropLeftForwardTrain();
     }
@@ -70,27 +70,27 @@ public class RandomDropTrain : MonoBehaviour
     {
         //ê¸òHì‡ÇÃìdé‘ÇÃî≠ê∂îÕàÕ
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
-       
+
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
-       // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
         //åoâﬂéûä‘Ç™10ïbÇí¥Ç¶ÇΩÇÁê∂ê¨Ç≥ÇÍÇÈ
         //éËëO
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-           
+
             SetRangeRightPositionZ(-812.0f, -821.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
 
-           
+
         }
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-            
+
             SetRangeRightPositionZ(-903.0f, -912.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
@@ -106,17 +106,17 @@ public class RandomDropTrain : MonoBehaviour
 
         SecondRightTrainGenerateTime += Time.deltaTime;
         SecondLeftTrainGenerateTime += Time.deltaTime;
-        
+
         ///2ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
-            
-          //  LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+
+            //  LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
-         
+
         }
 
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
