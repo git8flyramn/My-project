@@ -7,6 +7,8 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
     public GameObject OtherSideDropObject;
+   // private GameObject LeftArrow;
+    private GameObject RightArrow;
     
     //電車の生成座標
     private float LeftDropX;
@@ -50,13 +52,13 @@ public class RandomDropTrain : MonoBehaviour
 
     void Start()
     {
-
+        RightArrow = GameObject.Find("RightArrow");
     }
 
     void Update()
     {
 
-
+      
         DropRightForwardTrain();
         DropLeftForwardTrain();
     }
@@ -66,16 +68,14 @@ public class RandomDropTrain : MonoBehaviour
     {
         //線路内の電車の発生範囲
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
-
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
-        // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        //RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
         //経過時間が10秒を超えたら生成される
         //手前
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
-            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-
+            
             SetRangeRightPositionZ(-812.0f, -821.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
@@ -107,7 +107,7 @@ public class RandomDropTrain : MonoBehaviour
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
 
-            //  LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+            //LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);

@@ -13,7 +13,6 @@ public class BothTrainMove : MonoBehaviour
     //使用している変数
     private float MoveSpeed    = 4.0f;
     private float Initvelocity = 3.0f;
-   
     [SerializeField] private Vector3 TrainDir;
     private GameObject LeftArrow;
   　private GameObject RightArrow;
@@ -34,6 +33,7 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainMove()
     {
+        RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
     public void OnTriggerEnter(Collider other)
@@ -47,12 +47,11 @@ public class BothTrainMove : MonoBehaviour
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
-        RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-
         if (other.CompareTag("SecondTrain"))
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
+           // LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
        
     }
