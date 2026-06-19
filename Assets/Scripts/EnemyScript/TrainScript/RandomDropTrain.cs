@@ -7,10 +7,7 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
     public GameObject OtherSideDropObject;
-
-    private GameObject LeftArrow;
-    private GameObject RightArrow;
-
+    
     //電車の生成座標
     private float LeftDropX;
     private float RightDropX;
@@ -44,8 +41,8 @@ public class RandomDropTrain : MonoBehaviour
     private float RightTrainFirstIntervalTime = 10.0f;
     private float RightTrainSecondIntervalTime = 15.0f;
 
-    private float LeftTrainFirstIntervalTime = 20.0f;
-    private float LeftTrainSecondIntervalTime = 25.0f;
+    private float LeftTrainFirstIntervalTime = 10.0f;
+    private float LeftTrainSecondIntervalTime = 15.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -53,8 +50,7 @@ public class RandomDropTrain : MonoBehaviour
 
     void Start()
     {
-        LeftArrow = GameObject.Find("LeftArrow");
-        RightArrow = GameObject.Find("RightArrow");
+
     }
 
     void Update()
