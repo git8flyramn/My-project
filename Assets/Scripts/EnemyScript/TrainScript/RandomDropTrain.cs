@@ -7,10 +7,7 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
     public GameObject OtherSideDropObject;
-
-    private GameObject LeftArrow;
-    private GameObject RightArrow;
-
+    
     //電車の生成座標
     private float LeftDropX;
     private float RightDropX;
@@ -44,8 +41,8 @@ public class RandomDropTrain : MonoBehaviour
     private float RightTrainFirstIntervalTime = 10.0f;
     private float RightTrainSecondIntervalTime = 15.0f;
 
-    private float LeftTrainFirstIntervalTime = 20.0f;
-    private float LeftTrainSecondIntervalTime = 25.0f;
+    private float LeftTrainFirstIntervalTime = 10.0f;
+    private float LeftTrainSecondIntervalTime = 15.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -53,14 +50,16 @@ public class RandomDropTrain : MonoBehaviour
     
     void Start()
     {
-        LeftArrow = GameObject.Find("LeftArrow");
-        RightArrow = GameObject.Find("RightArrow");
+
     }
 
     void Update()
     {
-      
-       
+
+        RightTrainGenerateTime += Time.deltaTime;
+        LeftTrainGenerateTime += Time.deltaTime;
+        SecondRightTrainGenerateTime += Time.deltaTime;
+        SecondLeftTrainGenerateTime += Time.deltaTime;
         DropRightForwardTrain();
         DropLeftForwardTrain();
     }
@@ -70,27 +69,19 @@ public class RandomDropTrain : MonoBehaviour
     {
         //線路内の電車の発生範囲
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
-       
-        RightTrainGenerateTime += Time.deltaTime;
-        LeftTrainGenerateTime += Time.deltaTime;
-       // RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+
         //経過時間が10秒を超えたら生成される
         //手前
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
-            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-           
             SetRangeRightPositionZ(-812.0f, -821.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
-
-           
         }
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-            
             SetRangeRightPositionZ(-903.0f, -912.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
@@ -104,14 +95,9 @@ public class RandomDropTrain : MonoBehaviour
         //線路内の電車の発生範囲
         LeftDropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
-        SecondRightTrainGenerateTime += Time.deltaTime;
-        SecondLeftTrainGenerateTime += Time.deltaTime;
-        
         ///2枚目の線路からの生成
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
-            
-          //  LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
