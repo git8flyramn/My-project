@@ -34,10 +34,10 @@ public class ArrowFlashing : MonoBehaviour
 
     public void StopBlinking()
     {
-        Debug.Log("点滅を終了します");
-        //color = img.color;
-        //color.a = Alpha;
-        //img.color = color;
+        //Debug.Log("点滅を終了します");
+        color = img.color;
+        color.a = Alpha;
+        img.color = color;
         img.enabled = false;
     }
 
