@@ -2378,6 +2378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowFlashing
   img: {fileID: 540839372}
+  FlashRate: 0.6
 --- !u!1 &599319829
 GameObject:
   m_ObjectHideFlags: 0
@@ -2751,7 +2752,6 @@ GameObject:
   - component: {fileID: 748467558}
   - component: {fileID: 748467561}
   - component: {fileID: 748467560}
-  - component: {fileID: 748467559}
   m_Layer: 5
   m_Name: Time
   m_TagString: Untagged
@@ -2778,20 +2778,6 @@ RectTransform:
   m_AnchoredPosition: {x: -404, y: 244}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &748467559
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 748467557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fa55eb4bedbcbd4b8b8f554f853fdd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimeCounter
-  ClearTime: 0
-  TimerText: {fileID: 748467560}
 --- !u!114 &748467560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8893,6 +8879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowFlashing
   img: {fileID: 1036338206}
+  FlashRate: 0.6
 --- !u!23 &1036338209
 MeshRenderer:
   m_ObjectHideFlags: 0

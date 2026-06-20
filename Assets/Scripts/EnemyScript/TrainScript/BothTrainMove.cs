@@ -27,13 +27,13 @@ public class BothTrainMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
 
+        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
     }
 
     public void TrainMove()
     {
-        RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
     public void OnTriggerEnter(Collider other)
@@ -45,16 +45,16 @@ public class BothTrainMove : MonoBehaviour
            
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-           // LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
 
         }
-      
+
 
         if (other.CompareTag("SecondTrain"))
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-          // RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
     }
 

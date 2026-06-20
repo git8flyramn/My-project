@@ -9,9 +9,11 @@ public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    [SerializeField] private Image img;
-    private float Alpha = 0.0f;
+   // private float Alpha = 0.0f;
     private Color color;
     private float Timer;
+    private float FlahingCycle = 1.0f;
+    [SerializeField, Range(0, 1)] private float FlashRate = 0.5f; 
     void Start()
     {
         
@@ -26,18 +28,16 @@ public class ArrowFlashing : MonoBehaviour
     private void BlinkArrow()
     {
         Timer += Time.deltaTime;
-        Alpha = Mathf.Sin(Timer * 10.0f) / 2 * 0.5f;
-        color = img.color;
-        color.a = Alpha;
-        img.color = color;
+        var ClycleRepeatValue = Mathf.Repeat(Timer, FlahingCycle);
+        img.enabled = ClycleRepeatValue >= FlahingCycle * (1 - FlashRate);
     }
 
     public void StopBlinking()
     {
         //Debug.Log("ì_ñ≈ÇèIóπÇµÇ‹Ç∑");
-        color = img.color;
-        color.a = Alpha;
-        img.color = color;
+        //color = img.color;
+        //color.a = Alpha;
+        //img.color = color;
         img.enabled = false;
     }
 
