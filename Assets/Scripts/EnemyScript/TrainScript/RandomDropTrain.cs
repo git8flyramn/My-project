@@ -7,10 +7,9 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
     public GameObject OtherSideDropObject;
-
-    private GameObject LeftArrow;
+   // private GameObject LeftArrow;
     private GameObject RightArrow;
-
+    
     //電車の生成座標
     private float LeftDropX;
     private float RightDropX;
@@ -41,26 +40,25 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //左右の電車それぞれの生成間隔時間
-    private float RightTrainFirstIntervalTime = 10.0f;
+    private float RightTrainFirstIntervalTime = 15.0f;
     private float RightTrainSecondIntervalTime = 15.0f;
 
-    private float LeftTrainFirstIntervalTime = 20.0f;
-    private float LeftTrainSecondIntervalTime = 25.0f;
+    private float LeftTrainFirstIntervalTime = 15.0f;
+    private float LeftTrainSecondIntervalTime = 20.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
-    
+
     void Start()
     {
-        LeftArrow = GameObject.Find("LeftArrow");
         RightArrow = GameObject.Find("RightArrow");
     }
 
     void Update()
     {
+
       
-       
         DropRightForwardTrain();
         DropLeftForwardTrain();
     }
@@ -70,7 +68,6 @@ public class RandomDropTrain : MonoBehaviour
     {
         //線路内の電車の発生範囲
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
-       
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
         //経過時間が10秒を超えたら生成される
@@ -83,12 +80,12 @@ public class RandomDropTrain : MonoBehaviour
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
 
-           
+
         }
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-            
+            //RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-903.0f, -912.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
@@ -104,7 +101,7 @@ public class RandomDropTrain : MonoBehaviour
 
         SecondRightTrainGenerateTime += Time.deltaTime;
         SecondLeftTrainGenerateTime += Time.deltaTime;
-        
+
         ///2枚目の線路からの生成
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
@@ -114,7 +111,7 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
-         
+
         }
 
         ///4枚目の線路からの生成
