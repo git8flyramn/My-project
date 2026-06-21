@@ -12,39 +12,49 @@ public class ArrowFlashing : MonoBehaviour
    // private float Alpha = 0.0f;
     private Color color;
     private float Timer;
-    private float FlahingCycle = 1.0f;
+    private float FlahingCycle = 1.0f; //点滅の周期サイクル時間
+    private float DefaultAlpha;//元の色の値を保持する変数
     [SerializeField, Range(0, 1)] private float FlashRate = 0.5f; 
     void Start()
     {
-        
+        DefaultAlpha = img.color.a;
     }
 
     // Update is called once per frame
     private void Update()
     {
- 
+        BlinkArrow();
     }
 
+    //点滅の機能
     private void BlinkArrow()
     {
+     
         Timer += Time.deltaTime;
         var ClycleRepeatValue = Mathf.Repeat(Timer, FlahingCycle);
         img.enabled = ClycleRepeatValue >= FlahingCycle * (1 - FlashRate);
+       // Debug.Log("点滅を開始します");
     }
 
-    public void StopBlinking()
-    {
-        //Debug.Log("点滅を終了します");
-        //color = img.color;
-        //color.a = Alpha;
-        //img.color = color;
-        img.enabled = false;
-    }
-
+    //点滅の開始機能を呼び出す関数
     public void StartBlinking()
     {
-       //Debug.Log("点滅を開始します");
         BlinkArrow();
+    }
+
+    //点滅の終了関数
+    public void StopBlinking()
+    {
+        SetAlpha(DefaultAlpha);
+    }
+    
+   //停止させた後に元の色に戻すための関数
+    private void SetAlpha(float alpha)
+    {
+        var color = img.color;
+        color.a = alpha;
+        img.color =  color;
+        Debug.Log("元に戻りました");
     }
 
 
