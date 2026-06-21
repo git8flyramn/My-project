@@ -33,7 +33,7 @@ public class ArrowFlashing : MonoBehaviour
         Timer += Time.deltaTime;
         var ClycleRepeatValue = Mathf.Repeat(Timer, FlahingCycle);
         img.enabled = ClycleRepeatValue >= FlahingCycle * (1 - FlashRate);
-       // Debug.Log("点滅を開始します");
+       // 
     }
 
     //点滅の開始機能を呼び出す関数
@@ -46,6 +46,7 @@ public class ArrowFlashing : MonoBehaviour
     public void StopBlinking()
     {
         SetAlpha(DefaultAlpha);
+        Debug.Log("点滅を停止します");
     }
     
    //停止させた後に元の色に戻すための関数
