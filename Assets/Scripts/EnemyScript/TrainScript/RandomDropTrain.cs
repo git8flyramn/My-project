@@ -59,8 +59,6 @@ public class RandomDropTrain : MonoBehaviour
 
     void Update()
     {
-
-      
         DropRightForwardTrain();
         DropLeftForwardTrain();
     }

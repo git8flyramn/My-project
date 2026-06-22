@@ -32,6 +32,8 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainMove()
     {
+        RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
     public void OnTriggerEnter(Collider other)
@@ -43,7 +45,8 @@ public class BothTrainMove : MonoBehaviour
            
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            //RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            
 
         }
 
