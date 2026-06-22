@@ -23,20 +23,16 @@ public class ArrowFlashing : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        BlinkArrow();
     }
 
     //点滅の機能
     private void BlinkArrow()
     {
      
-        Timer += Time.deltaTime;
+        Timer += 1.0f;
         var ClycleRepeatValue = Mathf.Repeat(Timer, FlahingCycle);
         img.enabled = ClycleRepeatValue >= FlahingCycle * (1 - FlashRate);
-        if(Timer > 20.0f)
-        {
-            StopBlinking();
-            Timer = 0.0f;
-        }
     }
 
     //点滅の開始機能を呼び出す関数
