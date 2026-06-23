@@ -34,7 +34,7 @@ public class BothTrainMove : MonoBehaviour
     {
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         //電車が方向を変更するポイントに到達したとき
         if (other.CompareTag("train"))
@@ -52,8 +52,9 @@ public class BothTrainMove : MonoBehaviour
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
             Debug.Log("左矢印の点滅が停止しました");
+            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+           
         }
     }
 
