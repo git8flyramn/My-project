@@ -16,13 +16,11 @@ public class ArrowFlashing : MonoBehaviour
     void Start()
     {
         DefaultAlpha = img.color.a;
-        
     }
 
     // Update is called once per frame
     private void Update()
     { 
-
     }
 
     //点滅の機能
@@ -44,30 +42,12 @@ public class ArrowFlashing : MonoBehaviour
     {
         StopCoroutine(BlinkingArrow());
         img.enabled = true;
-        Debug.Log("点滅が停止しました");
     }
     
-    public void BlinkStop()
-    {
-        StopCoroutine(BlinkingArrow());
-        img.enabled = true;
-        Debug.Log("点滅が停止しました");
-    }
-   //停止させた後に元の色に戻すための関数
-    private void SetAlpha(float alpha)
-    {
-        var color = img.color;
-        color.a = alpha;
-        img.color = color;
-        Debug.Log("元に戻りました");
-    }
-
     private IEnumerator BlinkingArrow()
     {
         BlinkArrow();
         img.enabled = !img.enabled;
-        yield return null;
+        yield return new WaitForSeconds(2.0f);
     }
-
-  
 }
