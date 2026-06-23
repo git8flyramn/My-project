@@ -41,8 +41,8 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //¶‰E‚Ì“dŽÔ‚»‚ê‚¼‚ê‚Ì¶¬ŠÔŠuŽžŠÔ
-    private float RightTrainFirstIntervalTime = 15.0f;
-    private float RightTrainSecondIntervalTime = 15.0f;
+    private float RightTrainFirstIntervalTime = 5.0f;
+    private float RightTrainSecondIntervalTime = 10.0f;
 
     private float LeftTrainFirstIntervalTime = 15.0f;
     private float LeftTrainSecondIntervalTime = 20.0f;
@@ -70,22 +70,23 @@ public class RandomDropTrain : MonoBehaviour
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
+        
         //Œo‰ßŽžŠÔ‚ª10•b‚ð’´‚¦‚½‚ç¶¬‚³‚ê‚é
         //Žè‘O
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
-            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+           
             SetRangeRightPositionZ(-812.0f, -821.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
+            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
 
 
         }
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-            
             SetRangeRightPositionZ(-903.0f, -912.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
@@ -105,14 +106,13 @@ public class RandomDropTrain : MonoBehaviour
         ///2–‡–Ú‚Ìü˜H‚©‚ç‚Ì¶¬
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
-
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
+            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
 
         }
-
         ///4–‡–Ú‚Ìü˜H‚©‚ç‚Ì¶¬
         if (SecondLeftTrainGenerateTime > LeftTrainSecondIntervalTime)
         {

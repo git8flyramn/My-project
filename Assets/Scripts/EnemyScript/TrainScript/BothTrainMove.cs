@@ -44,8 +44,6 @@ public class BothTrainMove : MonoBehaviour
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
-            
-
         }
 
 
@@ -53,7 +51,7 @@ public class BothTrainMove : MonoBehaviour
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            LeftArrow.GetComponent<ArrowFlashing>().BlinkStop();
 
         }
     }
