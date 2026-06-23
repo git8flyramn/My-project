@@ -16,20 +16,16 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
    
     public FixedJoystick StickMove;
-    [Header("基本スピード")] private float defaultSpeed = 40.0f;
+    [Header("基本スピード")] private float defaultSpeed = 35.0f;
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
 
-    //Vector3 startPos;
-
-
-
     void Start()
     {
 
-        con = GetComponent<CharacterController>();
-        anim = GetComponent<Animator>();
+        con      = GetComponent<CharacterController>();
+        anim     = GetComponent<Animator>();
         Progress = GetComponent<ProgressBarContorller>();
       
 
@@ -40,24 +36,17 @@ public class StickController : MonoBehaviour
     {
         MoveStick();
     }
-    //ダッシュの機能(あとでMoveStickと統合する)
-    public void DashMove()
-    {
-       
-    }
-    //前に自動で進む
+   
+    //playerの移動機能
     void MoveStick()
     {
         RayCast();
         IsRun = true;
         //自走部分
         Progress.StartProgressBar();
-        DashMove();
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
-
-
 
         if (con.isGrounded)
         {

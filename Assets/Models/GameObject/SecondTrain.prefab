@@ -10,19 +10,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.9364
+      value: 72.91343
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -858.016
+      value: -864.8168
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -74,10 +74,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 571252251500826080}
+      addedObject: {fileID: -4542459453569246756}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -4542459453569246756}
+      addedObject: {fileID: 5107161383375615650}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       insertIndex: -1
       addedObject: {fileID: -9130955414403073535}
@@ -96,27 +96,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
   m_PrefabInstance: {fileID: 6044648494668628568}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &571252251500826080
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855479284151090953}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 2.8}
-  m_Center: {x: -0.1, y: 0.55, z: 0.01}
 --- !u!54 &-4542459453569246756
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -144,6 +123,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!65 &5107161383375615650
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855479284151090953}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.4, z: 4.2}
+  m_Center: {x: -0.2, y: 0.87, z: 0}
 --- !u!114 &-9130955414403073535
 MonoBehaviour:
   m_ObjectHideFlags: 0
