@@ -41,11 +41,11 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //ç∂âEÇÃìdé‘ÇªÇÍÇºÇÍÇÃê∂ê¨ä‘äuéûä‘
-    private float RightTrainFirstIntervalTime = 5.0f;
-    private float RightTrainSecondIntervalTime = 10.0f;
+    private float RightTrainFirstIntervalTime = 10.0f;
+    private float RightTrainSecondIntervalTime = 15.0f;
 
-    private float LeftTrainFirstIntervalTime = 15.0f;
-    private float LeftTrainSecondIntervalTime = 20.0f;
+    private float LeftTrainFirstIntervalTime = 10.0f;
+    private float LeftTrainSecondIntervalTime = 15.0f;
 
     //ç∂âEÇÃìdé‘ÇÃå¸Ç´
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -107,12 +107,12 @@ public class RandomDropTrain : MonoBehaviour
         ///2ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
-
+            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-857.0f, -866.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
-            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+            
 
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
