@@ -51,6 +51,7 @@ public class BothTrainMove : MonoBehaviour
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
+            Debug.Log("左から来る電車の向きが変更されます");
             LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
 
         }

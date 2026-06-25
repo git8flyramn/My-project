@@ -120,6 +120,7 @@ public class RandomDropTrain : MonoBehaviour
         ///4–‡–Ú‚Ìü˜H‚©‚ç‚Ì¶¬
         if (SecondLeftTrainGenerateTime > LeftTrainSecondIntervalTime)
         {
+            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-945.0f, -956.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
