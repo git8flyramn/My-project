@@ -9,13 +9,13 @@ public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
    [SerializeField] private Image img;
-    private float Timer = 3.0f;
+   // private float Timer = 3.0f;
     private float FlahingCycle = 1.0f; //点滅の周期サイクル時間
     private Color color;
-    //[SerializeField, Range(0, 1)] private float FlashRate = 0.5f; 
+    [SerializeField, Range(0, 1)] private float FlashRate = 0.5f; 
     void Start()
     {
-      //  DefaultAlpha = img.color.a;
+     
     }
 
     // Update is called once per frame
@@ -26,19 +26,15 @@ public class ArrowFlashing : MonoBehaviour
     //点滅の機能
     private void BlinkArrow()
     {
-        //Timer += Time.deltaTime;
-        //var ClycleRepeatValue = Mathf.Repeat(Timer, FlahingCycle);
-        //img.enabled = ClycleRepeatValue >= FlahingCycle * (1 - FlashRate);
-        Timer = Mathf.PingPong(Time.time, FlahingCycle);
-        color = img.color;
-        color.a = Timer;
-        img.color = color;
+       
+        var ClycleRepeatValue = Mathf.Repeat(Time.time, FlahingCycle);
+        img.enabled = ClycleRepeatValue >= FlahingCycle * (1 - FlashRate);
+
     }
 
     //点滅の開始機能を呼び出す関数
     public void StartBlinking()
     {
-      //StartCoroutine
         StartCoroutine(BlinkingArrow());
     }
 
@@ -47,12 +43,14 @@ public class ArrowFlashing : MonoBehaviour
     {
         StopCoroutine(BlinkingArrow());
         img.enabled = true;
+        Debug.Log("点滅が停止します");
     }
-    
+
     private IEnumerator BlinkingArrow()
     {
         BlinkArrow();
         img.enabled = !img.enabled;
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(0.5f);
     }
+
 }

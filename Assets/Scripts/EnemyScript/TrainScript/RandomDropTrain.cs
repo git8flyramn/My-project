@@ -91,6 +91,7 @@ public class RandomDropTrain : MonoBehaviour
 
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
+            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-903.0f, -912.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
