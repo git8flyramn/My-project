@@ -52,6 +52,7 @@ public class BothTrainMove : MonoBehaviour
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            Debug.Log("点滅が停止します")
         }
     }
 
