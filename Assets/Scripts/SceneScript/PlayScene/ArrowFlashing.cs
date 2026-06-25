@@ -43,7 +43,7 @@ public class ArrowFlashing : MonoBehaviour
             StopCoroutine(BlinkRoutine);
         }
         BlinkRoutine = StartCoroutine(BlinkingArrow());
-        Debug.Log("“_–Å‚ðŠJŽn");
+       
 
     }
 

@@ -40,7 +40,6 @@ public class BothTrainMove : MonoBehaviour
         if (other.CompareTag("train"))
         {
             //車両の進行方向を左右方向それぞれから前方方向に変更
-           
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
@@ -51,8 +50,7 @@ public class BothTrainMove : MonoBehaviour
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
-            Debug.Log("左から来る電車の向きが変更されます");
-            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            LeftArrow.GetComponent<ArrowFlashing>().StopBlinking()
 
         }
     }
