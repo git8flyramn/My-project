@@ -66,5 +66,13 @@ public class SEManeger : MonoBehaviour
         }
     }
 
+    public void BlinkerSE(AudioClip clip)
+    {
+        if(audioSource != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
+
 
 }

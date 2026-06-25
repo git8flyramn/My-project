@@ -15,11 +15,11 @@ public class ArrowFlashing : MonoBehaviour
     [SerializeField, Range(0, 1)] private float FlashRate = 0.5f;
     private Coroutine BlinkRoutine;
     private float StartRate = 0.0f;
-    //private float StartValue = 0.0f;
-    //private bool isCycleOn = false;
+    private SEManeger SE;
+    public AudioClip clip;
     void Start()
     {
-     
+        SE = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -63,6 +63,7 @@ public class ArrowFlashing : MonoBehaviour
         while(true)
         {
             BlinkArrow();
+            SE.BlinkerSE(clip);
             yield return null;
         }
        
