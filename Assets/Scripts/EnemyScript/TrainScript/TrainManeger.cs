@@ -6,16 +6,15 @@ using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
 public class TrainManeger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    
     public GameObject FrontTrain;
     private GameObject TrainPool;
     private SEManeger SE;
     public AudioClip clip;
     [SerializeField] private ObjectPool Pool;
 
-    public Transform LeftTrainPlace1;
-    public Transform RightTrainPlalce1;
+    public Transform LeftTrainPlace;
+    public Transform RightTrainPlalce;
     
     //電車の生成時間のカウント
     private float TrainLeftGenerateTime = 0.0f;
@@ -31,7 +30,7 @@ public class TrainManeger : MonoBehaviour
     void Start()
     {
         TrainPool = Pool.GetComponent<ObjectPool>().Get();
-        SE = GetComponent<SEManeger>();
+        SE 　　　　= GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
@@ -47,13 +46,13 @@ public class TrainManeger : MonoBehaviour
     {
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
-            SetTrainPostion(TrainPool, LeftTrainPlace1);
+            SetTrainPostion(TrainPool, LeftTrainPlace);
             TrainLeftGenerateTime = 0.0f;
         }
 
         if(TrainRightGenerateTime > TrainRightIntervalTime)
         {
-            SetTrainPostion(TrainPool, RightTrainPlalce1);
+            SetTrainPostion(TrainPool, RightTrainPlalce);
             TrainRightGenerateTime = 0.0f;
         }
     }

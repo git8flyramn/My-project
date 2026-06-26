@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.48126
+      value: -83.40441
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -813.18414
+      value: -814.64954
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -72,6 +72,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: -8907938941625658454}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -1425389411521886515}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b6960baa34c74ce408768c0f45a033a3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6130386913730388310}
@@ -155,6 +158,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RightSideTrainMove
   clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
+--- !u!114 &-1425389411521886515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782226019351121708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 192d6f799ee69b74aa2d4e61fd28a4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SEManeger
 --- !u!82 &6130386913730388310
 AudioSource:
   m_ObjectHideFlags: 0

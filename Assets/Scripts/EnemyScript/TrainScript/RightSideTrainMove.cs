@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class RightSideTrainMove : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Rigidbody rb;
     private BothTrainMove BothTrain;
     private SEManeger SE;
