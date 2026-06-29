@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 68.8459
+      value: 71.02742
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -967.6814
+      value: -856.52924
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d2689ff51abbf1c48904a2a99210aaea, type: 3}
       propertyPath: m_LocalRotation.w
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecca7c48aac61947ae65ee603912afb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeftSideTrainMove
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
 --- !u!82 &-3946932735802735938
 AudioSource:
   m_ObjectHideFlags: 0

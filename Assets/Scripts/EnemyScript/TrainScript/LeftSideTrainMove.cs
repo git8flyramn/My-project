@@ -10,7 +10,7 @@ public class LeftSideTrainMove : MonoBehaviour
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
-    private float SeceneChangeTime = 0.5f;
+    private float SeceneChangeTime = 1.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,15 +29,13 @@ public class LeftSideTrainMove : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-            Debug.Log("playerと左とぶつかった音を再生します");
-            StartCoroutine(TrainAciidentWaitTime());
+            Debug.Log("ぶつかった");
+            StartCoroutine(WaitTime());
         }
     }
-
-    IEnumerator TrainAciidentWaitTime()
+    IEnumerator WaitTime()
     {
         yield return new WaitForSeconds(SeceneChangeTime);
-        Debug.Log("playerと左の電車がぶつかった時の判定を取りました");
         SceneManager.LoadScene("Game Over");
     }
 }
