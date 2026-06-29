@@ -10,6 +10,7 @@ public class LeftSideTrainMove : MonoBehaviour
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
+    private float SeceneChangeTime = 1.0f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -29,8 +30,15 @@ public class LeftSideTrainMove : MonoBehaviour
         {
             SE.TrainAccident(clip);
             Debug.Log("ぶつかりました");
+            StartCoroutine(PlayerDie());
         }
     }
+    IEnumerator PlayerDie()
+    {
+        
+        Debug.Log("playerが死亡した");
+        yield return new WaitForSeconds(SeceneChangeTime);
+        SceneManager.LoadScene("Game Over");
+    }
 
-   
 }

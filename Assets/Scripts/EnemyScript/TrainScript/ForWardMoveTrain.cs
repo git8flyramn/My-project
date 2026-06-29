@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ForWardMoveTrain : MonoBehaviour
 {  
     private Rigidbody rb;
-    private float MoveSpeed = 2.0f;
+    private float MoveSpeed = 3.0f;
     private float Initvelocity = 2.0f;
     private SEManeger SE;
     public AudioClip clip;
@@ -31,9 +31,7 @@ public class ForWardMoveTrain : MonoBehaviour
     {
         if(collision.gameObject.name == "Player")
         {
-            SE.TrainAccident(clip);
-          
-           
+            SE.TrainAccident(clip); 
         }
     }
 
