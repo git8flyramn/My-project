@@ -1,8 +1,9 @@
+using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 
 public class StickController : MonoBehaviour
@@ -16,10 +17,12 @@ public class StickController : MonoBehaviour
     Vector3 StickDirection = Vector3.zero;
    
     public FixedJoystick StickMove;
-    [Header("基本スピード")] private float defaultSpeed = 35.0f;
+    [Header("基本スピード")] private float defaultSpeed = 40.0f;
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
+    [Header("死んでゲームオーバーになっているか")] bool IsDeath = false;
+    private float SeceneChangeTime = 0.5f;
 
     void Start()
     {
@@ -76,4 +79,23 @@ public class StickController : MonoBehaviour
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "train")
+        {
+            IsDeath = true;
+            anim.SetBool("IsDeath", IsDeath);
+            Debug.Log("playerの死亡アニメーションを再生します");
+            StartCoroutine(PlayerDie());
+
+        }
+
+    }
+
+    IEnumerator PlayerDie()
+    {
+        yield return new WaitForSeconds(SeceneChangeTime);
+        Debug.Log("playerが死亡したので画面を遷移します");
+        SceneManager.LoadScene("Game Over");
+    }
 }

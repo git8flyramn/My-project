@@ -30,14 +30,8 @@ public class LeftSideTrainMove : MonoBehaviour
         {
             SE.TrainAccident(clip);
             Debug.Log("playerと左とぶつかった音を再生します");
-            StartCoroutine(TrainAciidentWaitTime());
         }
     }
 
-    IEnumerator TrainAciidentWaitTime()
-    {
-        yield return new WaitForSeconds(SeceneChangeTime);
-        Debug.Log("playerと左の電車がぶつかった時の判定を取りました");
-        SceneManager.LoadScene("Game Over");
-    }
+   
 }
