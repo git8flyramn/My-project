@@ -75,5 +75,12 @@ public class StickController : MonoBehaviour
         bool isGround = Physics.Raycast(ray, out hit, walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
     }
-
+    private void OnContorollerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.name == "train")
+        {
+            Debug.Log("Ž€–S‚µ‚Ü‚µ‚½");
+            SceneManager.LoadScene("Game Over");
+        }
+    }
 }
