@@ -10,7 +10,6 @@ public class LeftSideTrainMove : MonoBehaviour
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
-    private float SeceneChangeTime = 0.5f;
     void Start()
     {
         rb = GetComponent<Rigidbody>();

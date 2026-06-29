@@ -81,7 +81,7 @@ public class StickController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "train")
+        if(collision.gameObject.name == "train" )
         {
             IsDeath = true;
             anim.SetBool("IsDeath", IsDeath);
