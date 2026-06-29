@@ -39,7 +39,4 @@ public class RightSideTrainMove : MonoBehaviour
         Debug.Log("playerと右の電車がぶつかった時の判定を取りました");
         SceneManager.LoadScene("Game Over");
     }
-
-
-
 }

@@ -30,15 +30,7 @@ public class LeftSideTrainMove : MonoBehaviour
         {
             SE.TrainAccident(clip);
             Debug.Log("ぶつかりました");
-            StartCoroutine(PlayerDie());
+            SceneManager.LoadScene("Game Over");
         }
     }
-    IEnumerator PlayerDie()
-    {
-        
-        Debug.Log("playerが死亡した");
-        yield return new WaitForSeconds(SeceneChangeTime);
-        SceneManager.LoadScene("Game Over");
-    }
-
 }
