@@ -9,16 +9,21 @@ public class StickController : MonoBehaviour
 {
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
+    
     public ProgressBarContorller Progress;
     private CharacterController con;
     private Animator anim;
     private Rigidbody rb;
+
     private LayerMask walkableGround;
-    Vector3 StickDirection = Vector3.zero;
+    private LayerMask PlayerCollision;
+    private Vector3 StickDirection = Vector3.zero;
+    
     private Vector3 rayPosition;
     private RaycastHit hit;
     private Ray ray;
     bool isGround;
+    
     public FixedJoystick StickMove;
     [Header("基本スピード")] private float defaultSpeed = 40.0f;
     private float gravity = 9.8f;
@@ -81,13 +86,15 @@ public class StickController : MonoBehaviour
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
 
     }
-                                       
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+
+    void PlayerDeath()
     {
-        if(hit.gameObject.name == "train")
-        {
-            Debug.Log("死亡しました");
-        }
+        rayPosition = transform.position;
+        ray = new Ray(rayPosition, Vector3.forward * distance);
+        isGround = Physics.Raycast(ray, out hit, PlayerCollision);
+        Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
     }
+                                       
+  
 
 }
