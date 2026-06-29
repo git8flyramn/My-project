@@ -10,7 +10,7 @@ public class ForWardMoveTrain : MonoBehaviour
     private float Initvelocity = 2.0f;
     private SEManeger SE;
     public AudioClip clip;
-    private float SeceneChangeTime = 1.0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -28,17 +28,9 @@ public class ForWardMoveTrain : MonoBehaviour
         rb.AddForce(Vector3.forward * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.name == "Player")
-        {
-            SE.TrainAccident(clip); 
-            Debug.Log("ぶつかった");
-            //StartCoroutine(WaitTime());
-        }
-    }
-
   
+
+   
 
 
 }

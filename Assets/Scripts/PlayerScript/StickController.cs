@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -13,6 +12,7 @@ public class StickController : MonoBehaviour
     public ProgressBarContorller Progress;
     private CharacterController con;
     private Animator anim;
+    private Rigidbody rb;
     private LayerMask walkableGround;
     Vector3 StickDirection = Vector3.zero;
    
@@ -21,13 +21,14 @@ public class StickController : MonoBehaviour
     private float gravity = 9.8f;
     private float distance = 1.0f; //Ray‚Ì•ûŒü
     [Header("‘–‚Á‚Ä‚¢‚é‚©‚Ìƒtƒ‰ƒO")] bool IsRun = false;
-    private float SecneChangeTime = 1.0f;
+    //private float SceneChangeTime = 1.0f;
 
     void Start()
     {
 
         con      = GetComponent<CharacterController>();
         anim     = GetComponent<Animator>();
+        rb       = GetComponent<Rigidbody>();
         Progress = GetComponent<ProgressBarContorller>();
       
 
@@ -76,22 +77,23 @@ public class StickController : MonoBehaviour
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
     }
 
-    public void OnCollisionEnter(Collision collision)
+
+    private void OnCollisionEnter(Collision collision)
     {
-        IsRun = false;
         if(collision.gameObject.name == "train")
         {
-            StartCoroutine(WaitTime());
+            Debug.Log("Ž€–S‚µ‚Ü‚µ‚½");
+            SceneManager.LoadScene("Game Over");
         }
+       
     }
 
+    //IEnumerator WaitTime()
+    //{
+    //    
+    //    yield return new WaitForSeconds(SceneChangeTime);
+    //   
+    //}
 
-    IEnumerator WaitTime()
-    {
-        
-        anim.SetTrigger("Death");
-        Debug.Log("Ž€–S‚µ‚Ü‚µ‚½");
-        yield return new WaitForSeconds(SecneChangeTime);
-        SceneManager.LoadScene("Game Over");
-    }
+
 }
