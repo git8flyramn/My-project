@@ -15,12 +15,16 @@ public class StickController : MonoBehaviour
     private Rigidbody rb;
     private LayerMask walkableGround;
     Vector3 StickDirection = Vector3.zero;
-   
+    private Vector3 rayPosition;
+    private RaycastHit hit;
+    private Ray ray;
+    bool isGround;
     public FixedJoystick StickMove;
     [Header("基本スピード")] private float defaultSpeed = 40.0f;
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
+   
     //private float SceneChangeTime = 1.0f;
 
     void Start()
@@ -70,30 +74,23 @@ public class StickController : MonoBehaviour
     {
         //rayの描画に必要な情報
         //rayの開始位置、方向、距離、衝突を無視する物
-        Vector3 rayPosition = transform.position;
-        RaycastHit hit;
-        Ray ray = new Ray(rayPosition, Vector3.down * distance);
-        bool isGround = Physics.Raycast(ray, out hit, walkableGround);
+        rayPosition = transform.position;
+        ray = new Ray(rayPosition, Vector3.down * distance);
+        isGround = Physics.Raycast(ray, out hit, walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
+       
     }
-
-
-    private void OnCollisionEnter(Collision collision)
+                                      
+    private void OnContorollerColliderHit(ControllerColliderHit hit)
     {
-        if(collision.gameObject.name == "train")
+        if(hit.gameObject.name == "train")
         {
             Debug.Log("死亡しました");
             SceneManager.LoadScene("Game Over");
         }
-       
     }
-
-    //IEnumerator WaitTime()
-    //{
-    //    
-    //    yield return new WaitForSeconds(SceneChangeTime);
-    //   
-    //}
+   
+   
 
 
 }
