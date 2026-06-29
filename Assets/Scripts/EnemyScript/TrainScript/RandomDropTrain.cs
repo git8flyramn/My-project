@@ -79,20 +79,20 @@ public class RandomDropTrain : MonoBehaviour
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
        
-        //Žè‘O
+        //1–‡–Ú‚Ìü˜H
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            SetRangeRightPositionZ(-812.0f, -821.0f);
+            SetRangeRightPositionZ(-827.0f, -835.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
         }
-
+        //3–‡–Ú‚Ì“dŽÔ
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            SetRangeRightPositionZ(-903.0f, -912.0f);
+            SetRangeRightPositionZ(-914.0f, -921.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             SecondRightTrainGenerateTime = 0.0f;
@@ -112,7 +112,7 @@ public class RandomDropTrain : MonoBehaviour
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            SetRangeLeftPositionZ(-857.0f, -866.0f);
+            SetRangeLeftPositionZ(-872.0f, -880.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             LeftTrainGenerateTime = 0.0f;
@@ -121,7 +121,7 @@ public class RandomDropTrain : MonoBehaviour
         if (SecondLeftTrainGenerateTime > LeftTrainSecondIntervalTime)
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            SetRangeLeftPositionZ(-945.0f, -956.0f);
+            SetRangeLeftPositionZ(-960.0f, -970.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
             SecondLeftTrainGenerateTime = 0.0f;
