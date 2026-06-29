@@ -93,9 +93,9 @@ public class StickController : MonoBehaviour
 
     IEnumerator PlayerDie()
     {
+        Debug.Log("player‚ªŽ€–S‚µ‚½");
         anim.SetBool("IsDeath", IsDeath);
         yield return new WaitForSeconds(SeceneChangeTime);
-        Debug.Log("player‚ªŽ€–S‚µ‚½‚Ì‚Å‰æ–Ê‚ð‘JˆÚ‚µ‚Ü‚·");
         SceneManager.LoadScene("Game Over");
     }
 }

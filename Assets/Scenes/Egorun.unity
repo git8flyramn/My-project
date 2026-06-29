@@ -9835,7 +9835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe8b07e94bc20e439694874d79ed5ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gauge: {fileID: 0}
+  Gauge: {fileID: 1052436098}
 --- !u!82 &1502852062
 AudioSource:
   m_ObjectHideFlags: 0
