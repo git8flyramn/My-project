@@ -68,6 +68,7 @@ public class StickController : MonoBehaviour
         con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
 
+
     }
     //RayCastÇ…ÇÊÇÈê⁄ínîªíË
     void RayCast()
@@ -78,15 +79,15 @@ public class StickController : MonoBehaviour
         ray = new Ray(rayPosition, Vector3.down * distance);
         isGround = Physics.Raycast(ray, out hit, walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
-       
+
     }
-                                      
-    private void OnContorollerColliderHit(ControllerColliderHit hit)
+                                       
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.name == "train")
+        if(hit.gameObject.name == "train")
         {
             Debug.Log("éÄñSÇµÇ‹ÇµÇΩ");
-            SceneManager.LoadScene("Game Over");
         }
     }
+
 }
