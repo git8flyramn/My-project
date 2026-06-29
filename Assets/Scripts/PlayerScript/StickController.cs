@@ -22,7 +22,7 @@ public class StickController : MonoBehaviour
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
     [Header("死んでゲームオーバーになっているか")] bool IsDeath = false;
-    private float SeceneChangeTime = 0.5f;
+    private float SeceneChangeTime = 1.0f;
 
     void Start()
     {
@@ -84,7 +84,7 @@ public class StickController : MonoBehaviour
         if(collision.gameObject.name == "train" )
         {
             IsDeath = true;
-            anim.SetBool("IsDeath", IsDeath);
+            
             Debug.Log("playerの死亡アニメーションを再生します");
             StartCoroutine(PlayerDie());
 
@@ -94,6 +94,7 @@ public class StickController : MonoBehaviour
 
     IEnumerator PlayerDie()
     {
+        anim.SetBool("IsDeath", IsDeath);
         yield return new WaitForSeconds(SeceneChangeTime);
         Debug.Log("playerが死亡したので画面を遷移します");
         SceneManager.LoadScene("Game Over");

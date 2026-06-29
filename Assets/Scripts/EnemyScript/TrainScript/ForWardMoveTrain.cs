@@ -32,7 +32,7 @@ public class ForWardMoveTrain : MonoBehaviour
         if(collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-            Debug.Log("playerとぶつかった音を再生します");
+          
            
         }
     }
