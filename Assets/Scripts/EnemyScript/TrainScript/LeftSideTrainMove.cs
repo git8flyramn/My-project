@@ -28,6 +28,7 @@ public class LeftSideTrainMove : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
+            Debug.Log("ぶつかりました");
         }
     }
 

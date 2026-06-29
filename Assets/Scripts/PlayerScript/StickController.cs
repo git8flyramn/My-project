@@ -84,7 +84,6 @@ public class StickController : MonoBehaviour
         if(collision.gameObject.name == "train" )
         {
             IsDeath = true;
-            
             Debug.Log("playerの死亡アニメーションを再生します");
             StartCoroutine(PlayerDie());
 
