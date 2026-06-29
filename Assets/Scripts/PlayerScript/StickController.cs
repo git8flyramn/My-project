@@ -83,14 +83,6 @@ public class StickController : MonoBehaviour
                                       
     private void OnContorollerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.name == "train")
-        {
-            Debug.Log("Ž€–S‚µ‚Ü‚µ‚½");
-            SceneManager.LoadScene("Game Over");
-        }
-    }
-    private void OnContorollerColliderHit(ControllerColliderHit hit)
-    {
         if (hit.gameObject.name == "train")
         {
             Debug.Log("Ž€–S‚µ‚Ü‚µ‚½");
