@@ -29,8 +29,13 @@ public class LeftSideTrainMove : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-            Debug.Log("ぶつかりました");
-            SceneManager.LoadScene("Game Over");
+            Debug.Log("ぶつかった");
+            StartCoroutine(WaitTime());
         }
+    }
+    IEnumerator WaitTime()
+    {
+        yield return new WaitForSeconds(SeceneChangeTime);
+        SceneManager.LoadScene("Game Over");
     }
 }

@@ -24,7 +24,7 @@ public class RightSideTrainMove : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Secondtrain")
         {
             SE.TrainAccident(clip);
             Debug.Log("右の電車とplayerとぶつかった音を再生します");

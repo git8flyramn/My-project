@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class StickController : MonoBehaviour
@@ -20,8 +21,7 @@ public class StickController : MonoBehaviour
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
-   // [Header("死んでゲームオーバーになっているか")] bool IsDeath = false;
-
+    private float SecneChangeTime = 1.0f;
 
     void Start()
     {
@@ -76,7 +76,22 @@ public class StickController : MonoBehaviour
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
     }
 
-  
+    public void OnCollisionEnter(Collision collision)
+    {
+        IsRun = false;
+        if(collision.gameObject.name == "train")
+        {
+            StartCoroutine(WaitTime());
+        }
+    }
 
-   
+
+    IEnumerator WaitTime()
+    {
+        
+        anim.SetTrigger("Death");
+        Debug.Log("死亡しました");
+        yield return new WaitForSeconds(SecneChangeTime);
+        SceneManager.LoadScene("Game Over");
+    }
 }
