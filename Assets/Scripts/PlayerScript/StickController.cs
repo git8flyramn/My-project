@@ -58,7 +58,8 @@ public class StickController : MonoBehaviour
         Progress.StartProgressBar();
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
-        Vector3 side = Vector3.right * defaultSpeed * Time.deltaTime;
+        Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
+
         if (con.isGrounded)
         {
             ParticleSystem.Play();
@@ -69,7 +70,7 @@ public class StickController : MonoBehaviour
             ParticleSystem.Stop();
             StickDirection.y += gravity * Time.deltaTime;
         }
-        con.Move(StickDirection);
+        con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
 
 
@@ -83,13 +84,16 @@ public class StickController : MonoBehaviour
         ray = new Ray(rayPosition, Vector3.down * distance);
         isGround = Physics.Raycast(ray, out hit, walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
+
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.name == "train")
+        if(hit.gameObject.name == "train")
         {
-            Debug.Log("Ž€–S‚µ‚Ü‚µ‚½");
+
         }
     }
+
+
 }
