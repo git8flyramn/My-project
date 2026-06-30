@@ -83,14 +83,16 @@ public class StickController : MonoBehaviour
         
     }
 
-    public void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.name == "Player")
-        {
-            anim.SetBool("IsDeath", IsDeath);
-            Debug.Log(IsDeath);
-            Debug.Log("死亡アニメーションが再生されます");
-        }
+        
       
+    }
+
+
+    public void PlayerDeath()
+    {
+        anim.SetBool("IsDeath", IsDeath);
+        Debug.Log("死亡アニメーションが再生されます");
     }
 }
