@@ -70,8 +70,6 @@ public class StickController : MonoBehaviour
         }
         con.Move(StickDirection);
         anim.SetBool("IsRun", IsRun);
-
-
     }
     //RayCast‚É‚æ‚éÚ’n”»’è
     void RayCast()

@@ -44,8 +44,6 @@ public class BothTrainMove : MonoBehaviour
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
-
-
         if (other.CompareTag("SecondTrain"))
         {
             TrainDir = Vector3.forward;
