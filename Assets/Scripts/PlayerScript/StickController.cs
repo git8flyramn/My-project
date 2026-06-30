@@ -22,7 +22,6 @@ public class StickController : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
     bool isGround;
-    bool collisionTrain;
 
     public FixedJoystick StickMove;
     [Header("基本スピード")] private float defaultSpeed = 40.0f;
@@ -88,15 +87,8 @@ public class StickController : MonoBehaviour
 
    public void PlayerDeath()
     {
-        StartCoroutine(DeathAnimation());
-    }
-
-    IEnumerator DeathAnimation()
-    {
-        yield return new WaitForSeconds(1.0f);
         anim.SetBool("IsDeath", IsDeath);
+        Debug.Log(IsDeath);
         Debug.Log("死亡アニメーションが再生されます");
     }
-
-
 }

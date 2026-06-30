@@ -34,7 +34,6 @@ public class ForWardMoveTrain : MonoBehaviour
     {
          if(collision.gameObject.name == "Player")
         {
-            Debug.Log("playerが死亡しました");
             Player.GetComponent<StickController>().PlayerDeath();
         }
     }
