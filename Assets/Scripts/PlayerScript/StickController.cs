@@ -28,7 +28,6 @@ public class StickController : MonoBehaviour
     private float gravity = -9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
-    [Header("死んでいるかのフラグ")] bool IsDeath = false;
     void Start()
     {
 
@@ -92,7 +91,8 @@ public class StickController : MonoBehaviour
 
     public void PlayerDeath()
     {
-        anim.SetBool("IsDeath", IsDeath);
+        anim.SetTrigger("IsDeath");
         Debug.Log("死亡アニメーションが再生されます");
+        SceneManager.LoadScene("Game Over");
     }
 }
