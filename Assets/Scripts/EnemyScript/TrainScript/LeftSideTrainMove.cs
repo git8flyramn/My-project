@@ -11,11 +11,13 @@ public class LeftSideTrainMove : MonoBehaviour
     private SEManeger SE;
     public AudioClip clip;
     private float SeceneChangeTime = 1.0f;
+    private GameObject Player;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
         SE = GetComponent<SEManeger>();
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -30,12 +32,7 @@ public class LeftSideTrainMove : MonoBehaviour
         {
             SE.TrainAccident(clip);
             Debug.Log("ぶつかった");
-            StartCoroutine(WaitTime());
+            Player.GetComponent<StickController>().PlayerDeath();
         }
-    }
-    IEnumerator WaitTime()
-    {
-        yield return new WaitForSeconds(SeceneChangeTime);
-        SceneManager.LoadScene("Game Over");
     }
 }

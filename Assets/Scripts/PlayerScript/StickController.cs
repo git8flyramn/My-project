@@ -28,15 +28,13 @@ public class StickController : MonoBehaviour
     private float gravity = -9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
+    private float DeathAnimInterval = 2.0f; 
     void Start()
     {
-
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         Progress = GetComponent<ProgressBarContorller>();
-
-
     }
 
     // Update is called once per frame
@@ -91,8 +89,14 @@ public class StickController : MonoBehaviour
 
     public void PlayerDeath()
     {
+        StartCoroutine(DeathWaitTime());
+    }
+
+    IEnumerator DeathWaitTime()
+    {
         anim.SetTrigger("IsDeath");
         Debug.Log("死亡アニメーションが再生されます");
+        yield return new WaitForSeconds(DeathAnimInterval);
         SceneManager.LoadScene("Game Over");
     }
 }

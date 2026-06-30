@@ -9,11 +9,13 @@ public class RightSideTrainMove : MonoBehaviour
     private SEManeger SE;
     public AudioClip clip;
     private float SeceneChangeTIme = 0.5f;
+    private GameObject Player;
     void Start()
     {
         rb        = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
-        SE        = GetComponent<SEManeger>(); 
+        SE        = GetComponent<SEManeger>();
+        Player = GameObject.Find("Player");
     }
 
 // Update is called once per frame
@@ -24,19 +26,14 @@ public class RightSideTrainMove : MonoBehaviour
 
     public void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Secondtrain")
+        if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
             Debug.Log("右の電車とplayerとぶつかった音を再生します");
-            StartCoroutine(TrainAciidentWaitTime());
+            Player.GetComponent<StickController>().PlayerDeath();
         }
 
     }
 
-    IEnumerator TrainAciidentWaitTime()
-    {
-        yield return new WaitForSeconds(SeceneChangeTIme);
-        Debug.Log("playerと右の電車がぶつかった時の判定を取りました");
-        SceneManager.LoadScene("Game Over");
-    }
+   
 }
