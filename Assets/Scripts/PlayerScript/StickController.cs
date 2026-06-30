@@ -16,22 +16,20 @@ public class StickController : MonoBehaviour
     private Rigidbody rb;
 
     private LayerMask walkableGround;
-    private LayerMask PlayerCollision;
     private Vector3 StickDirection = Vector3.zero;
 
     private Vector3 rayPosition;
     private RaycastHit hit;
     private Ray ray;
     bool isGround;
+    bool collisionTrain;
 
     public FixedJoystick StickMove;
     [Header("基本スピード")] private float defaultSpeed = 40.0f;
-    private float gravity = 9.8f;
+    private float gravity = -9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
-
-    //private float SceneChangeTime = 1.0f;
-
+    [Header("死んでいるかのフラグ")] bool IsDeath = false;
     void Start()
     {
 
@@ -56,7 +54,7 @@ public class StickController : MonoBehaviour
         IsRun = true;
         //自走部分
         Progress.StartProgressBar();
-        Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
+        Vector3 forwardMove = transform.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
 
@@ -64,13 +62,14 @@ public class StickController : MonoBehaviour
         {
             ParticleSystem.Play();
             StickDirection = forwardMove + side;
+            StickDirection.y = -2f;
         }
         else
         {
             ParticleSystem.Stop();
             StickDirection.y += gravity * Time.deltaTime;
         }
-        con.Move(-StickDirection);
+        con.Move(StickDirection);
         anim.SetBool("IsRun", IsRun);
 
 
@@ -84,15 +83,19 @@ public class StickController : MonoBehaviour
         ray = new Ray(rayPosition, Vector3.down * distance);
         isGround = Physics.Raycast(ray, out hit, walkableGround);
         Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
-
+        
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
+   public void PlayerDeath()
     {
-        if(hit.gameObject.name == "train")
-        {
+        StartCoroutine(DeathAnimation());
+    }
 
-        }
+    IEnumerator DeathAnimation()
+    {
+        yield return new WaitForSeconds(1.0f);
+        anim.SetBool("IsDeath", IsDeath);
+        Debug.Log("死亡アニメーションが再生されます");
     }
 
 

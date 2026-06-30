@@ -10,11 +10,13 @@ public class ForWardMoveTrain : MonoBehaviour
     private float Initvelocity = 3.0f;
     private SEManeger SE;
     public AudioClip clip;
+    private GameObject Player;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         SE = GetComponent<SEManeger>();
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -28,9 +30,20 @@ public class ForWardMoveTrain : MonoBehaviour
         rb.AddForce(Vector3.forward * Initvelocity * MoveSpeed, ForceMode.Acceleration);
     }
 
-  
+    private void OnCollisionEnter(Collision collision)
+    {
+         if(collision.gameObject.name == "Player")
+        {
+            Debug.Log("playerが死亡しました");
+            Player.GetComponent<StickController>().PlayerDeath();
+        }
+    }
 
-   
+ 
+
+
+
+
 
 
 }
