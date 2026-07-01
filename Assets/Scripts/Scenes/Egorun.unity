@@ -1512,7 +1512,7 @@ Transform:
   m_GameObject: {fileID: 452573973}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.4, y: 5, z: -882.7}
+  m_LocalPosition: {x: -15.7, y: 5, z: -882.7}
   m_LocalScale: {x: 14.418765, y: 1.3281136, z: 139.07272}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10270,7 +10270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeOut: {fileID: 1402001089}
-  clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
+  clip: {fileID: 8300000, guid: 588309b0e48352343bdd14ef2c9d2fe0, type: 3}
 --- !u!65 &1562820964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10301,8 +10301,8 @@ Transform:
   m_GameObject: {fileID: 1562820962}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7022434, z: -0, w: 0.711937}
-  m_LocalPosition: {x: -15, y: -2.9, z: -619}
-  m_LocalScale: {x: 762.58984, y: 3.3815713, z: 11.474037}
+  m_LocalPosition: {x: -13, y: -2.9, z: -619}
+  m_LocalScale: {x: 762.58984, y: 3.3815713, z: 54.639366}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

@@ -2,8 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using UnityEditor.Experimental.GraphView;
-using UnityEditor.Rendering;
+using UnityEditor;
 using System.Threading;
 public class ArrowFlashing : MonoBehaviour
 {
