@@ -25,7 +25,7 @@ public class StickController : MonoBehaviour
 
     public FixedJoystick StickMove;
     [Header("基本スピード")] private float defaultSpeed = 40.0f;
-    private float gravity = -9.8f;
+    private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
     private float SceneChangeTime = 2.0f;
@@ -50,7 +50,7 @@ public class StickController : MonoBehaviour
         IsRun = true;
         //自走部分
         Progress.StartProgressBar();
-        Vector3 forwardMove = transform.forward * defaultSpeed * Time.deltaTime;
+        Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
 
@@ -58,14 +58,14 @@ public class StickController : MonoBehaviour
         {
             ParticleSystem.Play();
             StickDirection = forwardMove + side;
-            StickDirection.y = -2f;
+          //  StickDirection.y = -2f;
         }
         else
         {
             ParticleSystem.Stop();
             StickDirection.y += gravity * Time.deltaTime;
         }
-        con.Move(StickDirection);
+        con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
     }
     //RayCastによる接地判定

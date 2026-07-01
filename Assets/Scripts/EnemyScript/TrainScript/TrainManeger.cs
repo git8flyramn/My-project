@@ -21,8 +21,8 @@ public class TrainManeger : MonoBehaviour
     private float TrainRightGenerateTime = 0.0f;
    
     //ìdé‘ÇÃê∂ê¨ä‘äu
-    private float TrainLeftIntervalTime  = 5.0f;
-    private float TrainRightIntervalTime = 8.0f;
+    private float TrainLeftIntervalTime  = 6.0f;
+    private float TrainRightIntervalTime = 9.0f;
 
 
 

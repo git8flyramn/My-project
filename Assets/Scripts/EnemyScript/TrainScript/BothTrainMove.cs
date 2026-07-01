@@ -11,8 +11,8 @@ public class BothTrainMove : MonoBehaviour
    
     private Rigidbody rb;
     //使用している変数
-    private float MoveSpeed    = 2.0f;
-    private float Initvelocity = 2.0f;
+    private float MoveSpeed    = 3.0f;
+    private float Initvelocity = 3.0f;
     [SerializeField] private Vector3 TrainDir;
     private GameObject LeftArrow;
   　private GameObject RightArrow;
