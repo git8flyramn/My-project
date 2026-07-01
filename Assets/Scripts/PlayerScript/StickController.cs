@@ -9,8 +9,6 @@ public class StickController : MonoBehaviour
 {
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
-
-    public ProgressBarContorller Progress;
     private CharacterController con;
     private Animator anim;
     private Rigidbody rb;
@@ -34,7 +32,6 @@ public class StickController : MonoBehaviour
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        Progress = GetComponent<ProgressBarContorller>();
     }
 
     // Update is called once per frame
@@ -49,7 +46,6 @@ public class StickController : MonoBehaviour
         RayCast();
         IsRun = true;
         //自走部分
-        Progress.StartProgressBar();
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
         float horizontal = StickMove.Horizontal;
         Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
@@ -58,7 +54,6 @@ public class StickController : MonoBehaviour
         {
             ParticleSystem.Play();
             StickDirection = forwardMove + side;
-          //  StickDirection.y = -2f;
         }
         else
         {
