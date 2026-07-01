@@ -80,13 +80,7 @@ public class StickController : MonoBehaviour
         
     }
 
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        
-      
-    }
-
-
+  
     public void PlayerDeath()
     {
         StartCoroutine(DeathWaitTime());
@@ -94,6 +88,7 @@ public class StickController : MonoBehaviour
 
     IEnumerator DeathWaitTime()
     {
+        yield return new WaitForSeconds(DeathAnimInterval);
         anim.SetTrigger("IsDeath");
         Debug.Log("死亡アニメーションが再生されます");
         yield return new WaitForSeconds(DeathAnimInterval);

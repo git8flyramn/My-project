@@ -8,7 +8,6 @@ public class RightSideTrainMove : MonoBehaviour
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
-    private float SeceneChangeTIme = 0.5f;
     private GameObject Player;
     void Start()
     {

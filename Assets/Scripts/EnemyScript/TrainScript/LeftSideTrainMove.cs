@@ -10,7 +10,6 @@ public class LeftSideTrainMove : MonoBehaviour
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
-    private float SeceneChangeTime = 1.0f;
     private GameObject Player;
     void Start()
     {
