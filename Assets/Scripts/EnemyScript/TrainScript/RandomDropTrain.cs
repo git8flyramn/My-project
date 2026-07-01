@@ -48,7 +48,7 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //¶‰E‚Ì“dŽÔ‚»‚ê‚¼‚ê‚Ì¶¬ŠÔŠuŽžŠÔ
-    private float RightTrainFirstIntervalTime = 14.0f;
+    private float RightTrainFirstIntervalTime = 10.0f;
     private float RightTrainSecondIntervalTime = 19.0f;
 
     private float LeftTrainFirstIntervalTime = 14.0f;
@@ -87,6 +87,7 @@ public class RandomDropTrain : MonoBehaviour
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
+            Debug.Log("‰E‚Ì“dŽÔ‚ª¶¬‚³‚ê‚Ü‚µ‚½");
         }
         //3–‡–Ú‚Ìü˜H
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
