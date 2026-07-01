@@ -349,7 +349,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 471263052}
-        m_TargetAssemblyTypeName: Over, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOverSeceneChange, Assembly-CSharp
         m_MethodName: RetryGame
         m_Mode: 1
         m_Arguments:
@@ -407,9 +407,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 471263047}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de5c98ac521081f4698fcd66ff8137e1, type: 3}
+  m_Script: {fileID: 11500000, guid: d572a626caab87a4a9d599c3a6cf2044, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameOverSeceneChange
 --- !u!1 &605551509
 GameObject:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class ForWardMoveTrain : MonoBehaviour
         TrainForwardMove();
     }
 
+    //“dÔ‚ÌˆÚ“®ˆ—
     private void TrainForwardMove()
     {
         rb.AddForce(Vector3.forward * Initvelocity * MoveSpeed, ForceMode.Acceleration);

@@ -26,7 +26,7 @@ public class ArrowFlashing : MonoBehaviour
     { 
     }
 
-    //点滅の機能
+    //点滅機能
     private void BlinkArrow()
     {
         var ClycleRepeatValue = Mathf.Repeat(Time.time, FlahingCycle);
@@ -34,7 +34,7 @@ public class ArrowFlashing : MonoBehaviour
         img.enabled = ClycleRepeatValue >= StartRate;
     }
 
-    //点滅の開始機能を呼び出す関数
+    //点滅の開始機能
     public void StartBlinking()
     {
         if(BlinkRoutine != null)
