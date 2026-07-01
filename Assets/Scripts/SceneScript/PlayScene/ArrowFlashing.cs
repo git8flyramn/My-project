@@ -45,7 +45,6 @@ public class ArrowFlashing : MonoBehaviour
        
 
     }
-
     //“_–Å‚ÌI—¹ŠÖ”
     public void StopBlinking()
     {
