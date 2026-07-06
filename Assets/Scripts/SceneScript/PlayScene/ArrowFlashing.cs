@@ -56,6 +56,7 @@ public class ArrowFlashing : MonoBehaviour
         BlinkRoutine = null;
     }
 
+    //–îˆó‚Ì“_–Å‹@”\
     private IEnumerator BlinkingArrow()
     {
         while(true)
