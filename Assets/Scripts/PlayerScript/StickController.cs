@@ -84,7 +84,6 @@ public class StickController : MonoBehaviour
     IEnumerator DeathWaitTime()
     {
         anim.SetTrigger("IsDeath");
-        Debug.Log("死亡アニメーションが再生されます");
         yield return new WaitForSeconds(SceneChangeTime);
         SceneManager.LoadScene("Game Over");
     }

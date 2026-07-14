@@ -87,7 +87,7 @@ public class RandomDropTrain : MonoBehaviour
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
             RightTrainGenerateTime = 0.0f;
-            Debug.Log("‰E‚Ì“dŽÔ‚ª¶¬‚³‚ê‚Ü‚µ‚½");
+           
         }
         //3–‡–Ú‚Ìü˜H
         if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)

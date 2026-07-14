@@ -28,7 +28,6 @@ public class RightSideTrainMove : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-            Debug.Log("右の電車とplayerとぶつかった音を再生します");
             Player.GetComponent<StickController>().PlayerDeath();
         }
 
