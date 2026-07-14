@@ -24,6 +24,8 @@ public class TrainManeger : MonoBehaviour
     private float TrainLeftIntervalTime  = 6.0f;
     private float TrainRightIntervalTime = 9.0f;
 
+    private float TrainCounter = 0;
+    private float Max_Train = 10;
 
 
 
@@ -46,26 +48,23 @@ public class TrainManeger : MonoBehaviour
     {
         if (TrainLeftGenerateTime > TrainLeftIntervalTime)
         {
-            SetTrainPostion(TrainPool, LeftTrainPlace);
+            SetTrainPostion(FrontTrain, LeftTrainPlace);
             TrainLeftGenerateTime = 0.0f;
-           
+            TrainCounter += 1;
         }
 
         if(TrainRightGenerateTime > TrainRightIntervalTime)
         {
-            SetTrainPostion(TrainPool, RightTrainPlalce);
+            SetTrainPostion(FrontTrain, RightTrainPlalce);
             TrainRightGenerateTime = 0.0f;
-            
+            TrainCounter += 1;
         }
-
-         
     }
     public void SetTrainPostion(GameObject obj, Transform trans)
     {
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
-        TrainPool.GetComponent<ObjectPool>().OnDestory(obj);
-
+        Instantiate(obj, obj.transform.position, obj.transform.rotation);
     }
 }
 
