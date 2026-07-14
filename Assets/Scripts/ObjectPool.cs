@@ -11,10 +11,8 @@ public class ObjectPool : MonoBehaviour
     private ObjectPool<GameObject> pool;
     
      [SerializeField] private GameObject targetObject;
-     [SerializeField] private int  Max_train;
-   
-    //[SerializeField] private PooledObject objectToPool;
-
+     [SerializeField] private int  Max_train = 10;
+    private float TrainCounter = 0;
     void Start()
     {
                                    //生成     アクティブ化　非アクティブ    破棄
@@ -32,6 +30,7 @@ public class ObjectPool : MonoBehaviour
         // Debug.Log("オブジェクトが生成されました");
         Vector3 initPosition = transform.position;
         GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
+        TrainCounter += 1;
         return objectClone;
     }
 
@@ -51,8 +50,13 @@ public class ObjectPool : MonoBehaviour
     //生成限度を超えたら
     public void OnDestory(GameObject objectClone)
     {
-        Destroy(objectClone);
-        Debug.Log("生成の上限になったので消去します");
+        if(TrainCounter > Max_train)
+        {
+            Destroy(objectClone);
+            Debug.Log("生成の上限になったので消去します");
+            TrainCounter = 0;
+        }
+        
     }
 
     public GameObject Get()

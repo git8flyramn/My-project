@@ -13,7 +13,7 @@ public class StickController : MonoBehaviour
     private Animator anim;
     private Rigidbody rb;
 
-    private LayerMask walkableGround;
+    private LayerMask walkableGround;Å@//ínñ ÇÃÇ›ÇîªíËÇ∑ÇÈÇΩÇﬂ
     private Vector3 StickDirection = Vector3.zero;
 
     private Vector3 rayPosition;

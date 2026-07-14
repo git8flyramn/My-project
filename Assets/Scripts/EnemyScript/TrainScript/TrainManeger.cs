@@ -48,19 +48,24 @@ public class TrainManeger : MonoBehaviour
         {
             SetTrainPostion(TrainPool, LeftTrainPlace);
             TrainLeftGenerateTime = 0.0f;
+           
         }
 
         if(TrainRightGenerateTime > TrainRightIntervalTime)
         {
             SetTrainPostion(TrainPool, RightTrainPlalce);
             TrainRightGenerateTime = 0.0f;
+            
         }
+
+         
     }
     public void SetTrainPostion(GameObject obj, Transform trans)
     {
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
-     
+        TrainPool.GetComponent<ObjectPool>().OnDestory(obj);
+
     }
 }
 

@@ -7,11 +7,10 @@ using System.Threading;
 public class ArrowFlashing : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-   [SerializeField] private Image img;
-   // private float Timer = 3.0f;
+   [SerializeField] private Image img; //画像のデータ
     private float FlahingCycle = 1.0f; //点滅の周期サイクル時間
     private Color color;
-    [SerializeField, Range(0, 1)] private float FlashRate = 0.5f;
+    [SerializeField, Range(0, 1)] private float FlashRate = 0.5f;　//点滅の間隔
     private Coroutine BlinkRoutine;
     private float StartRate = 0.0f;
     private SEManeger SE;
@@ -56,7 +55,7 @@ public class ArrowFlashing : MonoBehaviour
         BlinkRoutine = null;
     }
 
-    //矢印の点滅機能
+    //矢印の点滅コルーチン
     private IEnumerator BlinkingArrow()
     {
         while(true)
