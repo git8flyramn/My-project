@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,13 +10,15 @@ public class ObjectPool : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
     private ObjectPool<GameObject> pool;
+    [SerializeField] private PooledObject objectToPool;
     [SerializeField] private int Max_train = 5;
     [SerializeField] private GameObject targetObject;
-    
+    private Stack<PooledObject> Stack;
     void Start()
     {
                                    //生成     アクティブ化　非アクティブ    破棄
-        pool = new ObjectPool<GameObject>(SetUpPool, GetPooledObject, ReturnToPool,collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
+      //  pool = new PooledObject(SetUpPool, GetPooledObject, ReturnToPool,collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
+        SetUpPool();
     }
 
     // Update is called once per frame
@@ -24,37 +27,43 @@ public class ObjectPool : MonoBehaviour
     }
 
     //objectPool.Get()の時に呼ばれる機能
-    private GameObject SetUpPool()
+    private void SetUpPool()
     {
-        // Debug.Log("オブジェクトが生成されました");
-        Vector3 initPosition = transform.position;
-        GameObject objectClone = Instantiate(targetObject, initPosition, Quaternion.identity);
-       
-        return objectClone;
+        Stack = new Stack<PooledObject>();
+        PooledObject instance = null;
+
+        for(int i = 0; i < Max_train; i++)
+        {
+            instance = Instantiate(objectToPool);
+            instance.Pool = this;
+            instance.gameObject.SetActive(false);
+            Stack.Push(instance);
+         }
     }
 
-    public void GetPooledObject(GameObject objectClone)
+    //プール内から取り出す
+    public PooledObject GetPooledObject()
     {
-       
-        objectClone.gameObject.SetActive(true);
-       
+       if(Stack.Count == 0)
+        {
+            PooledObject newInstance = Instantiate(objectToPool);
+            newInstance.Pool = this;
+            return newInstance;
+        }
+        PooledObject nextInstance = Stack.Pop();
+        nextInstance.gameObject.SetActive(true);
+        return nextInstance;
+
+
+
     }
 
-    public void ReturnToPool(GameObject objectClone)
+    //使用後に返却する
+    public void ReturnToPool(PooledObject pooledObject)
     {
-      
-        objectClone.gameObject.SetActive(false);
+        Stack.Push(pooledObject);
+        pooledObject.gameObject.SetActive(false);
     }
-
-    //生成限度を超えたら
-    public void OnDestory(GameObject objectClone)
-    {
-        
-            Destroy(objectClone);
-        Debug.Log("生成の上限になったので消去します");
-        
-    }
-
     public GameObject Get()
     {
         return pool.Get();

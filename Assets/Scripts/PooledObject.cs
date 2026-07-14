@@ -8,19 +8,14 @@ public class PooledObject : MonoBehaviour
     private ObjectPool pool;
     
     public ObjectPool Pool { get => pool; set => pool = value; }
-    void Start()
-    {
-        pool = GetComponent<ObjectPool>();
-    }
-
     // Update is called once per frame
     void Update()
     {
         
     }
     //生成したオブジェクトをプールに戻し、非アクティブ化
-    public void Release(GameObject objectClone)
+    public void Release()
     {
-        pool.ReturnToPool(objectClone);
+        pool.ReturnToPool(this);
     }
 }

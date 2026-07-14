@@ -59,7 +59,6 @@ public class TrainManeger : MonoBehaviour
     {
         obj.transform.rotation = Quaternion.identity;
         obj.transform.position = trans.transform.position;
-        Instantiate(obj, obj.transform.position, obj.transform.rotation);
     }
 }
 
