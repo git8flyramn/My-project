@@ -69,10 +69,10 @@ public class ObjectPool : MonoBehaviour
         return pool.Get();
     }
 
-    public void Release(GameObject objectClone)
-    {
-        pool.Release(objectClone);
-    }
+    //public void Release(PooledObject objectClone)
+    //{
+       
+    //}
 
     //�d�Ԃ̍ő吔�̎擾
     public int GetTrainNum()

@@ -2667,8 +2667,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a6b7789805a9a4583608a73a2501a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetObject: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
+  objectToPool: {fileID: 3911350338908220750, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
   Max_train: 15
+  targetObject: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
 --- !u!4 &816368635
 Transform:
   m_ObjectHideFlags: 0
