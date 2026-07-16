@@ -13,10 +13,11 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform SecondTrainspawn;
 
     private PooledObject Train;
+    private PooledObject SecondTrain;
     [SerializeField] private ObjectPool Pool;
     private SEManeger SE;
     public AudioClip clip;
-    private float TrainIntervalTime = 30.0f;
+    private float TrainIntervalTime = 5.0f;
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
 
@@ -25,33 +26,28 @@ public class TrainManeger : MonoBehaviour
         Train = Pool.GetPooledObject();
         TrainGenerateTime += 1.0f;
         SecondTrainGenerateTime += 1.0f;
-        Train.transform.position = Trainspawn.position;
+      
+       
         SE    = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (TrainGenerateTime > 5)
-        {
-            Train.transform.position = Trainspawn.position;
-            TrainGenerateTime = 0.0f;
-        }
-        if(SecondTrainGenerateTime > 10)
-        {
-            Train.transform.position = SecondTrainspawn.position;
-            SecondTrainGenerateTime = 0.0f;
-        }
-        StartCoroutine(TrainReturn(Train));
+        TrainGenerate();
     }
 
     //ëOîºïîï™ÇÃìdé‘ÇÃê∂ê¨
-   
+   void TrainGenerate()
+    { 
+            StartCoroutine(TrainReturn(Train));  
+   }
 
     IEnumerator TrainReturn(PooledObject enemy)
     {
         yield return new WaitForSeconds(TrainIntervalTime);
         enemy.Pool.ReturnToPool(enemy);
+        Debug.Log("ï‘ãpÇ≥ÇÍÇ‹ÇµÇΩ");
     }
 }
 
