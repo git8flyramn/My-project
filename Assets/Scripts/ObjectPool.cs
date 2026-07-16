@@ -59,10 +59,9 @@ public class ObjectPool : MonoBehaviour
         Stack.Push(pooledObject);
         pooledObject.gameObject.SetActive(false);
     }
-    public void SpawnObject(Vector3 position)
+
+    public void SpawnObject(PooledObject obj,Transfom position)
     {
-        GameObject obj = pool.Get();
-        obj.transform.position = position;
-       
+        obj.transform.postion = position;
     }
 }

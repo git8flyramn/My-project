@@ -16,19 +16,29 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private ObjectPool Pool;
     private SEManeger SE;
     public AudioClip clip;
-    public Transform LeftTrainPlace;
-    public Transform RightTrainPlalce;
     private float TrainIntervalTime = 30.0f;
+    private float TrainGenerateTime = 0.0f;
+
     void Start()
     {
         Train = Pool.GetPooledObject();
-        Pool.SpawnObject(Trainspawn)
+        TrainGenerateTime += 1.0f;
+        Train.transform.position = Trainspawn.position;
         SE    = GetComponent<SEManeger>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (TrainGenerateTime > 5)
+        {
+            Train.Instance.SpawnObject(Train,Trainspawn.position);
+            TrainGenerateTime = 0.0f;
+        }
+        if(TrainGenerateTime > 10)
+        {
+            Train.Instance.SpawnObject(Train, SecondTrainspawn.position);
+        }
         StartCoroutine(TrainReturn(Train));
     }
 
@@ -39,7 +49,6 @@ public class TrainManeger : MonoBehaviour
     {
         yield return new WaitForSeconds(TrainIntervalTime);
         enemy.Pool.ReturnToPool(enemy);
-        Pool.SpawnObject(SecondTrainspawn);
     }
 }
 
