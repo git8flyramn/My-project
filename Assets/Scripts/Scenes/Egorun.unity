@@ -10322,13 +10322,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a005e27bcdb00d449625b39c3c156e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FrontTrain: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
+  FrontTraint: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
   Trainspawn: {fileID: 1726683440}
   SecondTrainspawn: {fileID: 275162171}
   Pool: {fileID: 816368634}
   clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
-  LeftTrainPlace: {fileID: 1726683440}
-  RightTrainPlalce: {fileID: 275162171}
 --- !u!1001 &1790166744
 PrefabInstance:
   m_ObjectHideFlags: 0

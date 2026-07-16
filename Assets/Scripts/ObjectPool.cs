@@ -57,7 +57,7 @@ public class ObjectPool : MonoBehaviour
     public void ReturnToPool(PooledObject pooledObject)
     {
       
-           Stack.Push(pooledObject);
+             Stack.Push(pooledObject);
             pooledObject.gameObject.SetActive(false);
             Debug.Log("Ž©“®•Ô‹p‚³‚ê‚Ü‚µ‚½");
         
