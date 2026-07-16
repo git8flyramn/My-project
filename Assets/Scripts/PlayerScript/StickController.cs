@@ -38,12 +38,13 @@ public class StickController : MonoBehaviour
     void Update()
     {
         MoveStick();
+        RayCast();
     }
 
     //player‚ÌˆÚ“®‹@”\
     void MoveStick()
     {
-        RayCast();
+       
         IsRun = true;
         //Ž©‘–•”•ª
         Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;

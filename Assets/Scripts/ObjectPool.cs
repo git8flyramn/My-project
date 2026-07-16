@@ -15,9 +15,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private GameObject targetObject;
     private Stack<PooledObject> Stack;
     void Start()
-    {
-                                   //生成     アクティブ化　非アクティブ    破棄
-      //  pool = new PooledObject(SetUpPool, GetPooledObject, ReturnToPool,collectionCheck: false, defaultCapacity: Max_train, maxSize: Max_train);
+    { 
         SetUpPool();
     }
 
@@ -53,9 +51,6 @@ public class ObjectPool : MonoBehaviour
         PooledObject nextInstance = Stack.Pop();
         nextInstance.gameObject.SetActive(true);
         return nextInstance;
-
-
-
     }
 
     //使用後に返却する
@@ -64,19 +59,10 @@ public class ObjectPool : MonoBehaviour
         Stack.Push(pooledObject);
         pooledObject.gameObject.SetActive(false);
     }
-    public GameObject Get()
+    public void SpawnObject(Vector3 position)
     {
-        return pool.Get();
-    }
-
-    //public void Release(PooledObject objectClone)
-    //{
+        GameObject obj = pool.Get();
+        obj.transform.position = position;
        
-    //}
-
-    //電車の最大数の取得
-    public int GetTrainNum()
-    {
-        return Max_train;
     }
 }

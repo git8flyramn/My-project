@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
+using UnityEngine.Pool;
 public class RandomDropTrain : MonoBehaviour
 {
     //生成する電車のモデルを受け取る変数
@@ -10,9 +11,6 @@ public class RandomDropTrain : MonoBehaviour
 
     private GameObject LeftArrow;
     private GameObject RightArrow;
-
-
-
     /// <summary>
     //電車の生成座標を代入する変数
     /// </summary>
@@ -48,6 +46,8 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //左右の電車それぞれの生成間隔時間
+    //
+    //   14.0f,17.0f
     private float RightTrainFirstIntervalTime = 14.0f;
     private float RightTrainSecondIntervalTime = 17.0f;
 
