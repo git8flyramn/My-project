@@ -60,8 +60,5 @@ public class ObjectPool : MonoBehaviour
         pooledObject.gameObject.SetActive(false);
     }
 
-    public void SpawnObject(PooledObject obj,Transfom position)
-    {
-        obj.transform.postion = position;
-    }
+   
 }

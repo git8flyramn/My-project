@@ -18,11 +18,13 @@ public class TrainManeger : MonoBehaviour
     public AudioClip clip;
     private float TrainIntervalTime = 30.0f;
     private float TrainGenerateTime = 0.0f;
+    private float SecondTrainGenerateTime = 0.0f;
 
     void Start()
     {
         Train = Pool.GetPooledObject();
         TrainGenerateTime += 1.0f;
+        SecondTrainGenerateTime += 1.0f;
         Train.transform.position = Trainspawn.position;
         SE    = GetComponent<SEManeger>();
     }
@@ -32,12 +34,13 @@ public class TrainManeger : MonoBehaviour
     {
         if (TrainGenerateTime > 5)
         {
-            Train.Instance.SpawnObject(Train,Trainspawn.position);
+            Train.transform.position = Trainspawn.position;
             TrainGenerateTime = 0.0f;
         }
-        if(TrainGenerateTime > 10)
+        if(SecondTrainGenerateTime > 10)
         {
-            Train.Instance.SpawnObject(Train, SecondTrainspawn.position);
+            Train.transform.position = SecondTrainspawn.position;
+            SecondTrainGenerateTime = 0.0f;
         }
         StartCoroutine(TrainReturn(Train));
     }
