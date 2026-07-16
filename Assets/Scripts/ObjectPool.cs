@@ -24,19 +24,19 @@ public class ObjectPool : MonoBehaviour
     {
     }
 
-    //objectPool.Get()の時に呼ばれる機能
+    ////objectPool.Get()の時に呼ばれる機能
     private void SetUpPool()
     {
         Stack = new Stack<PooledObject>();
         PooledObject instance = null;
 
-        for(int i = 0; i < Max_train; i++)
+        for (int i = 0; i < Max_train; i++)
         {
             instance = Instantiate(objectToPool);
             instance.Pool = this;
             instance.gameObject.SetActive(false);
             Stack.Push(instance);
-         }
+        }
     }
 
     //プール内から取り出す
@@ -56,9 +56,24 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(PooledObject pooledObject)
     {
-        Stack.Push(pooledObject);
-        pooledObject.gameObject.SetActive(false);
+      
+           Stack.Push(pooledObject);
+            pooledObject.gameObject.SetActive(false);
+            Debug.Log("自動返却されました");
+        
     }
 
-   
+    //IEnumerator TrainReturn()
+    //{
+    //    yield return new WaitForSeconds(TrainIntervalTime);
+    //    if(Pool != null)
+    //    {
+    //        Pool.ReturnToPool(this);
+    //        Debug.Log("自動返却されました");
+    //    }
+       
+    //}
+
+
+
 }
