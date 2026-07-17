@@ -11,9 +11,8 @@ public class RandomDropTrain : MonoBehaviour
 
     private GameObject LeftArrow;
     private GameObject RightArrow;
-    /// <summary>
+   
     //電車の生成座標を代入する変数
-    /// </summary>
     private float LeftDropX;
     private float RightDropX;
 
@@ -22,9 +21,8 @@ public class RandomDropTrain : MonoBehaviour
     private float LeftDropZ;
     private float RightDropZ;
 
-    /// <summary>
+   
     /// 電車の生成位置
-    /// </summary>
     private Vector3 LeftDropPos = Vector3.zero;
     private Vector3 RightDropPos = Vector3.zero;
 
@@ -46,10 +44,9 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //左右の電車それぞれの生成間隔時間
-    //
-    //   14.0f,17.0f
     private float RightTrainFirstIntervalTime = 13.0f;
     private float RightTrainSecondIntervalTime = 15.0f;
+
 
     private float LeftTrainFirstIntervalTime = 13.0f;
     private float LeftTrainSecondIntervalTime = 15.0f;

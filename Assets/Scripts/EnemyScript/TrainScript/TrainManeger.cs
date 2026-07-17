@@ -4,59 +4,80 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
+using UnityEngine.WSA;
 public class TrainManeger : MonoBehaviour
 {
 
+    //生成するオブジェクトの定義
     public GameObject FrontTraint;
     //電車の生成位置
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
 
-    //オブジェクトプールの取得
+    //オブジェクトプールの宣言
     private PooledObject Train;
-    private PooledObject SecondTrain;
     [SerializeField] private ObjectPool Pool;
-    private SEManeger SE;
-    public AudioClip clip;
-    private float TrainInterval = 3.0f;
-    private float TrainGenerateTime = 0.0f;
-    private float SecondTrainGenerateTime = 0.0f;
+
+    //電車の生成時間と生成間隔
+    private float TrainInterval            = 3.0f;
+    private float SecondTrainInterval 　   = 5.0f;
+    
+    private　float TrainGenerateTime 　　　 = 0.0f;
+    private float SecondTrainGenerateTime  =　0.0f;
+    
+    //電車の返却時間と間隔
+    private float ReturnTrainTime          = 0.0f;
+    private float ReturnTrainInverval      = 9.0f;
 
     void Start()
     {
-        TrainGenerateTime += Time.deltaTime;
-        SecondTrainGenerateTime += Time.deltaTime;
-        SE    = GetComponent<SEManeger>();
-        Pool = GetComponent<ObjectPool>();
     }
 
     void Update()
     {
+       
+        TrainGenerateTime += Time.deltaTime;
+        ReturnTrainTime += Time.deltaTime;
+        SecondTrainGenerateTime += Time.deltaTime;
+
+
         TrainGenerate();
     }
 
+
+
+    //電車の生成
     void TrainGenerate()
     {
-        //objecPoolから取得する
-        Train = Pool.GetPooledObject();
+        
         if (TrainGenerateTime >= TrainInterval)
         {
-            TrainSetting(Train, Trainspawn, TrainGenerateTime);
-            Debug.Log("電車が生成されました");
+            SpawnTrain(Trainspawn);
+            TrainGenerateTime = 0.0f;
         }
 
-        if (SecondTrainGenerateTime >= TrainInterval)
+        if(SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            TrainSetting(Train, SecondTrainspawn, SecondTrainGenerateTime);
-            Debug.Log("2つ目の電車が生成されました");
-            StartCorutine(TrainReturn(Train));
+            SpawnTrain(SecondTrainspawn);
+            SecondTrainGenerateTime = 0.0f;
         }
+
+        //電車を返却するまでの時間
+        if(ReturnTrainTime > ReturnTrainInverval)
+        {
+            StartCoroutine(TrainReturn(Train));
+        }
+
+        
     }
 
-    public void TrainSetting(PooledObject obj,Transform trans,float time)
+    public void SpawnTrain(Transform transform)
     {
-        obj.transform.position = trans.position;
-        time = 0.0f;
+        Train = Pool.GetPooledObject();
+        if(Train != null)
+        {
+            Train.transform.position = transform.position;
+        }
     }
 
     IEnumerator TrainReturn(PooledObject pooledobject)
@@ -65,6 +86,7 @@ public class TrainManeger : MonoBehaviour
         if (Pool != null)
         {
             Pool.ReturnToPool(pooledobject);
+            ReturnTrainTime = 0.0f;
         }
 
     }

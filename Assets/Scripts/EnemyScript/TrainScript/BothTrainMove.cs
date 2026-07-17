@@ -9,13 +9,18 @@ public class BothTrainMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
    
-    private Rigidbody rb;
-    //使用している変数
+   
+    
+    //電車の動作に使用する変数
     private float MoveSpeed    = 2.0f;
     private float Initvelocity = 3.0f;
     [SerializeField] private Vector3 TrainDir;
+    private Rigidbody rb;
+
+    //矢印を点滅させるための宣言
     private GameObject LeftArrow;
   　private GameObject RightArrow;
+
     private Quaternion ForwardDir = Quaternion.identity;
     void Start()
     {
@@ -34,16 +39,20 @@ public class BothTrainMove : MonoBehaviour
     {
         rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
     }
+
+    //電車が方向を変更するポイントに到達したとき
+    //車両の進行方向を左右方向それぞれから前方方向に変更
     private void OnTriggerEnter(Collider other)
     {
-        //電車が方向を変更するポイントに到達したとき
+       
         if (other.CompareTag("train"))
         {
-            //車両の進行方向を左右方向それぞれから前方方向に変更
+            
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
         }
+        
         if (other.CompareTag("SecondTrain"))
         {
             TrainDir = Vector3.forward;

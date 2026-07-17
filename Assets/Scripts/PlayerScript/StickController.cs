@@ -33,8 +33,6 @@ public class StickController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         MoveStick();
@@ -64,6 +62,7 @@ public class StickController : MonoBehaviour
         con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
     }
+
     //RayCastÇ…ÇÊÇÈê⁄ínîªíË
     void RayCast()
     {

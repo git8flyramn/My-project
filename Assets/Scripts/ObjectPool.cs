@@ -56,24 +56,9 @@ public class ObjectPool : MonoBehaviour
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(PooledObject pooledObject)
     {
-      
-             Stack.Push(pooledObject);
-            pooledObject.gameObject.SetActive(false);
-            Debug.Log("Ž©“®•Ô‹p‚³‚ê‚Ü‚µ‚½");
+      Stack.Push(pooledObject);
+      pooledObject.gameObject.SetActive(false);
+      Debug.Log("Ž©“®•Ô‹p‚³‚ê‚Ü‚µ‚½");
         
     }
-
-    //IEnumerator TrainReturn()
-    //{
-    //    yield return new WaitForSeconds(TrainIntervalTime);
-    //    if(Pool != null)
-    //    {
-    //        Pool.ReturnToPool(this);
-    //        Debug.Log("Ž©“®•Ô‹p‚³‚ê‚Ü‚µ‚½");
-    //    }
-       
-    //}
-
-
-
 }

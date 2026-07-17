@@ -9,7 +9,7 @@ public class GameOverSceneLoad : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
          
-    //フェードアウトの機能を使う方
+    //フェードアウト機能を作動させる側
 
 
     [SerializeField] private FadeOutSceneLoder fadeOut;
@@ -25,7 +25,7 @@ public class GameOverSceneLoad : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("ぶつかりました。フェードアウトします");
+            
             if(SE != null)
             {
                 SE.GameOverSE(clip);
