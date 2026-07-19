@@ -4,7 +4,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.SceneManagement;
-using UnityEngine.WSA;
 public class TrainManeger : MonoBehaviour
 {
 
