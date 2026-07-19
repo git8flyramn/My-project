@@ -22,7 +22,7 @@ public class StickController : MonoBehaviour
     bool isGround;
 
     public FixedJoystick StickMove;
-    [Header("基本スピード")] private float defaultSpeed = 40.0f;
+    [Header("基本スピード")] private float defaultSpeed = 35.0f;
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;

@@ -58,7 +58,6 @@ public class ObjectPool : MonoBehaviour
     {
       Stack.Push(pooledObject);
       pooledObject.gameObject.SetActive(false);
-      Debug.Log("Ž©“®•Ô‹p‚³‚ê‚Ü‚µ‚½");
         
     }
 }
