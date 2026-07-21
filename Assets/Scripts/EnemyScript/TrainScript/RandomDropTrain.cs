@@ -15,9 +15,7 @@ public class RandomDropTrain : MonoBehaviour
     //“dÔ‚Ì¶¬À•W‚ğ‘ã“ü‚·‚é•Ï”
     private float LeftDropX;
     private float RightDropX;
-
     private const float DropY = 1.0f;
-
     private float LeftDropZ;
     private float RightDropZ;
 

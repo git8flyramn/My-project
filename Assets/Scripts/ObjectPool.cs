@@ -24,7 +24,6 @@ public class ObjectPool : MonoBehaviour
     {
     }
 
-    ////objectPool.Get()の時に呼ばれる機能
     private void SetUpPool()
     {
         Stack = new Stack<PooledObject>();
@@ -39,7 +38,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    //プール内から取り出す
+    //objectpool内から取り出す
     public PooledObject GetPooledObject()
     {
        if(Stack.Count == 0)
