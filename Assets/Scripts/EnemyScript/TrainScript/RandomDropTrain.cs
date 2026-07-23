@@ -15,9 +15,7 @@ public class RandomDropTrain : MonoBehaviour
     //電車の生成座標を代入する変数
     private float LeftDropX;
     private float RightDropX;
-
     private const float DropY = 1.0f;
-
     private float LeftDropZ;
     private float RightDropZ;
 
@@ -44,12 +42,12 @@ public class RandomDropTrain : MonoBehaviour
 
 
     //左右の電車それぞれの生成間隔時間
-    private float RightTrainFirstIntervalTime = 10.0f;
-    private float RightTrainSecondIntervalTime = 13.0f;
+    private float RightTrainFirstIntervalTime = 13.0f;
+    private float RightTrainSecondIntervalTime = 15.0f;
 
 
-    private float LeftTrainFirstIntervalTime = 10.0f;
-    private float LeftTrainSecondIntervalTime = 13.0f;
+    private float LeftTrainFirstIntervalTime = 13.0f;
+    private float LeftTrainSecondIntervalTime = 15.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);

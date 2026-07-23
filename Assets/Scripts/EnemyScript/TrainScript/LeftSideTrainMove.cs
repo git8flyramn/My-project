@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class LeftSideTrainMove : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
 
     private Rigidbody rb;
     private BothTrainMove BothTrain;
@@ -19,7 +19,6 @@ public class LeftSideTrainMove : MonoBehaviour
         Player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
         BothTrain.TrainMove();

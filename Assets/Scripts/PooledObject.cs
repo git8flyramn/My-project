@@ -8,7 +8,7 @@ public class PooledObject : MonoBehaviour
     private ObjectPool pool;
     
     public ObjectPool Pool { get => pool; set => pool = value; }
-    // Update is called once per frame
+
     void Update()
     {
         

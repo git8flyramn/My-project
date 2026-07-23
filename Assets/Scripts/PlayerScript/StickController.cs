@@ -81,7 +81,7 @@ public class StickController : MonoBehaviour
         StartCoroutine(DeathWaitTime());
     }
 
-    IEnumerator DeathWaitTime()
+    private IEnumerator DeathWaitTime()
     {
         anim.SetTrigger("IsDeath");
         yield return new WaitForSeconds(SceneChangeTime);
