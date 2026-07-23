@@ -18,15 +18,15 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private ObjectPool Pool;
 
     //電車の生成時間と生成間隔
-    private float TrainInterval            = 3.0f;
-    private float SecondTrainInterval 　   = 5.0f;
-    
-    private　float TrainGenerateTime 　　　 = 0.0f;
-    private float SecondTrainGenerateTime  =　0.0f;
-    
+    private float TrainInterval = 3.0f;
+    private float SecondTrainInterval = 5.0f;
+
+    private float TrainGenerateTime = 0.0f;
+    private float SecondTrainGenerateTime = 0.0f;
+
     //電車の返却時間と間隔
-    private float ReturnTrainTime          = 0.0f;
-    private float ReturnTrainInverval      = 9.0f;
+    private float ReturnTrainTime = 0.0f;
+    private float ReturnTrainInverval = 9.0f;
 
     void Start()
     {
@@ -34,7 +34,7 @@ public class TrainManeger : MonoBehaviour
 
     void Update()
     {
-       
+
         TrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
@@ -48,32 +48,32 @@ public class TrainManeger : MonoBehaviour
     //電車の生成
     void TrainGenerate()
     {
-        
+
         if (TrainGenerateTime >= TrainInterval)
         {
             SpawnTrain(Trainspawn);
             TrainGenerateTime = 0.0f;
         }
 
-        if(SecondTrainGenerateTime >= SecondTrainInterval)
+        if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
             SpawnTrain(SecondTrainspawn);
             SecondTrainGenerateTime = 0.0f;
         }
 
         //電車を返却するまでの時間
-        if(ReturnTrainTime > ReturnTrainInverval)
+        if (ReturnTrainTime > ReturnTrainInverval)
         {
             StartCoroutine(TrainReturn(Train));
         }
 
-        
+
     }
 
     public void SpawnTrain(Transform transform)
     {
         Train = Pool.GetPooledObject();
-        if(Train != null)
+        if (Train != null)
         {
             Train.transform.position = transform.position;
         }
@@ -91,5 +91,3 @@ public class TrainManeger : MonoBehaviour
     }
 
 }
-
-
