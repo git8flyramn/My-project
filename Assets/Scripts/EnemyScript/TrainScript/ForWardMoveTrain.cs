@@ -7,7 +7,7 @@ public class ForWardMoveTrain : MonoBehaviour
 {  
     private Rigidbody rb;
     private float MoveSpeed = 3.0f;
-    private float Initvelocity = 3.0f;
+    private float Initvelocity = 4.0f;
     private SEManeger SE;
     public AudioClip clip;
     private GameObject Player;
