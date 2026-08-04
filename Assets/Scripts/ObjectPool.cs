@@ -24,11 +24,11 @@ public class ObjectPool : MonoBehaviour
     {
     }
 
+    //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
     {
         Stack = new Stack<PooledObject>();
         PooledObject instance = null;
-
         for (int i = 0; i < Max_train; i++)
         {
             instance = Instantiate(objectToPool);
@@ -37,26 +37,27 @@ public class ObjectPool : MonoBehaviour
             Stack.Push(instance);
         }
     }
-
-    //objectpool内から取り出す
+    //プール内から取り出す
     public PooledObject GetPooledObject()
     {
        if(Stack.Count == 0)
-        {
+       {
             PooledObject newInstance = Instantiate(objectToPool);
             newInstance.Pool = this;
             return newInstance;
-        }
-        PooledObject nextInstance = Stack.Pop();
-        nextInstance.gameObject.SetActive(true);
-        return nextInstance;
+       }
+       PooledObject nextInstance = Stack.Pop();
+       nextInstance.gameObject.SetActive(true);
+       return nextInstance;
     }
+
 
     //使用後に返却する
     public void ReturnToPool(PooledObject pooledObject)
     {
       Stack.Push(pooledObject);
       pooledObject.gameObject.SetActive(false);
-        
     }
+
+
 }

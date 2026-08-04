@@ -33,7 +33,7 @@ public class GameClear : MonoBehaviour
             if(SE != null)
             {
                 SE.ClearSE(clip);
-                Debug.Log("‰¹º‚ª–Â‚è‚Ü‚µ‚½");
+               
             }
             StartCoroutine(ClrearSEWaitTime());
         }
@@ -43,7 +43,6 @@ public class GameClear : MonoBehaviour
     IEnumerator ClrearSEWaitTime()
     {
         yield return new WaitForSeconds(deleayTime);
-        Debug.Log("ƒQ[ƒ€ƒNƒŠƒA‚Ì”»’è‚ğæ‚è‚Ü‚µ‚½");
         SceneManager.LoadScene("GameClear");
     }
 
