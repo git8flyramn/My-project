@@ -7,11 +7,11 @@ public class ProgressBarContorller : MonoBehaviour
 
     [SerializeField] private Slider ProgressBar;
     //プログレスバーの最大値
-    float MaxProgress = 10;
+    float MaxProgress = 15;
     float MinProgress = 0;
     //プログレスバーの現在値
     float CurrentProgress = 0;
-    const float AddValue = 0.001f;
+    const float AddValue = 0.002f;
     void Start()
     {
         ProgressBar.maxValue = MaxProgress;
