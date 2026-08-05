@@ -11,7 +11,7 @@ public class ProgressBarContorller : MonoBehaviour
     float MinProgress = 0;
     //プログレスバーの現在値
     float CurrentProgress = 0;
-    const float AddValue = 0.1f;
+    const float AddValue = 0.001f;
     void Start()
     {
         ProgressBar.maxValue = MaxProgress;
