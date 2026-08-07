@@ -29,7 +29,7 @@ public class CountdownGameStart : MonoBehaviour
 
     IEnumerator CountdownCoroutine()
     {
-       
+        Debug.Log("game Start");
         ImageMask.gameObject.SetActive(true);
         CountDownText.gameObject.SetActive(true);
 
@@ -45,8 +45,5 @@ public class CountdownGameStart : MonoBehaviour
         CountDownText.text = "Let's Go!";
         ImageMask.gameObject.SetActive(false);
         CountDownText.gameObject.SetActive(false);
-
-
-
     }
 }
