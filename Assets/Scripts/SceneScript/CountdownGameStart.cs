@@ -26,18 +26,19 @@ public class CountdownGameStart : MonoBehaviour
     public void OnClickButtonStart()
     {
         Debug.Log("game Start");
-        StartCorutine(CountdownCoroutine());
+   
+        StartCoroutine(CountdownCoroutine());
         
     }
 
     IEnumerator CountdownCoroutine()
     {
       while(count > 0)
-        {
+      {
             CountDownText.text = count.ToString();
             yield return new WaitForSeconds(timer);
             count--;
-        }
+      }
        
     }
 }
