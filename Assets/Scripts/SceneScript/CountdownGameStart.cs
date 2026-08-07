@@ -9,8 +9,9 @@ public class CountdownGameStart : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField]
     public TextMeshProUGUI CountDownText;
-    public Image ImageMask;
+    //public Image ImageMask;
     private float timer = 1.0f;
+    int count = 3;
     void Start()
     {
         CountDownText.text = "";
@@ -24,26 +25,19 @@ public class CountdownGameStart : MonoBehaviour
 
     public void OnClickButtonStart()
     {
-        CountdownCoroutine();
+        Debug.Log("game Start");
+        StartCorutine(CountdownCoroutine());
+        
     }
 
     IEnumerator CountdownCoroutine()
     {
-        Debug.Log("game Start");
-        ImageMask.gameObject.SetActive(true);
-        CountDownText.gameObject.SetActive(true);
-
-        CountDownText.text = "3";
-        yield return new WaitForSeconds(timer);
-
-        CountDownText.text = "2";
-        yield return new WaitForSeconds(timer);
-
-        CountDownText.text = "1";
-        yield return new WaitForSeconds(timer);
-
-        CountDownText.text = "Let's Go!";
-        ImageMask.gameObject.SetActive(false);
-        CountDownText.gameObject.SetActive(false);
+      while(count > 0)
+        {
+            CountDownText.text = count.ToString();
+            yield return new WaitForSeconds(timer);
+            count--;
+        }
+       
     }
 }

@@ -16,6 +16,7 @@ public class GameStartButton : MonoBehaviour
     }
     public void StartGame()
     {
+        SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
         countdown.OnClickButtonStart();
       
         
@@ -25,12 +26,4 @@ public class GameStartButton : MonoBehaviour
     {
 
     }
-
-    IEnumerator CountdownCoroutine()
-    {
-      
-        SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
-        yield return null;
-    }
-
 }
