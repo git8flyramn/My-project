@@ -11,12 +11,14 @@ public class GameClear : MonoBehaviour
     private SEManeger SE;
     public AudioClip clip;
     private float deleayTime = 0.9f;
+    public TextMeshProUGUI ClearWord;
    
 
     void Start()
     {
         SE = GetComponent<SEManeger>();
-       
+        ClearWord.text = "";
+        ClearWord.gameObject.SetActive(false);
         
     }
     // Update is called once per frame
@@ -42,6 +44,9 @@ public class GameClear : MonoBehaviour
 
     IEnumerator ClrearSEWaitTime()
     {
+        ClearWord.text = ClearWord.ToString();
+        ClearWord.text = "Goal!!!";
+        ClearWord.gameObject.SetActive(true);
         yield return new WaitForSeconds(deleayTime);
         SceneManager.LoadScene("GameClear");
     }
