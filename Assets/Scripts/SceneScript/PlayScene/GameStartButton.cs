@@ -10,7 +10,6 @@ public class GameStartButton : MonoBehaviour
     }
     public void StartGame()
     {
-        
         SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
     }
     // Update is called once per frame

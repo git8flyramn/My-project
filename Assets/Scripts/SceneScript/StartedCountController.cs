@@ -7,14 +7,14 @@ public class StartedCountController : MonoBehaviour
 {
 
 
-    public enum PlayState
-    {
-        None,
-        Ready,
-        Play,
-    }
+    //public enum PlayState
+    //{
+    //    None,
+    //    Ready,
+    //    Play,
+    //}
     [SerializeField]
-    public PlayState CurrentState = PlayState.None;
+    
     public TextMeshProUGUI CountDownText;
     private float CountDownTime = 3.0f; //カウントダウン用の変数
     private float timer = 1.0f;
@@ -23,6 +23,7 @@ public class StartedCountController : MonoBehaviour
     {
         CountDownText.gameObject.SetActive(true);
         CountDownText.text = "";
+        StartCountDown();
     }
 
     // Update is called once per frame
@@ -33,7 +34,7 @@ public class StartedCountController : MonoBehaviour
 
     public void  StartCountDown()
     {
-        CurrentState = PlayState.Ready;
+       
         StartCoroutine(CountDownCoroutine());
     }
 
@@ -41,21 +42,16 @@ public class StartedCountController : MonoBehaviour
     IEnumerator CountDownCoroutine()
     {
        
-        if (CurrentState == PlayState.Ready)
-        {
-            while (CountDownTime > 0)
+          while (CountDownTime > 0)
             {
                 CountDownText.text = CountDownTime.ToString();
                 CountDownTime -= 1.0f;
                 yield return new WaitForSeconds(timer);
-
             }
-
             CountDownText.text = "Start!";
-
-            CurrentState = PlayState.Play;
+           yield return new WaitForSeconds(timer);
             CountDownText.gameObject.SetActive(false);
-        }
+        
     }
 
 }

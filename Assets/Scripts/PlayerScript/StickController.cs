@@ -27,9 +27,10 @@ public class StickController : MonoBehaviour
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
     private float SceneChangeTime = 2.0f;
-  //  private bool isGameStarted = false;
+    private bool isGameStarted;
     void Start()
     {
+        isGameStarted = false;
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
@@ -37,17 +38,10 @@ public class StickController : MonoBehaviour
     void Update()
     {
         MoveStick();
-        RayCast();
-        //if (isGameStarted == true)
-        //{
-
-        //    MoveStick();
-        //    RayCast();
-        //}
     }
 
     //playerの移動機能
-    void MoveStick()
+    public void MoveStick()
     {
 
        
@@ -69,6 +63,7 @@ public class StickController : MonoBehaviour
         }
         con.Move(-StickDirection);
         anim.SetBool("IsRun", IsRun);
+        RayCast();
     }
 
     //RayCastによる接地判定
