@@ -37,8 +37,10 @@ public class StartedCountController : MonoBehaviour
         StartCoroutine(CountDownCoroutine());
     }
 
+
     IEnumerator CountDownCoroutine()
     {
+       
         if (CurrentState == PlayState.Ready)
         {
             while (CountDownTime > 0)
@@ -56,9 +58,8 @@ public class StartedCountController : MonoBehaviour
         }
     }
 
-    
 }
 
 
-   
+
 

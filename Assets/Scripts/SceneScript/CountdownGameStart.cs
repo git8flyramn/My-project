@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
 public class CountdownGameStart : MonoBehaviour
 {
 
- //   private StartedCountController CountContorller;
+    private StartedCountController CountContorller;
     void Start()
     {
-     //   CountContorller = GetComponent<StartedCountController>();
+       CountContorller = GetComponent<StartedCountController>();
     }
 
     // Update is called once per frame
@@ -17,13 +16,9 @@ public class CountdownGameStart : MonoBehaviour
         
     }
 
-
     //スタートボタンを押した時に呼ばれる関数
-    public void OnClickButtonStart()
+    public void OnClickButtonCountDown()
     {
-        SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
-       // CountContorller.StartCountDown();
+        CountContorller.StartCountDown();
     }
-
-   
 }
