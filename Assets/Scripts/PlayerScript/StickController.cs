@@ -27,6 +27,7 @@ public class StickController : MonoBehaviour
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
     private float SceneChangeTime = 2.0f;
+  //  private bool isGameStarted = false;
     void Start()
     {
         con = GetComponent<CharacterController>();
@@ -37,11 +38,18 @@ public class StickController : MonoBehaviour
     {
         MoveStick();
         RayCast();
+        //if (isGameStarted == true)
+        //{
+
+        //    MoveStick();
+        //    RayCast();
+        //}
     }
 
     //playerの移動機能
     void MoveStick()
     {
+
        
         IsRun = true;
         //自走部分
