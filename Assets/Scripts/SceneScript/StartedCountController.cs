@@ -5,19 +5,12 @@ using System.Collections.Generic;
 using TMPro;
 public class StartedCountController : MonoBehaviour
 {
-
-
-    //public enum PlayState
-    //{
-    //    None,
-    //    Ready,
-    //    Play,
-    //}
     [SerializeField]
     
     public TextMeshProUGUI CountDownText;
     private float CountDownTime = 3.0f; //カウントダウン用の変数
     private float timer = 1.0f;
+    private bool isCountDown = true;
 
     void Start()
     {
@@ -48,11 +41,18 @@ public class StartedCountController : MonoBehaviour
                 CountDownTime -= 1.0f;
                 yield return new WaitForSeconds(timer);
             }
-            CountDownText.text = "Start!";
+            CountDownText.text = "GO!";
+           isCountDown = false;
            yield return new WaitForSeconds(timer);
             CountDownText.gameObject.SetActive(false);
-        
     }
+
+    public void IsStartGame()
+    {
+       
+    }
+
+
 
 }
 
