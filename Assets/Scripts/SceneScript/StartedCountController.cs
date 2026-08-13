@@ -8,12 +8,18 @@ public class StartedCountController : MonoBehaviour
     [SerializeField]
     
     public TextMeshProUGUI CountDownText;
+    private StickController stickcontroller;
     private float CountDownTime = 3.0f; //カウントダウン用の変数
     private float timer = 1.0f;
     private bool isCountDown = true;
 
     void Start()
     {
+        stickcontroller = GetComponent<StickController>();
+        if(stickcontroller == null)
+        {
+            Debug.Log("stickcontroller is null");
+        }
         CountDownText.gameObject.SetActive(true);
         CountDownText.text = "";
         StartCountDown();
@@ -42,17 +48,22 @@ public class StartedCountController : MonoBehaviour
                 yield return new WaitForSeconds(timer);
             }
             CountDownText.text = "GO!";
-           isCountDown = false;
+            isCountDown = false;
+            IsStartedGame(isCountDown);
            yield return new WaitForSeconds(timer);
             CountDownText.gameObject.SetActive(false);
     }
 
-    public void IsStartGame()
+    private bool IsStartedGame(bool isStartGame)
     {
-       
+        if(isStartGame == false)
+        {
+            stickcontroller.isGameStarted = true;
+            isStartGame = true;
+            return isStartGame;
+        }
+        return isStartGame;
     }
-
-
 
 }
 

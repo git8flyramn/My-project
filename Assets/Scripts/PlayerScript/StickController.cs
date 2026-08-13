@@ -13,22 +13,22 @@ public class StickController : MonoBehaviour
     private StartedCountController StartedCount;
     private Animator anim;
     private Rigidbody rb;
+    public FixedJoystick StickMove;
 
     private LayerMask walkableGround;　//地面のみを判定するため
     private Vector3 StickDirection = Vector3.zero;
-
     private Vector3 rayPosition;
     private RaycastHit hit;
     private Ray ray;
     bool isGround;
 
-    public FixedJoystick StickMove;
+    
     [Header("基本スピード")] private float defaultSpeed = 35.0f;
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
     private float SceneChangeTime = 2.0f;
-    private bool isGameStarted = false;
+    public bool isGameStarted = false;
     void Start()
     {
         con = GetComponent<CharacterController>();
@@ -38,12 +38,13 @@ public class StickController : MonoBehaviour
     }
     void Update()
     {
+        RayCast();
         
-        
+        if(isGameStarted == true)
+        {
             MoveStick();
-            RayCast();
-        
-        
+        }
+       
     }
 
     //playerの移動機能
