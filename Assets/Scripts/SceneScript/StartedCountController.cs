@@ -15,13 +15,9 @@ public class StartedCountController : MonoBehaviour
 
     void Start()
     {
-        stickcontroller = GetComponent<StickController>();
-        if(stickcontroller == null)
-        {
-            Debug.Log("stickcontroller is null");
-        }
         CountDownText.gameObject.SetActive(true);
         CountDownText.text = "";
+        stickcontroller = GameObject.Find("Player").GetComponent<StickController>();
         StartCountDown();
     }
 
@@ -40,7 +36,6 @@ public class StartedCountController : MonoBehaviour
 
     IEnumerator CountDownCoroutine()
     {
-       
           while (CountDownTime > 0)
             {
                 CountDownText.text = CountDownTime.ToString();
@@ -49,21 +44,21 @@ public class StartedCountController : MonoBehaviour
             }
             CountDownText.text = "GO!";
             isCountDown = false;
-            IsStartedGame(isCountDown);
-           yield return new WaitForSeconds(timer);
+            EndCountDown();
+            yield return new WaitForSeconds(timer);
             CountDownText.gameObject.SetActive(false);
     }
 
-    private bool IsStartedGame(bool isStartGame)
+    private void EndCountDown()
     {
-        if(isStartGame == false)
+        if (isCountDown == false)
         {
-            stickcontroller.isGameStarted = true;
-            isStartGame = true;
-            return isStartGame;
+            stickcontroller.PlayerStartMove();
+            isCountDown = true;
         }
-        return isStartGame;
     }
+
+   
 
 }
 

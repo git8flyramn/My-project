@@ -10,7 +10,6 @@ public class StickController : MonoBehaviour
     //playerに必要なコンポーネントの定義
     [SerializeField] ParticleSystem ParticleSystem;
     private CharacterController con;
-    private StartedCountController StartedCount;
     private Animator anim;
     private Rigidbody rb;
     public FixedJoystick StickMove;
@@ -27,24 +26,25 @@ public class StickController : MonoBehaviour
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
     [Header("走っているかのフラグ")] bool IsRun = false;
-    private float SceneChangeTime = 2.0f;
+    private float SceneChangeTime = 1.0f;
     public bool isGameStarted = false;
     void Start()
     {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-        StartedCount = GetComponent<StartedCountController>();
+       
     }
     void Update()
     {
         RayCast();
-        
-        if(isGameStarted == true)
+        if (isGameStarted == true)
         {
+           
             MoveStick();
         }
-       
+     
+        
     }
 
     //playerの移動機能
@@ -95,5 +95,11 @@ public class StickController : MonoBehaviour
         anim.SetTrigger("IsDeath");
         yield return new WaitForSeconds(SceneChangeTime);
         SceneManager.LoadScene("Game Over");
+    }
+
+    public void PlayerStartMove()
+    {
+        isGameStarted = true;
+        Debug.Log("playerが動きます");
     }
 }
