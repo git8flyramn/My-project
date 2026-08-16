@@ -68,6 +68,10 @@ public class RandomDropTrain : MonoBehaviour
             DropRightForwardTrain();
             DropLeftForwardTrain();
         }
+        else if(IsTrainStart == false)
+        {
+            return;
+        }
        
         
     }
