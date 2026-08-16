@@ -27,7 +27,7 @@ public class StickController : MonoBehaviour
     private float distance = 1.0f; //Ray‚Ì•ûŒü
     [Header("‘–‚Á‚Ä‚¢‚é‚©‚Ìƒtƒ‰ƒO")] bool IsRun = false;
     private float SceneChangeTime = 1.5f;
-    public bool isGameStarted = false;
+    public bool IsGameStart = false;
     void Start()
     {
         Initialize();
@@ -45,12 +45,13 @@ public class StickController : MonoBehaviour
         
     void Update()
     {
-        if (isGameStarted == true && StickMove.enabled == true)
+        if (IsGameStart == true && StickMove.enabled == true)
         {
             MoveStick();
         }
         else
         {
+            MoveStick();
             RayCast();
         }
            
@@ -111,7 +112,7 @@ public class StickController : MonoBehaviour
 
     public void PlayerIsStartMove()
     {
-        isGameStarted = true;
+        IsGameStart = true;
         StickMove.enabled = true;
     }
 }

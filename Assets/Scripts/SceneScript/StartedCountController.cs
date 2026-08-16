@@ -9,6 +9,7 @@ public class StartedCountController : MonoBehaviour
     
     public TextMeshProUGUI CountDownText;
     private StickController stickcontroller;
+    private RandomDropTrain droptrain;
     private float CountDownTime = 3.0f; //カウントダウン用の変数
     private float Timer = 1.0f;
     private float GameStartTimer = 1.0f;
@@ -24,6 +25,7 @@ public class StartedCountController : MonoBehaviour
         CountDownText.gameObject.SetActive(true);
         CountDownText.text = "";
         stickcontroller = GameObject.Find("Player").GetComponent<StickController>();
+        droptrain = GameObject.Find("DropTrainManeger").GetComponent<RandomDropTrain>();
     }
 
     void Update()
@@ -56,6 +58,7 @@ public class StartedCountController : MonoBehaviour
     private void EndCountDown()
     {
       stickcontroller.PlayerIsStartMove();
+        droptrain.TrainIsStart();
     }
 
    

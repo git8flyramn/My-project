@@ -8,11 +8,12 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のモデルを受け取る変数
     public GameObject DropObject;
     public GameObject OtherSideDropObject;
+    public bool IsTrainStart = false;
 
     private GameObject LeftArrow;
     private GameObject RightArrow;
    
-    //電車の生成座標を代入する変数
+    //電車の生成座標
     private float LeftDropX;
     private float RightDropX;
     private const float DropY = 1.0f;
@@ -24,12 +25,10 @@ public class RandomDropTrain : MonoBehaviour
     private Vector3 LeftDropPos = Vector3.zero;
     private Vector3 RightDropPos = Vector3.zero;
 
-    //右側の線路のX座標範囲
+    //左右の線路のX座標範囲
     private float MinRightRangeX = -50.0f;
     private float MaxRightRangeX = -103.0f;
-
-
-    //左側の線路のX座標範囲
+    
     private float MaxLeftRangeX = 75.0f;
     private float MinLeftRangeX = 30.0f;
 
@@ -64,8 +63,12 @@ public class RandomDropTrain : MonoBehaviour
 
     void Update()
     {
-        DropRightForwardTrain();
-        DropLeftForwardTrain();
+        if(IsTrainStart == true)
+        {
+            DropRightForwardTrain();
+            DropLeftForwardTrain();
+        }
+       
         
     }
 
@@ -147,5 +150,11 @@ public class RandomDropTrain : MonoBehaviour
         obj.transform.position = pos;
         Instantiate(obj, obj.transform.position, obj.transform.rotation);
 
+    }
+
+
+    public void TrainIsStart()
+    {
+        IsTrainStart = true;
     }
 }
