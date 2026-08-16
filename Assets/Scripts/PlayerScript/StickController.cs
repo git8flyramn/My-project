@@ -30,49 +30,58 @@ public class StickController : MonoBehaviour
     public bool isGameStarted = false;
     void Start()
     {
+        Initialize();
+    }
+
+                //initialize
+    private void  Initialize()
+    {
         con = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-       
+        StickMove.enabled = false;
+
     }
+        
     void Update()
     {
-
-        if (isGameStarted == false)
-        {
-            IsRun = false;
-            anim.SetBool("IsRun", IsRun);
-            Debug.Log("IsRun is false"); 
-        }
-       if(isGameStarted == true)
+        if (isGameStarted == true && StickMove.enabled == true)
         {
             MoveStick();
+        }
+        else
+        {
             RayCast();
         }
+           
+
     }
 
     //playerÇÃà⁄ìÆã@î\
     public void MoveStick()
     {
 
-        IsRun = true;
-        //é©ëñïîï™
-        Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
-        float horizontal = StickMove.Horizontal;
-        Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
+        
+            IsRun = true;
+            //é©ëñïîï™
+            Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
+            float horizontal = StickMove.Horizontal;
+            Vector3 side = Vector3.right * horizontal * defaultSpeed * Time.deltaTime;
 
-        if (con.isGrounded)
-        {
-            ParticleSystem.Play();
-            StickDirection = forwardMove + side;
-        }
-        else
-        {
-            ParticleSystem.Stop();
-            StickDirection.y += gravity * Time.deltaTime;
-        }
-        con.Move(-StickDirection);
-        anim.SetBool("IsRun", IsRun);
+            if (con.isGrounded)
+            {
+                ParticleSystem.Play();
+                StickDirection = forwardMove + side;
+            }
+            else
+            {
+                ParticleSystem.Stop();
+                StickDirection.y += gravity * Time.deltaTime;
+            }
+            con.Move(-StickDirection);
+            anim.SetBool("IsRun", IsRun);
+        
+      
     }
 
     //RayCastÇ…ÇÊÇÈê⁄ínîªíË
@@ -100,8 +109,9 @@ public class StickController : MonoBehaviour
         SceneManager.LoadScene("Game Over");
     }
 
-    public void PlayerStartMove()
+    public void PlayerIsStartMove()
     {
         isGameStarted = true;
+        StickMove.enabled = true;
     }
 }

@@ -40,11 +40,9 @@ public class RandomDropTrain : MonoBehaviour
     private float LeftTrainGenerateTime = 0.0f;
     private float SecondLeftTrainGenerateTime = 0.0f;
 
-
     //ç∂âEÇÃìdé‘ÇªÇÍÇºÇÍÇÃê∂ê¨ä‘äuéûä‘
     private float RightTrainFirstIntervalTime = 12.0f;
     private float RightTrainSecondIntervalTime = 14.0f;
-
 
     private float LeftTrainFirstIntervalTime = 12.0f;
     private float LeftTrainSecondIntervalTime = 14.0f;
@@ -55,8 +53,13 @@ public class RandomDropTrain : MonoBehaviour
 
     void Start()
     {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
         RightArrow = GameObject.Find("RightArrow");
-        LeftArrow  = GameObject.Find("LeftArrow");
+        LeftArrow = GameObject.Find("LeftArrow");
     }
 
     void Update()

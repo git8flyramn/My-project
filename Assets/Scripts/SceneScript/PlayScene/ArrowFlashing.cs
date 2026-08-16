@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Threading;
 public class ArrowFlashing : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
    [SerializeField] private Image img; //画像のデータ
     private float FlahingCycle = 1.0f; //点滅の周期サイクル時間
     private Color color;
@@ -14,12 +14,12 @@ public class ArrowFlashing : MonoBehaviour
     private float StartRate = 0.0f;
     private SEManeger SE;
     public AudioClip clip;
+
     void Start()
     {
         SE = GetComponent<SEManeger>();
     }
 
-    // Update is called once per frame
     private void Update()
     { 
     }

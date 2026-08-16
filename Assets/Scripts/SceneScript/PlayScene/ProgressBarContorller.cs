@@ -16,12 +16,18 @@ public class ProgressBarContorller : MonoBehaviour
 
     void Start()
     {
+        Initialize();
+    }
+
+    private void Initialize()
+    {
         ProgressBar.maxValue = MaxProgress;
         ProgressBar.minValue = MinProgress;
         ProgressBar.value = CurrentProgress;
     }
 
-    // Update is called once per frame
+
+
     public void Update()
     {
         if(CurrentProgress > MaxProgress)

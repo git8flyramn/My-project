@@ -11,22 +11,26 @@ public class StartedCountController : MonoBehaviour
     private StickController stickcontroller;
     private float CountDownTime = 3.0f; //カウントダウン用の変数
     private float Timer = 1.0f;
-    private float GameStartTimer = 2.0f;
-    private bool isCountDown = true;
+    private float GameStartTimer = 1.0f;
 
     void Start()
+    {
+        Initialize();
+        StartCountDown();
+    }
+
+    private void Initialize()
     {
         CountDownText.gameObject.SetActive(true);
         CountDownText.text = "";
         stickcontroller = GameObject.Find("Player").GetComponent<StickController>();
-        StartCountDown();
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
 
+   
 
     public void  StartCountDown()
     {
@@ -37,14 +41,13 @@ public class StartedCountController : MonoBehaviour
 
     IEnumerator CountDownCoroutine()
     {
-          while (CountDownTime > 0)
-            {
-                CountDownText.text = CountDownTime.ToString();
-                CountDownTime -= 1.0f;
-                yield return new WaitForSeconds(Timer);
-            }
+        while(CountDownTime > -1)
+        {
+            CountDownText.text = CountDownTime.ToString();
+            yield return new WaitForSeconds(Timer);
+            CountDownTime--;
+        }
             CountDownText.text = "GO!";
-            isCountDown = false;
             yield return new WaitForSeconds(GameStartTimer);
         　　EndCountDown();
         　　CountDownText.gameObject.SetActive(false);
@@ -52,11 +55,7 @@ public class StartedCountController : MonoBehaviour
 
     private void EndCountDown()
     {
-        if (isCountDown == false)
-        {
-            stickcontroller.PlayerStartMove();
-            isCountDown = true;
-        }
+      stickcontroller.PlayerIsStartMove();
     }
 
    

@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 
 public class ObjectPool : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
 
     private ObjectPool<GameObject> pool;
     [SerializeField] private PooledObject objectToPool;
@@ -15,11 +15,10 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private GameObject targetObject;
     private Stack<PooledObject> Stack;
     void Start()
-    { 
+    {
         SetUpPool();
     }
 
-    // Update is called once per frame
     void Update()
     {
     }
