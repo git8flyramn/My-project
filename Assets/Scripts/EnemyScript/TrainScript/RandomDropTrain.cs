@@ -40,11 +40,11 @@ public class RandomDropTrain : MonoBehaviour
     private float SecondLeftTrainGenerateTime = 0.0f;
 
     //左右の電車それぞれの生成間隔時間
-    private float RightTrainFirstIntervalTime = 12.0f;
-    private float RightTrainSecondIntervalTime = 14.0f;
+    private float RightTrainFirstIntervalTime = 8.0f;
+    private float RightTrainSecondIntervalTime = 10.0f;
 
-    private float LeftTrainFirstIntervalTime = 12.0f;
-    private float LeftTrainSecondIntervalTime = 14.0f;
+    private float LeftTrainFirstIntervalTime = 8.0f;
+    private float LeftTrainSecondIntervalTime = 10.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);

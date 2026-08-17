@@ -90,10 +90,10 @@ PrefabInstance:
       addedObject: {fileID: 2422942626185869658}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5263880400813735056}
+      addedObject: {fileID: -8805182413843882989}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
       insertIndex: -1
-      addedObject: {fileID: -8805182413843882989}
+      addedObject: {fileID: -5263880400813735056}
   m_SourcePrefab: {fileID: 100100000, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
 --- !u!1 &8428572456103809679 stripped
 GameObject:
@@ -173,6 +173,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.70421, y: 1.85, z: 5.7861805}
   m_Center: {x: -0.00000005960466, y: 0.000000029802322, z: 0}
+--- !u!114 &-8805182413843882989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428572456103809679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534f6b4f9bf13c14c86970974ea1b050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledObject
 --- !u!82 &-5263880400813735056
 AudioSource:
   m_ObjectHideFlags: 0
@@ -270,15 +282,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &-8805182413843882989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8428572456103809679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 534f6b4f9bf13c14c86970974ea1b050, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PooledObject

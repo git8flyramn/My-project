@@ -43,7 +43,7 @@ public class StartedCountController : MonoBehaviour
 
     IEnumerator CountDownCoroutine()
     {
-        while(CountDownTime > -1)
+        while(CountDownTime > 0)
         {
             CountDownText.text = CountDownTime.ToString();
             yield return new WaitForSeconds(Timer);
