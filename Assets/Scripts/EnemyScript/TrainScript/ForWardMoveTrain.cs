@@ -14,12 +14,18 @@ public class ForWardMoveTrain : MonoBehaviour
 
     void Start()
     {
+        Initialize();
+    }
+
+
+    void Initialize()
+    {
         rb = GetComponent<Rigidbody>();
         SE = GetComponent<SEManeger>();
         Player = GameObject.Find("Player");
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         TrainForwardMove();

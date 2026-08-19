@@ -13,6 +13,11 @@ public class LeftSideTrainMove : MonoBehaviour
     private GameObject Player;
     void Start()
     {
+        Initialize(); 
+    }
+
+    void Initialize()
+    {
         rb = GetComponent<Rigidbody>();
         BothTrain = GetComponent<BothTrainMove>();
         SE = GetComponent<SEManeger>();
@@ -29,7 +34,6 @@ public class LeftSideTrainMove : MonoBehaviour
         if (collision.gameObject.name == "Player")
         {
             SE.TrainAccident(clip);
-            Debug.Log("ぶつかった");
             Player.GetComponent<StickController>().PlayerDeath();
         }
     }
