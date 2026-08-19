@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
-
-
 public class StickController : MonoBehaviour
 {
     //playerに必要なコンポーネントの定義
