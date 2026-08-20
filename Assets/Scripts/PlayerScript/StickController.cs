@@ -55,7 +55,6 @@ public class StickController : MonoBehaviour
     public void MoveStick()
     {
 
-        
             IsRun = true;
             //自走部分
             Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
@@ -81,8 +80,6 @@ public class StickController : MonoBehaviour
     //RayCastによる接地判定
     void RayCast()
     {
-        //rayの描画に必要な情報
-        //rayの開始位置、方向、距離、衝突を無視する物
         rayPosition = transform.position;
         ray = new Ray(rayPosition, Vector3.down * distance);
         isGround = Physics.Raycast(ray, out hit, walkableGround);
