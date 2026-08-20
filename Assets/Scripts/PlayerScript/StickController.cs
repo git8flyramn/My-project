@@ -31,7 +31,7 @@ public class StickController : MonoBehaviour
         Initialize();
     }
 
-                //initialize
+            
     private void  Initialize()
     {
         con = GetComponent<CharacterController>();
