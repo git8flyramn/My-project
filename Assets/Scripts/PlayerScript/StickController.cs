@@ -46,23 +46,13 @@ public class StickController : MonoBehaviour
         MoveStick();
         RayCast();
 
-        if(IsGameStart == false)
-        {
-            MoveStick();
-        }
-    }
-
-    private void FixedUpdate()
-    {
-
         
-       
     }
 
+   
     //playerÇÃà⁄ìÆã@î\
     public void MoveStick()
     {
-
             IsRun = true;
             //é©ëñïîï™
             Vector3 forwardMove = Vector3.forward * defaultSpeed * Time.deltaTime;
@@ -71,18 +61,14 @@ public class StickController : MonoBehaviour
 
             if (con.isGrounded)
             {
-                ParticleSystem.Play();
                 StickDirection = forwardMove + side;
             }
             else
-            {
-                ParticleSystem.Stop();
+            {  
                 StickDirection.y += gravity * Time.deltaTime;
             }
             con.Move(-StickDirection);
-            anim.SetBool("IsRun", IsRun);
-        
-      
+            anim.SetBool("IsRun", IsRun); 
     }
 
     //RayCastÇ…ÇÊÇÈê⁄ínîªíË
