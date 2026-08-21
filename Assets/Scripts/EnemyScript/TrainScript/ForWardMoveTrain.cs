@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class ForWardMoveTrain : MonoBehaviour
 {  
     private Rigidbody rb;
-    private float MoveSpeed = 2.5f;
-    private float Initvelocity = 3.0f;
+    private float MoveSpeed = 5.0f;
+    private float Initvelocity = 10.0f;
     private SEManeger SE;
     public AudioClip clip;
     private GameObject Player;
