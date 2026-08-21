@@ -43,12 +43,19 @@ public class StickController : MonoBehaviour
         
     void Update()
     {
+        MoveStick();
+        RayCast();
+    }
+
+    private void FixedUpdate()
+    {
+
         //if (IsGameStart == true && StickMove.enabled == true)
         //{
         //    MoveStick();
         //}
-        RayCast();
-        MoveStick();
+       
+       
     }
 
     //player‚ÌˆÚ“®‹@”\

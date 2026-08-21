@@ -12,8 +12,8 @@ public class BothTrainMove : MonoBehaviour
    
     
     //電車の動作に使用する変数
-    private float MoveSpeed    = 2.0f;
-    private float Initvelocity = 3.0f;
+    private float MoveSpeed    = 4.0f;
+    private float Initvelocity = 6.0f;
     [SerializeField] private Vector3 TrainDir;
     private Rigidbody rb;
 

@@ -24,7 +24,7 @@ public class LeftSideTrainMove : MonoBehaviour
         Player = GameObject.Find("Player");
     }
 
-    void Update()
+    private void FixedUpdate()
     {
         BothTrain.TrainMove();
     }

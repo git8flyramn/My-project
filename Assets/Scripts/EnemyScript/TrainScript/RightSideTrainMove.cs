@@ -23,9 +23,12 @@ public class RightSideTrainMove : MonoBehaviour
     }
     void Update()
     {
-        BothTrain.TrainMove();
     }
 
+    private void FixedUpdate()
+    {
+        BothTrain.TrainMove();
+    }
 
     //Playerがぶつかった時にSEを鳴らす機能
     public void OnCollisionEnter(Collision collision)
