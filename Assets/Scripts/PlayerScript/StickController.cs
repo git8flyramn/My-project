@@ -45,16 +45,17 @@ public class StickController : MonoBehaviour
     {
         MoveStick();
         RayCast();
+
+        if(IsGameStart == false)
+        {
+            MoveStick();
+        }
     }
 
     private void FixedUpdate()
     {
 
-        //if (IsGameStart == true && StickMove.enabled == true)
-        //{
-        //    MoveStick();
-        //}
-       
+        
        
     }
 
@@ -90,7 +91,7 @@ public class StickController : MonoBehaviour
         rayPosition = transform.position;
         ray = new Ray(rayPosition, Vector3.down * distance);
         isGround = Physics.Raycast(ray, out hit, walkableGround);
-        Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
+       // Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
         
     }
 
