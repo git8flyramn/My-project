@@ -12,7 +12,7 @@ public class RandomDropTrain : MonoBehaviour
 
     private GameObject LeftArrow;
     private GameObject RightArrow;
-   
+    private GameObject Pool;
     //電車の生成座標
     private float LeftDropX;
     private float RightDropX;
@@ -45,6 +45,9 @@ public class RandomDropTrain : MonoBehaviour
 
     private float LeftTrainFirstIntervalTime = 8.0f;
     private float LeftTrainSecondIntervalTime = 10.0f;
+    private float ReturnTrainInverval = 11.0f;
+
+    private float ReturnTrainTime = 0.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -59,18 +62,24 @@ public class RandomDropTrain : MonoBehaviour
     {
         RightArrow = GameObject.Find("RightArrow");
         LeftArrow = GameObject.Find("LeftArrow");
+        Pool = GameObject.Find("TrainManeger");
     }
 
     void FixedUpdate()
     {
         if (IsTrainStart == true)
         {
-            DropRightForwardTrain();
+           // DropRightForwardTrain();
             DropLeftForwardTrain();
         }
         else if (IsTrainStart == false)
         {
             return;
+        }
+        if(ReturnTrainTime > ReturnTrainInverval)
+        {
+            Pool.GetComponent<TrainManeger>().CallPoolReturn();
+            Debug.Log("電車が返却されます");
         }
     }
 
@@ -150,7 +159,8 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.rotation = dir;
         obj.transform.position = pos;
-        Instantiate(obj, obj.transform.position, obj.transform.rotation);
+       // Instantiate(obj, obj.transform.position, obj.transform.rotation);
+        Pool.GetComponent<TrainManeger>().SpawnTrain(obj);
 
     }
 

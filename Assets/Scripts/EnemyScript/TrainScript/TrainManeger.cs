@@ -12,6 +12,7 @@ public class TrainManeger : MonoBehaviour
     //電車の生成位置
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
+   
 
     //オブジェクトプールの宣言
     private PooledObject Train;
@@ -30,6 +31,7 @@ public class TrainManeger : MonoBehaviour
 
     void Start()
     {
+        
     }
 
     void Update()
@@ -38,8 +40,6 @@ public class TrainManeger : MonoBehaviour
         TrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
-
-
         TrainGenerate();
     }
 
@@ -64,7 +64,7 @@ public class TrainManeger : MonoBehaviour
         //電車を返却するまでの時間
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            StartCoroutine(TrainReturn(Train));
+            CallPoolReturn();
         }
 
 
@@ -88,6 +88,11 @@ public class TrainManeger : MonoBehaviour
             ReturnTrainTime = 0.0f;
         }
 
+    }
+
+    public void CallPoolReturn()
+    {
+        StartCoroutine(TrainReturn(Train));
     }
 
 }
