@@ -61,22 +61,20 @@ public class RandomDropTrain : MonoBehaviour
         LeftArrow = GameObject.Find("LeftArrow");
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        if(IsTrainStart == true)
+        if (IsTrainStart == true)
         {
             DropRightForwardTrain();
             DropLeftForwardTrain();
         }
-        else if(IsTrainStart == false)
+        else if (IsTrainStart == false)
         {
             return;
         }
-       
-        
     }
 
-    //右からの生成
+    //右からの電車生成
     private void DropRightForwardTrain()
     {
         //線路内の電車の発生範囲
@@ -105,7 +103,7 @@ public class RandomDropTrain : MonoBehaviour
         }
     }
 
-    //右からの生成
+    //右からの電車生成
     private void DropLeftForwardTrain()
     {
         //線路内の電車の発生範囲

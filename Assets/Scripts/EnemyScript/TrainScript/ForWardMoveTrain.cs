@@ -26,10 +26,6 @@ public class ForWardMoveTrain : MonoBehaviour
     }
 
 
-    void Update()
-    {
-       
-    }
     private void FixedUpdate()
     {
         TrainForwardMove();

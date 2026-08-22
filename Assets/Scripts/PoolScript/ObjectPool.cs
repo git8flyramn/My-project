@@ -21,9 +21,6 @@ public class ObjectPool : MonoBehaviour
         SetUpPool();
     }
 
-    void Update()
-    {
-    }
 
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()

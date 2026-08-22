@@ -20,10 +20,6 @@ public class ArrowFlashing : MonoBehaviour
         SE = GetComponent<SEManeger>();
     }
 
-    private void Update()
-    { 
-    }
-
     //“_–Å‹@”\
     private void BlinkArrow()
     {
