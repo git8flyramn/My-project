@@ -18,11 +18,7 @@ public class FadeOutSceneLoder : MonoBehaviour
      
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
         
     public IEnumerator FadeOutLoadScene()
     {

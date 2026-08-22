@@ -28,11 +28,6 @@ public class ProgressBarContorller : MonoBehaviour
 
 
 
-    public void Update()
-    {
-        
-        
-    }
     void FixedUpdate()
     {
         if(CurrentProgress > MaxProgress)

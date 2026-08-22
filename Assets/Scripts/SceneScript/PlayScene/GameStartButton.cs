@@ -12,9 +12,4 @@ public class GameStartButton : MonoBehaviour
     {
         SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
     }
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }
