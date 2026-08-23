@@ -56,14 +56,14 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.LeftForwardTrain);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
             SpawnTrain(Trainspawn);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.RightForwardTrain);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
             SpawnTrain(SecondTrainspawn);
             SecondTrainGenerateTime = 0.0f;
         }
@@ -79,7 +79,6 @@ public class TrainManeger : MonoBehaviour
 
     public void SpawnTrain(Transform transform)
     {
-       
         if (Train != null)
         {
             Train.transform.position = transform.position;
@@ -89,10 +88,11 @@ public class TrainManeger : MonoBehaviour
 
     IEnumerator TrainReturn()
     {
+       
         yield return new WaitForSeconds(TrainInterval);
         if (Pool != null)
-        {
-            ObjectPool.instance.ReturnToPool(poolType);
+        {  
+            ObjectPool.instance.ReturnToPool(ObjectPool.PoolType.ForwardTrain, FrontTrain);
             ReturnTrainTime = 0.0f;
         }
 

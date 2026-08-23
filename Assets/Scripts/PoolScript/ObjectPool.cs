@@ -12,8 +12,7 @@ public class ObjectPool : MonoBehaviour
     //生成したいオブジェクト
     public enum PoolType
     {
-        LeftForwardTrain,
-        RightForwardTrain,
+        ForwardTrain,
         LeftSideTrain,
         RightSideTrain
 
@@ -107,11 +106,12 @@ public class ObjectPool : MonoBehaviour
 
 
     //使用後に返却する
-    public void ReturnToPool(PoolType type)
+    public void ReturnToPool(PoolType type,GameObject obj)
     {
-                 
-        pools[type].Release();
+        pools[type].Release(obj);
     }
+
+   
 
 
 }
