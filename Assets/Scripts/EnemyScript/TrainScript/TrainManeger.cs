@@ -87,12 +87,12 @@ public class TrainManeger : MonoBehaviour
     }
     
 
-    IEnumerator TrainReturn(PooledObject pooledobject)
+    IEnumerator TrainReturn()
     {
         yield return new WaitForSeconds(TrainInterval);
         if (Pool != null)
         {
-            ObjectPool.instance.ReturnToPool(poolType, pooledobject);
+            ObjectPool.instance.ReturnToPool(poolType);
             ReturnTrainTime = 0.0f;
         }
 
@@ -100,7 +100,7 @@ public class TrainManeger : MonoBehaviour
 
     public void CallPoolReturn()
     {
-        StartCoroutine(TrainReturn(Train));
+        StartCoroutine(TrainReturn());
     }
 
 }
