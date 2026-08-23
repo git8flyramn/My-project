@@ -173,6 +173,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.rotation = dir;
         obj.transform.position = pos;
+        
        
 
     }

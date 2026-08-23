@@ -28,7 +28,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] List<PoolItem> items;
 
     [SerializeField] private PooledObject objectToPool;
-    private int Max_train = 15;
+    private int Max_train = 10;
     private int Init_train = 5;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, 
@@ -96,6 +96,7 @@ public class ObjectPool : MonoBehaviour
     {
         obj.SetActive(true);
         obj.transform.position = Vector3.zero;
+        
     }
 
     //外部からオブジェクトのを取得するため
@@ -106,12 +107,16 @@ public class ObjectPool : MonoBehaviour
 
 
     //使用後に返却する
-    public void ReturnToPool(PoolType type,GameObject obj)
+
+
+    public void ReturnToPool(PoolType type, GameObject obj)
     {
         pools[type].Release(obj);
+        Debug.LogError(
+               $"[POOL ERROR] pools → {obj.name} はすでに Release 済みです（二重 Release）\n$");
     }
 
-   
+
 
 
 }
