@@ -8,7 +8,7 @@ public class TrainManeger : MonoBehaviour
 {
 
     //生成するオブジェクトの定義
-    public GameObject FrontTraint;
+    public GameObject FrontTrain;
     //電車の生成位置
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
@@ -16,7 +16,8 @@ public class TrainManeger : MonoBehaviour
 
     //オブジェクトプールの宣言
     private PooledObject Train;
-    [SerializeField] private ObjectPool Pool;
+    [SerializeField] ObjectPool.PoolType poolType;
+    [SerializeField] private GameObject Pool;
 
     //電車の生成時間と生成間隔
     private float TrainInterval = 5.0f;
@@ -36,11 +37,15 @@ public class TrainManeger : MonoBehaviour
 
     void Update()
     {
-
         TrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
         TrainGenerate();
+    }
+
+    void Initialize()
+    {
+        Pool = GameObject.Find("TrainManeger");
     }
 
 
@@ -51,12 +56,14 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.LeftForwardTrain);
             SpawnTrain(Trainspawn);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.RightForwardTrain);
             SpawnTrain(SecondTrainspawn);
             SecondTrainGenerateTime = 0.0f;
         }
@@ -72,19 +79,20 @@ public class TrainManeger : MonoBehaviour
 
     public void SpawnTrain(Transform transform)
     {
-        Train = Pool.GetPooledObject();
+       
         if (Train != null)
         {
             Train.transform.position = transform.position;
         }
     }
+    
 
     IEnumerator TrainReturn(PooledObject pooledobject)
     {
         yield return new WaitForSeconds(TrainInterval);
         if (Pool != null)
         {
-            Pool.ReturnToPool(pooledobject);
+            ObjectPool.instance.ReturnToPool(poolType, pooledobject);
             ReturnTrainTime = 0.0f;
         }
 

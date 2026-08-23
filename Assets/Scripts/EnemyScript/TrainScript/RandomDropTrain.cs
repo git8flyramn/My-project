@@ -159,8 +159,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.rotation = dir;
         obj.transform.position = pos;
-       // Instantiate(obj, obj.transform.position, obj.transform.rotation);
-        Pool.GetComponent<TrainManeger>().SpawnTrain(obj);
+        
 
     }
 

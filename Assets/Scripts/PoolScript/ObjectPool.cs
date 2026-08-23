@@ -9,52 +9,102 @@ public class ObjectPool : MonoBehaviour
 {
    
 
-    private ObjectPool<GameObject> pool;
-    [SerializeField] private PooledObject objectToPool;
-    [SerializeField] private int Max_train = 0;
-    [SerializeField] private GameObject targetObject;
-  　[SerializeField] private GameObject targetSecondObject;
-
-    private Stack<PooledObject> Stack;
-    void Start()
+    //生成したいオブジェクト
+    public enum PoolType
     {
-        SetUpPool();
+        LeftForwardTrain,
+        RightForwardTrain,
+        LeftSideTrain,
+        RightSideTrain
+
+    }
+    //プールに持たせたい変数のクラス
+    [System.Serializable]
+    public class PoolItem
+    {
+        public PoolType type;
+        public GameObject obj;
     }
 
+    [SerializeField] List<PoolItem> items;
 
+    [SerializeField] private PooledObject objectToPool;
+    private int Max_train = 15;
+    public static ObjectPool instance;
+    Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, 
+                                                                        ObjectPool<GameObject>>();
+         
+
+
+
+
+    void Start()
+    {
+        Initialize();
+    }
+
+       
+    void Initialize()
+    {
+       
+       if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+
+       foreach(var item in items)
+        {
+            ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
+          () => Instantiate(item.obj),
+          (obj) => GetPooledObject(obj),
+          (obj) => obj.SetActive(false),
+          (obj) => Destroy(obj),
+           true,
+           5,
+           Max_train);
+            pools.Add(item.type, pool);
+        }
+       SetUpPool();
+
+    }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
     {
-        Stack = new Stack<PooledObject>();
-        PooledObject instance = null;
-        for (int i = 0; i < Max_train; i++)
+        foreach (var item in items)
         {
-            instance = Instantiate(objectToPool);
-            instance.Pool = this;
-            instance.gameObject.SetActive(false);
-            Stack.Push(instance);
+            var stack = new Stack<PooledObject>();
+            //var instance = null;
+            for (int i = 0; i < Max_train; i++)
+            {
+               
+            }
+          
         }
     }
-    //プール内から取り出す
-    public PooledObject GetPooledObject()
+
+
+    //オブジェクトの取得
+    void GetPooledObject(GameObject obj)
     {
-       if(Stack.Count == 0)
-       {
-            PooledObject newInstance = Instantiate(objectToPool);
-            newInstance.Pool = this;
-            return newInstance;
-       }
-       PooledObject nextInstance = Stack.Pop();
-       nextInstance.gameObject.SetActive(true);
-       return nextInstance;
+        obj.SetActive(true);
+        obj.transform.position = Vector3.zero;
+    }
+
+    //外部からオブジェクトのを取得するため
+    public void OnGet(PoolType type)
+    {
+        pools[type].Get();
     }
 
 
     //使用後に返却する
-    public void ReturnToPool(PooledObject pooledObject)
+    public void ReturnToPool(PoolType type, PooledObject pooledobj)
     {
-      Stack.Push(pooledObject);
-      pooledObject.gameObject.SetActive(false);
+        pools[type].Release(pooledobj);
     }
 
 
