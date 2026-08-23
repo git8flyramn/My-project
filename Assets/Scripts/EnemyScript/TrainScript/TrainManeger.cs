@@ -92,7 +92,7 @@ public class TrainManeger : MonoBehaviour
         yield return new WaitForSeconds(TrainInterval);
         if (Pool != null)
         {
-            ObjectPool.instance.ReturnToPool(poolType);
+            ObjectPool.instance.ReturnToPool(poolType, FrontTrain);
             ReturnTrainTime = 0.0f;
         }
 

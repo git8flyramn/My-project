@@ -81,7 +81,7 @@ public class ObjectPool : MonoBehaviour
            
             for (int i = 0; i < Max_train; i++)
             {
-                stack[i] = Instantiate(item.obj); 
+                obj[i] = Instantiate(item.obj); 
             }
 
             for (int i = 0; i < Max_train; i++)
@@ -107,11 +107,10 @@ public class ObjectPool : MonoBehaviour
 
 
     //Žg—pŒã‚É•Ô‹p‚·‚é
-    public void ReturnToPool(PoolType type,gameObject obj)
+    public void ReturnToPool(PoolType type, GameObject obj)
     {
                  
         pools[type].Release(obj);
-        pooledobj.gameObject.SetActive(false);
     }
 
 
