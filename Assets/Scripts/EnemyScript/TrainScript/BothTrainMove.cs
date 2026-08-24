@@ -29,9 +29,11 @@ public class BothTrainMove : MonoBehaviour
 
     void Initlialize()
     {
+        
         rb = GetComponent<Rigidbody>();
         LeftArrow = GameObject.Find("LeftArrow");
         RightArrow = GameObject.Find("RightArrow");
+    
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainMove()
     {
-        rb.AddForce(TrainDir * MoveSpeed * Initvelocity);
+        rb.AddForce(TrainDir * Initvelocity * MoveSpeed);
     }
 
     //電車が方向を変更するポイントに到達したとき
@@ -52,7 +54,6 @@ public class BothTrainMove : MonoBehaviour
        
         if (other.CompareTag("train"))
         {
-            
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
@@ -63,7 +64,6 @@ public class BothTrainMove : MonoBehaviour
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
-
         }
     }
 

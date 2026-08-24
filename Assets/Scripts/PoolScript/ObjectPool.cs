@@ -62,7 +62,7 @@ public class ObjectPool : MonoBehaviour
           () => Instantiate(item.obj),
           (obj) => GetPooledObject(obj),
           (obj) => obj.SetActive(false),
-          (obj) => ReturnToPool(item.type,obj),
+          (obj) => Destroy(obj),
            true,  
            Init_train,
            Max_train);

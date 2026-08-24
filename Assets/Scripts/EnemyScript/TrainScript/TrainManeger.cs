@@ -74,23 +74,9 @@ public class TrainManeger : MonoBehaviour
            
         
     }
-    
-
-    IEnumerator TrainReturn()
-    {
-
-        
-        if (Pool != null)
-        {
-           
-            
-        }
-        yield return null;
-    }
-
     public void CallPoolReturn()
     {
-        ObjectPool.instance.ReturnToPool(ObjectPool.PoolType.ForwardTrain, FrontTrain);
+       // ObjectPool.instance.ReturnToPool(ObjectPool.PoolType.ForwardTrain, FrontTrain);
         ReturnTrainTime = 0.0f;
 
     }
