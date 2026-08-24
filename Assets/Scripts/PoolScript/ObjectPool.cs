@@ -40,11 +40,11 @@ public class ObjectPool : MonoBehaviour
 
     void Start()
     {
-        Initialize();
+        InitializePool();
     }
 
        
-    void Initialize()
+    void InitializePool()
     {
        
        if(instance == null)
@@ -62,8 +62,8 @@ public class ObjectPool : MonoBehaviour
           () => Instantiate(item.obj),
           (obj) => GetPooledObject(obj),
           (obj) => obj.SetActive(false),
-          (obj) => Destroy(obj),
-           true,
+          (obj) => ReturnToPool(item.type,obj),
+           true,  
            Init_train,
            Max_train);
             pools.Add(item.type, pool);
@@ -94,15 +94,16 @@ public class ObjectPool : MonoBehaviour
     //オブジェクトの取得
     public void GetPooledObject(GameObject obj)
     {
-        obj.SetActive(true);
        
+        obj.SetActive(true);
     }
 
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
-        pools[type].Get();
         
+        pools[type].Get();
+      
     }
 
 
@@ -111,11 +112,8 @@ public class ObjectPool : MonoBehaviour
 
     public void ReturnToPool(PoolType type, GameObject obj)
     {
-
-
-        obj.SetActive(false);
-        pools[type].Release(obj);
         Debug.Log("返却されます");
-        //Debug.LogError($"[POOL ERROR] pools → {obj.name} はすでに Release 済みです（二重 Release）\n$");
+        pools[type].Release(obj);
+        obj.SetActive(false);   
     }
 }

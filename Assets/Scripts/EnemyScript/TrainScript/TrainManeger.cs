@@ -15,7 +15,6 @@ public class TrainManeger : MonoBehaviour
    
 
     //オブジェクトプールの宣言
-    private PooledObject Train;
     [SerializeField] ObjectPool.PoolType poolType;
     [SerializeField] private GameObject Pool;
 
@@ -56,15 +55,13 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
-            SpawnTrain(Trainspawn);
+            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
-            SpawnTrain(SecondTrainspawn);
+            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
@@ -77,13 +74,14 @@ public class TrainManeger : MonoBehaviour
 
     }
 
-    public void SpawnTrain(Transform transform)
+    public void SpawnTrain(Transform transform, ObjectPool.PoolType type)
     {
-        if (Train != null)
-        {
-            Train.transform.position = transform.position;
-            ObjectPool.instance.GetPooledObject(FrontTrain);
-        }
+
+        transform.position = transform.position;
+        ObjectPool.instance.GetPooledObject(FrontTrain);
+        ObjectPool.instance.OnGet(type);
+           
+        
     }
     
 
@@ -93,7 +91,7 @@ public class TrainManeger : MonoBehaviour
         yield return new WaitForSeconds(TrainInterval);
         if (Pool != null)
         {
-          
+           
             ReturnTrainTime = 0.0f;
         }
 
