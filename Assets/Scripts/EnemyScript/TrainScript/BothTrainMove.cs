@@ -30,7 +30,7 @@ public class BothTrainMove : MonoBehaviour
     void Initlialize()
     {
         
-        rb = GetComponent<Rigidbody>();
+       
         LeftArrow = GameObject.Find("LeftArrow");
         RightArrow = GameObject.Find("RightArrow");
     
@@ -44,6 +44,7 @@ public class BothTrainMove : MonoBehaviour
 
     public void TrainMove()
     {
+        rb = GetComponent<Rigidbody>();
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed);
     }
 

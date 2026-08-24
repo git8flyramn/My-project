@@ -48,35 +48,34 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
-            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain);
+            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain);
+            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            CallPoolReturn();
+            CallPoolReturn(ObjectPool.PoolType.ForwardTrain);
         }
     }
 
-    public void SpawnTrain(Transform transform, ObjectPool.PoolType type)
+    public void SpawnTrain(Transform transform, ObjectPool.PoolType type,GameObject obj)
     {
-
-        transform.position = transform.position;
-        ObjectPool.instance.GetPooledObject(FrontTrain);
+        ObjectPool.instance.GetPooledObject(obj);
+        ObjectPool.instance.GetObjectPosition(transform, obj);
         ObjectPool.instance.OnGet(type);
            
         
     }
-    public void CallPoolReturn()
+    public void CallPoolReturn(ObjectPool.PoolType pooltype)
     {
-       // ObjectPool.instance.ReturnToPool(ObjectPool.PoolType.ForwardTrain, FrontTrain);
+        ObjectPool.instance.ReturnToPool(pooltype, FrontTrain);
         ReturnTrainTime = 0.0f;
 
     }

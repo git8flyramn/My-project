@@ -77,10 +77,14 @@ public class ObjectPool : MonoBehaviour
         GameObject[] obj = new GameObject[Max_train];
         foreach (var item in items)
         {
-           
             for (int i = 0; i < Max_train; i++)
             {
-                obj[i] = Instantiate(item.obj); 
+                obj[i] = Instantiate(item.obj);
+            }
+
+            for (int i = 0; i < Max_train; i++)
+            {
+                pools[item.type].Release(obj[i]);
             }
         }
     }
@@ -90,20 +94,24 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
+        
+    }
+
+    public void GetObjectPosition(Transform transform, GameObject obj)
+    {
+        obj.transform.position = transform.position;
     }
 
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
         pools[type].Get();
-      
     }
 
 
     //使用後に返却する
     public void ReturnToPool(PoolType type, GameObject obj)
     {
-        Debug.Log("返却されます");
         pools[type].Release(obj);
     }
 }

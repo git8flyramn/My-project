@@ -50,6 +50,7 @@ public class RandomDropTrain : MonoBehaviour
     private float ReturnTrainInverval = 11.0f;
 
     private float ReturnTrainTime = 0.0f;
+    private float ReturnSecondTrainTime = 0.0f;
 
     //¶‰E‚Ì“dŽÔ‚ÌŒü‚«
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -73,6 +74,9 @@ public class RandomDropTrain : MonoBehaviour
         {
             DropRightForwardTrain();
             DropLeftForwardTrain();
+            ReturnTrainTime += Time.deltaTime;
+            ReturnSecondTrainTime += Time.deltaTime;
+            
         }
         else if (IsTrainStart == false)
         {
@@ -80,7 +84,13 @@ public class RandomDropTrain : MonoBehaviour
         }
         if(ReturnTrainTime > ReturnTrainInverval)
         {
-            Pool.GetComponent<TrainManeger>().CallPoolReturn();
+            Pool.GetComponent<TrainManeger>().CallPoolReturn(ObjectPool.PoolType.LeftSideTrain);
+           
+            
+        }
+        if(ReturnTrainTime > ReturnTrainInverval)
+        {
+            Pool.GetComponent<TrainManeger>().CallPoolReturn(ObjectPool.PoolType.RightSideTrain);
         }
     }
 
@@ -141,11 +151,8 @@ public class RandomDropTrain : MonoBehaviour
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-969.0f, -980.0f);
-
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos,ObjectPool.PoolType.LeftSideTrain);
-
-           
+            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos, ObjectPool.PoolType.LeftSideTrain);
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
