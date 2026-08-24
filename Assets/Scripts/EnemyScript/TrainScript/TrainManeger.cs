@@ -61,7 +61,7 @@ public class TrainManeger : MonoBehaviour
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            CallPoolReturn(ObjectPool.PoolType.ForwardTrain);
+            CallPoolReturn(ObjectPool.PoolType.ForwardTrain,FrontTrain);
         }
     }
 
@@ -73,9 +73,9 @@ public class TrainManeger : MonoBehaviour
            
         
     }
-    public void CallPoolReturn(ObjectPool.PoolType pooltype)
+    public void CallPoolReturn(ObjectPool.PoolType pooltype, GameObject obj)
     {
-        ObjectPool.instance.ReturnToPool(pooltype, FrontTrain);
+        ObjectPool.instance.ReturnToPool(pooltype,obj);
         ReturnTrainTime = 0.0f;
 
     }

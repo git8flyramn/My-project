@@ -82,15 +82,10 @@ public class RandomDropTrain : MonoBehaviour
         {
             return;
         }
-        if(ReturnTrainTime > ReturnTrainInverval)
+        if (ReturnTrainTime > ReturnTrainInverval)
         {
-            Pool.GetComponent<TrainManeger>().CallPoolReturn(ObjectPool.PoolType.LeftSideTrain);
-           
-            
-        }
-        if(ReturnTrainTime > ReturnTrainInverval)
-        {
-            Pool.GetComponent<TrainManeger>().CallPoolReturn(ObjectPool.PoolType.RightSideTrain);
+            // Pool.GetComponent<TrainManeger>().CallPoolReturn(ObjectPool.PoolType.LeftSideTrain, DropObject);
+              ReturnTrainTime = 0.0f;
         }
     }
 
