@@ -49,10 +49,8 @@ public class RandomDropTrain : MonoBehaviour
     private float LeftTrainSecondIntervalTime = 10.0f;
 
     private float ReturnTrainInverval = 11.0f;
-    private float ReturnScondTrainInterval = 11.0f;
-
     private float ReturnTrainTime = 0.0f;
-    private float ReturnSecondTrainTime = 0.0f;
+  
 
     //¶‰E‚Ì“dŽÔ‚ÌŒü‚«
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -76,7 +74,6 @@ public class RandomDropTrain : MonoBehaviour
             DropRightForwardTrain();
             DropLeftForwardTrain();
             ReturnTrainTime += Time.deltaTime;
-            ReturnSecondTrainTime += Time.deltaTime;
             
         }
         else if (IsTrainStart == false)
@@ -86,15 +83,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-
             ObjectPool.instance.ReturnToPool(Pooltype, DropObject); 
             ReturnTrainTime = 0.0f;
-        }
-
-        if(ReturnSecondTrainTime > ReturnScondTrainInterval)
-        {
-            ObjectPool.instance.ReturnToPool(Pooltype, DropObject);
-            ReturnScondTrainInterval = 0.0f;
         }
     }
 
