@@ -82,11 +82,6 @@ public class ObjectPool : MonoBehaviour
             {
                 obj[i] = Instantiate(item.obj); 
             }
-
-            for (int i = 0; i < Max_train; i++)
-            {
-                pools[item.type].Release(obj[i]);
-            }
         }
     }
 
@@ -94,26 +89,21 @@ public class ObjectPool : MonoBehaviour
     //オブジェクトの取得
     public void GetPooledObject(GameObject obj)
     {
-       
         obj.SetActive(true);
     }
 
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
-        
         pools[type].Get();
       
     }
 
 
     //使用後に返却する
-
-
     public void ReturnToPool(PoolType type, GameObject obj)
     {
         Debug.Log("返却されます");
         pools[type].Release(obj);
-        obj.SetActive(false);   
     }
 }

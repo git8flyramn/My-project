@@ -42,13 +42,6 @@ public class TrainManeger : MonoBehaviour
         TrainGenerate();
     }
 
-    void Initialize()
-    {
-        Pool = GameObject.Find("TrainManeger");
-    }
-
-
-
     //ìdé‘ÇÃê∂ê¨
     void TrainGenerate()
     {
@@ -70,8 +63,6 @@ public class TrainManeger : MonoBehaviour
         {
             CallPoolReturn();
         }
-
-
     }
 
     public void SpawnTrain(Transform transform, ObjectPool.PoolType type)
@@ -87,19 +78,21 @@ public class TrainManeger : MonoBehaviour
 
     IEnumerator TrainReturn()
     {
-       
-        yield return new WaitForSeconds(TrainInterval);
+
+        
         if (Pool != null)
         {
            
-            ReturnTrainTime = 0.0f;
+            
         }
-
+        yield return null;
     }
 
     public void CallPoolReturn()
     {
-        StartCoroutine(TrainReturn());
+        ObjectPool.instance.ReturnToPool(ObjectPool.PoolType.ForwardTrain, FrontTrain);
+        ReturnTrainTime = 0.0f;
+
     }
 
 }
