@@ -92,17 +92,17 @@ public class ObjectPool : MonoBehaviour
 
 
     //オブジェクトの取得
-    void GetPooledObject(GameObject obj)
+    public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-        obj.transform.position = Vector3.zero;
-        
+       
     }
 
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
         pools[type].Get();
+        
     }
 
 
@@ -111,12 +111,11 @@ public class ObjectPool : MonoBehaviour
 
     public void ReturnToPool(PoolType type, GameObject obj)
     {
+
+
+        obj.SetActive(false);
         pools[type].Release(obj);
-        Debug.LogError(
-               $"[POOL ERROR] pools → {obj.name} はすでに Release 済みです（二重 Release）\n$");
+        Debug.Log("返却されます");
+        //Debug.LogError($"[POOL ERROR] pools → {obj.name} はすでに Release 済みです（二重 Release）\n$");
     }
-
-
-
-
 }

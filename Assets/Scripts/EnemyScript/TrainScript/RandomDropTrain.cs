@@ -71,7 +71,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         if (IsTrainStart == true)
         {
-           // DropRightForwardTrain();
+            DropRightForwardTrain();
             DropLeftForwardTrain();
         }
         else if (IsTrainStart == false)
@@ -81,7 +81,6 @@ public class RandomDropTrain : MonoBehaviour
         if(ReturnTrainTime > ReturnTrainInverval)
         {
             Pool.GetComponent<TrainManeger>().CallPoolReturn();
-            Debug.Log("電車が返却されます");
         }
     }
 
@@ -100,8 +99,8 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeRightPositionZ(-842.0f, -850.0f);
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            
+            TrainSetting(DropObject, RightTrainRotaion, RightDropPos, ObjectPool.PoolType.RightSideTrain);
+
             ObjectPool.instance.OnGet(ObjectPool.PoolType.LeftSideTrain);
             RightTrainGenerateTime = 0.0f;
            
@@ -113,7 +112,7 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeRightPositionZ(-934.0f, -942.0f);
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-            TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
+            TrainSetting(DropObject, RightTrainRotaion, RightDropPos,ObjectPool.PoolType.RightSideTrain);
         
             ObjectPool.instance.OnGet(ObjectPool.PoolType.LeftSideTrain);
             SecondRightTrainGenerateTime = 0.0f;
@@ -136,7 +135,7 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeLeftPositionZ(-885.6f, -898.0f);
 
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
+            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos, ObjectPool.PoolType.LeftSideTrain);
 
             ObjectPool.instance.OnGet(ObjectPool.PoolType.RightSideTrain);
             LeftTrainGenerateTime = 0.0f;
@@ -148,9 +147,9 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeLeftPositionZ(-969.0f, -980.0f);
 
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
+            TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos,ObjectPool.PoolType.LeftSideTrain);
 
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.RightSideTrain);
+           
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
@@ -169,12 +168,11 @@ public class RandomDropTrain : MonoBehaviour
     }
 
     //生成する電車のオブジェクト、座標、向きを設定する関数
-    public void TrainSetting(GameObject obj, Quaternion dir, Vector3 pos)
+    public void TrainSetting(GameObject obj, Quaternion dir, Vector3 pos,ObjectPool.PoolType type)
     {
+        ObjectPool.instance.OnGet(type);
         obj.transform.rotation = dir;
         obj.transform.position = pos;
-        
-       
 
     }
 

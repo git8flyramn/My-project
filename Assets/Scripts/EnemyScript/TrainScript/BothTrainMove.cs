@@ -24,6 +24,11 @@ public class BothTrainMove : MonoBehaviour
     private Quaternion ForwardDir = Quaternion.identity;
     void Start()
     {
+        Initlialize();
+    }
+
+    void Initlialize()
+    {
         rb = GetComponent<Rigidbody>();
         LeftArrow = GameObject.Find("LeftArrow");
         RightArrow = GameObject.Find("RightArrow");

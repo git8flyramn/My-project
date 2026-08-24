@@ -82,6 +82,7 @@ public class TrainManeger : MonoBehaviour
         if (Train != null)
         {
             Train.transform.position = transform.position;
+            ObjectPool.instance.GetPooledObject(FrontTrain);
         }
     }
     
@@ -91,8 +92,8 @@ public class TrainManeger : MonoBehaviour
        
         yield return new WaitForSeconds(TrainInterval);
         if (Pool != null)
-        {  
-            ObjectPool.instance.ReturnToPool(ObjectPool.PoolType.ForwardTrain, FrontTrain);
+        {
+          
             ReturnTrainTime = 0.0f;
         }
 
