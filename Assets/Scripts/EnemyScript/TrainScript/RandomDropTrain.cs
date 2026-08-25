@@ -47,8 +47,8 @@ public class RandomDropTrain : MonoBehaviour
 
     private float LeftTrainFirstIntervalTime = 8.0f;
     private float LeftTrainSecondIntervalTime = 10.0f;
-    private float ReturnTrainInverval = 11.0f;
 
+    private float ReturnTrainInverval = 11.0f;
     private float ReturnTrainTime = 0.0f;
 
     //ç∂âEÇÃìdé‘ÇÃå¸Ç´
@@ -79,6 +79,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             return;
         }
+
         if (ReturnTrainTime > ReturnTrainInverval)
         {
             ObjectPool.instance.ReturnToPool(DropObject);
@@ -135,8 +136,6 @@ public class RandomDropTrain : MonoBehaviour
 
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos, ObjectPool.PoolType.LeftSideTrain);
-
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.RightSideTrain);
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
