@@ -19,7 +19,7 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private GameObject Pool;
 
     //ìdé‘ÇÃê∂ê¨éûä‘Ç∆ê∂ê¨ä‘äu
-    private float TrainInterval = 5.0f;
+    private float TrainInterval = 7.0f;
     private float SecondTrainInterval = 8.0f;
 
     private float TrainGenerateTime = 0.0f;
@@ -68,11 +68,9 @@ public class TrainManeger : MonoBehaviour
 
     public void SpawnTrain(Transform transform, ObjectPool.PoolType type,GameObject obj)
     {
-        ObjectPool.instance.GetPooledObject(obj);
+        
         ObjectPool.instance.GetObjectPosition(transform, obj);
         ObjectPool.instance.OnGet(type);
-           
-        
     }
     public void CallPoolReturn(GameObject obj)
     {

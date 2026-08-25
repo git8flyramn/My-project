@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -80,12 +81,13 @@ public class ObjectPool : MonoBehaviour
             for (int i = 0; i < Max_train; i+= 1)
             {
                 obj[i] = Instantiate(item.obj);
+                item.obj.SetActive(false);
             }
 
-            for (int i = 0; i < Max_train; i++)
-            {
-                pools[item.type].Release(obj[i]);
-            }
+            //for (int i = 0; i < Max_train; i++)
+            //{
+            //    pools[item.type].Release(obj[i]);
+            //}
         }
     }
 
@@ -94,13 +96,14 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-        
     }
 
     //オブジェクトの生成位置設定
     public void GetObjectPosition(Transform transform, GameObject obj)
     {
         obj.transform.position = transform.position;
+        obj.SetActive(false);
+
     }
 
     //外部からオブジェクトのを取得するため
@@ -113,7 +116,7 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj)
     {
-        obj.SetActive(false);
         Debug.Log("電車を返却しました.");
+        obj.SetActive(false);
     }
 }
