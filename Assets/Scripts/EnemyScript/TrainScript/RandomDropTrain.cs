@@ -50,7 +50,6 @@ public class RandomDropTrain : MonoBehaviour
     private float ReturnTrainInverval = 11.0f;
 
     private float ReturnTrainTime = 0.0f;
-    private float ReturnSecondTrainTime = 0.0f;
 
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -65,7 +64,6 @@ public class RandomDropTrain : MonoBehaviour
     {
         RightArrow = GameObject.Find("RightArrow");
         LeftArrow = GameObject.Find("LeftArrow");
-        Pool = GameObject.Find("TrainManeger");
     }
 
     void FixedUpdate()
@@ -75,7 +73,6 @@ public class RandomDropTrain : MonoBehaviour
             DropRightForwardTrain();
             DropLeftForwardTrain();
             ReturnTrainTime += Time.deltaTime;
-            ReturnSecondTrainTime += Time.deltaTime;
             
         }
         else if (IsTrainStart == false)
@@ -84,8 +81,9 @@ public class RandomDropTrain : MonoBehaviour
         }
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            // Pool.GetComponent<TrainManeger>().CallPoolReturn(ObjectPool.PoolType.LeftSideTrain, DropObject);
-              ReturnTrainTime = 0.0f;
+            ObjectPool.instance.ReturnToPool(DropObject);
+            ReturnTrainTime = 0.0f;
+           
         }
     }
 
@@ -146,6 +144,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-969.0f, -980.0f);
+
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos, ObjectPool.PoolType.LeftSideTrain);
             SecondLeftTrainGenerateTime = 0.0f;
@@ -168,9 +167,9 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のオブジェクト、座標、向きを設定する関数
     public void TrainSetting(GameObject obj, Quaternion dir, Vector3 pos,ObjectPool.PoolType type)
     {
-        ObjectPool.instance.OnGet(type);
         obj.transform.rotation = dir;
         obj.transform.position = pos;
+        ObjectPool.instance.OnGet(type);
 
     }
 

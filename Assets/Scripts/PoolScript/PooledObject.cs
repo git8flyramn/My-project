@@ -1,4 +1,5 @@
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PooledObject : MonoBehaviour
@@ -6,7 +7,7 @@ public class PooledObject : MonoBehaviour
    
 
     private ObjectPool pool;
-    ObjectPool.PoolType poolType;
+    private GameObject obj;
     public ObjectPool Pool { get => pool; set => pool = value; }
 
     void Update()
@@ -14,8 +15,8 @@ public class PooledObject : MonoBehaviour
         
     }
     //生成したオブジェクトをプールに戻し、非アクティブ化
-    public void Release(GameObject obj)
+    public void Release()
     {
-        pool.ReturnToPool(poolType,obj);
+        pool.ReturnToPool(obj);
     }
 }

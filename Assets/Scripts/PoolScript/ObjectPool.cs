@@ -28,8 +28,8 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] List<PoolItem> items;
 
     [SerializeField] private PooledObject objectToPool;
-    private int Max_train = 10;
-    private int Init_train = 5;
+    private int Max_train = 5;
+    private int Init_train = 3;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, 
                                                                         ObjectPool<GameObject>>();
@@ -62,7 +62,7 @@ public class ObjectPool : MonoBehaviour
           () => Instantiate(item.obj),
           (obj) => GetPooledObject(obj),
           (obj) => obj.SetActive(false),
-          (obj) => Destroy(obj),
+          (obj) => ReturnToPool(item.obj),
            true,  
            Init_train,
            Max_train);
@@ -77,7 +77,7 @@ public class ObjectPool : MonoBehaviour
         GameObject[] obj = new GameObject[Max_train];
         foreach (var item in items)
         {
-            for (int i = 0; i < Max_train; i++)
+            for (int i = 0; i < Max_train; i+= 1)
             {
                 obj[i] = Instantiate(item.obj);
             }
@@ -97,6 +97,7 @@ public class ObjectPool : MonoBehaviour
         
     }
 
+    //オブジェクトの生成位置設定
     public void GetObjectPosition(Transform transform, GameObject obj)
     {
         obj.transform.position = transform.position;
@@ -110,8 +111,9 @@ public class ObjectPool : MonoBehaviour
 
 
     //使用後に返却する
-    public void ReturnToPool(PoolType type, GameObject obj)
+    public void ReturnToPool(GameObject obj)
     {
-        pools[type].Release(obj);
+        obj.SetActive(false);
+        Debug.Log("電車を返却しました.");
     }
 }
