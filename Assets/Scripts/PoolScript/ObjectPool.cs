@@ -113,7 +113,6 @@ public class ObjectPool : MonoBehaviour
     //égópå„Ç…ï‘ãpÇ∑ÇÈ
     public void ReturnToPool(GameObject obj)
     {
-        Debug.Log($"ï‘ãpëŒè€: {obj}");
         obj.SetActive(false);
     }
 }

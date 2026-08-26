@@ -14,8 +14,8 @@ public class PooledObject : MonoBehaviour
     }
     
     //生成したオブジェクトをプールに戻し、非アクティブ化
-    public void Release()
+    public void Release(GameObject obj)
     {
-        pool.ReturnToPool(gameObject);
+        pool.ReturnToPool(obj);
     }
 }

@@ -73,10 +73,8 @@ public class TrainManeger : MonoBehaviour
     }
     public void CallPoolReturn(GameObject obj)
     {
-        ObjectPool.instance.ReturnToPool(obj);
-       
-        
-      
+        obj.SetActive(false);
+        Debug.Log("非アクティブされました");
     }
 
 }
