@@ -28,7 +28,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] List<PoolItem> items;
 
     //[SerializeField] private PooledObject objectToPool;
-    private int Max_train = 5;
+    private int Max_train = 6;
     private int Init_train = 3;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, 
@@ -114,5 +114,6 @@ public class ObjectPool : MonoBehaviour
     public void ReturnToPool(GameObject obj)
     {
         obj.SetActive(false);
+        Debug.Log("非アクティブされました");
     }
 }

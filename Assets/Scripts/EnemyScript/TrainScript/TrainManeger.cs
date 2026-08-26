@@ -46,15 +46,17 @@ public class TrainManeger : MonoBehaviour
     void TrainGenerate()
     {
 
-        if (TrainGenerateTime >= TrainInterval)
+        if (TrainGenerateTime > TrainInterval)
         {
-            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
+            SpawnTrain(Trainspawn,FrontTrain);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
             TrainGenerateTime = 0.0f;
         }
 
-        if (SecondTrainGenerateTime >= SecondTrainInterval)
+        if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
+            SpawnTrain(SecondTrainspawn,FrontTrain);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
@@ -66,15 +68,14 @@ public class TrainManeger : MonoBehaviour
         }
     }
 
-    public void SpawnTrain(Transform transform, ObjectPool.PoolType type,GameObject obj)
+    public void SpawnTrain(Transform transform,GameObject obj)
     {
         ObjectPool.instance.GetObjectPosition(transform, obj);
-        ObjectPool.instance.OnGet(type);
     }
     public void CallPoolReturn(GameObject obj)
     {
-        obj.SetActive(false);
-        Debug.Log("非アクティブされました");
+        ObjectPool.instance.ReturnToPool(obj);
+      
     }
 
 }
