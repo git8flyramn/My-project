@@ -60,10 +60,10 @@ public class ObjectPool : MonoBehaviour
 
        foreach(var item in items)
         {
-           pool = new ObjectPool<GameObject>(
-          () => Instantiate(item.obj),
-          (obj) => OnGetObject(obj),
-          (obj) => ReturnToPool(obj,item.type),
+           pool = new ObjectPool<GameObject>(() 
+                => Instantiate(item.obj),
+          (obj) => OnGetObject(obj, item.type),
+          (obj) => ReturnToPool(obj, item.type),
           (obj) => Destroy(obj),
            true,  
            Init_train,
@@ -100,10 +100,10 @@ public class ObjectPool : MonoBehaviour
        
     }
 
-    public void OnGetObject(GameObject obj)
+    public void OnGetObject(GameObject obj,PoolType type)
     {
         obj.SetActive(true);
-       // pools.Add(obj);
+        pools.Add(type,pool);
     }
 
    
@@ -112,14 +112,13 @@ public class ObjectPool : MonoBehaviour
     public void OnGet(PoolType type)
     {
         pools[type].Get();
-        pools.Remove(type);
     }
 
 
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        pools.Release(type);
+        pools.Remove(type);
         Debug.Log("•Ô‹p‚·‚é");
     }
 }
