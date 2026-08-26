@@ -82,8 +82,9 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
+            
+            ObjectPool.instance.ReturnToPool(DropObject);
             Debug.Log($"ï‘ãpëŒè€: {DropObject}");
-            DropObject.SetActive(false);
             ReturnTrainTime = 0.0f;
            
         }
@@ -172,6 +173,8 @@ public class RandomDropTrain : MonoBehaviour
         ObjectPool.instance.OnGet(type);
 
     }
+
+   
 
 
     public void TrainIsStart()

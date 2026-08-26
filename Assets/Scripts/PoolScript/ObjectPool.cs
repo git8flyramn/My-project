@@ -16,7 +16,6 @@ public class ObjectPool : MonoBehaviour
         ForwardTrain,
         LeftSideTrain,
         RightSideTrain
-
     }
     //プールに持たせたい変数のクラス
     [System.Serializable]
@@ -28,7 +27,7 @@ public class ObjectPool : MonoBehaviour
 
     [SerializeField] List<PoolItem> items;
 
-    [SerializeField] private PooledObject objectToPool;
+    //[SerializeField] private PooledObject objectToPool;
     private int Max_train = 5;
     private int Init_train = 3;
     public static ObjectPool instance;
@@ -54,7 +53,7 @@ public class ObjectPool : MonoBehaviour
         }
         else
         {
-            Destroy(this.gameObject);
+            ReturnToPool(gameObject);
         }
 
        foreach(var item in items)
@@ -95,7 +94,7 @@ public class ObjectPool : MonoBehaviour
     //オブジェクトの取得
     public void GetPooledObject(GameObject obj)
     {
-        obj.SetActive(true);
+       obj.SetActive(true);
     }
 
     //オブジェクトの生成位置設定
@@ -114,6 +113,7 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj)
     {
+        Debug.Log($"返却対象: {obj}");
         obj.SetActive(false);
     }
 }

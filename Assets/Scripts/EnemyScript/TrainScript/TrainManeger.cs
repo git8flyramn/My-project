@@ -73,8 +73,9 @@ public class TrainManeger : MonoBehaviour
     }
     public void CallPoolReturn(GameObject obj)
     {
-        Debug.Log($"ï‘ãpëŒè€: {obj}");
-        obj.SetActive(false);
+        ObjectPool.instance.ReturnToPool(obj);
+       
+        
       
     }
 
