@@ -110,8 +110,8 @@ public class ObjectPool : MonoBehaviour
 
 
     //Žg—pŒã‚É•Ô‹p‚·‚é
-    public void ReturnToPool(GameObject obj)
+    public void ReturnToPool(GameObject obj,PoolType type)
     {
-        obj.SetActive(false);
+        pools[type].Release(obj);
     }
 }
