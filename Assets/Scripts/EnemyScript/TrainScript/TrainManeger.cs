@@ -27,7 +27,7 @@ public class TrainManeger : MonoBehaviour
 
     //ìdé‘ÇÃï‘ãpéûä‘Ç∆ä‘äu
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 9.0f;
+    private float ReturnTrainInverval = 10.0f;
 
     void Start()
     {
@@ -68,13 +68,14 @@ public class TrainManeger : MonoBehaviour
 
     public void SpawnTrain(Transform transform, ObjectPool.PoolType type,GameObject obj)
     {
-        
         ObjectPool.instance.GetObjectPosition(transform, obj);
         ObjectPool.instance.OnGet(type);
     }
     public void CallPoolReturn(GameObject obj)
     {
-        ObjectPool.instance.ReturnToPool(obj);
+        Debug.Log($"ï‘ãpëŒè€: {obj}");
+        obj.SetActive(false);
+      
     }
 
 }
