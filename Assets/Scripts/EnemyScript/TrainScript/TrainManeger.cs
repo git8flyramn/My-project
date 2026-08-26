@@ -19,7 +19,7 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private GameObject Pool;
 
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
-    private float TrainInterval = 7.0f;
+    private float TrainInterval = 5.0f;
     private float SecondTrainInterval = 8.0f;
 
     private float TrainGenerateTime = 0.0f;
@@ -27,7 +27,7 @@ public class TrainManeger : MonoBehaviour
 
     //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 10.0f;
+    private float ReturnTrainInverval = 9.0f;
 
     void Start()
     {
@@ -46,36 +46,38 @@ public class TrainManeger : MonoBehaviour
     void TrainGenerate()
     {
 
-        if (TrainGenerateTime > TrainInterval)
+        if (TrainGenerateTime >= TrainInterval)
         {
-            SpawnTrain(Trainspawn,FrontTrain);
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
+            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
             TrainGenerateTime = 0.0f;
         }
 
-        if (SecondTrainGenerateTime > SecondTrainInterval)
+        if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            SpawnTrain(SecondTrainspawn,FrontTrain);
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ForwardTrain);
+            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            CallPoolReturn(FrontTrain);
-            ReturnTrainTime = 0.0f;
+            CallPoolReturn(ObjectPool.PoolType.ForwardTrain,FrontTrain);
         }
     }
 
-    public void SpawnTrain(Transform transform,GameObject obj)
+    public void SpawnTrain(Transform transform, ObjectPool.PoolType type,GameObject obj)
     {
+        ObjectPool.instance.GetPooledObject(obj);
         ObjectPool.instance.GetObjectPosition(transform, obj);
+        ObjectPool.instance.OnGet(type);
+           
+        
     }
-    public void CallPoolReturn(GameObject obj)
+    public void CallPoolReturn(ObjectPool.PoolType pooltype, GameObject obj)
     {
-        ObjectPool.instance.ReturnToPool(obj);
-      
+        ObjectPool.instance.ReturnToPool(pooltype,obj);
+        ReturnTrainTime = 0.0f;
+
     }
 
 }
