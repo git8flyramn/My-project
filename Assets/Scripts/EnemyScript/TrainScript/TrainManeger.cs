@@ -75,7 +75,7 @@ public class TrainManeger : MonoBehaviour
     }
     public void CallPoolReturn( GameObject obj)
     {
-        ObjectPool.instance.ReturnToPool(obj);
+        ObjectPool.instance.ReturnToPool(obj, ObjectPool.PoolType.ForwardTrain);
         ReturnTrainTime = 0.0f;
 
     }
