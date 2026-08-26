@@ -33,7 +33,9 @@ public class ObjectPool : MonoBehaviour
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, 
                                                                         ObjectPool<GameObject>>();
-         
+    private ObjectPool<GameObject> pool;
+
+
 
 
 
@@ -58,10 +60,10 @@ public class ObjectPool : MonoBehaviour
 
        foreach(var item in items)
         {
-            ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
+           pool = new ObjectPool<GameObject>(
           () => Instantiate(item.obj),
-          (obj) => GetPooledObject(obj),
-          (obj) => obj.SetActive(false),
+          (obj) => OnGetObject(obj),
+          (obj) => ReturnToPool(obj,item.type),
           (obj) => Destroy(obj),
            true,  
            Init_train,
@@ -91,27 +93,33 @@ public class ObjectPool : MonoBehaviour
 
 
     //オブジェクトの取得
-    public void GetPooledObject(GameObject obj)
-    {
-        obj.SetActive(true);
-        
-    }
-
-    public void GetObjectPosition(Transform transform, GameObject obj)
+    public void GetPooledObject(GameObject obj,Transform transform)
     {
         obj.transform.position = transform.position;
+       
+       
     }
+
+    public void OnGetObject(GameObject obj)
+    {
+        obj.SetActive(true);
+       // pools.Add(obj);
+    }
+
+   
 
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
         pools[type].Get();
+        pools.Remove(type);
     }
 
 
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        pools[type].Release(obj);
+        pools.Release(type);
+        Debug.Log("返却する");
     }
 }

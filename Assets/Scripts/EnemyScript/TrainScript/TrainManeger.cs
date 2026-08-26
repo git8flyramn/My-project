@@ -67,8 +67,7 @@ public class TrainManeger : MonoBehaviour
 
     public void SpawnTrain(Transform transform, ObjectPool.PoolType type,GameObject obj)
     {
-        ObjectPool.instance.GetPooledObject(obj);
-        ObjectPool.instance.GetObjectPosition(transform, obj);
+        ObjectPool.instance.GetPooledObject(obj,transform);
         ObjectPool.instance.OnGet(type);
            
         
@@ -77,7 +76,6 @@ public class TrainManeger : MonoBehaviour
     {
         ObjectPool.instance.ReturnToPool(obj, ObjectPool.PoolType.ForwardTrain);
         ReturnTrainTime = 0.0f;
-
     }
 
 }
