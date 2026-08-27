@@ -60,8 +60,8 @@ public class ObjectPool : MonoBehaviour
 
        foreach(var item in items)
         {
-           pool = new ObjectPool<GameObject>(() 
-                => Instantiate(item.obj),
+           pool = new ObjectPool<GameObject>(
+          () => Instantiate(item.obj),
           (obj) => obj.SetActive(true),
           (obj) => obj.SetActive(false),
           (obj) => Destroy(obj),
@@ -112,7 +112,7 @@ public class ObjectPool : MonoBehaviour
     {
        if(pools.TryGetValue(type,out var pool))
         {
-            pools[type].Get();
+            pool.Get();
         }
        
     }
@@ -123,8 +123,9 @@ public class ObjectPool : MonoBehaviour
     {
      if(pools.TryGetValue(type,out var pool))
      {
-            pools[type].Release(obj);
+            pool.Release(obj);
             Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½");
+            Debug.Log(type);
      }
      else
      {

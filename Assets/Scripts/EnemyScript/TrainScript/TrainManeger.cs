@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
-using UnityEngine.SceneManagement;
 public class TrainManeger : MonoBehaviour
 {
 
@@ -61,7 +60,7 @@ public class TrainManeger : MonoBehaviour
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            CallPoolReturn(FrontTrain);
+            CallPoolReturn();
         }
     }
 
@@ -72,9 +71,9 @@ public class TrainManeger : MonoBehaviour
            
         
     }
-    public void CallPoolReturn( GameObject obj)
+    public void CallPoolReturn()
     {
-        ObjectPool.instance.ReturnToPool(obj, ObjectPool.PoolType.ForwardTrain);
+        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
         ReturnTrainTime = 0.0f;
     }
 
