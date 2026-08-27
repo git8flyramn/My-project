@@ -21,16 +21,15 @@ public class ObjectPool : MonoBehaviour
     [System.Serializable]
     public class PoolItem
     {
-        public PoolType type;
+        public string type;
         public GameObject obj;
+        public int size;
     }
 
     [SerializeField] List<PoolItem> items;
     private int Max_train = 5;
-    private int Init_train = 3;
     public static ObjectPool instance;
-    Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, 
-                                                                        ObjectPool<GameObject>>();
+    public Dictionary<string, Queue<GameObject>> pools;
     private ObjectPool<GameObject> pool;
 
 
@@ -55,66 +54,60 @@ public class ObjectPool : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-       foreach(var item in items)
-        {
-           pool = new ObjectPool<GameObject>(
-          () => Instantiate(item.obj),
-          (obj) => obj.SetActive(true),
-          (obj) => obj.SetActive(false),
-          (obj) => Destroy(obj),
-           true,  
-           Init_train,
-           Max_train);
-
-            pools.Add(item.type, pool);
-        }
        SetUpPool();
 
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
     {
-        GameObject[] obj = new GameObject[Max_train];
+        pools = new Dictionary<string, Queue<GameObject>>();
+
         foreach (var item in items)
         {
+            Queue<GameObject> objectpool = new Queue<GameObject>();
             for (int i = 0; i < Max_train; i++)
             {
-                obj[i] = Instantiate(item.obj);
+                               //Instantiate
+                GameObject obj = Instantiate(item.obj);
+                obj.SetActive(false);
+                objectpool.Enqueue(obj);
             }
-
-            for (int i = 0; i < Max_train; i++)
-            {
-                pools[item.type].Release(obj[i]);
-            }
+            pools.Add(item.type, objectpool);
         }
     }
 
 
     //オブジェクトの取得
-    public void GetPooledObject(GameObject obj,Transform transform)
+    public GameObject GetPooledObject(Vector3 transform,string key)
     {
-        obj.transform.position = transform.position;
+       if(!pools.ContainsKey(key))
+        {
+            Debug.LogWarning(key + "と一致しません");
+            return null;
+        }
+
+        GameObject pooledObject = pools[key].Dequeue();
+        pooledObject.SetActive(true);
+        pooledObject.transform.position = transform;
+        
+        return pooledObject;
     }
 
-    public void OnGetObject(GameObject obj)
-    {
-        obj.SetActive(true);
-      
-    }
 
    
 
-    //外部からオブジェクトのを取得するため
-    public void OnGet(PoolType type)
-    {
-            pools[type].Get();
-    }
-
 
     //使用後に返却する
-    public void ReturnToPool(GameObject obj,PoolType type)
+    public void ReturnToPool(GameObject obj,string key)
     {
-        pools[type].Release(obj);
+        if(!pools.ContainsKey(key))
+        {
+            Debug.LogWarning(key + "と一致しません");
+            return;
+        }
+            //SetActive
+        obj.SetActive(false);
+        pools[key].Enqueue(obj);
+
     }
 }
