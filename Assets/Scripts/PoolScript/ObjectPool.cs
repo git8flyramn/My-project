@@ -124,8 +124,7 @@ public class ObjectPool : MonoBehaviour
      if(pools.TryGetValue(type,out var pool))
      {
             pool.Release(obj);
-            Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½");
-            Debug.Log(type);
+           
      }
      else
      {

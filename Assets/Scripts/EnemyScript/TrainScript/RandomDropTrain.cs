@@ -83,7 +83,7 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-           // ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.LeftSideTrain); 
+            ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.LeftSideTrain); 
             ReturnTrainTime = 0.0f;
         }
     }
