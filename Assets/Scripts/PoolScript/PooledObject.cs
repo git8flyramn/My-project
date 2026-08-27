@@ -6,7 +6,7 @@ public class PooledObject : MonoBehaviour
    
 
     private ObjectPool pool;
-    ObjectPool.PoolType poolType;
+    [SerializeField] ObjectPool.PoolType poolType;
     public ObjectPool Pool { get => pool; set => pool = value; }
 
     void Update()
@@ -14,10 +14,8 @@ public class PooledObject : MonoBehaviour
         
     }
     //生成したオブジェクトをプールに戻し、非アクティブ化
-    public void Release(GameObject obj)
+    public void Release()
     {
-        obj.SetActive(false);
-        Debug.Log("返却しました");
-
+        pool.ReturnToPool(gameObject, poolType);
     }
 }

@@ -14,7 +14,6 @@ public class TrainManeger : MonoBehaviour
    
 
     //オブジェクトプールの宣言
-    [SerializeField] ObjectPool.PoolType poolType;
     [SerializeField] private GameObject Pool;
 
     //電車の生成時間と生成間隔
@@ -47,13 +46,13 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
-            SpawnTrain(Trainspawn, poolType, FrontTrain);
+            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain, FrontTrain);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            SpawnTrain(SecondTrainspawn, poolType, FrontTrain);
+            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain, FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
@@ -73,7 +72,7 @@ public class TrainManeger : MonoBehaviour
     }
     public void CallPoolReturn()
     {
-        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+        ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.ForwardTrain);
         ReturnTrainTime = 0.0f;
     }
 

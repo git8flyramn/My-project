@@ -26,8 +26,6 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-
-    [SerializeField] private PooledObject objectToPool;
     private int Max_train = 5;
     private int Init_train = 3;
     public static ObjectPool instance;
@@ -68,6 +66,7 @@ public class ObjectPool : MonoBehaviour
            true,  
            Init_train,
            Max_train);
+
             pools.Add(item.type, pool);
         }
        SetUpPool();
@@ -96,13 +95,12 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj,Transform transform)
     {
         obj.transform.position = transform.position;
-       
-       
     }
 
     public void OnGetObject(GameObject obj)
     {
         obj.SetActive(true);
+      
     }
 
    
@@ -110,26 +108,13 @@ public class ObjectPool : MonoBehaviour
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
-       if(pools.TryGetValue(type,out var pool))
-        {
-            pool.Get();
-        }
-       
+            pools[type].Get();
     }
 
 
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-     if(pools.TryGetValue(type,out var pool))
-     {
-            pool.Release(obj);
-           
-     }
-     else
-     {
-            Debug.Log("返却出来ていません");
-     }
-        
+        pools[type].Release(obj);
     }
 }
