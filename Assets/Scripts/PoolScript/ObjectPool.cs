@@ -124,13 +124,12 @@ public class ObjectPool : MonoBehaviour
      if(pools.TryGetValue(type,out var pool))
      {
             pools[type].Release(obj);
+            Debug.Log("ï‘ãpÇµÇ‹ÇµÇΩ");
      }
      else
      {
             Debug.Log("ï‘ãpèoóàÇƒÇ¢Ç‹ÇπÇÒ");
      }
         
-       
-
     }
 }
