@@ -7,16 +7,7 @@ using UnityEngine.Pool;
 
 public class ObjectPool : MonoBehaviour
 {
-   
-
-    //生成したいオブジェクト
-    public enum PoolType
-    {
-        ForwardTrain,
-        LeftSideTrain,
-        RightSideTrain
-
-    }
+  
     //プールに持たせたい変数のクラス
     [System.Serializable]
     public class PoolItem
