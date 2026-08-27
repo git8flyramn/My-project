@@ -17,7 +17,6 @@ public class PooledObject : MonoBehaviour
     public void Release(GameObject obj)
     {
         obj.SetActive(false);
-        Debug.Log(obj);
         Debug.Log("•Ô‹p‚·‚é");
     }
 }
