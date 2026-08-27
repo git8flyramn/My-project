@@ -62,7 +62,7 @@ public class ObjectPool : MonoBehaviour
         {
            pool = new ObjectPool<GameObject>(() 
                 => Instantiate(item.obj),
-          (obj) => OnGetObject(obj, item.type),
+          (obj) => OnGetObject(obj),
           (obj) => ReturnToPool(obj, item.type),
           (obj) => Destroy(obj),
            true,  
@@ -100,10 +100,9 @@ public class ObjectPool : MonoBehaviour
        
     }
 
-    public void OnGetObject(GameObject obj,PoolType type)
+    public void OnGetObject(GameObject obj)
     {
         obj.SetActive(true);
-        pools.Add(type,pool);
     }
 
    
