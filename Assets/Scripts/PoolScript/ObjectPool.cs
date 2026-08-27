@@ -62,7 +62,7 @@ public class ObjectPool : MonoBehaviour
         {
            pool = new ObjectPool<GameObject>(() 
                 => Instantiate(item.obj),
-          (obj) => OnGetObject(obj),
+          (obj) => obj.SetActive(true),
           (obj) => obj.SetActive(false),
           (obj) => Destroy(obj),
            true,  
@@ -110,15 +110,27 @@ public class ObjectPool : MonoBehaviour
     //外部からオブジェクトのを取得するため
     public void OnGet(PoolType type)
     {
-        pools[type].Get();
+       if(pools.TryGetValue(type,out var pool))
+        {
+            pools[type].Get();
+        }
+       
     }
 
 
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-                  
-        pools[type].Release(obj);
-      
+     if(pools.TryGetValue(type,out var pool))
+     {
+            pools[type].Release(obj);
+     }
+     else
+     {
+            Debug.Log("返却出来ていません");
+     }
+        
+       
+
     }
 }
