@@ -63,7 +63,7 @@ public class ObjectPool : MonoBehaviour
            pool = new ObjectPool<GameObject>(() 
                 => Instantiate(item.obj),
           (obj) => OnGetObject(obj),
-          (obj) => ReturnToPool(obj, item.type),
+          (obj) => obj.SetActive(false),
           (obj) => Destroy(obj),
            true,  
            Init_train,
@@ -117,7 +117,8 @@ public class ObjectPool : MonoBehaviour
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        pools.Remove(type);
+                  
+        pools[type].Release(obj);
         Debug.Log("•Ô‹p‚·‚é");
     }
 }

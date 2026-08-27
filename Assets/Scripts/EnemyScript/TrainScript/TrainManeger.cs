@@ -48,13 +48,13 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
-            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
+            SpawnTrain(Trainspawn, ObjectPool.PoolType.ForwardTrain, FrontTrain);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain,FrontTrain);
+            SpawnTrain(SecondTrainspawn, ObjectPool.PoolType.ForwardTrain, FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
