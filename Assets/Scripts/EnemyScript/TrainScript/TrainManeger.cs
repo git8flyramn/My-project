@@ -46,13 +46,13 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime >= TrainInterval)
         {
-            SpawnTrain(Trainspawn,"FirstTrain");
+            SpawnTrain(Trainspawn, "train");
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
-            SpawnTrain(SecondTrainspawn, "FirstTrain");
+            SpawnTrain(SecondTrainspawn, "train");
             SecondTrainGenerateTime = 0.0f;
         }
 
@@ -65,14 +65,13 @@ public class TrainManeger : MonoBehaviour
 
     public void SpawnTrain(Transform transform,string key)
     {
-        ObjectPool.instance.GetPooledObject(transform,key);
-       
-           
-        
+
+        FrontTrain.transform.position = transform.position;
+        ObjectPool.instance.GetPooledObject(key);
     }
     public void CallPoolReturn()
     {
-        ObjectPool.instance.ReturnToPool(FrontTrain,"FirstTrain");
+        ObjectPool.instance.ReturnToPool(FrontTrain,"train");
         ReturnTrainTime = 0.0f;
     }
 

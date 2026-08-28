@@ -14,7 +14,7 @@ public class ObjectPool : MonoBehaviour
     {
         public string type;
         public GameObject obj;
-        public int size;
+       
     }
 
     [SerializeField] List<PoolItem> items;
@@ -69,7 +69,7 @@ public class ObjectPool : MonoBehaviour
 
 
     //オブジェクトの取得
-    public GameObject GetPooledObject(Vector3 transform,string key)
+    public GameObject GetPooledObject(string key)
     {
        if(!pools.ContainsKey(key))
         {
@@ -79,8 +79,6 @@ public class ObjectPool : MonoBehaviour
 
         GameObject pooledObject = pools[key].Dequeue();
         pooledObject.SetActive(true);
-        pooledObject.transform.position = transform;
-        
         return pooledObject;
     }
 
@@ -96,9 +94,9 @@ public class ObjectPool : MonoBehaviour
             Debug.LogWarning(key + "と一致しません");
             return;
         }
-            //SetActive
         obj.SetActive(false);
         pools[key].Enqueue(obj);
+        Debug.Log(obj + "が返却されました");
 
     }
 }

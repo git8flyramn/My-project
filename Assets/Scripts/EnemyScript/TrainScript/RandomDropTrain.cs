@@ -169,9 +169,9 @@ public class RandomDropTrain : MonoBehaviour
     //生成する電車のオブジェクト、座標、向きを設定する関数
     public void TrainSetting(GameObject obj, Quaternion dir, Vector3 pos,string key)
     {
-      
+        obj.transform.position = pos;
         obj.transform.rotation = dir;
-        ObjectPool.instance.GetPooledObject(pos,key);
+        ObjectPool.instance.GetPooledObject(key);
         
     }
 
