@@ -6,7 +6,7 @@ public class PooledObject : MonoBehaviour
    
 
     private ObjectPool pool;
-    public ObjectPool Pool { get => pool; set => pool = value; }
+    public ObjectPool<GameObject> Pool { get; set; }
 
     void Update()
     {
@@ -15,6 +15,6 @@ public class PooledObject : MonoBehaviour
     //生成したオブジェクトをプールに戻し、非アクティブ化
     public void Release()
     {
-        // Pool.ReturnToPool();
+        Pool.Release(gameObject);
     }
 }
