@@ -53,9 +53,11 @@ public class ObjectPool : MonoBehaviour
         foreach (var item in items)
         {
             Queue<GameObject> objectpool = new Queue<GameObject>();
+            PooledObject instance = null;
             for (int i = 0; i < Max_train; i++)
             {
                 GameObject obj = Instantiate(item.obj);
+
                 obj.SetActive(false);
                 objectpool.Enqueue(obj);
             }
