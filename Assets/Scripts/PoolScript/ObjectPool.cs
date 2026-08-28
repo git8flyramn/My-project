@@ -89,5 +89,6 @@ public class ObjectPool : MonoBehaviour
         }
         obj.SetActive(false);
         pools[key].Enqueue(obj);
+        Debug.Log("•Ô‹p‚³‚ê‚Ü‚µ‚½" + obj);
     }
 }
