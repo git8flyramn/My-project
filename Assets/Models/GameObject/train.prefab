@@ -185,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 534f6b4f9bf13c14c86970974ea1b050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PooledObject
-  poolType: 0
 --- !u!82 &-5263880400813735056
 AudioSource:
   m_ObjectHideFlags: 0

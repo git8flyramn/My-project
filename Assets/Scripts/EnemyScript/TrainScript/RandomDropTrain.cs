@@ -86,7 +86,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            ObjectPool.instance.ReturnToPool(DropObject, DropTrainName); 
+            ObjectPool.instance.ReturnToPool(DropObject, DropTrainName);
+            ObjectPool.instance.ReturnToPool(OtherSideDropObject, DropSideTrainName);
             ReturnTrainTime = 0.0f;
         }
     }
@@ -106,6 +107,7 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeRightPositionZ(-842.0f, -850.0f);
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
+           
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos, DropTrainName);
             RightTrainGenerateTime = 0.0f;
            
@@ -175,7 +177,7 @@ public class RandomDropTrain : MonoBehaviour
         
     }
 
-
+   
     public void TrainIsStart()
     {
         IsTrainStart = true;

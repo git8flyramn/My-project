@@ -11,7 +11,7 @@ public class TrainManeger : MonoBehaviour
     //電車の生成位置
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
-   
+    private string TrainName = "Train";
 
     //オブジェクトプールの宣言
     [SerializeField] private GameObject Pool;
@@ -25,7 +25,7 @@ public class TrainManeger : MonoBehaviour
 
     //電車の返却時間と間隔
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 9.0f;
+    private float ReturnTrainInverval = 10.0f;
 
     void Start()
     {
