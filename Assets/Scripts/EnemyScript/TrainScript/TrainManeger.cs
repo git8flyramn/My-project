@@ -25,7 +25,7 @@ public class TrainManeger : MonoBehaviour
 
     //“dÔ‚Ì•Ô‹pŠÔ‚ÆŠÔŠu
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 9.0f;
+    private float ReturnTrainInverval = 15.0f;
 
     void Start()
     {
