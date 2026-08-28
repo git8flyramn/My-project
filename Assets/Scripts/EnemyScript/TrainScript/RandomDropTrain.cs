@@ -15,7 +15,6 @@ public class RandomDropTrain : MonoBehaviour
 
     private GameObject LeftArrow;
     private GameObject RightArrow;
-    private Transform trans;
    
     //ìdé‘ÇÃê∂ê¨ç¿ïW
     private float LeftDropX;

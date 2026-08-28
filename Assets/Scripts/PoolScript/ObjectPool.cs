@@ -8,13 +8,12 @@ using UnityEngine.Pool;
 public class ObjectPool : MonoBehaviour
 {
   
-    //プールに持たせたい変数のクラス
+    
     [System.Serializable]
     public class PoolItem
     {
         public string type;
         public GameObject obj;
-        public int size;
     }
 
     [SerializeField] List<PoolItem> items;

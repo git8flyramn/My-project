@@ -3324,13 +3324,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - type: 0
+  - type: Train
     obj: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
-  - type: 1
+  - type: SecondTrain
     obj: {fileID: 6855479284151090953, guid: f180af16ed498fa44b3c5d4033a1d287, type: 3}
-  - type: 2
+  - type: ThirdTrain
     obj: {fileID: 1782226019351121708, guid: c89ae3b4ed2c3ba4a99125ab9c57ebb5, type: 3}
-  objectToPool: {fileID: -8805182413843882989, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
 --- !u!4 &816368635
 Transform:
   m_ObjectHideFlags: 0
@@ -6973,7 +6972,6 @@ MonoBehaviour:
   FrontTrain: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
   Trainspawn: {fileID: 1726683440}
   SecondTrainspawn: {fileID: 275162171}
-  poolType: 0
   Pool: {fileID: 816368633}
 --- !u!4 &1816161371 stripped
 Transform:

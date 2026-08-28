@@ -11,7 +11,7 @@ public class TrainManeger : MonoBehaviour
     //電車の生成位置
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
-    private string TrainName = "FirstTrain";
+    private string TrainName = "Train";
 
     //オブジェクトプールの宣言
     [SerializeField] private GameObject Pool;
