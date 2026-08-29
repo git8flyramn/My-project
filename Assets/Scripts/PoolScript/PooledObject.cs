@@ -1,19 +1,17 @@
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.Pool;
 public class PooledObject : MonoBehaviour
 {
     private ObjectPool pool;
-    private ObjectPool Pool { get => pool; set => pool = value; }
+    private ObjectPool Pool;
    
     void Update()
     {
         
     }
     //生成したオブジェクトをプールに戻し、非アクティブ化
-    public void Release(GameObject obj)
+    public void Release()
     {
-        obj.SetActive(false);
-        Debug.Log(obj + "が返却されました");
     }
 }
