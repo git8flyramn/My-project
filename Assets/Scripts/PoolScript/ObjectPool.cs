@@ -24,7 +24,7 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 5;
+    private int Max_train = 6;
     private int Init_train = 3; 
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
@@ -40,8 +40,12 @@ public class ObjectPool : MonoBehaviour
         {
             instance = this;
         }
+        else
+        {
+            Destroy(this.gameObject);
+        }
 
-        InitializePool();
+            InitializePool();
     }
 
        
@@ -51,13 +55,16 @@ public class ObjectPool : MonoBehaviour
         foreach (var item in items)
         {
             ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
-               () => Instantiate(item.obj),
-              (obj) => GetPooledObject(obj),
-              (obj) => obj.SetActive(false),
-              (obj) => Destroy(obj),
-              true,
-              Init_train,
-              Max_train);
+                () => Instantiate(item.obj),
+                (obj) => GetPooledObject(obj),
+                (obj) => obj.SetActive(false),
+                (obj) => Destroy(item.obj),
+                true,
+                Init_train,
+                Max_train);
+            {
+
+            };
             pools.Add(item.type, pool);
         }
 
@@ -74,9 +81,11 @@ public class ObjectPool : MonoBehaviour
             for(int i = 0; i< Max_train; i++)
             {
                 obj[i] = Instantiate(item.obj);
+            }
+            for (int i = 0; i < Max_train; i++)
+            {
                 pools[item.type].Release(obj[i]);
             }
-            
         }
 
     }
@@ -86,6 +95,7 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
+       
     }
 
     public void OnGet(PoolType type)
@@ -98,7 +108,6 @@ public class ObjectPool : MonoBehaviour
     public void ReturnToPool(GameObject obj,PoolType type)
     {
         pools[type].Release(obj);
-
     }
 
   
