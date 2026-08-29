@@ -3,11 +3,9 @@ using UnityEngine;
 
 public class PooledObject : MonoBehaviour
 {
-   
-
     private ObjectPool pool;
-    public ObjectPool<GameObject> Pool { get; set; }
-
+    private ObjectPool Pool { get => pool; set => pool = value; }
+   
     void Update()
     {
         
@@ -15,6 +13,6 @@ public class PooledObject : MonoBehaviour
     //生成したオブジェクトをプールに戻し、非アクティブ化
     public void Release()
     {
-        Pool.Release(gameObject);
+        
     }
 }

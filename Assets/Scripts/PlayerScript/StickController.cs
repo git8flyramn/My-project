@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class StickController : MonoBehaviour
 {
     //playerに必要なコンポーネントの定義
-    [SerializeField] ParticleSystem ParticleSystem;
     private CharacterController con;
     private Animator anim;
     private Rigidbody rb;
