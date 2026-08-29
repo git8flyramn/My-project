@@ -47,7 +47,7 @@ public class ObjectPool : MonoBehaviour
     private void SetUpPool()
     {
         pools = new Dictionary<string, Queue<GameObject>>();
-        foreach (var item in items)
+        foreach (PoolItem item in items)
         {
             Queue<GameObject> objectpool = new Queue<GameObject>();
             
@@ -85,9 +85,11 @@ public class ObjectPool : MonoBehaviour
             Debug.LogWarning(key + "‚Æˆê’v‚µ‚Ü‚¹‚ñ");
             return;
         }
-        obj.SetActive(false);
+        pools[key].Release(obj);
         pools[key].Enqueue(obj);
-        Debug.Log(obj + "‚ª•Ô‹p‚³‚ê‚Ü‚µ‚½");
+        
 
     }
+
+  
 }
