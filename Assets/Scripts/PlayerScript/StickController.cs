@@ -74,7 +74,6 @@ public class StickController : MonoBehaviour
         rayPosition = transform.position;
         ray = new Ray(rayPosition, Vector3.down * distance);
         isGround = Physics.Raycast(ray, out hit, walkableGround);
-       // Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
         
     }
 

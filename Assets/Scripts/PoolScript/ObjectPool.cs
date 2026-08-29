@@ -7,14 +7,13 @@ using UnityEngine.Pool;
 
 public class ObjectPool : MonoBehaviour
 {
-  
-    
+
+
     [System.Serializable]
     public class PoolItem
     {
         public string type;
-        public GameObject obj;
-       
+        public GameObject obj;  
     }
 
     [SerializeField] List<PoolItem> items;
@@ -29,6 +28,11 @@ public class ObjectPool : MonoBehaviour
 
     void Start()
     {
+        if (instance == null)
+        {
+            instance = this;
+        }
+
         InitializePool();
     }
 
@@ -36,14 +40,6 @@ public class ObjectPool : MonoBehaviour
     void InitializePool()
     {
        
-       if(instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
        SetUpPool();
 
     }
@@ -61,7 +57,7 @@ public class ObjectPool : MonoBehaviour
                 obj.SetActive(false);
                 objectpool.Enqueue(obj);
             }
-            pools.Add(item.type, objectpool);
+            pools.Add(item.type,objectpool);
         }
     }
 
@@ -89,7 +85,6 @@ public class ObjectPool : MonoBehaviour
             Debug.LogWarning(key + "‚Æˆê’v‚µ‚Ü‚¹‚ñ");
             return;
         }
-
         obj.SetActive(false);
         pools[key].Enqueue(obj);
         Debug.Log(obj + "‚ª•Ô‹p‚³‚ê‚Ü‚µ‚½");
