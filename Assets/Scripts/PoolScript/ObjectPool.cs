@@ -107,19 +107,22 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        if (!pools.ContainsKey(type))
-        {
-            Debug.LogError($"pooltype" + type + "が存在していません");
-        }
-        if (pools[type] == null)
-        {
-            Debug.LogError($"PoolType {type} のプールが null です");
-            return;
-        }
-        obj.SetActive(false);
-        pools[type].Release(obj);
+        Debug.Log("ReturnToPool 呼ばれました");
 
-        Debug.Log(obj + "返却されました");
+        try
+        {
+            obj.SetActive(false);
+            Debug.Log("SetActive完了");
+
+            pools[type].Release(obj);
+            Debug.Log("Release 完了");
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError($"Release中に例外発生:" + { e.GetType().Name} + { e.Message});
+
+        }
+        Debug.Log("返却されました");
     }
 
 }
