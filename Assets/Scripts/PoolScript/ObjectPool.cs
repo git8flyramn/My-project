@@ -1,9 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Pool;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+
 
 public class ObjectPool : MonoBehaviour
 {
@@ -31,10 +30,7 @@ public class ObjectPool : MonoBehaviour
 
 
 
-
-
-
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
@@ -44,8 +40,13 @@ public class ObjectPool : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
 
-            InitializePool();
+
+
+    void Start()
+    {
+      InitializePool();
     }
 
        
@@ -55,21 +56,22 @@ public class ObjectPool : MonoBehaviour
         foreach (var item in items)
         {
             ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
-                () => Instantiate(item.obj),
+                () =>
+                {
+                    GameObject obj = Instantiate(item.obj);
+                    obj.SetActive(false);
+                    return obj;
+                },
                 (obj) => GetPooledObject(obj),
                 (obj) => obj.SetActive(false),
-                (obj) => Destroy(item.obj),
-                true,
+                (obj) => Destroy(obj),
+                false,
                 Init_train,
-                Max_train);
-            {
-
-            };
+                Max_train
+            );
             pools.Add(item.type, pool);
         }
-
         SetUpPool();
-
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
@@ -78,7 +80,7 @@ public class ObjectPool : MonoBehaviour
 
         foreach( var item in items)
         {
-            for(int i = 0; i< Max_train; i++)
+            for(int i = 0; i < Max_train; i++)
             {
                 obj[i] = Instantiate(item.obj);
             }
@@ -87,7 +89,6 @@ public class ObjectPool : MonoBehaviour
                 pools[item.type].Release(obj[i]);
             }
         }
-
     }
 
 
@@ -107,21 +108,7 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        Debug.Log("ReturnToPool 呼ばれました");
-
-        try
-        {
-            obj.SetActive(false);
-            Debug.Log("SetActive完了");
-
-            pools[type].Release(obj);
-            Debug.Log("Release 完了");
-        }
-        catch (System.Exception e)
-        {
-            Debug.LogError($"Release中に例外発生:" + { e.GetType().Name} + { e.Message});
-
-        }
+        pools[type].Release(obj);
         Debug.Log("返却されました");
     }
 
