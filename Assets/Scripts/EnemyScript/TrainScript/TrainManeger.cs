@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
 public class TrainManeger : MonoBehaviour
@@ -55,6 +56,7 @@ public class TrainManeger : MonoBehaviour
             FrontTrain.transform.position = SecondTrainspawn.position;
             SecondTrainGenerateTime = 0.0f;
         }
+       
 
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
@@ -71,6 +73,7 @@ public class TrainManeger : MonoBehaviour
     {
         ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
         ReturnTrainTime = 0.0f;
+        Debug.Log("•Ô‹p‚³‚ê‚Ü‚·");
     }
 
 }
