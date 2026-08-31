@@ -83,8 +83,7 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
-            //ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
+            StartCoroutine(CallReturnPool());
             ReturnTrainTime = 0.0f;
         }
     }
@@ -184,9 +183,18 @@ public class RandomDropTrain : MonoBehaviour
         
     }
 
-   
+    IEnumerator CallReturnPool()
+    {
+        yield return new WaitForSeconds(3.0f);
+        ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
+        //ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
+       
+    }
+
     public void TrainIsStart()
     {
         IsTrainStart = true;
     }
+
+
 }
