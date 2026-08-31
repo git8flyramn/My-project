@@ -77,7 +77,7 @@ public class TrainManeger : MonoBehaviour
     IEnumerator ReturnPool()
     {
         yield return new WaitForSeconds(3.0f);
-        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+        ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
         ReturnTrainTime = 0.0f;
 
     }

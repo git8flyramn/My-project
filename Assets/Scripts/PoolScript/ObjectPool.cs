@@ -103,6 +103,7 @@ public class ObjectPool : MonoBehaviour
         if (pools.ContainsKey(type))
         {
             pools[type].Release(obj);
+            Debug.Log("•Ô‹p‚³‚ê‚Ü‚µ‚½");
         }
     }
 
