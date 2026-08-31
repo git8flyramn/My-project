@@ -109,7 +109,7 @@ public class ObjectPool : MonoBehaviour
     public void ReturnToPool(GameObject obj,PoolType type)
     {
         pools[type].Release(obj);
-        Debug.Log("•Ô‹p‚³‚ê‚Ü‚µ‚½");
+       
     }
 
 }
