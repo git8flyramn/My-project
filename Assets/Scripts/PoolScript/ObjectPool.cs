@@ -53,15 +53,10 @@ public class ObjectPool : MonoBehaviour
         foreach (var item in items)
         {
             ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
-                () =>
-                {
-                    GameObject obj = Instantiate(item.obj);
-                    obj.SetActive(false);
-                    return obj;
-                },
+                () => Instantiate(item.obj),
                 (obj) => GetPooledObject(obj),
                 (obj) => obj.SetActive(false),
-                (obj) => Destroy(obj),
+                (obj) => Destroy(item.obj),
                 false,
                 Init_train,
                 Max_train
