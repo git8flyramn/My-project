@@ -61,7 +61,7 @@ public class TrainManeger : MonoBehaviour
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            CallPoolReturn();
+            StartCoroutine(ReturnPool());
         }
     }
 
@@ -74,6 +74,12 @@ public class TrainManeger : MonoBehaviour
         ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
         ReturnTrainTime = 0.0f;
         Debug.Log("•Ô‹p‚³‚ê‚Ü‚·");
+    }
+
+    IEnumerator ReturnPool()
+    {
+        yield return new WaitForSeconds(3.0f);
+        CallPoolReturn();
     }
 
 }

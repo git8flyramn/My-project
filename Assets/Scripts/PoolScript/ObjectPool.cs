@@ -109,6 +109,7 @@ public class ObjectPool : MonoBehaviour
         {
             Debug.Log("“®ìŠJn");
             pools[type].Release(obj);
+            obj.SetActive(false);
         }
         
     }
