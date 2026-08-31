@@ -57,7 +57,7 @@ public class ObjectPool : MonoBehaviour
                 (obj) => GetPooledObject(obj),
                 (obj) => obj.SetActive(false),
                 (obj) => Destroy(item.obj),
-                false,
+                true,
                 Init_train,
                 Max_train
             );

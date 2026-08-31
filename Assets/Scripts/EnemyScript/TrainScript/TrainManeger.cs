@@ -71,15 +71,15 @@ public class TrainManeger : MonoBehaviour
     }
     public void CallPoolReturn()
     {
-        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
-        ReturnTrainTime = 0.0f;
-      
+       
     }  
 
     IEnumerator ReturnPool()
     {
         yield return new WaitForSeconds(3.0f);
-        CallPoolReturn();
+        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+        ReturnTrainTime = 0.0f;
+
     }
 
 }
