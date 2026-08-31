@@ -73,8 +73,8 @@ public class TrainManeger : MonoBehaviour
     {
         ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
         ReturnTrainTime = 0.0f;
-        Debug.Log("•Ô‹p‚³‚ê‚Ü‚·");
-    }
+      
+    }  
 
     IEnumerator ReturnPool()
     {

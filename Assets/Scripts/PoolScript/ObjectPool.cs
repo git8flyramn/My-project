@@ -105,13 +105,10 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        if(pools.ContainsKey(type))
+        if (pools.ContainsKey(type))
         {
-            Debug.Log("動作開始");
             pools[type].Release(obj);
-            obj.SetActive(false);
         }
-        
     }
 
 }
