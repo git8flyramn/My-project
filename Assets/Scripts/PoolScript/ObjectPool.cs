@@ -105,11 +105,13 @@ public class ObjectPool : MonoBehaviour
             Debug.LogWarning(obj + "はすでに返却されているので、リリース機能をスキップしました");
             return;
         }
-        if(pools.TryGetValue(type, out var pool))
+        if (pools.TryGetValue(type, out var pool))
         {
-            obj.SetActive(false);
+            pool.Release(obj);
             Debug.Log("返却しました");
         }
+          
+     
         
        
     }
