@@ -13,6 +13,7 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
     [SerializeField] ObjectPool.PoolType poolType;
+    //private bool isReturn = false;
 
 
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
@@ -61,25 +62,15 @@ public class TrainManeger : MonoBehaviour
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            StartCoroutine(ReturnPool());
+                ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
+                ReturnTrainTime = 0.0f;
         }
     }
 
     public void SpawnTrain(GameObject obj)
     {
         ObjectPool.instance.OnGet(poolType);
-    }
-    public void CallPoolReturn()
-    {
        
-    }  
-
-    IEnumerator ReturnPool()
-    {
-        yield return new WaitForSeconds(3.0f);
-        ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
-        ReturnTrainTime = 0.0f;
-
     }
 
 }
