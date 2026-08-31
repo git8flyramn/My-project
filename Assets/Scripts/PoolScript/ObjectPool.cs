@@ -100,9 +100,10 @@ public class ObjectPool : MonoBehaviour
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj,PoolType type)
     {
+        pools[type].Release(obj);
         if (pools.ContainsKey(type))
         {
-            pools[type].Release(obj);
+           
             Debug.Log("•Ô‹p‚³‚ê‚Ü‚µ‚½");
         }
     }
