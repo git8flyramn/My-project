@@ -30,8 +30,11 @@ public class ObjectPool : MonoBehaviour
 
 
 
-    void Awake()
+   
+
+    void Start()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -40,13 +43,7 @@ public class ObjectPool : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-    }
-
-
-
-    void Start()
-    {
-      InitializePool();
+        InitializePool();
     }
 
        
@@ -108,8 +105,13 @@ public class ObjectPool : MonoBehaviour
     //égópå„Ç…ï‘ãpÇ∑ÇÈ
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        pools[type].Release(obj);
-        Debug.Log("ï‘ãpÇ≥ÇÍÇ‹ÇµÇΩ");
+        if(pools.ContainsKey(type))
+        {
+            Debug.Log("ìÆçÏäJén");
+            pools[type].Release(obj);
+            Debug.Log(obj + "Ç™ï‘ãpÇ≥ÇÍÇ‹ÇµÇΩ");
+        }
+        
     }
 
 }
