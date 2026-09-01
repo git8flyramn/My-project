@@ -69,11 +69,6 @@ public class TrainManeger : MonoBehaviour
     {
         ObjectPool.instance.OnGet(poolType);
     }
-    public void CallPoolReturn()
-    {
-       
-    }  
-
     IEnumerator ReturnPool()
     {
         yield return new WaitForSeconds(3.0f);
