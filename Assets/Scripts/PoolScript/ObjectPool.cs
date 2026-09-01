@@ -88,7 +88,6 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-       
     }
 
     public void OnGet(PoolType type)
@@ -108,15 +107,11 @@ public class ObjectPool : MonoBehaviour
         }
         if (pools.TryGetValue(type, out var pool))
         {
-            pool.Release(obj);
+           // pool.Release(obj);
+            obj.gameObject.SetActive(false);
             Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½");
         }
-          
-     
-        
-       
     }
-
 }
 
   
