@@ -23,8 +23,8 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 6;
-    private int Init_train = 3; 
+    private int Max_train = 7;
+    private int Init_train = 4; 
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
 
