@@ -6969,6 +6969,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FrontTrain: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
+  SecondTrain: {fileID: 6855479284151090953, guid: f180af16ed498fa44b3c5d4033a1d287, type: 3}
   Trainspawn: {fileID: 1726683440}
   SecondTrainspawn: {fileID: 275162171}
   poolType: 0
@@ -7890,75 +7891,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a25199ce9cfffb448ca855c27b1f4ad, type: 3}
---- !u!1001 &2066986403
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.8116784
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.8116784
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.8116784
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -62.129
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -313.83
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
-      propertyPath: m_Name
-      value: Fire Station
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 84739c92683838b4aa7bd9b0d404e572, type: 3}
 --- !u!1001 &2078727982
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8253,6 +8185,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
+--- !u!1001 &2126473713
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6338585650370286067, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_Name
+      value: Fire Station (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -61.7039
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0194759
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -309.2232
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7031044
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7110867
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6682496031827282761, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ed27225608fe2d47bbffbd4a96d55a6, type: 3}
 --- !u!1 &2128817596
 GameObject:
   m_ObjectHideFlags: 0
@@ -9329,6 +9318,7 @@ SceneRoots:
   - {fileID: 1203156672}
   - {fileID: 1608842319}
   - {fileID: 129985341}
+  - {fileID: 2126473713}
   - {fileID: 1510689733}
   - {fileID: 390507403}
   - {fileID: 567944020}
@@ -9348,4 +9338,3 @@ SceneRoots:
   - {fileID: 1510846920}
   - {fileID: 1367488817}
   - {fileID: 1966467725}
-  - {fileID: 2066986403}

@@ -44,6 +44,7 @@ public class ObjectPool : MonoBehaviour
             Destroy(this.gameObject);
         }
         InitializePool();
+        SetUpPool();
     }
 
        
@@ -63,7 +64,6 @@ public class ObjectPool : MonoBehaviour
             );
             pools.Add(item.type, pool);
         }
-        SetUpPool();
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
@@ -94,8 +94,6 @@ public class ObjectPool : MonoBehaviour
     {
         pools[type].Get();
     }
-
-
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
@@ -108,11 +106,13 @@ public class ObjectPool : MonoBehaviour
         if (pools.TryGetValue(type, out var pool))
         {
             pools[type].Release(obj);
+            //obj.SetActive(false);
             Debug.Log( obj + "が返却されました");
-
         }
     }
 }
+
+
 
   
 
