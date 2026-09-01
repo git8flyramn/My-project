@@ -103,7 +103,6 @@ public class ObjectPool : MonoBehaviour
         if (!obj.activeSelf)
         {
             Debug.LogWarning(obj + "はすでに返却されているので、リリース機能をスキップしました");
-            obj = null;
             return;
         }
         if (pools.TryGetValue(type, out var pool))

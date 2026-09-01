@@ -13,7 +13,7 @@ public class TrainManeger : MonoBehaviour
     //電車の生成位置
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
-    [SerializeField] ObjectPool.PoolType poolType;
+    　　　　　　　　　　ObjectPool.PoolType poolType;
     //private bool isReturn = false;
 
 
@@ -58,7 +58,7 @@ public class TrainManeger : MonoBehaviour
         if (SecondTrainGenerateTime >= SecondTrainInterval)
         {
             SpawnTrain(SecondTrain);
-            FrontTrain.transform.position = SecondTrainspawn.position;
+            SecondTrain.transform.position = SecondTrainspawn.position;
             SecondTrainGenerateTime = 0.0f;
         }
 
@@ -67,14 +67,14 @@ public class TrainManeger : MonoBehaviour
         if (ReturnTrainTime > ReturnTrainInverval)
         {
             ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
-            ObjectPool.instance.ReturnToPool(SecondTrain, ObjectPool.PoolType.SecondTrain);
+           // ObjectPool.instance.ReturnToPool(SecondTrain, ObjectPool.PoolType.SecondTrain);
             ReturnTrainTime = 0.0f;
         }
     }
 
     public void SpawnTrain(GameObject obj)
     {
-        ObjectPool.instance.OnGet(poolType);
+        obj.SetActive(true);
     }
 
 }
