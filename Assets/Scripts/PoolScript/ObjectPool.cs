@@ -111,6 +111,10 @@ public class ObjectPool : MonoBehaviour
             pool.Release(obj);
             Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½");
         }
+          
+     
+        
+       
     }
 
 }
