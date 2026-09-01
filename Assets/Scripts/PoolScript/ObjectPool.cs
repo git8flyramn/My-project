@@ -105,11 +105,15 @@ public class ObjectPool : MonoBehaviour
             Debug.LogWarning(obj + "はすでに返却されているので、リリース機能をスキップしました");
             return;
         }
-        if (pools.TryGetValue(type, out var pool))
+        else
         {
-           // pool.Release(obj);
             obj.gameObject.SetActive(false);
             Debug.Log("返却しました");
+        }
+        if (pools.TryGetValue(type, out var pool))
+        {
+            pools[type].Release(obj);
+           
         }
     }
 }

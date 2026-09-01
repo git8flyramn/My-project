@@ -66,7 +66,7 @@ public class TrainManeger : MonoBehaviour
             {
                 return;
             }
-           ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
+         // ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
            ReturnTrainTime = 0.0f;
         }
     }
