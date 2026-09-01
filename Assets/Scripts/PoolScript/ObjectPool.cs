@@ -105,8 +105,7 @@ public class ObjectPool : MonoBehaviour
 
         if (pools.TryGetValue(type, out var pool))
         {
-            pools[type].Release(obj);
-            //obj.SetActive(false);
+            obj.SetActive(false);
             Debug.Log( obj + "‚ª•Ô‹p‚³‚ê‚Ü‚µ‚½");
         }
     }

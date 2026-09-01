@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -27,6 +28,8 @@ public class TrainManeger : MonoBehaviour
     //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
     private float ReturnTrainTime = 0.0f;
     private float ReturnTrainInverval = 15.0f;
+
+   
 
     void Start()
     {
