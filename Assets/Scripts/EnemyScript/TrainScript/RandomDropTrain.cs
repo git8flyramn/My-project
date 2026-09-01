@@ -186,8 +186,8 @@ public class RandomDropTrain : MonoBehaviour
     IEnumerator CallReturnPool()
     {
         yield return new WaitForSeconds(3.0f);
-      //  ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
-        //ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
+        ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
+        ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
        
     }
 
