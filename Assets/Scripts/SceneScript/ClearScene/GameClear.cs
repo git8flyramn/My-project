@@ -45,7 +45,7 @@ public class GameClear : MonoBehaviour
     IEnumerator ClrearSEWaitTime()
     {
         ClearWord.text = ClearWord.ToString();
-        ClearWord.text = "Goal!!!";
+        ClearWord.text = "GOAL!!!";
         ClearWord.gameObject.SetActive(true);
         yield return new WaitForSeconds(deleayTime);
         SceneManager.LoadScene("GameClear");

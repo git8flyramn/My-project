@@ -36,12 +36,6 @@ public class BothTrainMove : MonoBehaviour
     
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void TrainMove()
     {
         rb = GetComponent<Rigidbody>();

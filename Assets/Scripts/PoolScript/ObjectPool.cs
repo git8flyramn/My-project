@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 
 
+
 public class ObjectPool : MonoBehaviour
 {
 
@@ -23,8 +24,9 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 6;
-    private int Init_train = 3; 
+    private int Max_train = 9;
+    private int Init_train = 5;
+    private bool isRelease = false;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
 
@@ -44,6 +46,7 @@ public class ObjectPool : MonoBehaviour
             Destroy(this.gameObject);
         }
         InitializePool();
+        SetUpPool();
     }
 
        
@@ -56,14 +59,13 @@ public class ObjectPool : MonoBehaviour
                 () => Instantiate(item.obj),
                 (obj) => GetPooledObject(obj),
                 (obj) => obj.SetActive(false),
-                (obj) => Destroy(item.obj),
+                (obj) => Destroy(obj),
                 true,
                 Init_train,
                 Max_train
             );
             pools.Add(item.type, pool);
         }
-        SetUpPool();
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
@@ -88,22 +90,19 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-       
     }
 
     public void OnGet(PoolType type)
     {
         pools[type].Get();
+        isRelease = true;
     }
-
-
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
      
         if (!obj.activeSelf)
         {
-            Debug.LogWarning(obj + "はすでに返却されているので、リリース機能をスキップしました");
             return;
         }
         if (pools.TryGetValue(type, out var pool))
@@ -114,7 +113,6 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-}
 
   
 

@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Pool;
 public class TrainManeger : MonoBehaviour
@@ -13,30 +13,35 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
     [SerializeField] ObjectPool.PoolType poolType;
-    private bool isReturn = false;
+    //private bool isReturn = false;
 
 
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
-    private float TrainInterval = 5.0f;
-    private float SecondTrainInterval = 8.0f;
+    private float TrainInterval = 3.0f;
+    private float SecondTrainInterval = 6.0f;
 
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
 
     //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 10.0f;
+    private float ReturnTrainInverval = 8.0f;
 
-    void Start()
-    {
-        
-    }
+   
+
+   
 
     void Update()
     {
         TrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
+        if (ReturnTrainTime > ReturnTrainInverval)
+        {
+            ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+            ReturnTrainTime = 0.0f;
+
+        }
         TrainGenerate();
     }
 
@@ -44,17 +49,16 @@ public class TrainManeger : MonoBehaviour
     void TrainGenerate()
     {
 
-        if (TrainGenerateTime >= TrainInterval)
+        if (TrainGenerateTime > TrainInterval)
         {
-            SpawnTrain(FrontTrain);
-            FrontTrain.transform.position = Trainspawn.position;
+            TrainSetPosition(Trainspawn, FrontTrain);
+            ObjectPool.instance.OnGet(poolType);
             TrainGenerateTime = 0.0f;
         }
 
-        if (SecondTrainGenerateTime >= SecondTrainInterval)
+        if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-            //SpawnTrain(FrontTrain);
-            FrontTrain.transform.position = SecondTrainspawn.position;
+            TrainSetPosition(SecondTrainspawn, FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
        
