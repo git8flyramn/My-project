@@ -100,20 +100,18 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
     {
-        if(!obj.activeSelf)
+     
+        if (!obj.activeSelf)
         {
             Debug.LogWarning(obj + "はすでに返却されているので、リリース機能をスキップしました");
             return;
         }
         if (pools.TryGetValue(type, out var pool))
         {
+            obj.SetActive(false);
             pool.Release(obj);
             Debug.Log("返却しました");
         }
-          
-     
-        
-       
     }
 
 }

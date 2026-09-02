@@ -66,15 +66,19 @@ public class TrainManeger : MonoBehaviour
             {
                 return;
             }
-           ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
+
+            Debug.Log("ï‘ãpëŒè€: " + FrontTrain);
+            Debug.Log("activeSelf: " + FrontTrain.activeSelf);
+            Debug.Log("êe: " + FrontTrain.transform.parent);
+            ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
            ReturnTrainTime = 0.0f;
         }
     }
 
-    public void SpawnTrain(GameObject obj)
+     public void  SpawnTrain(GameObject obj)
     {
-        ObjectPool.instance.OnGet(poolType);
-       
+        obj = ObjectPool.instance.OnGet(poolType);
+        
     }
 
 }
