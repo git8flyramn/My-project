@@ -64,7 +64,6 @@ public class TrainManeger : MonoBehaviour
         {
             ObjectPool.instance.OnGet(poolType);
             FrontTrain.transform.position = SecondTrainspawn.position;
-            Debug.Log("¶¬‚³‚ê‚Ü‚·");
             SecondTrainGenerateTime = 0.0f;
         }
         //“dÔ‚ğ•Ô‹p‚·‚é‚Ü‚Å‚ÌŠÔ
