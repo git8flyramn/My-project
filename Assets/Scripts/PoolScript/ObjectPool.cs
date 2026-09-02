@@ -24,8 +24,9 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 10;
-    private int Init_train = 4; 
+    private int Max_train = 9;
+    private int Init_train = 3;
+    private bool isRelease = false;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
 
@@ -58,7 +59,7 @@ public class ObjectPool : MonoBehaviour
                 () => Instantiate(item.obj),
                 (obj) => GetPooledObject(obj),
                 (obj) => obj.SetActive(false),
-                (obj) => Destroy(item.obj),
+                (obj) => Destroy(obj),
                 true,
                 Init_train,
                 Max_train
@@ -94,17 +95,19 @@ public class ObjectPool : MonoBehaviour
     public void OnGet(PoolType type)
     {
         pools[type].Get();
+        isRelease = true;
     }
     //使用後に返却する
     public void ReturnToPool(GameObject obj,PoolType type)
-    {
-        if (pools.ContainsKey(type))
+    { 
+       if(!isRelease)
         {
-            pools[type].Release(obj);
-            Debug.Log("返却されました");
-            obj = null;
+            Debug.Log("二重リリースです");
         }
-       
+        isRelease = false;
+        Debug.Log("リリース機能正常に動作");
+        obj.SetActive(false);
+        Debug.Log(obj + "返却されました" + pools[type].CountActive);
     }
 }
 

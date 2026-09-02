@@ -83,7 +83,7 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-           // StartCoroutine(CallReturnPool());
+            StartCoroutine(CallReturnPool());
             ReturnTrainTime = 0.0f;
         }
     }
@@ -119,7 +119,6 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeRightPositionZ(-934.0f, -942.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.SecondTrain);
             SecondRightTrainGenerateTime = 0.0f;
         }
     }
@@ -152,7 +151,6 @@ public class RandomDropTrain : MonoBehaviour
 
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
@@ -180,8 +178,8 @@ public class RandomDropTrain : MonoBehaviour
     IEnumerator CallReturnPool()
     {
         yield return new WaitForSeconds(3.0f);
-     //   ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
-       // ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
+        ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
+        ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
        
     }
 
