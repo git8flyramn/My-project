@@ -135,9 +135,9 @@ public class RandomDropTrain : MonoBehaviour
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-885.6f, -898.0f);
-
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
@@ -145,9 +145,9 @@ public class RandomDropTrain : MonoBehaviour
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeLeftPositionZ(-969.0f, -980.0f);
-
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }

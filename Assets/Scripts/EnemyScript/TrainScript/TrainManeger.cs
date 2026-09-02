@@ -29,10 +29,7 @@ public class TrainManeger : MonoBehaviour
 
    
 
-    void Start()
-    {
-        
-    }
+   
 
     void Update()
     {
