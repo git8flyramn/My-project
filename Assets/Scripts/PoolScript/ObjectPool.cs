@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 
 
+
 public class ObjectPool : MonoBehaviour
 {
 
@@ -23,7 +24,7 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 7;
+    private int Max_train = 10;
     private int Init_train = 4; 
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
@@ -105,7 +106,7 @@ public class ObjectPool : MonoBehaviour
 
         if (pools.TryGetValue(type, out var pool))
         {
-            obj.SetActive(false);
+            pools.Remove(type);
             Debug.Log( obj + "‚ª•Ô‹p‚³‚ê‚Ü‚µ‚½");
         }
     }

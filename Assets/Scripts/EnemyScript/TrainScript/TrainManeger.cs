@@ -56,10 +56,11 @@ public class TrainManeger : MonoBehaviour
             TrainGenerateTime = 0.0f;
         }
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
-        if (ReturnTrainTime > ReturnTrainInverval)
+        if (ReturnTrainTime > ReturnTrainInverval && FrontTrain != null)
         {
             ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
             ReturnTrainTime = 0.0f;
+           
         }
     }
 
