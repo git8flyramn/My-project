@@ -83,7 +83,7 @@ public class RandomDropTrain : MonoBehaviour
         if (ReturnTrainTime > ReturnTrainInverval)
         {
             ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
-           // ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
+            ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
             ReturnTrainTime = 0.0f;
         }
     }
@@ -104,7 +104,6 @@ public class RandomDropTrain : MonoBehaviour
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.SecondTrain);
             RightTrainGenerateTime = 0.0f;
         }
         //3ñáñ⁄ÇÃê¸òH
@@ -116,7 +115,7 @@ public class RandomDropTrain : MonoBehaviour
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(DropObject, RightTrainRotaion, RightDropPos);
 
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.SecondTrain);
+           
             SecondRightTrainGenerateTime = 0.0f;
         }
     }
@@ -138,8 +137,6 @@ public class RandomDropTrain : MonoBehaviour
 
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
-
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
@@ -151,7 +148,7 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(OtherSideDropObject, LeftTrainRotaion, LeftDropPos);
 
-            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
+          
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
@@ -174,7 +171,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.position = pos;
         obj.transform.rotation = dir;
-       
+        Instantiate(obj, obj.transform.position, obj.transform.rotation);
     }
 
     IEnumerator CallReturnPool()
