@@ -105,12 +105,8 @@ public class ObjectPool : MonoBehaviour
             return;
         }
         isRelease = false;
-        if(isRelease == false && obj != null)
-        {
-            pools[type].Release(obj);
-            Debug.Log(obj + "•Ô‹p‚µ‚½‚¢");
-        }
-       
+        pools[type].Release(obj);
+        Debug.Log(obj + "•Ô‹p‚µ‚½‚¢");
     }
 }
 

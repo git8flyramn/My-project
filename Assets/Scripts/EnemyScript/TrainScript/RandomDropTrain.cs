@@ -10,7 +10,10 @@ public class RandomDropTrain : MonoBehaviour
     //¶¬‚·‚é“dŽÔ‚Ìƒ‚ƒfƒ‹‚ðŽó‚¯Žæ‚é•Ï”
     public GameObject RightSideDropObject;
     public GameObject LeftSideDropObject;
- 
+    [SerializeField] ObjectPool.PoolType RightTrainType;
+    [SerializeField] ObjectPool.PoolType LeftTrainType;
+
+
     public bool IsTrainStart = false;
 
     private GameObject LeftArrow;
@@ -82,8 +85,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            ObjectPool.instance.ReturnToPool(RightSideDropObject, ObjectPool.PoolType.ThirdTrain);
-            ObjectPool.instance.ReturnToPool(LeftSideDropObject, ObjectPool.PoolType.SecondTrain);
+            ObjectPool.instance.ReturnToPool(RightSideDropObject, RightTrainType);
+            ObjectPool.instance.ReturnToPool(LeftSideDropObject, LeftTrainType);
             ReturnTrainTime = 0.0f;
         }
     }
