@@ -102,12 +102,12 @@ public class ObjectPool : MonoBehaviour
     { 
        if(!isRelease)
         {
-            Debug.Log("二重リリースです");
+            return;
         }
         isRelease = false;
-        Debug.Log("リリース機能正常に動作");
+       
         obj.SetActive(false);
-        Debug.Log(obj + "返却されました" + pools[type].CountActive);
+       
     }
 }
 
