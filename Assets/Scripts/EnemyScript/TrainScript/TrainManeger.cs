@@ -17,8 +17,8 @@ public class TrainManeger : MonoBehaviour
 
 
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
-    private float TrainInterval = 5.0f;
-    private float SecondTrainInterval = 5.0f;
+    private float TrainInterval = 3.0f;
+    private float SecondTrainInterval = 6.0f;
 
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
@@ -51,20 +51,21 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-
+            TrainSetPosition(Trainspawn, FrontTrain);
             ObjectPool.instance.OnGet(poolType);
-            FrontTrain.transform.position = Trainspawn.position;
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-            ObjectPool.instance.OnGet(poolType);
-            FrontTrain.transform.position = SecondTrainspawn.position;
+            TrainSetPosition(SecondTrainspawn, FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
-        //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
-       
+    }
+
+    public void TrainSetPosition(Transform trans,GameObject obj)
+    {
+        obj.transform.position = trans.position;
     }
 
    
