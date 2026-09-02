@@ -18,14 +18,14 @@ public class TrainManeger : MonoBehaviour
 
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
     private float TrainInterval = 5.0f;
-    private float SecondTrainInterval = 7.0f;
+    private float SecondTrainInterval = 5.0f;
 
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
 
     //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 15.0f;
+    private float ReturnTrainInverval = 8.0f;
 
    
 
@@ -39,13 +39,19 @@ public class TrainManeger : MonoBehaviour
         TrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
+        if (ReturnTrainTime > ReturnTrainInverval)
+        {
+            ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+            ReturnTrainTime = 0.0f;
+
+        }
         TrainGenerate();
     }
 
     //“dŽÔ‚Ì¶¬
     void TrainGenerate()
     {
-        
+
         if (TrainGenerateTime > TrainInterval)
         {
 
@@ -54,19 +60,15 @@ public class TrainManeger : MonoBehaviour
             TrainGenerateTime = 0.0f;
         }
 
-        if(SecondTrainGenerateTime > SecondTrainInterval)
+        if (SecondTrainGenerateTime > SecondTrainInterval)
         {
             ObjectPool.instance.OnGet(poolType);
             FrontTrain.transform.position = SecondTrainspawn.position;
+            Debug.Log("¶¬‚³‚ê‚Ü‚·");
             SecondTrainGenerateTime = 0.0f;
         }
         //“dŽÔ‚ð•Ô‹p‚·‚é‚Ü‚Å‚ÌŽžŠÔ
-        if (ReturnTrainTime > ReturnTrainInverval && FrontTrain != null)
-        {
-            ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
-            ReturnTrainTime = 0.0f;
-           
-        }
+       
     }
 
    

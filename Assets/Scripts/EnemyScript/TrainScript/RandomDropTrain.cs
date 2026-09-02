@@ -55,8 +55,6 @@ public class RandomDropTrain : MonoBehaviour
     //¶‰E‚Ì“dŽÔ‚ÌŒü‚«
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
     private Quaternion RightTrainRotaion = Quaternion.Euler(0, 90, 0);
-
-    private bool isRelease = false;
   
     void Start()
     {
@@ -76,7 +74,6 @@ public class RandomDropTrain : MonoBehaviour
             DropRightForwardTrain();
             DropLeftForwardTrain();
             ReturnTrainTime += Time.deltaTime;
-            isRelease = true;
         }
         else if (IsTrainStart == false)
         {
@@ -85,7 +82,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            StartCoroutine(CallReturnPool());
+            ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
+            ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
             ReturnTrainTime = 0.0f;
         }
     }
@@ -182,13 +180,8 @@ public class RandomDropTrain : MonoBehaviour
     IEnumerator CallReturnPool()
     {
         yield return new WaitForSeconds(3.0f);
-        if(isRelease == true)
-        {
-            ObjectPool.instance.ReturnToPool(DropObject, ObjectPool.PoolType.SecondTrain);
-            ObjectPool.instance.ReturnToPool(OtherSideDropObject, ObjectPool.PoolType.ThirdTrain);
-        }
-       
-       
+        
+           
     }
 
     public void TrainIsStart()
