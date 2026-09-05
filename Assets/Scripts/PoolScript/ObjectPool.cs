@@ -9,30 +9,30 @@ public class ObjectPool : MonoBehaviour
 {
 
     public enum PoolType
-    { 
-       train,
-       SecondTrain,
-       ThirdTrain
+    {
+        train,
+        SecondTrain,
+        ThirdTrain
     }
 
     [System.Serializable]
     public class PoolItem
     {
-      
+
         public PoolType type;
-        public GameObject obj;  
+        public GameObject obj;
     }
 
     [SerializeField] List<PoolItem> items;
     private int Max_train = 9;
     private int Init_train = 5;
-    private bool isRelease = false;
+    //private bool isRelease = false;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
 
 
 
-   
+
 
     void Start()
     {
@@ -49,7 +49,7 @@ public class ObjectPool : MonoBehaviour
         SetUpPool();
     }
 
-       
+
     void InitializePool()
     {
 
@@ -72,9 +72,9 @@ public class ObjectPool : MonoBehaviour
     {
         GameObject[] obj = new GameObject[Max_train];
 
-        foreach( var item in items)
+        foreach (var item in items)
         {
-            for(int i = 0; i < Max_train; i++)
+            for (int i = 0; i < Max_train; i++)
             {
                 obj[i] = Instantiate(item.obj);
             }
@@ -95,23 +95,19 @@ public class ObjectPool : MonoBehaviour
     public void OnGet(PoolType type)
     {
         pools[type].Get();
-        isRelease = true;
     }
     //Žg—pŒã‚É•Ô‹p‚·‚é
-    public void ReturnToPool(GameObject obj,PoolType type)
+    public void ReturnToPool(GameObject obj, PoolType type)
     {
-     
-        if (!obj.activeSelf)
-        {
-            return;
-        }
+       
         if (pools.TryGetValue(type, out var pool))
         {
             obj.SetActive(false);
             pool.Release(obj);
-            Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½");
+            Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½" + obj.activeSelf);
         }
     }
+}
 
 
   

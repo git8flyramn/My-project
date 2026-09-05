@@ -13,8 +13,7 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
     [SerializeField] ObjectPool.PoolType poolType;
-    //private bool isReturn = false;
-
+    private PooledObject Train;
 
     //ìdé‘ÇÃê∂ê¨éûä‘Ç∆ê∂ê¨ä‘äu
     private float TrainInterval = 3.0f;
@@ -38,11 +37,13 @@ public class TrainManeger : MonoBehaviour
         SecondTrainGenerateTime += Time.deltaTime;
         if (ReturnTrainTime > ReturnTrainInverval)
         {
+            Debug.Log("ï‘ãpëŒè€: " + FrontTrain);
+            Debug.Log("activeSelf: " + FrontTrain.activeSelf);
             ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
             ReturnTrainTime = 0.0f;
 
         }
-        TrainGenerate();
+            TrainGenerate();
     }
 
     //ìdé‘ÇÃê∂ê¨
@@ -51,38 +52,24 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-            TrainSetPosition(Trainspawn, FrontTrain);
-            ObjectPool.instance.OnGet(poolType);
+            FrontTrain = SpawnTrain();
+           // ObjectPool.instance.GetPooledObject(FrontTrain);
+            FrontTrain.transform.position = Trainspawn.position;
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-            TrainSetPosition(SecondTrainspawn, FrontTrain);
+            FrontTrain.transform.position = SecondTrainspawn.position;
             SecondTrainGenerateTime = 0.0f;
-        }
-       
-
-        //ìdé‘Çï‘ãpÇ∑ÇÈÇ‹Ç≈ÇÃéûä‘
-        if (ReturnTrainTime > ReturnTrainInverval)
-        {
-            if(isReturn)
-            {
-                return;
-            }
-
-            Debug.Log("ï‘ãpëŒè€: " + FrontTrain);
-            Debug.Log("activeSelf: " + FrontTrain.activeSelf);
-            Debug.Log("êe: " + FrontTrain.transform.parent);
-            ObjectPool.instance.ReturnToPool(FrontTrain, ObjectPool.PoolType.train);
-           ReturnTrainTime = 0.0f;
         }
     }
 
-     public void  SpawnTrain(GameObject obj)
+     public GameObject  SpawnTrain()
     {
-        obj = ObjectPool.instance.OnGet(poolType);
-        
+       
+        FrontTrain = ObjectPool.instance.OnGet(poolType);
+        return FrontTrain;
     }
 
 }
