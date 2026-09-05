@@ -12,19 +12,19 @@ public class TrainManeger : MonoBehaviour
     //ìdé‘ÇÃê∂ê¨à íu
     [SerializeField] private Transform Trainspawn;
     [SerializeField] private Transform SecondTrainspawn;
+
     [SerializeField] ObjectPool.PoolType poolType;
-    private PooledObject Train;
 
     //ìdé‘ÇÃê∂ê¨éûä‘Ç∆ê∂ê¨ä‘äu
-    private float TrainInterval = 3.0f;
-    private float SecondTrainInterval = 6.0f;
+    private float TrainInterval = 5.0f;
+    private float SecondTrainInterval = 8.0f;
 
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
 
     //ìdé‘ÇÃï‘ãpéûä‘Ç∆ä‘äu
     private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 8.0f;
+    private float ReturnTrainInverval = 10.0f;
 
    
 
@@ -33,8 +33,9 @@ public class TrainManeger : MonoBehaviour
     void Update()
     {
         TrainGenerateTime += Time.deltaTime;
-        ReturnTrainTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
+        ReturnTrainTime += Time.deltaTime;
+       
         if (ReturnTrainTime > ReturnTrainInverval)
         {
             Debug.Log("ï‘ãpëŒè€: " + FrontTrain);
@@ -52,24 +53,25 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-            FrontTrain = SpawnTrain();
-           // ObjectPool.instance.GetPooledObject(FrontTrain);
+             SpawnTrain(FrontTrain);
             FrontTrain.transform.position = Trainspawn.position;
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
+            SpawnTrain(FrontTrain);
             FrontTrain.transform.position = SecondTrainspawn.position;
+            Debug.Log("2Ç¬ñ⁄ÇÃìdé‘Ç™ê∂ê¨Ç≥ÇÍÇ‹Ç∑");
             SecondTrainGenerateTime = 0.0f;
         }
     }
 
-     public GameObject  SpawnTrain()
+     public void SpawnTrain(GameObject obj)
     {
-       
-        FrontTrain = ObjectPool.instance.OnGet(poolType);
-        return FrontTrain;
+        ObjectPool.instance.GetPooledObject(obj);
+        ObjectPool.instance.OnGet(poolType);
+        
     }
 
 }
