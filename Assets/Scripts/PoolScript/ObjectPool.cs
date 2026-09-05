@@ -26,17 +26,13 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] List<PoolItem> items;
     private int Max_train = 9;
     private int Init_train = 5;
-    //private bool isRelease = false;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
 
 
 
-
-
-    void Start()
+    void Awake()
     {
-
         if (instance == null)
         {
             instance = this;
@@ -45,6 +41,11 @@ public class ObjectPool : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+
+    void Start()
+    {
         InitializePool();
         SetUpPool();
     }
@@ -103,7 +104,7 @@ public class ObjectPool : MonoBehaviour
         if (pools.TryGetValue(type, out var pool))
         {
             pool.Release(obj);
-            obj.SetActive(false);
+            //obj.SetActive(false);
             Debug.Log("•Ô‹p‚µ‚Ü‚µ‚½" + obj.activeSelf);
         }
     }
