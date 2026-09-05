@@ -6971,8 +6971,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FrontTrain: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
-  Trainspawn: {fileID: 1726683440}
-  SecondTrainspawn: {fileID: 275162171}
+  LeftTrainSpawn: {fileID: 1726683440}
+  RightTrainSpawn: {fileID: 275162171}
   poolType: 0
 --- !u!4 &1816161371 stripped
 Transform:

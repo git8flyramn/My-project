@@ -10,8 +10,10 @@ public class TrainManeger : MonoBehaviour
     //生成するオブジェクトの定義
     public GameObject FrontTrain;
     //電車の生成位置
-    [SerializeField] private Transform Trainspawn;
-    [SerializeField] private Transform SecondTrainspawn;
+    [SerializeField] private Transform LeftTrainSpawn;
+    [SerializeField] private Transform RightTrainSpawn;
+
+    private PooledObject pooledobject;
 
     [SerializeField] ObjectPool.PoolType poolType;
 
@@ -38,9 +40,9 @@ public class TrainManeger : MonoBehaviour
        
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            Debug.Log("返却対象: " + FrontTrain);
-            Debug.Log("activeSelf: " + FrontTrain.activeSelf);
-            ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+            //Debug.Log("返却対象: " + FrontTrain);
+            //Debug.Log("activeSelf: " + FrontTrain.activeSelf);
+            StartCoroutine(TrainReturn());
             ReturnTrainTime = 0.0f;
 
         }
@@ -53,25 +55,28 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-             SpawnTrain(FrontTrain);
-            FrontTrain.transform.position = Trainspawn.position;
+             SpawnTrain(LeftTrainSpawn);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-            SpawnTrain(FrontTrain);
-            FrontTrain.transform.position = SecondTrainspawn.position;
-            Debug.Log("2つ目の電車が生成されます");
+            SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
         }
     }
 
-     public void SpawnTrain(GameObject obj)
+     public void SpawnTrain(Transform transform)
     {
-        ObjectPool.instance.GetPooledObject(obj);
-        ObjectPool.instance.OnGet(poolType);
+           ObjectPool.instance.GetPooledObject(FrontTrain);
+            ObjectPool.instance.OnGet(poolType);
+           FrontTrain.transform.position = transform.position;
         
-    }
+     }   
 
+    IEnumerator TrainReturn()
+    {
+        yield return new WaitForSeconds(3.0f);
+        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+    }
 }
