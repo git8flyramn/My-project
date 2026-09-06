@@ -1,8 +1,7 @@
-using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.Pool;
 public class TrainManeger : MonoBehaviour
 {
@@ -12,9 +11,6 @@ public class TrainManeger : MonoBehaviour
     //“dŽÔ‚Ì¶¬ˆÊ’u
     [SerializeField] private Transform LeftTrainSpawn;
     [SerializeField] private Transform RightTrainSpawn;
-
-    private PooledObject pooledobject;
-
     [SerializeField] ObjectPool.PoolType poolType;
 
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
@@ -40,8 +36,7 @@ public class TrainManeger : MonoBehaviour
        
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            //Debug.Log("•Ô‹p‘ÎÛ: " + FrontTrain);
-            //Debug.Log("activeSelf: " + FrontTrain.activeSelf);
+           
             StartCoroutine(TrainReturn());
             ReturnTrainTime = 0.0f;
 
@@ -55,22 +50,20 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-             SpawnTrain(LeftTrainSpawn);
+             SpawnTrain(LeftTrainSpawn, FrontTrain);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-            SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
         }
     }
 
-     public void SpawnTrain(Transform transform)
+     public void SpawnTrain(Transform transform,GameObject obj)
     {
-           ObjectPool.instance.GetPooledObject(FrontTrain);
             ObjectPool.instance.OnGet(poolType);
-           FrontTrain.transform.position = transform.position;
+            obj.transform.position = transform.position;
         
      }   
 
@@ -78,5 +71,6 @@ public class TrainManeger : MonoBehaviour
     {
         yield return new WaitForSeconds(3.0f);
         ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
+        FrontTrain = null;
     }
 }
