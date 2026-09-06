@@ -85,7 +85,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            StartCoroutine(TrainReturn());
+            ObjectPool.instance.ReturnToPool(RightSideDropObject, RightTrainType);
+            ObjectPool.instance.ReturnToPool(LeftSideDropObject, LeftTrainType);
             ReturnTrainTime = 0.0f;
         }
     }
@@ -103,10 +104,12 @@ public class RandomDropTrain : MonoBehaviour
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-842.0f, -850.0f);
+
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-            ObjectPool.instance.OnGet(RightTrainType);
 
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.SecondTrain);
+            
             RightTrainGenerateTime = 0.0f;
         }
         //3ñáñ⁄ÇÃê¸òH
@@ -114,6 +117,7 @@ public class RandomDropTrain : MonoBehaviour
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-934.0f, -942.0f);
+
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
 
@@ -137,8 +141,10 @@ public class RandomDropTrain : MonoBehaviour
 
             SetRangeLeftPositionZ(-885.6f, -898.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
+
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
-            ObjectPool.instance.OnGet(LeftTrainType);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
+
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
@@ -148,7 +154,10 @@ public class RandomDropTrain : MonoBehaviour
             
             SetRangeLeftPositionZ(-969.0f, -980.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
+
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
+            ObjectPool.instance.OnGet(ObjectPool.PoolType.ThirdTrain);
+
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
@@ -177,17 +186,4 @@ public class RandomDropTrain : MonoBehaviour
     {
         IsTrainStart = true;
     }
-
-    IEnumerator TrainReturn()
-    {
-        Debug.Log("ï‘ãpëŒè€: " + RightSideDropObject);
-        Debug.Log("activeSelf: " + RightSideDropObject.activeSelf);
-        Debug.Log("ï‘ãpëŒè€: " + LeftSideDropObject);
-        Debug.Log("activeSelf: " + LeftSideDropObject.activeSelf);
-        yield return new WaitForSeconds(3.0f);
-        ObjectPool.instance.ReturnToPool(RightSideDropObject, RightTrainType);
-        ObjectPool.instance.ReturnToPool(LeftSideDropObject, LeftTrainType);
-    }
-
-
 }

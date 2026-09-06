@@ -13,6 +13,7 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform RightTrainSpawn;
     [SerializeField] ObjectPool.PoolType poolType;
 
+    private PooledObject Train;
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
     private float TrainInterval = 5.0f;
     private float SecondTrainInterval = 8.0f;
@@ -26,6 +27,8 @@ public class TrainManeger : MonoBehaviour
 
    
 
+    
+   
    
 
     void Update()
@@ -33,15 +36,7 @@ public class TrainManeger : MonoBehaviour
         TrainGenerateTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
-       
-        if (ReturnTrainTime > ReturnTrainInverval)
-        {
-           
-            StartCoroutine(TrainReturn());
-            ReturnTrainTime = 0.0f;
-
-        }
-            TrainGenerate();
+        TrainGenerate();
     }
 
     //“dŽÔ‚Ì¶¬
@@ -50,27 +45,40 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-             SpawnTrain(LeftTrainSpawn, FrontTrain);
+            SpawnTrain(LeftTrainSpawn);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
+           
+            SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
+        }
+
+        if (ReturnTrainTime > ReturnTrainInverval)
+        {
+            StartCoroutine(TrainReturn(FrontTrain));
         }
     }
 
-     public void SpawnTrain(Transform transform,GameObject obj)
+     public void SpawnTrain(Transform transform)
     {
-            ObjectPool.instance.OnGet(poolType);
-            obj.transform.position = transform.position;
-        
+         ObjectPool.instance.OnGet(poolType);
+        if(FrontTrain != null)
+        {
+            FrontTrain.transform.position = transform.position;
+        }
      }   
 
-    IEnumerator TrainReturn()
+    IEnumerator TrainReturn(GameObject obj)
     {
         yield return new WaitForSeconds(3.0f);
-        ObjectPool.instance.ReturnToPool(FrontTrain, poolType);
-        FrontTrain = null;
+        if(obj != null)
+        {
+            ObjectPool.instance.ReturnToPool(obj,poolType);
+            ReturnTrainTime = 0.0f;
+        }
+        
     }
 }

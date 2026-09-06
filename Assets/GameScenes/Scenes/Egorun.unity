@@ -3304,6 +3304,7 @@ GameObject:
   m_Component:
   - component: {fileID: 816368635}
   - component: {fileID: 816368634}
+  - component: {fileID: 816368636}
   m_Layer: 0
   m_Name: PoolManeger
   m_TagString: Untagged
@@ -3345,6 +3346,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816368636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816368633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 534f6b4f9bf13c14c86970974ea1b050, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PooledObject
 --- !u!1 &843170039 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6457917899182998013, guid: 9177335d005e4884889663302aaf1fe1, type: 3}

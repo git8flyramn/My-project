@@ -82,6 +82,7 @@ public class ObjectPool : MonoBehaviour
             }
             for (int i = 0; i < Max_train; i++)
             {
+              //  obj[i].SetActive(false);
                 pools[item.type].Release(obj[i]);
             }
         }
