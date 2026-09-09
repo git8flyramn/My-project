@@ -25,17 +25,21 @@ public class TrainManeger : MonoBehaviour
     private float ReturnTrainTime = 0.0f;
     private float ReturnTrainInverval = 10.0f;
 
-   
 
-    
-   
-   
+
+
+
+    void Start()
+    {
+        ObjectPool.instance.InitializePool();
+    }
 
     void Update()
     {
         TrainGenerateTime += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
         ReturnTrainTime += Time.deltaTime;
+       
         TrainGenerate();
     }
 

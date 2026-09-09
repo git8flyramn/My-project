@@ -24,7 +24,7 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 9;
+    private int Max_train = 6;
     private int Init_train = 5;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
@@ -44,12 +44,7 @@ public class ObjectPool : MonoBehaviour
     }
 
 
-    void Start()
-    {
-      
-        InitializePool();
-        SetUpPool();
-    }
+   
 
 
     void InitializePool()
@@ -68,6 +63,7 @@ public class ObjectPool : MonoBehaviour
             );
             pools.Add(item.type, pool);
         }
+        SetUpPool();
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
@@ -82,7 +78,6 @@ public class ObjectPool : MonoBehaviour
             }
             for (int i = 0; i < Max_train; i++)
             {
-              //  obj[i].SetActive(false);
                 pools[item.type].Release(obj[i]);
             }
         }
