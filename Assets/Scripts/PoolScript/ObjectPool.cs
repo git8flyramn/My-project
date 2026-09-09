@@ -43,7 +43,10 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-
+    void Start()
+    {
+        InitializePool();
+    }
    
 
 
@@ -87,10 +90,11 @@ public class ObjectPool : MonoBehaviour
     //オブジェクトの取得
     public void GetPooledObject(GameObject obj)
     {
-        obj.SetActive(true);
-
         var pooledobject = obj.GetComponent<PooledObject>();
+        obj.SetActive(true);
         pooledobject.isActive = true;
+       
+       
     }
 
     public void OnGet(PoolType type)

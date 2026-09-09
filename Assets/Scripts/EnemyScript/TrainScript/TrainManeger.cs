@@ -29,11 +29,6 @@ public class TrainManeger : MonoBehaviour
 
 
 
-    void Start()
-    {
-        ObjectPool.instance.InitializePool();
-    }
-
     void Update()
     {
         TrainGenerateTime += Time.deltaTime;
@@ -69,6 +64,7 @@ public class TrainManeger : MonoBehaviour
      public void SpawnTrain(Transform transform)
     {
          ObjectPool.instance.OnGet(poolType);
+         ObjectPool.instance.GetPooledObject(FrontTrain);
         if(FrontTrain != null)
         {
             FrontTrain.transform.position = transform.position;

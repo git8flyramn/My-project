@@ -180,6 +180,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.position = pos;
         obj.transform.rotation = dir;
+        ObjectPool.instance.GetPooledObject(obj);
     }
 
     public void TrainIsStart()
