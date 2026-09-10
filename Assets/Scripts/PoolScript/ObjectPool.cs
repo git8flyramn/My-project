@@ -28,7 +28,7 @@ public class ObjectPool : MonoBehaviour
     private int Init_train = 5;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
-    
+    private bool isActive = false;
 
 
     void Awake()
@@ -90,11 +90,8 @@ public class ObjectPool : MonoBehaviour
     //オブジェクトの取得
     public void GetPooledObject(GameObject obj)
     {
-        var pooledobject = obj.GetComponent<PooledObject>();
         obj.SetActive(true);
-        pooledobject.isActive = true;
-       
-       
+        isActive = true;
     }
 
     public void OnGet(PoolType type)
@@ -104,16 +101,17 @@ public class ObjectPool : MonoBehaviour
     //使用後に返却する
     public void ReturnToPool(GameObject obj, PoolType type)
     {
-        var pooledobject = obj.GetComponent<PooledObject>();
-        if(!pooledobject.isActive)
+       
+        if(!isActive)
         {
             Debug.Log("返却されていません" + obj.name);
             return;
         }
 
-        pooledobject.isActive = false; 
+       
         Debug.Log("返却されます: " + obj);
         pools[type].Release(obj);
+        isActive = false;
         Debug.Log("activeSelf: " + obj.activeSelf);
     }
 }

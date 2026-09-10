@@ -44,41 +44,38 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-            SpawnTrain(LeftTrainSpawn);
+            SpawnTrain(LeftTrainSpawn,FrontTrain);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
            
-            SpawnTrain(RightTrainSpawn);
+            SpawnTrain(RightTrainSpawn,FrontTrain);
             SecondTrainGenerateTime = 0.0f;
         }
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            StartCoroutine(TrainReturn(FrontTrain));
+            TrainReturn(FrontTrain);
         }
     }
 
-     public void SpawnTrain(Transform transform)
+     public void SpawnTrain(Transform transform,GameObject obj)
     {
          ObjectPool.instance.OnGet(poolType);
-         ObjectPool.instance.GetPooledObject(FrontTrain);
-        if(FrontTrain != null)
-        {
-            FrontTrain.transform.position = transform.position;
-        }
-     }   
-
-    IEnumerator TrainReturn(GameObject obj)
-    {
-        yield return new WaitForSeconds(3.0f);
+         ObjectPool.instance.GetPooledObject(obj);
         if(obj != null)
         {
-            ObjectPool.instance.ReturnToPool(obj,poolType);
+            obj.transform.position = transform.position;
+        }
+     }   
+    void TrainReturn(GameObject obj)
+    {
+        if (obj != null)
+        {
+            ObjectPool.instance.ReturnToPool(obj, poolType);
             ReturnTrainTime = 0.0f;
         }
-        
     }
 }
