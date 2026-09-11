@@ -74,8 +74,8 @@ public class RandomDropTrain : MonoBehaviour
     {
         if (IsTrainStart == true)
         {
-            DropRightForwardTrain();
-            DropLeftForwardTrain();
+           // DropRightForwardTrain();
+            //DropLeftForwardTrain();
             ReturnTrainTime += Time.deltaTime;
         }
         else if (IsTrainStart == false)
@@ -85,8 +85,8 @@ public class RandomDropTrain : MonoBehaviour
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            ObjectPool.instance.ReturnToPool(RightSideDropObject, RightTrainType);
-            ObjectPool.instance.ReturnToPool(LeftSideDropObject, LeftTrainType);
+           // ObjectPool.instance.ReturnToPool(RightSideDropObject, RightTrainType);
+            //ObjectPool.instance.ReturnToPool(LeftSideDropObject, LeftTrainType);
             ReturnTrainTime = 0.0f;
         }
     }
