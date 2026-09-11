@@ -43,7 +43,7 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-            SpawnTrain(LeftTrainSpawn, FrontTrain);
+            SpawnTrain(LeftTrainSpawn);
             TrainGenerateTime = 0.0f;
         }
 
@@ -59,9 +59,9 @@ public class TrainManeger : MonoBehaviour
         }
     }
 
-     public void SpawnTrain(Transform transform,GameObject obj)
+     public void SpawnTrain(Transform transform)
      {
-        ObjectPool.instance.OnGet(poolType,obj);
+        ObjectPool.instance.OnGet(poolType);
         FrontTrain.transform.position = transform.position;
      }
     

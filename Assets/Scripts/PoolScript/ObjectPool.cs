@@ -28,7 +28,6 @@ public class ObjectPool : MonoBehaviour
     private int Init_train = 5;
     public static ObjectPool instance;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
-    private bool isActive = false;
 
 
     void Awake()
@@ -91,28 +90,30 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-        isActive = true;
+       
       
     }
 
-    public void OnGet(PoolType type,GameObject obj)
+    public void OnGet(PoolType type)
     {
-        pools[type].Get();
+       GameObject obj =  pools[type].Get();
         Debug.Log("obj: " + obj);
         Debug.Log("obj_ID: " + obj.GetEntityId());
+       
     }
     //égópå„Ç…ï‘ãpÇ∑ÇÈ
     public void ReturnToPool(GameObject obj, PoolType type)
     {  
-        if(!isActive)
+        if(obj == null)
         {
-            Debug.Log("ï‘ãpÇ≥ÇÍÇƒÇ¢Ç‹ÇπÇÒ" + obj.name);
+            Debug.Log("ï‘ãpÇ∑ÇÈÇ±Ç∆ÇÕèoóàÇ‹ÇπÇÒ" + obj.name);
             return;
         }
+
         Debug.Log("ï‘ãpÇ≥ÇÍÇ‹Ç∑: " + obj);
         Debug.Log("obj_ID:" + obj.GetEntityId());
         pools[type].Release(obj);
-        isActive = false;                            
+                                  
         Debug.Log("activeSelf: " + obj.activeSelf);
     }
 }
