@@ -100,15 +100,12 @@ public class ObjectPool : MonoBehaviour
     }
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj, PoolType type)
-    {
-       
+    {  
         if(!isActive)
         {
             Debug.Log("•Ô‹p‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ" + obj.name);
             return;
         }
-
-       
         Debug.Log("•Ô‹p‚³‚ê‚Ü‚·: " + obj);
         pools[type].Release(obj);
         isActive = false;

@@ -12,8 +12,8 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform LeftTrainSpawn;
     [SerializeField] private Transform RightTrainSpawn;
     [SerializeField] ObjectPool.PoolType poolType;
-
-    private PooledObject Train;
+    
+   
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
     private float TrainInterval = 5.0f;
     private float SecondTrainInterval = 8.0f;
@@ -31,10 +31,9 @@ public class TrainManeger : MonoBehaviour
 
     void Update()
     {
-        TrainGenerateTime += Time.deltaTime;
+        TrainGenerateTime       += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
-        ReturnTrainTime += Time.deltaTime;
-       
+        ReturnTrainTime         += Time.deltaTime;
         TrainGenerate();
     }
 
@@ -44,14 +43,13 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
-            SpawnTrain(LeftTrainSpawn,FrontTrain);
+            SpawnTrain(LeftTrainSpawn);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-           
-            SpawnTrain(RightTrainSpawn,FrontTrain);
+          //  SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
         }
 
@@ -61,21 +59,15 @@ public class TrainManeger : MonoBehaviour
         }
     }
 
-     public void SpawnTrain(Transform transform,GameObject obj)
-    {
-         ObjectPool.instance.OnGet(poolType);
-         ObjectPool.instance.GetPooledObject(obj);
-        if(obj != null)
-        {
-            obj.transform.position = transform.position;
-        }
-     }   
-    void TrainReturn(GameObject obj)
-    {
-        if (obj != null)
-        {
-            ObjectPool.instance.ReturnToPool(obj, poolType);
-            ReturnTrainTime = 0.0f;
-        }
-    }
+     public void SpawnTrain(Transform transform)
+     {
+        ObjectPool.instance.OnGet(poolType);
+        FrontTrain.transform.position = transform.position;
+     }
+    
+     void TrainReturn(GameObject obj)
+     {
+        ObjectPool.instance.ReturnToPool(obj,poolType);
+        ReturnTrainTime = 0.0f;
+     }
 }
