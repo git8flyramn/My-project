@@ -92,12 +92,14 @@ public class ObjectPool : MonoBehaviour
     {
         obj.SetActive(true);
         isActive = true;
-        Debug.Log("objID: "+ obj.GetEntityId() + obj);
+      
     }
 
-    public void OnGet(PoolType type)
+    public void OnGet(PoolType type,GameObject obj)
     {
         pools[type].Get();
+        Debug.Log("obj: " + obj);
+        Debug.Log("obj_ID: " + obj.GetEntityId());
     }
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj, PoolType type)
@@ -107,7 +109,8 @@ public class ObjectPool : MonoBehaviour
             Debug.Log("•Ô‹p‚³‚ê‚Ä‚¢‚Ü‚¹‚ñ" + obj.name);
             return;
         }
-        Debug.Log("•Ô‹p‚³‚ê‚Ü‚·: " + obj + obj.GetEntityId());
+        Debug.Log("•Ô‹p‚³‚ê‚Ü‚·: " + obj);
+        Debug.Log("obj_ID:" + obj.GetEntityId());
         pools[type].Release(obj);
         isActive = false;                            
         Debug.Log("activeSelf: " + obj.activeSelf);
