@@ -112,8 +112,7 @@ public class ObjectPool : MonoBehaviour
 
         Debug.Log("•Ô‹p‚³‚ê‚Ü‚·: " + obj);
         Debug.Log("obj_ID:" + obj.GetEntityId());
-        pools[type].Release(obj);
-                                  
+        pools[type].Release(obj);             
         Debug.Log("activeSelf: " + obj.activeSelf);
     }
 }

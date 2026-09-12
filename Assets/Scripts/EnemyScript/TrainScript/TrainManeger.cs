@@ -12,7 +12,6 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] private Transform LeftTrainSpawn;
     [SerializeField] private Transform RightTrainSpawn;
     [SerializeField] ObjectPool.PoolType poolType;
-    
    
     //“dŽÔ‚Ì¶¬ŽžŠÔ‚Æ¶¬ŠÔŠu
     private float TrainInterval = 5.0f;
@@ -27,8 +26,7 @@ public class TrainManeger : MonoBehaviour
 
 
 
-
-
+   
     void Update()
     {
         TrainGenerateTime       += Time.deltaTime;
@@ -43,31 +41,34 @@ public class TrainManeger : MonoBehaviour
 
         if (TrainGenerateTime > TrainInterval)
         {
+          
             SpawnTrain(LeftTrainSpawn);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
-          //  SpawnTrain(RightTrainSpawn);
+           
+            //  SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
         }
 
         if (ReturnTrainTime > ReturnTrainInverval)
         {
-            TrainReturn(FrontTrain);
+            TrainReturn();
         }
     }
 
      public void SpawnTrain(Transform transform)
      {
+       
         ObjectPool.instance.OnGet(poolType);
         FrontTrain.transform.position = transform.position;
      }
     
-     void TrainReturn(GameObject obj)
+     void TrainReturn()
      {
-        ObjectPool.instance.ReturnToPool(obj,poolType);
+        ObjectPool.instance.ReturnToPool(gameObject,poolType);
         ReturnTrainTime = 0.0f;
      }
 }
