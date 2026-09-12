@@ -27,7 +27,8 @@ public class ObjectPool : MonoBehaviour
     private int Max_train = 6;
     private int Init_train = 5;
     public static ObjectPool instance;
-    Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
+    private ObjectPool<GameObject> pool; 
+    Dictionary<PoolType,GameObject> pools = new Dictionary<PoolType,GameObject>();
 
 
     void Awake()
@@ -54,7 +55,7 @@ public class ObjectPool : MonoBehaviour
 
         foreach (var item in items)
         {
-            ObjectPool<GameObject> pool = new ObjectPool<GameObject>(
+             pool = new ObjectPool<GameObject>(
                 () => Instantiate(item.obj),
                 (obj) => GetPooledObject(obj),
                 (obj) => obj.SetActive(false),
@@ -63,9 +64,9 @@ public class ObjectPool : MonoBehaviour
                 Init_train,
                 Max_train
             );
-            pools.Add(item.type, pool);
+            pools.Add(item.type, item.obj);
         }
-        SetUpPool();
+       // SetUpPool();
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
@@ -90,30 +91,35 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-       
-      
     }
 
-    public void OnGet(PoolType type)
+    public GameObject OnGet(PoolType type,GameObject TrainObject)
     {
-       GameObject obj =  pools[type].Get();
+
+        if (pools.ContainsKey(type))
+        {
+            ReturnToPool(TrainObject, type);
+        }
+        GameObject obj = pool.Get();
+        pools[type] = obj;
         Debug.Log("obj: " + obj);
         Debug.Log("obj_ID: " + obj.GetEntityId());
+        return obj;
        
     }
     //使用後に返却する
     public void ReturnToPool(GameObject obj, PoolType type)
     {  
-        if(obj == null)
+        if(pools.TryGetValue(type, out GameObject obj))
         {
-            Debug.Log("返却することは出来ません" + obj.name);
-            return;
+            Debug.Log("返却されます: " + obj);
+            Debug.Log("obj_ID:" + obj.GetEntityId());
+            pool.Release(obj);
+            pools.Remove(type);
+            Debug.Log("activeSelf: " + obj.activeSelf);
         }
 
-        Debug.Log("返却されます: " + obj);
-        Debug.Log("obj_ID:" + obj.GetEntityId());
-        pools[type].Release(obj);             
-        Debug.Log("activeSelf: " + obj.activeSelf);
+       
     }
 }
 
