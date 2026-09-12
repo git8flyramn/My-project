@@ -4,13 +4,17 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 public class ForWardMoveTrain : MonoBehaviour
-{  
+{
     private Rigidbody rb;
     private float MoveSpeed = 5.0f;
     private float Initvelocity = 10.0f;
     private SEManeger SE;
     public AudioClip clip;
     private GameObject Player;
+    [SerializeField] ObjectPool.PoolType TrainType;
+    //“dÔ‚Ì•Ô‹pŠÔ‚ÆŠÔŠu
+    private float ReturnTrainTime = 0.0f;
+    private float ReturnTrainInverval = 10.0f;
 
     void Start()
     {
@@ -28,7 +32,12 @@ public class ForWardMoveTrain : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ReturnTrainTime += Time.deltaTime;
         TrainForwardMove();
+        if(ReturnTrainTime > ReturnTrainInverval)
+        {
+            TrainReturn();
+        }
     }
 
     //“dÔ‚ÌˆÚ“®ˆ—
@@ -39,17 +48,14 @@ public class ForWardMoveTrain : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player")
         {
             Player.GetComponent<StickController>().PlayerDeath();
         }
     }
-
- 
-
-
-
-
-
+    void TrainReturn()
+    {
+        ObjectPool.instance.ReturnToPool(gameObject, TrainType);
+    }
 
 }

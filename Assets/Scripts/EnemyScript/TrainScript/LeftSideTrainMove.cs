@@ -11,6 +11,11 @@ public class LeftSideTrainMove : MonoBehaviour
     private SEManeger SE;
     public AudioClip clip;
     private GameObject Player;
+    [SerializeField] ObjectPool.PoolType TrainType;
+    //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
+    private float ReturnTrainInverval = 13.0f;
+    private float ReturnTrainTime     = 0.0f;
+
     void Start()
     {
         Initialize(); 
@@ -26,7 +31,13 @@ public class LeftSideTrainMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        ReturnTrainTime += Time.deltaTime;
         BothTrain.TrainMove();
+
+        if(ReturnTrainTime > ReturnTrainInverval)
+        {
+            LeftTrainReturn();
+        }
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -37,4 +48,11 @@ public class LeftSideTrainMove : MonoBehaviour
             Player.GetComponent<StickController>().PlayerDeath();
         }
     }
+
+    void LeftTrainReturn()
+    {
+        ObjectPool.instance.ReturnToPool(gameObject,TrainType);
+    }
+
+
 }

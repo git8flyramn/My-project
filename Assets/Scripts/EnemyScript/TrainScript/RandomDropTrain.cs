@@ -52,8 +52,7 @@ public class RandomDropTrain : MonoBehaviour
     private float LeftTrainFirstIntervalTime = 8.0f;
     private float LeftTrainSecondIntervalTime = 10.0f;
 
-    private float ReturnTrainInverval = 13.0f;
-    private float ReturnTrainTime = 0.0f;
+   
  
     //左右の電車の向き
     private Quaternion LeftTrainRotaion = Quaternion.Euler(0, 260, 0);
@@ -81,11 +80,7 @@ public class RandomDropTrain : MonoBehaviour
             return;
         }
 
-        if (ReturnTrainTime > ReturnTrainInverval)
-        {
-         
-            ReturnTrainTime = 0.0f;
-        }
+       
     }
 
     //右からの電車生成

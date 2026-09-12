@@ -12,8 +12,9 @@ public class RightSideTrainMove : MonoBehaviour
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
+    [SerializeField] ObjectPool.PoolType TrainType;
 
-   
+
     void Start()
     {
         rb        = GetComponent<Rigidbody>();
@@ -39,6 +40,11 @@ public class RightSideTrainMove : MonoBehaviour
             Player.GetComponent<StickController>().PlayerDeath();
         }
 
+    }
+
+    void RightTrainReturn()
+    {
+        ObjectPool.instance.ReturnToPool(gameObject,TrainType);
     }
 
    

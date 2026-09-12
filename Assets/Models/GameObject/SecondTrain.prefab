@@ -189,6 +189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LeftSideTrainMove
   clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
+  TrainType: 1
 --- !u!114 &-4818580832529669320
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,9 +20,7 @@ public class TrainManeger : MonoBehaviour
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
 
-    //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
-    private float ReturnTrainTime = 0.0f;
-    private float ReturnTrainInverval = 10.0f;
+   
 
 
 
@@ -31,7 +29,7 @@ public class TrainManeger : MonoBehaviour
     {
         TrainGenerateTime       += Time.deltaTime;
         SecondTrainGenerateTime += Time.deltaTime;
-        ReturnTrainTime         += Time.deltaTime;
+      
         TrainGenerate();
     }
 
@@ -49,24 +47,18 @@ public class TrainManeger : MonoBehaviour
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
            
-            //  SpawnTrain(RightTrainSpawn);
+             SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
         }
 
-        if (ReturnTrainTime > ReturnTrainInverval)
-        {
-            TrainReturn();
-        }
+       
     }
 
       void SpawnTrain(Transform transform)
       { 
          ObjectPool.instance.OnGet(poolType);
       }
-    
-     public void TrainReturn()
-     {
-        ObjectPool.instance.ReturnToPool(obj, poolType);
-        ReturnTrainTime = 0.0f;
-     }
+
+     
+
 }

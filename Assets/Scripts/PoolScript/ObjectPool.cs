@@ -64,7 +64,7 @@ public class ObjectPool : MonoBehaviour
                 Init_train,
                 Max_train
             );
-            pools.Add(item.type, item.obj);
+            pools.Add(item.type,pool);
         }
         SetUpPool();
     }
@@ -102,13 +102,12 @@ public class ObjectPool : MonoBehaviour
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj, PoolType type)
     {  
-        if(pools.TryGetValue(type, out GameObject obj))
-        {
+       
             Debug.Log("•Ô‹p‚³‚ê‚Ü‚·: " + obj);
             Debug.Log("obj_ID:" + obj.GetEntityId());
-            pools[type].Rlease(obj);
+            pools[type].Release(obj);
             Debug.Log("activeSelf: " + obj.activeSelf);
-        }
+        
 
        
     }
