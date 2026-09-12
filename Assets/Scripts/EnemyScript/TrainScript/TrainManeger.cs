@@ -59,14 +59,12 @@ public class TrainManeger : MonoBehaviour
         }
     }
 
-     public void SpawnTrain(Transform transform,GameObject obj)
-     {
-
-        ObjectPool.instance.OnGet(obj,poolType);
-        obj.transform.position = transform.position;
-     }
+      void SpawnTrain(Transform transform)
+      { 
+         ObjectPool.instance.OnGet(poolType);
+      }
     
-     void TrainReturn()
+     public void TrainReturn()
      {
         ObjectPool.instance.ReturnToPool(obj, poolType);
         ReturnTrainTime = 0.0f;

@@ -27,8 +27,8 @@ public class ObjectPool : MonoBehaviour
     private int Max_train = 6;
     private int Init_train = 5;
     public static ObjectPool instance;
-    private ObjectPool<GameObject> pool; 
-    Dictionary<PoolType,GameObject> pools = new Dictionary<PoolType,GameObject>();
+    private ObjectPool<GameObject> pool;
+    Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
 
 
     void Awake()
@@ -66,7 +66,7 @@ public class ObjectPool : MonoBehaviour
             );
             pools.Add(item.type, item.obj);
         }
-       // SetUpPool();
+        SetUpPool();
     }
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
@@ -91,21 +91,13 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
+        Debug.Log("取得しました" + obj);
+        Debug.Log("obj" + obj.GetEntityId());
     }
 
-    public GameObject OnGet(PoolType type,GameObject TrainObject)
+    public void OnGet(PoolType type)
     {
-
-        if (pools.ContainsKey(type))
-        {
-            ReturnToPool(TrainObject, type);
-        }
-        GameObject obj = pool.Get();
-        pools[type] = obj;
-        Debug.Log("obj: " + obj);
-        Debug.Log("obj_ID: " + obj.GetEntityId());
-        return obj;
-       
+        pools[type].Get();
     }
     //使用後に返却する
     public void ReturnToPool(GameObject obj, PoolType type)
@@ -114,8 +106,7 @@ public class ObjectPool : MonoBehaviour
         {
             Debug.Log("返却されます: " + obj);
             Debug.Log("obj_ID:" + obj.GetEntityId());
-            pool.Release(obj);
-            pools.Remove(type);
+            pools[type].Rlease(obj);
             Debug.Log("activeSelf: " + obj.activeSelf);
         }
 

@@ -104,9 +104,7 @@ public class RandomDropTrain : MonoBehaviour
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-
-         
-            
+            ObjectPool.instance.OnGet(RightTrainType);
             RightTrainGenerateTime = 0.0f;
         }
         //3ñáñ⁄ÇÃê¸òH
@@ -117,7 +115,7 @@ public class RandomDropTrain : MonoBehaviour
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-
+            ObjectPool.instance.OnGet(RightTrainType);
             SecondRightTrainGenerateTime = 0.0f;
         }
     }
@@ -140,8 +138,7 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
 
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
-           
-
+            ObjectPool.instance.OnGet(LeftTrainType);
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
@@ -153,8 +150,7 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
 
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
-         
-
+            ObjectPool.instance.OnGet(LeftTrainType);
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
@@ -177,6 +173,7 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.position = pos;
         obj.transform.rotation = dir;
+
     }
 
     public void TrainIsStart()
