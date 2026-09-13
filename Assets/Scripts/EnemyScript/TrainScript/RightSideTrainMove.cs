@@ -13,7 +13,9 @@ public class RightSideTrainMove : MonoBehaviour
     private SEManeger SE;
     public AudioClip clip;
     [SerializeField] ObjectPool.PoolType TrainType;
-
+    //電車の返却時間と間隔
+    private float ReturnTrainInverval = 10.0f;
+    private float ReturnTrainTime = 0.0f;
 
     void Start()
     {
@@ -22,13 +24,16 @@ public class RightSideTrainMove : MonoBehaviour
         SE        = GetComponent<SEManeger>();
         Player = GameObject.Find("Player");
     }
-    void Update()
-    {
-    }
-
+   
     private void FixedUpdate()
     {
+        ReturnTrainTime += Time.deltaTime;
         BothTrain.TrainMove();
+        if(ReturnTrainTime > ReturnTrainInverval)
+        {
+            RightTrainReturn();
+            ReturnTrainTime = 0.0f;
+        }
     }
 
     //Playerがぶつかった時にSEを鳴らす機能

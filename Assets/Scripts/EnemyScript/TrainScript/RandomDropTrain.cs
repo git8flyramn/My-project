@@ -73,7 +73,6 @@ public class RandomDropTrain : MonoBehaviour
     {
         if (IsTrainStart == true)
         {
-            ReturnTrainTime += Time.deltaTime;
         }
         else if (IsTrainStart == false)
         {

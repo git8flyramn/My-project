@@ -50,8 +50,6 @@ public class TrainManeger : MonoBehaviour
              SpawnTrain(RightTrainSpawn);
             SecondTrainGenerateTime = 0.0f;
         }
-
-       
     }
 
       void SpawnTrain(Transform transform)
