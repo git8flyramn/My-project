@@ -92,7 +92,6 @@ public class ObjectPool : MonoBehaviour
     {
         obj.SetActive(true);
         Debug.Log("Žæ“¾‚µ‚Ü‚µ‚½" + obj);
-        Debug.Log("obj" + obj.GetEntityId());
     }
 
     public void OnGet(PoolType type)

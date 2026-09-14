@@ -73,6 +73,8 @@ public class RandomDropTrain : MonoBehaviour
     {
         if (IsTrainStart == true)
         {
+            DropLeftForwardTrain();
+            DropRightForwardTrain();
         }
         else if (IsTrainStart == false)
         {
@@ -89,16 +91,16 @@ public class RandomDropTrain : MonoBehaviour
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
-       
+        Debug.Log("ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
         //1ñáñ⁄ÇÃê¸òH
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-842.0f, -850.0f);
-
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
             ObjectPool.instance.OnGet(RightTrainType);
+            
             RightTrainGenerateTime = 0.0f;
         }
         //3ñáñ⁄ÇÃê¸òH
@@ -109,7 +111,7 @@ public class RandomDropTrain : MonoBehaviour
 
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-            ObjectPool.instance.OnGet(RightTrainType);
+           // ObjectPool.instance.OnGet(RightTrainType);
             SecondRightTrainGenerateTime = 0.0f;
         }
     }
@@ -144,7 +146,6 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
 
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
-            ObjectPool.instance.OnGet(LeftTrainType);
             SecondLeftTrainGenerateTime = 0.0f;
         }
     }
