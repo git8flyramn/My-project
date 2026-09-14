@@ -15,7 +15,7 @@ public class TrainManeger : MonoBehaviour
    
     //ìdé‘ÇÃê∂ê¨éûä‘Ç∆ê∂ê¨ä‘äu
     private float TrainInterval = 6.0f;
-    private float SecondTrainInterval = 8.0f;
+    private float SecondTrainInterval = 10.0f;
 
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
@@ -50,10 +50,10 @@ public class TrainManeger : MonoBehaviour
         }
     }
 
-      void SpawnTrain(Transform transform)
-      { 
-         ObjectPool.instance.OnGet(poolType);
-        //ObjectPool.instance.OnGet(poolType,transform,obj);
+      void SpawnTrain(Transform trans)
+      {
+        gameObject.transform.position = trans.position;
+        ObjectPool.instance.OnGet(poolType);
       }
 
      
