@@ -91,12 +91,12 @@ public class ObjectPool : MonoBehaviour
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
-        Debug.Log("Žæ“¾‚µ‚Ü‚µ‚½" + obj);
     }
 
     public void OnGet(PoolType type)
     {
         pools[type].Get();
+        Debug.Log("Žæ“¾‚µ‚Ü‚µ‚½" + type);
     }
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj, PoolType type)

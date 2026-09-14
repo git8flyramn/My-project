@@ -47,10 +47,10 @@ public class RandomDropTrain : MonoBehaviour
 
     //¶‰E‚Ì“dŽÔ‚»‚ê‚¼‚ê‚Ì¶¬ŠÔŠuŽžŠÔ
     private float RightTrainFirstIntervalTime = 8.0f;
-    private float RightTrainSecondIntervalTime = 10.0f;
+    //private float RightTrainSecondIntervalTime = 10.0f;
 
     private float LeftTrainFirstIntervalTime = 8.0f;
-    private float LeftTrainSecondIntervalTime = 10.0f;
+   // private float LeftTrainSecondIntervalTime = 10.0f;
 
    
  
@@ -100,7 +100,6 @@ public class RandomDropTrain : MonoBehaviour
             SetRangeRightPositionZ(-842.0f, -850.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-            ObjectPool.instance.GetPooledObject(RightSideDropObject);
             ObjectPool.instance.OnGet(RightTrainType);
             RightTrainGenerateTime = 0.0f;
         }
@@ -128,7 +127,6 @@ public class RandomDropTrain : MonoBehaviour
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
         {
             LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-
             SetRangeLeftPositionZ(-885.6f, -898.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
@@ -165,7 +163,6 @@ public class RandomDropTrain : MonoBehaviour
     {
         obj.transform.position = pos;
         obj.transform.rotation = dir;
-
     }
 
     public void TrainIsStart()
