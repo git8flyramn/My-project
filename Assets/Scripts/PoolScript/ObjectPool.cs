@@ -95,6 +95,7 @@ public class ObjectPool : MonoBehaviour
 
     public void OnGet(PoolType type)
     {
+        //obj.transfrom.position = trans.position;
         pools[type].Get();
         Debug.Log("Žæ“¾‚µ‚Ü‚µ‚½" + type);
     }
@@ -103,9 +104,6 @@ public class ObjectPool : MonoBehaviour
     {  
             pools[type].Release(obj);
             Debug.Log("activeSelf: " + obj.activeSelf);
-        
-
-       
     }
 }
 

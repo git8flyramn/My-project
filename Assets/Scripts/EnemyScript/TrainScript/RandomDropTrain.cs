@@ -40,17 +40,17 @@ public class RandomDropTrain : MonoBehaviour
 
     //ç∂âEÇÃìdé‘ÇªÇÍÇºÇÍÇÃê∂ê¨éûä‘
     private float RightTrainGenerateTime = 0.0f;
-    private float SecondRightTrainGenerateTime = 0.0f;
+    private float RightSecondTrainGenerateTime = 0.0f;
 
     private float LeftTrainGenerateTime = 0.0f;
-    private float SecondLeftTrainGenerateTime = 0.0f;
+    private float LeftSecondTrainGenerateTime = 0.0f;
 
     //ç∂âEÇÃìdé‘ÇªÇÍÇºÇÍÇÃê∂ê¨ä‘äuéûä‘
     private float RightTrainFirstIntervalTime = 8.0f;
-    //private float RightTrainSecondIntervalTime = 10.0f;
+    private float RightTrainSecondIntervalTime = 10.0f;
 
     private float LeftTrainFirstIntervalTime = 8.0f;
-   // private float LeftTrainSecondIntervalTime = 10.0f;
+   private float LeftTrainSecondIntervalTime = 10.0f;
 
    
  
@@ -89,13 +89,15 @@ public class RandomDropTrain : MonoBehaviour
     {
         //ê¸òHì‡ÇÃìdé‘ÇÃî≠ê∂îÕàÕ
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
+
         RightTrainGenerateTime += Time.deltaTime;
-        LeftTrainGenerateTime += Time.deltaTime;
+        RightSecondTrainGenerateTime += Time.deltaTime;
+        
         
         //1ñáñ⁄ÇÃê¸òH
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
-            Debug.Log("ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
+          
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-842.0f, -850.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
@@ -104,14 +106,14 @@ public class RandomDropTrain : MonoBehaviour
             RightTrainGenerateTime = 0.0f;
         }
         //3ñáñ⁄ÇÃê¸òH
-        //if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
-        //{
-        //    RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-        //    SetRangeRightPositionZ(-934.0f, -942.0f);
-        //    RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-        //    TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-        //    SecondRightTrainGenerateTime = 0.0f;
-        //}
+        if (RightSecondTrainGenerateTime > RightTrainSecondIntervalTime)
+        {
+            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+            SetRangeRightPositionZ(-934.0f, -942.0f);
+            RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
+            TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
+            RightSecondTrainGenerateTime = 0.0f;
+        }
     }
 
     //âEÇ©ÇÁÇÃìdé‘ê∂ê¨
@@ -120,8 +122,8 @@ public class RandomDropTrain : MonoBehaviour
         //ê¸òHì‡ÇÃìdé‘ÇÃî≠ê∂îÕàÕ
         LeftDropX = Random.Range(MinLeftRangeX, MaxLeftRangeX);
 
-        SecondRightTrainGenerateTime += Time.deltaTime;
-        SecondLeftTrainGenerateTime += Time.deltaTime;
+        LeftTrainGenerateTime += Time.deltaTime;
+        LeftSecondTrainGenerateTime += Time.deltaTime;
 
         ///2ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
         if (LeftTrainGenerateTime > LeftTrainFirstIntervalTime)
@@ -131,18 +133,18 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
             ObjectPool.instance.OnGet(LeftTrainType);
+            Debug.Log("ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
-        //if (SecondLeftTrainGenerateTime > LeftTrainSecondIntervalTime)
-        //{
-        //    LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            
-        //    SetRangeLeftPositionZ(-969.0f, -980.0f);
-        //    LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-        //    TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
-        //    SecondLeftTrainGenerateTime = 0.0f;
-        //}
+        if (LeftSecondTrainGenerateTime > LeftTrainSecondIntervalTime)
+        {
+            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+            SetRangeLeftPositionZ(-969.0f, -980.0f);
+            LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
+            TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
+            LeftSecondTrainGenerateTime = 0.0f;
+        }
     }
 
     //äeìdé‘ÇÃê∂ê¨Ç∑ÇÈZç¿ïWÇÃê›íËÇ∑ÇÈä÷êî
