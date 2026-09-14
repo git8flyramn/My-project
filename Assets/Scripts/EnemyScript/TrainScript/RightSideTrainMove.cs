@@ -32,6 +32,7 @@ public class RightSideTrainMove : MonoBehaviour
         if(ReturnTrainTime > ReturnTrainInverval)
         {
             RightTrainReturn();
+            Debug.Log("横からの電車が返却されます");
             ReturnTrainTime = 0.0f;
         }
     }

@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1c3c9439955cd7e43892abe56ac87961, type: 3}
       propertyPath: m_TagString
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ForWordMoveTrain
   clip: {fileID: 8300000, guid: 1564cb4ff51393947b9c833cc3972826, type: 3}
+  TrainType: 0
 --- !u!114 &2819035117626997329
 MonoBehaviour:
   m_ObjectHideFlags: 0

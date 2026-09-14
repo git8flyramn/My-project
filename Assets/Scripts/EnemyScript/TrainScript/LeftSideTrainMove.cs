@@ -13,7 +13,7 @@ public class LeftSideTrainMove : MonoBehaviour
     private GameObject Player;
     [SerializeField] ObjectPool.PoolType TrainType;
     //“dŽÔ‚Ì•Ô‹pŽžŠÔ‚ÆŠÔŠu
-    private float ReturnTrainInverval = 12.0f;
+    private float ReturnTrainInverval = 13.0f;
     private float ReturnTrainTime     = 0.0f;
 
     void Start()

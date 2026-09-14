@@ -91,29 +91,28 @@ public class RandomDropTrain : MonoBehaviour
         RightDropX = Random.Range(MinRightRangeX, MaxRightRangeX);
         RightTrainGenerateTime += Time.deltaTime;
         LeftTrainGenerateTime += Time.deltaTime;
-        Debug.Log("ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
+        
         //1ñáñ⁄ÇÃê¸òH
         if (RightTrainGenerateTime > RightTrainFirstIntervalTime)
         {
+            Debug.Log("ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
             RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             SetRangeRightPositionZ(-842.0f, -850.0f);
             RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
             TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
+            ObjectPool.instance.GetPooledObject(RightSideDropObject);
             ObjectPool.instance.OnGet(RightTrainType);
-            
             RightTrainGenerateTime = 0.0f;
         }
         //3ñáñ⁄ÇÃê¸òH
-        if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
-        {
-            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
-            SetRangeRightPositionZ(-934.0f, -942.0f);
-
-            RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
-            TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
-           // ObjectPool.instance.OnGet(RightTrainType);
-            SecondRightTrainGenerateTime = 0.0f;
-        }
+        //if (SecondRightTrainGenerateTime > RightTrainSecondIntervalTime)
+        //{
+        //    RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        //    SetRangeRightPositionZ(-934.0f, -942.0f);
+        //    RightDropPos = new Vector3(RightDropX, DropY, RightDropZ);
+        //    TrainSetting(RightSideDropObject, RightTrainRotaion, RightDropPos);
+        //    SecondRightTrainGenerateTime = 0.0f;
+        //}
     }
 
     //âEÇ©ÇÁÇÃìdé‘ê∂ê¨
@@ -132,22 +131,20 @@ public class RandomDropTrain : MonoBehaviour
 
             SetRangeLeftPositionZ(-885.6f, -898.0f);
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
             ObjectPool.instance.OnGet(LeftTrainType);
             LeftTrainGenerateTime = 0.0f;
         }
         ///4ñáñ⁄ÇÃê¸òHÇ©ÇÁÇÃê∂ê¨
-        if (SecondLeftTrainGenerateTime > LeftTrainSecondIntervalTime)
-        {
-            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
+        //if (SecondLeftTrainGenerateTime > LeftTrainSecondIntervalTime)
+        //{
+        //    LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             
-            SetRangeLeftPositionZ(-969.0f, -980.0f);
-            LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
-
-            TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
-            SecondLeftTrainGenerateTime = 0.0f;
-        }
+        //    SetRangeLeftPositionZ(-969.0f, -980.0f);
+        //    LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
+        //    TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
+        //    SecondLeftTrainGenerateTime = 0.0f;
+        //}
     }
 
     //äeìdé‘ÇÃê∂ê¨Ç∑ÇÈZç¿ïWÇÃê›íËÇ∑ÇÈä÷êî

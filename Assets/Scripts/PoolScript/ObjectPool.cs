@@ -101,9 +101,6 @@ public class ObjectPool : MonoBehaviour
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj, PoolType type)
     {  
-       
-            Debug.Log("•Ô‹p‚³‚ê‚Ü‚·: " + obj);
-            Debug.Log("obj_ID:" + obj.GetEntityId());
             pools[type].Release(obj);
             Debug.Log("activeSelf: " + obj.activeSelf);
         
