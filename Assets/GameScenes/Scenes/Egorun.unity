@@ -6231,8 +6231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RightSideDropObject: {fileID: 1782226019351121708, guid: c89ae3b4ed2c3ba4a99125ab9c57ebb5, type: 3}
   LeftSideDropObject: {fileID: 6855479284151090953, guid: f180af16ed498fa44b3c5d4033a1d287, type: 3}
-  RightTrainType: 0
-  LeftTrainType: 0
+  RightTrainType: 2
+  LeftTrainType: 1
   IsTrainStart: 0
 --- !u!4 &1502929966
 Transform:
@@ -7699,8 +7699,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037423115}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.009111553, y: -0.016030733, z: 0.0001200597, w: -0.99983}
-  m_LocalPosition: {x: 5.920835, y: 5.5, z: -9.874783}
+  m_LocalRotation: {x: -0.0091115525, y: -0.016030733, z: 0.00012005969, w: -0.99983}
+  m_LocalPosition: {x: -0.18566751, y: 2.107, z: -2.9816117}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
