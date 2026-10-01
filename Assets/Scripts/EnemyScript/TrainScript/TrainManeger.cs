@@ -38,12 +38,12 @@ public class TrainManeger : MonoBehaviour
     void TrainGenerate()
     {
 
-        //if (TrainGenerateTime > TrainInterval)
-        //{  
-        //    SpawnTrain(LeftTrainSpawn);
-        //    ObjectPool.instance.OnGet(poolType);
-        //    TrainGenerateTime = 0.0f;
-        //}
+        if (TrainGenerateTime > TrainInterval)
+        {
+            SpawnTrain(LeftTrainSpawn);
+            ObjectPool.instance.OnGet(poolType);
+            TrainGenerateTime = 0.0f;
+        }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
