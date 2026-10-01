@@ -8,11 +8,12 @@ public class TrainManeger : MonoBehaviour
 
     //生成するオブジェクトの定義
     public GameObject FrontTrain;
+    public GameObject OtherFrontTrain;
     //電車の生成位置
     [SerializeField] private Transform LeftTrainSpawn;
     [SerializeField] private Transform RightTrainSpawn;
     [SerializeField] ObjectPool.PoolType poolType;
-   
+    [SerializeField] ObjectPool.PoolType otherpoolType;
     //電車の生成時間と生成間隔
     private float TrainInterval = 6.0f;
     private float SecondTrainInterval = 10.0f;
@@ -40,12 +41,14 @@ public class TrainManeger : MonoBehaviour
         if (TrainGenerateTime > TrainInterval)
         {  
             SpawnTrain(LeftTrainSpawn);
+            ObjectPool.instance.OnGet(poolType);
             TrainGenerateTime = 0.0f;
         }
 
         if (SecondTrainGenerateTime > SecondTrainInterval)
         {
              SpawnTrain(RightTrainSpawn);
+            ObjectPool.instance.OnGet(otherpoolType);
             SecondTrainGenerateTime = 0.0f;
         }
     }
@@ -53,7 +56,7 @@ public class TrainManeger : MonoBehaviour
       void SpawnTrain(Transform trans)
       {
         gameObject.transform.position = trans.position;
-        ObjectPool.instance.OnGet(poolType);
+        
       }
 
      

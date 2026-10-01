@@ -12,7 +12,8 @@ public class ObjectPool : MonoBehaviour
     {
         train,
         SecondTrain,
-        ThirdTrain
+        ThirdTrain,
+        FourthTrain
     }
 
     [System.Serializable]
@@ -24,8 +25,8 @@ public class ObjectPool : MonoBehaviour
     }
 
     [SerializeField] List<PoolItem> items;
-    private int Max_train = 6;
-    private int Init_train = 5;
+    private int Max_train = 5;
+    private int Init_train = 3;
     public static ObjectPool instance;
     private ObjectPool<GameObject> pool;
     Dictionary<PoolType, ObjectPool<GameObject>> pools = new Dictionary<PoolType, ObjectPool<GameObject>>();
@@ -97,7 +98,7 @@ public class ObjectPool : MonoBehaviour
     public void OnGet(PoolType type)
     {
         pools[type].Get();
-        Debug.Log("Žæ“¾‚µ‚Ü‚µ‚½" + type);
+     //   Debug.Log("Žæ“¾‚µ‚Ü‚µ‚½" + type);
     }
     //Žg—pŒã‚É•Ô‹p‚·‚é
     public void ReturnToPool(GameObject obj, PoolType type)

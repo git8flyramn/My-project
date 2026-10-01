@@ -144,8 +144,7 @@ public class RandomDropTrain : MonoBehaviour
             LeftDropPos = new Vector3(LeftDropX, DropY, LeftDropZ);
             TrainSetting(LeftSideDropObject, LeftTrainRotaion, LeftDropPos);
             ObjectPool.instance.OnGet(LeftTrainType);
-            //Debug.Log("ê∂ê¨Ç≥ÇÍÇ‹ÇµÇΩ");
-            //LeftSecondTrainGenerateTime = 0.0f;
+            LeftSecondTrainGenerateTime = 0.0f;
         }
     }
 
