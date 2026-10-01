@@ -15,8 +15,8 @@ public class TrainManeger : MonoBehaviour
     [SerializeField] ObjectPool.PoolType poolType;
     [SerializeField] ObjectPool.PoolType OtherpoolType;
     //ìdé‘ÇÃê∂ê¨éûä‘Ç∆ê∂ê¨ä‘äu
-    private float TrainInterval = 6.0f;
-    private float SecondTrainInterval = 10.0f;
+    private float TrainInterval = 10.0f;
+    private float SecondTrainInterval = 6.0f;
 
     private float TrainGenerateTime = 0.0f;
     private float SecondTrainGenerateTime = 0.0f;
