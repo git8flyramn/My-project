@@ -7512,6 +7512,7 @@ GameObject:
   - component: {fileID: 2037423118}
   - component: {fileID: 2037423117}
   - component: {fileID: 2037423116}
+  - component: {fileID: 2037423120}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7630,13 +7631,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037423115}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0091115525, y: -0.016030733, z: 0.00012005969, w: -0.99983}
-  m_LocalPosition: {x: -0.18566751, y: 2.107, z: -2.9816117}
+  m_LocalRotation: {x: -0, y: 0.99877423, z: -0.04949906, w: 0}
+  m_LocalPosition: {x: -8.11, y: 3.859, z: -295.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1502852044}
-  m_LocalEulerAnglesHint: {x: 1.044, y: 540.557, z: 0.003}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 5.674, y: 180, z: 0}
+--- !u!114 &2037423120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037423115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 544f893a1252d7248aabc6ae4c6f2c6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChaseCamera
+  player: {fileID: 1502852044}
 --- !u!1001 &2051271063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8610,6 +8624,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 195.82
       objectReference: {fileID: 0}
+    - target: {fileID: 4315532929486571710, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       propertyPath: Gage
       value: 
@@ -8693,10 +8711,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 5778956305949479512, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7855393209712743108, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2037423119}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7370182767881078910, guid: a551f07a112a5ce498fd627045e32ef8, type: 3}
       insertIndex: -1
@@ -9212,6 +9227,7 @@ SceneRoots:
   - {fileID: 2061580239}
   - {fileID: 2051271063}
   - {fileID: 2034550932831135290}
+  - {fileID: 2037423119}
   - {fileID: 835893088122656804}
   - {fileID: 4907645955727407061}
   - {fileID: 933763662}
