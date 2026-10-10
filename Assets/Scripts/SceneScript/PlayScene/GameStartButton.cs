@@ -14,14 +14,14 @@ public class GameStartButton : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
-        StartMotionBlur();
+        
     }
 
     public void StartMotionBlur()
     {
-        if (cuurentVolume == null)
+        if (cuurentVolume != null)
         {
-            Debug.Log("モーションブラーが出来ません");
+            Debug.Log("モーションブラーは動作しています");
         }
       
     }
