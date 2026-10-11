@@ -13,7 +13,7 @@ public class GameStartButton : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("Egorun", LoadSceneMode.Single);
+        SceneManager.LoadScene("PlayScene", LoadSceneMode.Single);
         
     }
 
