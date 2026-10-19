@@ -7,7 +7,7 @@ public class ChaseCamera : MonoBehaviour
     public Transform player;
     Vector3 Velocity = Vector3.zero;
     private float smoothTime = 0.1f;
-    private Vector3 offset = new Vector3(0,2f,0.5f);
+    private Vector3 offset = new Vector3(0,2f,0.4f);
     void Start()
     {
       

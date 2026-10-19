@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class MotionBlur : MonoBehaviour
 {
     Material material;
@@ -10,16 +9,16 @@ public class MotionBlur : MonoBehaviour
         Application.targetFrameRate = 30;
     }
 
+    //モーションブラーの処理
     void RenderImage(RenderTexture src, RenderTexture dst)
     {
+        int w = src.width;
+        int h = src.height;
         if (material == null)
         {
             var shader = Shader.Find("Scripts/ShaderFile/MotionBlurShader");
             material = new Material(shader);
             material.hideFlags = HideFlags.DontSave;
-
-            int w = src.width;
-            int h = src.height;
 
             // RenderTextureの配列  
             TexList = new[] {
@@ -33,7 +32,6 @@ public class MotionBlur : MonoBehaviour
                 material.SetTexture("_Tex" + i, TexList[i]);
             }
         }
-
         // 1フレームずらしたフレームバッファをコピーする  
         var tmp = TexList[Time.frameCount % 3];
         Graphics.Blit(src, tmp);
