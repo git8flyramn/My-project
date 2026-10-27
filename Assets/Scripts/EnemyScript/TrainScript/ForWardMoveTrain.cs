@@ -5,13 +5,16 @@ using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 public class ForWardMoveTrain : MonoBehaviour
 {
+    //“dÔ‚ª‚Âî•ñ
     private Rigidbody rb;
-    private float MoveSpeed = 5.0f;
-    private float Initvelocity = 10.0f;
+    private const float MoveSpeed = 5.0f;
+    private const float Initvelocity = 10.0f;
+    
     private SEManeger SE;
     public AudioClip clip;
     private GameObject Player;
     [SerializeField] ObjectPool.PoolType TrainType;
+
     //“dÔ‚Ì•Ô‹pŠÔ‚ÆŠÔŠu
     private float ReturnTrainTime = 0.0f;
     private float ReturnTrainInverval = 10.0f;

@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class SEManeger : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     private AudioSource audioSource = null;
     
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         
     }
+
+
+    //各SE設定関数
     public void ItemSE(AudioClip clip)
     {
         if(audioSource != null)

@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using TMPro;
 public class StartedCountController : MonoBehaviour
 {
+    //カウントダウン用の変数
     [SerializeField]
-    
     public TextMeshProUGUI CountDownText;
     private StickController stickcontroller;
     private RandomDropTrain droptrain;
-    private float CountDownTime = 3.0f; //カウントダウン用の変数
+    private float CountDownTime = 3.0f; 
     private float Timer = 1.0f;
     private float GameStartTimer = 1.0f;
 
