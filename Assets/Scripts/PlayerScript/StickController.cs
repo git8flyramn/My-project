@@ -90,6 +90,7 @@ public class StickController : MonoBehaviour
         SceneManager.LoadScene("Game Over");
     }
 
+    //カウントダウン後の同時開始関数
     public void PlayerIsStartMove()
     {
         IsGameStart = true;

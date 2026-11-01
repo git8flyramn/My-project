@@ -6,8 +6,6 @@ using TMPro;
 using UnityEngine.UI;
 public class GameClear : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
     private SEManeger SE;
     public AudioClip clip;
     private float deleayTime = 0.9f;
@@ -21,12 +19,13 @@ public class GameClear : MonoBehaviour
         ClearWord.gameObject.SetActive(false);
         
     }
-    // Update is called once per frame
+   
     void Update()
     {
         
     }
 
+    //クリア時のSE再生関数
     private void OnTriggerEnter(Collider other)
     {
       
@@ -42,6 +41,7 @@ public class GameClear : MonoBehaviour
 
     }
 
+    //クリア後のSE待機時間関数
     IEnumerator ClrearSEWaitTime()
     {
         ClearWord.text = ClearWord.ToString();

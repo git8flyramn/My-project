@@ -6,11 +6,6 @@ using System.Data;
 using TMPro;
 public class BothTrainMove : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-   
-   
-    
     //電車の動作に使用する変数
     private float MoveSpeed    = 4.0f;
     private float Initvelocity = 6.0f;
@@ -29,8 +24,6 @@ public class BothTrainMove : MonoBehaviour
 
     void Initlialize()
     {
-        
-       
         LeftArrow = GameObject.Find("LeftArrow");
         RightArrow = GameObject.Find("RightArrow");
     
@@ -42,11 +35,11 @@ public class BothTrainMove : MonoBehaviour
         rb.AddForce(TrainDir * Initvelocity * MoveSpeed);
     }
 
-    //電車が方向を変更するポイントに到達したとき
-    //車両の進行方向を左右方向それぞれから前方方向に変更
+  
     private void OnTriggerEnter(Collider other)
     {
-       
+        //電車が方向を変更するポイントに到達したとき
+        //車両の進行方向を左右方向それぞれから前方方向に変更
         if (other.CompareTag("train"))
         {
             TrainDir = Vector3.forward;

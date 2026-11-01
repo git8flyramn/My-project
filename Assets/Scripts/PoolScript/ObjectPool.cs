@@ -24,6 +24,7 @@ public class ObjectPool : MonoBehaviour
         public GameObject obj;
     }
 
+    //ObjectPoolの持つ情報
     [SerializeField] List<PoolItem> items;
     private int Max_train = 5;
     private int Init_train = 3;
@@ -50,7 +51,7 @@ public class ObjectPool : MonoBehaviour
     }
    
 
-
+    //プールの初期化
     void InitializePool()
     {
 
@@ -69,6 +70,7 @@ public class ObjectPool : MonoBehaviour
         }
         SetUpPool();
     }
+
     //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
     {
@@ -98,7 +100,6 @@ public class ObjectPool : MonoBehaviour
     public void OnGet(PoolType type)
     {
         pools[type].Get();
-     //   Debug.Log("取得しました" + type);
     }
     //使用後に返却する
     public void ReturnToPool(GameObject obj, PoolType type)

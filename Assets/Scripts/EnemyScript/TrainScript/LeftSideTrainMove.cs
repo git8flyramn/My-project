@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 public class LeftSideTrainMove : MonoBehaviour
 {
     
-
+    //電車が持つ情報
     private Rigidbody rb;
     private BothTrainMove BothTrain;
     private SEManeger SE;
     public AudioClip clip;
+
     private GameObject Player;
     [SerializeField] ObjectPool.PoolType TrainType;
+
     //電車の返却時間と間隔
     private float ReturnTrainInverval = 13.0f;
     private float ReturnTrainTime     = 0.0f;
@@ -51,6 +53,7 @@ public class LeftSideTrainMove : MonoBehaviour
         }
     }
 
+    //電車をプールへの返却
     void LeftTrainReturn()
     {
         ObjectPool.instance.ReturnToPool(gameObject,TrainType);

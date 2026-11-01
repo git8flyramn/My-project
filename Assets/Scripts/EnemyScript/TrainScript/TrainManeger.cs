@@ -34,7 +34,7 @@ public class TrainManeger : MonoBehaviour
         TrainGenerate();
     }
 
-    //“dÔ‚Ì¶¬
+    //‘O•û•ûŒü‚©‚ç‚Ì“dÔ¶¬
     void TrainGenerate()
     {
 
