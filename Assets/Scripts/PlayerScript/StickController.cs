@@ -5,26 +5,30 @@ using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 public class StickController : MonoBehaviour
 {
-    //playerに必要なコンポーネントの定義
+    [Header("PLAYERに必要なコンポーネント")]
     private CharacterController con;
     private Animator anim;
     private Rigidbody rb;
     public FixedJoystick StickMove;
 
-    private LayerMask walkableGround;　//地面のみを判定するため
+
+    [Header("接地判定時")]
+    private LayerMask walkableGround;
     private Vector3 StickDirection = Vector3.zero;
     private Vector3 rayPosition;
     private RaycastHit hit;
     private Ray ray;
-    bool isGround;
+    private bool isGround;
 
-    
-    [Header("基本スピード")] private float defaultSpeed = 35.0f;
+
+    [Header("移動・パラメータ")]
+    private float defaultSpeed = 35.0f;
     private float gravity = 9.8f;
     private float distance = 1.0f; //Rayの方向
-    [Header("走っているかのフラグ")] bool IsRun = false;
+    private bool IsRun = false;
     private float SceneChangeTime = 1.5f;
     public bool IsGameStart = false;
+
     void Start()
     {
         Initialize();

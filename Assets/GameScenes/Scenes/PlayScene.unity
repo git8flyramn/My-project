@@ -524,6 +524,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a4b811c221e76cc449bd320fdd3685aa, type: 3}
+--- !u!1 &175205051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175205052}
+  m_Layer: 0
+  m_Name: RightTrainSpawnPosition_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &175205052
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175205051}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -90, y: 0.99997, z: -846}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &191061004
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -741,7 +772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 275162171}
   m_Layer: 0
-  m_Name: 'RightTrainPlace '
+  m_Name: 'RightForwardTrainPlace '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2279,6 +2310,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &542129680
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542129681}
+  m_Layer: 0
+  m_Name: LeftTrainSpawnPosition_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &542129681
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542129680}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 65.4, y: 0.99997, z: -893.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &567944020
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3824,6 +3886,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e3a39c65c64b64097c8e63476736f0, type: 3}
+--- !u!1 &1008426135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1008426136}
+  m_Layer: 0
+  m_Name: LeftTrainSpawnPosition_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1008426136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008426135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 62.5, y: 0.99997, z: -976.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010557233
 GameObject:
   m_ObjectHideFlags: 0
@@ -6175,6 +6268,10 @@ MonoBehaviour:
   RightTrainType: 2
   LeftTrainType: 1
   IsTrainStart: 0
+  RightTrainSpawn_1: {fileID: 175205052}
+  RightTrainSpawn_2: {fileID: 175205052}
+  LeftTrainSpawn_1: {fileID: 542129681}
+  LeftTrainSpawn_2: {fileID: 1008426136}
 --- !u!4 &1502929966
 Transform:
   m_ObjectHideFlags: 0
@@ -6709,6 +6806,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
+--- !u!1 &1650449508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1650449509}
+  m_Layer: 0
+  m_Name: RightTrainSpawnPosition_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1650449509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1650449508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -83.9, y: 0.99997, z: -940.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1657924210
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6833,7 +6961,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1726683440}
   m_Layer: 0
-  m_Name: LeftTrainPlace
+  m_Name: LeftForwardTrainPlace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6891,7 +7019,7 @@ GameObject:
   - component: {fileID: 1787446455}
   - component: {fileID: 1787446456}
   m_Layer: 0
-  m_Name: TrainManeger
+  m_Name: ForwardTrainManger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6921,10 +7049,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1787446453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a005e27bcdb00d449625b39c3c156e2, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ce14b34efa8dfb41ba49c477a27862d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  FrontTrain: {fileID: 8428572456103809679, guid: 336a80339c5f75c43b75c25d32285248, type: 3}
+  m_EditorClassIdentifier: Assembly-CSharp::ForwardTrainManeger
+  FrontTrain: {fileID: 0}
   OtherFrontTrain: {fileID: 5715450177499830321, guid: 8c6e63bd622828b48ae246923235ad76, type: 3}
   LeftTrainSpawn: {fileID: 1726683440}
   RightTrainSpawn: {fileID: 275162171}
@@ -9248,6 +9376,11 @@ SceneRoots:
   - {fileID: 933763662}
   - {fileID: 1061126301}
   - {fileID: 1333409851}
+  - {fileID: 1502929966}
+  - {fileID: 175205052}
+  - {fileID: 1650449509}
+  - {fileID: 542129681}
+  - {fileID: 1008426136}
   - {fileID: 1278413902}
   - {fileID: 1841986710}
   - {fileID: 2055101259}
@@ -9283,7 +9416,6 @@ SceneRoots:
   - {fileID: 989308940}
   - {fileID: 505483813}
   - {fileID: 504873577}
-  - {fileID: 1502929966}
   - {fileID: 975577277}
   - {fileID: 1657924210}
   - {fileID: 2025045419}

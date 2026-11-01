@@ -10,7 +10,7 @@ public class ObjectPool : MonoBehaviour
 
     public enum PoolType
     {
-        train,
+        FirstTrain,
         SecondTrain,
         ThirdTrain,
         FourthTrain
@@ -24,7 +24,7 @@ public class ObjectPool : MonoBehaviour
         public GameObject obj;
     }
 
-    //ObjectPoolの持つ情報
+    [Header("objectPoolの情報")]
     [SerializeField] List<PoolItem> items;
     private int Max_train = 5;
     private int Init_train = 3;
@@ -50,8 +50,6 @@ public class ObjectPool : MonoBehaviour
         InitializePool();
     }
    
-
-    //プールの初期化
     void InitializePool()
     {
 
@@ -71,7 +69,6 @@ public class ObjectPool : MonoBehaviour
         SetUpPool();
     }
 
-    //objectPoolにオブジェクトを生成し準備する
     private void SetUpPool()
     {
         GameObject[] obj = new GameObject[Max_train];
@@ -90,22 +87,22 @@ public class ObjectPool : MonoBehaviour
     }
 
 
-    //オブジェクトの取得
+  
     public void GetPooledObject(GameObject obj)
     {
         obj.SetActive(true);
        
     }
 
-    public void OnGet(PoolType type)
+    public GameObject OnGet(PoolType type)
     {
-        pools[type].Get();
+        return pools[type].Get();
     }
-    //使用後に返却する
+
+   
     public void ReturnToPool(GameObject obj, PoolType type)
     {  
             pools[type].Release(obj);
-            Debug.Log("activeSelf: " + obj.activeSelf);
     }
 }
 

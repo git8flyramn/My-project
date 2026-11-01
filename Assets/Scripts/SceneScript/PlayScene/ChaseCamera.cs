@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class ChaseCamera : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+   
     public Transform player;
     Vector3 Velocity = Vector3.zero;
     private float smoothTime = 0.1f;

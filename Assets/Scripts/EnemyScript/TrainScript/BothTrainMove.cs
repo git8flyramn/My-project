@@ -40,7 +40,7 @@ public class BothTrainMove : MonoBehaviour
     {
         //電車が方向を変更するポイントに到達したとき
         //車両の進行方向を左右方向それぞれから前方方向に変更
-        if (other.CompareTag("train"))
+        if (other.CompareTag("ThirdTrain"))
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
