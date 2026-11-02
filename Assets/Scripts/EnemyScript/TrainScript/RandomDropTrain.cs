@@ -15,7 +15,6 @@ public class RandomDropTrain : MonoBehaviour
 
 
     public bool IsTrainStart = false;
-
     private GameObject LeftArrow;
     private GameObject RightArrow;
 
@@ -25,8 +24,6 @@ public class RandomDropTrain : MonoBehaviour
     public Transform RightTrainSpawn_2;
     public Transform LeftTrainSpawn_1;
     public Transform LeftTrainSpawn_2;
-
-   
 
     [Header("“dŽÔ¶¬ŽžŠÔ")]
     private float RightTrainGenerateTime = 0.0f;
@@ -90,7 +87,6 @@ public class RandomDropTrain : MonoBehaviour
         //3–‡–Ú‚Ìü˜H
         if (RightSecondTrainGenerateTime > RightTrainSecondIntervalTime)
         {
-            RightArrow.GetComponent<ArrowFlashing>().StartBlinking();
             GameObject train = ObjectPool.instance.OnGet(RightTrainType);
             TrainSetting(train, RightTrainRotaion, RightTrainSpawn_2);
             RightSecondTrainGenerateTime = 0.0f;
@@ -116,7 +112,6 @@ public class RandomDropTrain : MonoBehaviour
         ///4–‡–Ú‚Ìü˜H‚©‚ç‚Ì¶¬
         if (LeftSecondTrainGenerateTime > LeftTrainSecondIntervalTime)
         {
-            LeftArrow.GetComponent<ArrowFlashing>().StartBlinking();
             GameObject train = ObjectPool.instance.OnGet(LeftTrainType);
             TrainSetting(train, LeftTrainRotaion, LeftTrainSpawn_2);
             LeftSecondTrainGenerateTime = 0.0f;

@@ -6269,7 +6269,7 @@ MonoBehaviour:
   LeftTrainType: 1
   IsTrainStart: 0
   RightTrainSpawn_1: {fileID: 175205052}
-  RightTrainSpawn_2: {fileID: 175205052}
+  RightTrainSpawn_2: {fileID: 1650449509}
   LeftTrainSpawn_1: {fileID: 542129681}
   LeftTrainSpawn_2: {fileID: 1008426136}
 --- !u!4 &1502929966

@@ -40,11 +40,13 @@ public class BothTrainMove : MonoBehaviour
     {
         //電車が方向を変更するポイントに到達したとき
         //車両の進行方向を左右方向それぞれから前方方向に変更
+        Debug.Log($"【ログ】ぶつかった物の名前: {other.gameObject.name} / タグ名: {other.tag}");
         if (other.CompareTag("ThirdTrain"))
         {
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             RightArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            Debug.Log("ThirdTrainがぶつかりました");
         }
         
         if (other.CompareTag("SecondTrain"))
@@ -52,6 +54,7 @@ public class BothTrainMove : MonoBehaviour
             TrainDir = Vector3.forward;
             transform.rotation = ForwardDir;
             LeftArrow.GetComponent<ArrowFlashing>().StopBlinking();
+            Debug.Log("SecondTrainがぶつかりました");
         }
     }
 
