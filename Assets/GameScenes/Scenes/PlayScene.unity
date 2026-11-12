@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 82908234}
   - component: {fileID: 82908233}
   m_Layer: 0
-  m_Name: OtherSideChangeDirPoint  (1)
+  m_Name: OtherSideChangeDirPoint _2
   m_TagString: SecondTrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 118376512}
   - component: {fileID: 118376511}
   m_Layer: 0
-  m_Name: 'OtherSideChangeDirPoint '
+  m_Name: OtherSideChangeDirPoint _1
   m_TagString: SecondTrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2421,7 +2421,7 @@ GameObject:
   - component: {fileID: 599319831}
   - component: {fileID: 599319830}
   m_Layer: 0
-  m_Name: ChangeDirPoint (1)
+  m_Name: ChangeDirPoint_1
   m_TagString: train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2457,7 +2457,7 @@ Transform:
   m_GameObject: {fileID: 599319829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.29, y: 5.21, z: -936.7}
+  m_LocalPosition: {x: -33.39, y: 5.21, z: -936.7}
   m_LocalScale: {x: 1.3159753, y: 6.9397, z: 29.400906}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4600,7 +4600,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -82.502
+      value: -82.49
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4608,7 +4608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -954.08
+      value: -955.35
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4970,7 +4970,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50.111
+      value: -50.1
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4978,7 +4978,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -953.65
+      value: -956.3
       objectReference: {fileID: 0}
     - target: {fileID: 6476384422397165647, guid: 5039201dc9b6383419f93b6809a603fa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6441,7 +6441,7 @@ GameObject:
   - component: {fileID: 1542431585}
   - component: {fileID: 1542431584}
   m_Layer: 0
-  m_Name: ChangeDirPoint
+  m_Name: ChangeDirPoint_2
   m_TagString: train
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9437,10 +9437,10 @@ SceneRoots:
   - {fileID: 960623229}
   - {fileID: 1726683440}
   - {fileID: 275162171}
+  - {fileID: 599319831}
   - {fileID: 1542431585}
   - {fileID: 118376512}
   - {fileID: 82908234}
-  - {fileID: 599319831}
   - {fileID: 452573975}
   - {fileID: 1341712625}
   - {fileID: 2078727982}
